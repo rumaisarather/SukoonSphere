@@ -5,7 +5,7 @@ import { HeroWrapper } from '../../assets/styles/HomeLayout';
 function Hero() {
     return (
         <HeroWrapper>
-            <h2>Hero Section</h2>
+            <h2 className='text-6xl'>Hero Section</h2>
         </HeroWrapper>
     )
 }
