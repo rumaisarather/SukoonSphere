@@ -1,6 +1,12 @@
+import { Fragment } from "react"
+import { Hero, Stastistics } from "../components"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <Fragment>
+      <Hero></Hero>
+      <Stastistics />
+    </Fragment>
   )
 }
-export default Home
+export default Home;
