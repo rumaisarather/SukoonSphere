@@ -4,9 +4,9 @@ import { Footer, Header } from "../components"
 const HomeLayout = () => {
   return (
     <Wrapper>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+      <Header />
+      <Outlet />
+      <Footer />
     </Wrapper>
   )
 }

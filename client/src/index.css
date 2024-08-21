@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   padding: 0;
@@ -8,6 +11,7 @@
   list-style: none;
   scroll-behavior: smooth;
 }
+
 :root {
   /* basic colors */
   --white-color: #ffffff;
@@ -16,25 +20,25 @@
   --sky-blue-hover: #207e95;
   --blue-color: #1c4c93;
   --blue-hover: #102b53;
- /* gradients  */
- /* example to use gradient
+  /* gradients  */
+  /* example to use gradient
  .some-element {
   background: linear-gradient(to right, var(--gradient-start) 0%, var(--gradient-middle) 50%, var(--gradient-end) 100%);
 } */
- --gradient-start: rgba(130, 190, 66, 1);
+  --gradient-start: rgba(130, 190, 66, 1);
   --gradient-middle: rgba(48, 178, 210, 1);
   --gradient-end: rgba(28, 76, 147, 1);
-/* extra colors */
---sec-color: #878e99;
+  /* extra colors */
+  --sec-color: #878e99;
   --grey-1: rgba(0, 0, 0, .07);
-  
+
   --shadow: rgba(0, 0, 0, 0.549);
   --background-color-1: linear-gradient(145deg, #1e2024, #23272b);
   --shadow-1: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
   --shadow-2: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
   --inner-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset,
     -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
-    --border-1:#000000dd;
-      --max-width: 1600px;
+  --border-1: #000000dd;
+  --max-width: 1600px;
   --fluid-width: 95vw;
 }
