@@ -12,6 +12,12 @@
   scroll-behavior: smooth;
 }
 
+body {
+
+  background-color: var(--white-color);
+  
+}
+
 :root {
   /* basic colors */
   --white-color: #ffffff;
@@ -20,6 +26,10 @@
   --sky-blue-hover: #207e95;
   --blue-color: #1c4c93;
   --blue-hover: #102b53;
+
+  --light: #f0f0f0;
+  --heaven: #ffffff;
+  --light-color: #888;
   /* gradients  */
   /* example to use gradient
  .some-element {

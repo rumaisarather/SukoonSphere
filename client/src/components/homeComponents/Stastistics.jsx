@@ -4,7 +4,6 @@ function Stastistics() {
     return (
         <div>
             <h4>Statistics</h4>
-
         </div>
     )
 }
