@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { Hero, Stastistics } from "../components"
+import { Hero, Stastistics,Podcasts } from "../components"
 import TodayEssentials from "@/components/homeComponents/TodayEssentials";
 
 const Home = () => {
