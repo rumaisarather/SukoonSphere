@@ -8,6 +8,7 @@ const Home = () => {
       <Hero></Hero>
       <TodayEssentials></TodayEssentials>
       <Stastistics />
+      <Podcasts/>
     </Fragment>
   )
 }

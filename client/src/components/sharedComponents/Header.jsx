@@ -1,4 +1,28 @@
 const Header = () => {
+// Create a Nav,
+// Inside navbar : Logo , navigation links , login button(link)
+// Import Links in new component (navlinks)
+// Create ul tag
+// Map links form Pagelinks.js
+// Destructure links {name, address,}
+// return li..... <link name ={name} address ={address}>{}<link/>
+//
+//
+// const Link = ({adress, name, sublist}) =>{
+//     return(
+//         <li key={name}>
+//              <a>{name}</a>
+//              {sublist &&
+//              <ul>
+//                 <li>{sublist.map((sublink)=>{
+// return(
+//         <li key={sublink.name}>
+//              <a>{sublink.name}</a>
+//              </li>
+//              </ul>}
+//         </li>
+//     )
+// 
   return (
     <div className="navbar bg-white sticky top-0 z-10 max-h-40">
     <div className="navbar-start">
@@ -9,7 +33,8 @@ const Header = () => {
             className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor">
+            stroke="currentColor"
+            >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -19,7 +44,7 @@ const Header = () => {
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li><a>Item 1</a></li>
           <li>
             <a>Parent</a>
@@ -34,8 +59,8 @@ const Header = () => {
       <a className="btn btn-ghost text-xl">SUKOON-SPHERE</a>
     </div>
     <div className="navbar-center hidden lg:flex">
-      <ul className="menu menu-horizontal px-1">
-        <li><a>Home</a></li>
+      <ul className="menu menu-horizontal px-1  ">
+        <li ><a>Home</a></li>
         <li><a>Sevirce</a></li>
         <li><a>Content</a></li>
         <li>
