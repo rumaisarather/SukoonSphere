@@ -12,6 +12,11 @@
   scroll-behavior: smooth;
 }
 
+body {
+
+  background-color: var(--white-color);
+}
+
 :root {
   /* basic colors */
   --white-color: #ffffff;
