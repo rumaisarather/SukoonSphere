@@ -3,7 +3,7 @@ import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import sliderImage1 from '../../assets/images/testimonial-bg.jpeg';
-import Button from '../sharedComponents/ActionButton';
+
 
 // Register the chart components and plugins
 ChartJS.register(Title, Tooltip, Legend, ArcElement, ChartDataLabels);
@@ -74,14 +74,22 @@ function Hero() {
                                 <a href="#" className="btn btn-primary" style={{ backgroundColor: 'var(--blue-color)', color: 'var(--white-color)' }}>Discover more</a>
                             </div>
                         </div>
-                        <div className="max-w-sm mx-auto">
+                        {/* <div className="max-w-sm mx-auto">
                             <div className="text-center mb-1">
                                 <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--black-color)' }}>Mental Health Statistics</h2>
+                            </div>
+
+                            <div>
+                                
+
                             </div>
                             <div>
                                 <Pie data={data} options={options} />
                             </div>
-                        </div>
+                        </div> */}
+
+                        <button className="btn">Button</button>
+
                     </div>
                 </div>
             </div>
