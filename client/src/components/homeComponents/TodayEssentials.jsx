@@ -3,6 +3,7 @@ import { TbWorldUpload } from "react-icons/tb";
 import Button from "../sharedComponents/ActionButton";
 import Card from "../sharedComponents/Card";
 import ArticleCard from "../sharedComponents/ArticleCard";
+import LinkButton from "../sharedComponents/LinkButton";
 const TodayEssentials = () => {
     return (
         <section className="max-w-7xl mx-auto px-4 py-8 bg-white mt-44">
@@ -45,16 +46,9 @@ const TodayEssentials = () => {
 
                     {/* Navigation Arrows */}
                     <div className="flex justify-end mt-4 space-x-2">
-                        <button className="btn btn-outline btn-sm">
-                            <svg className="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                            </svg>
-                        </button>
-                        <button className="btn btn-outline btn-sm">
-                            <svg className="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
+
+
+                        <LinkButton variant="primary" size="small" > Primary Button </LinkButton>
                     </div>
                 </div>
 

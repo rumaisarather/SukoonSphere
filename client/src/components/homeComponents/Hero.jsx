@@ -4,6 +4,8 @@ import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import sliderImage1 from '../../assets/images/testimonial-bg.jpeg';
 import Card from '../sharedComponents/Card';
+import { Infography } from '..';
+import LinkButton from '../sharedComponents/LinkButton';
 
 
 // Register the chart components and plugins
@@ -55,8 +57,8 @@ function Hero() {
     };
 
     return (
-        <section className="relative w-full h-screen bg-cover " style={{ height: 'calc(100vh - 70px)' }}>
-            <div className="w-full h-full" style={{ backgroundImage: `url(${sliderImage1})` }}>
+        <section className="relative w-full h-screen bg-cover" >
+            <div className=" relative w-full h-full" style={{ backgroundImage: `url(${sliderImage1})` }}>
                 <div className="flex items-center justify-between h-full w-full">
                     <div className="text-left pl-12 py-4 max-w-3xl text-white">
                         <div className="text-2xl font-bold mb-4" style={{ color: 'var(--black-color)' }}>For a Brighter Future</div>
@@ -68,7 +70,9 @@ function Hero() {
                             Understanding and improving mental health can be complex, but our resources and support are designed to make it simpler. With professional guidance and compassionate care, we are here to help you navigate your path to well-being.
                         </p>
                         <div className="space-x-4">
-                            <a href="#" className="btn btn-primary" style={{ backgroundColor: 'var(--blue-color)', color: 'var(--white-color)' }}>Discover more</a>
+                            <LinkButton to="#" variant="primary" size="medium">
+                                Explore
+                            </LinkButton>
                         </div>
                     </div>
                     <div className="max-w-sm mx-auto">
@@ -86,26 +90,8 @@ function Hero() {
                     </div>
 
                 </div>
-                <div className='flex items-center justify-around ' style={{ marginTop: '-5rem' }}>
-                    <Card
-                        title="Card title!"
-                        content="If a dog chews shoes whose shoes does he choose?"
-                        buttonLabel="Buy Now"
-                    // onButtonClick={handleBuyNowClick}
-                    />
-                    <Card
-                        title="Card title!"
-                        content="If a dog chews shoes whose shoes does he choose?"
-                        buttonLabel="Buy Now"
-                    // onButtonClick={handleBuyNowClick}
-                    />
-                    <Card
-                        title="Card title!"
-                        content="If a dog chews shoes whose shoes does he choose?"
-                        buttonLabel="Buy Now"
-                    // onButtonClick={handleBuyNowClick}
-                    />
-                </div>
+                <Infography />
+
             </div>
 
 

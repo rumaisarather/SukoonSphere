@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <Fragment>
       <Hero></Hero>
+
       <TodayEssentials></TodayEssentials>
       <Stastistics />
       <Podcasts/>
