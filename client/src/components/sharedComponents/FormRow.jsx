@@ -15,7 +15,7 @@ const FormRow = ({ type, name, labelText, value, disable }) => {
     };
 
     return (
-        <div className={formRow ${name}}>
+        <div >
       <label htmlFor={name} className="formLabel">
         {labelText}
       </label>

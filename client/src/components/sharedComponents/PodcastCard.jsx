@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function PodcastCard() {
   return (
-    <div className="card lg:card-side bg-white shadow-lg  h-3/5 w-4/5 place-items-center">
+    <div className="card lg:card-side bg-white shadow-md  h-3/5 w-4/5 place-items-center">
       <figure>
         <img
           src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
@@ -31,12 +31,12 @@ function PodcastCard() {
         </p>
         <div className="card-actions justify-between items-center">
         <audio controls className="w-4/6 h-full " >
-  <source src="horse.ogg" type="audio/ogg"/>
+  <source src="" type="audio/ogg"/>
   <source src="horse.mp3" type="audio/mpeg"/>
 </audio>
-<div className="card-actions flex gap-3">
-          <Link className="p-2 pl-4 pr-4 rounded-xl text-white  bg-gray-500">Read More</Link>
-          <button className="p-2 pl-4 pr-4 rounded-xl btn-primary  bg-blue-400 text-white min-h-6">Listen</button>
+<div className="card-actions flex gap-3c audio" >
+          <Link className="btn btn-primary text-white">Read More</Link>
+          {/* <button className="p-2 pl-4 pr-4 rounded-xl btn-primary  bg-blue-400 text-white min-h-6">Listen</button> */}
 </div>
         </div>
       </div>
