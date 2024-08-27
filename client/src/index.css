@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Niveau Regular";
+  src: url(/client/src/assets/Fonts/HVD\ Fonts\ -\ NiveauGroteskRegular.otf);
+}
+
+@font-face {
+  font-family: "Niveau Regular";
+  src: url(/client/src/assets/Fonts/HVD\ Fonts\ -\ NiveauGroteskRegular.otf);
+}
+
+@font-face {
+  font-family: "Niveau Regular";
+  src: url(/client/src/assets/Fonts/HVD\ Fonts\ -\ NiveauGroteskRegular.otf);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -15,7 +30,7 @@
 body {
 
   background-color: var(--white-color);
-  
+
 }
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
@@ -27,10 +42,13 @@ audio::-webkit-media-controls-panel {
   /* basic colors */
   --white-color: #ffffff;
   --black-color: #000000;
-  --sky-blue-color: #30b2d2;
   --sky-blue-hover: #207e95;
   --blue-color: #1c4c93;
   --blue-hover: #102b53;
+
+  --logo-primary: #1ea0ad;
+  --logo-secondary: #c80799;
+  --logo-ternary: #f98702;
 
   --light: #f0f0f0;
   --heaven: #ffffff;

@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkButton from './LinkButton'; // Assuming LinkButton is a component for the button
+import LinkButton from './Buttons/LinkButton'; // Assuming LinkButton is a component for the button
 import PropTypes from 'prop-types';
 
 const Card = ({ icon: Icon, headingHelper, title, content, buttonLabel }) => {
