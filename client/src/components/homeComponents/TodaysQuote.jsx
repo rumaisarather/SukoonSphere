@@ -35,7 +35,7 @@ const TodaysQuote = () => {
     }, [slides.length]);
 
     return (
-        <div className="relative flex items-center justify-center bg-[var(--logo-primary)] text-white p-3 m-auto" style={{ maxWidth: '1200px', marginTop: '-2.5rem' }}>
+        <div className="relative flex items-center justify-center bg-[#0c2b64] text-white p-3 m-auto" style={{ maxWidth: '1200px', marginTop: '-2.5rem' }}>
             <div className="flex-none">
                 <img
                     src={QuoteBanner}
@@ -44,7 +44,7 @@ const TodaysQuote = () => {
                     style={{ maxWidth: '500px' }}
                 />
             </div>
-            <div className="flex-grow p-14">
+            <div className="flex-grow m-10">
                 <h6 className=" pb-6">Todays Trending Thought's</h6>
                 <div className="transition ease-in-out duration-1000 transform">
                     <h1 className="text-3xl font-bold pb-6">{slides[currentSlide].text}</h1>

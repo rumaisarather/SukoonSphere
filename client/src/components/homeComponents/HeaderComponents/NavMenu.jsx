@@ -1,40 +1,58 @@
-
+import React, { useState, useEffect } from "react";
 import LinkButton from "@/components/sharedComponents/Buttons/LinkButton";
 import CompanyLogo from "../../../assets/images/SukoonSphere_Logo.png";
-const styles = {
-    a: {
+import { links } from "../../../utils/SharedComp/PageLinks";
+import { NavLink } from "react-router-dom";
 
+function NavMenu() {
+  const [isSticky, setIsSticky] = useState(false);
 
-    }
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 45);
+    };
 
-}
-const NavMenu = () => (
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
-    <nav className="hidden lg:flex justify-between">
-        <img src={CompanyLogo} alt="Logo Loading..." width={'150px'} />
-        <ul className="flex space-x-8 items-center">
-            <li>
-                <a href="#" className="text-white hover:text-gray-400 uppercase">Collections</a>
-            </li>
-            <li>
-                <a href="https://scholarlykitchen.sspnet.org/translation/" className="text-white hover:text-gray-400 uppercase">Translations</a>
-            </li>
-            <li>
-                <a href="https://scholarlykitchen.sspnet.org/about/" className="text-white hover:text-gray-400 uppercase">About</a>
-            </li>
-            <li>
-                <a href="https://scholarlykitchen.sspnet.org/archives/" className="text-white hover:text-gray-400 uppercase">Archives</a>
-            </li>
-            <li>
-                <a href="#" className="text-white hover:text-gray-400 uppercase">Collections</a>
-            </li>
-            <li>
-                <a href="https://scholarlykitchen.sspnet.org/translation/" className="text-white hover:text-gray-400 uppercase">Translations</a>
-            </li>
-            <LinkButton to="/#" variant="primary" size="small" className="uppercase">Login</LinkButton>
-        </ul>
+  return (
+    <nav
+      className={`hidden lg:flex justify-between w-full z-20 transition-colors duration-300 ease-linear p-2 h-20 ${
+        isSticky ? "fixed top-0 left-0 bg-[#0c2b64] shadow-md" : "absolute"
+      }`}
+    >
+      <img src={CompanyLogo} className="object-contain" alt="Logo Loading..." />
+      <ul className="flex justify-between w-96 items-center">
+        
+        {links.map((link) => (
+          <NavLink
+            key={link.name}
+            to={link.address}
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-300 font-bold"
+                : "text-white  hover:text-orange-300"
+            }
+          >
+            {link.name}
+          </NavLink>
+        ))}
+        <LinkButton
+          to="/#"
+          variant="primary"
+          size="small"
+          className={`
+          ${isSticky && 'bg-[#f98702]' 
+          }`}
+        >
+          Login
+        </LinkButton>
+      </ul>
     </nav>
+  );
+}
 
-
-);
 export default NavMenu;
