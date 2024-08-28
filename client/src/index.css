@@ -32,6 +32,11 @@ body {
   background-color: var(--white-color);
 
 }
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+  background-color: rgb(187, 184, 184);
+  color: white;
+}
 
 :root {
   /* basic colors */

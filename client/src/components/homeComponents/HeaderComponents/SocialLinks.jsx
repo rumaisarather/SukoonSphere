@@ -1,7 +1,7 @@
 import { SectionWrapper } from '@/assets/styles/HomeLayout';
 import { FaTwitter, FaFacebook, FaLinkedin, FaRss, FaSearch } from 'react-icons/fa';
 const SocialLinks = () => (
-    <div className='container bg-black bg-opacity-60z'>
+    <div className='w-full bg-black bg-opacity-60z'>
         <SectionWrapper>
             <div className="hidden lg:flex justify-end items-center space-x-4 py-3">
                 <a href="https://twitter.com/scholarlykitchn" target="_blank" rel="noopener noreferrer" className="text-[var(--light)] hover:text-gray-400">
