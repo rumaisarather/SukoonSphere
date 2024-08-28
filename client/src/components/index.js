@@ -7,3 +7,13 @@ export { default as Quiz } from "./homeComponents/Quiz";
 
 export { default as Stastistics } from "./homeComponents/Stastistics";
 export { default as Podcasts } from "./homeComponents/Podcasts";
+
+
+// arttcle- components
+
+export { default as Article } from "./articleComponents/Article";
+export { default as Search } from "./articleComponents/search";
+export { default as SimilarArticles } from "./articleComponents/SimilarArticles";
+export { default as SidebarArticles } from "./articleComponents/SidebarArticles";
+export { default as SideBarArticle } from "./articleComponents/SideBarArticle";
+
