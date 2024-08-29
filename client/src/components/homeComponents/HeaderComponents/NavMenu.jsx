@@ -21,14 +21,6 @@ function NavMenu() {
 
   return (
     <nav
-<<<<<<< Updated upstream
-      className={`hidden lg:flex justify-between w-full z-20 transition-colors duration-300 ease-linear p-2 h-20 ${isSticky ? "fixed top-0 left-0 bg-[#0c2b64] shadow-md" : "absolute"
-        }`}
-    >
-      <img src={CompanyLogo} className="object-contain" alt="Logo Loading..." />
-      <ul className="flex justify-between w-96 items-center">
-
-=======
       className={` flex  sm:items-center sm:flex-row justify-between w-full z-20 transition-colors duration-300 ease-linear p-2 h-20 ${
         isSticky ? "fixed top-0 left-0 bg-[#0c2b64] shadow-md" : "absolute"
       }`}
@@ -40,7 +32,6 @@ function NavMenu() {
       />
       <GiHamburgerMenu className="block  md:hidden " />
       <ul className="flex gap-3 sm:justify-between sm:w-96 sm:items-center   ">
->>>>>>> Stashed changes
         {links.map((link) => (
           <NavLink
             key={link.name}
@@ -60,12 +51,7 @@ function NavMenu() {
           variant="primary"
           size="small"
           className={`
-<<<<<<< Updated upstream
-          ${isSticky && 'bg-[#f98702]'
-            }`}
-=======
           ${isSticky && "bg-[#f98702]"}`}
->>>>>>> Stashed changes
         >
           Login
         </LinkButton>
