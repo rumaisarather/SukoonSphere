@@ -35,7 +35,7 @@ const TodaysQuote = () => {
     }, [slides.length]);
 
     return (
-        <div className="relative flex items-center justify-center bg-[#0c2b64] text-white p-3 m-auto" style={{ maxWidth: '1200px', marginTop: '-2.5rem' }}>
+        <div className="relative flex items-center flex-col sm:flex-row justify-center bg-[#0c2b64] text-white p-3 m-auto" style={{ maxWidth: '1200px', marginTop: '-2.5rem' }}>
             <div className="flex-none">
                 <img
                     src={QuoteBanner}

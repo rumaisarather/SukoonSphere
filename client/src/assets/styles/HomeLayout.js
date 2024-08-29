@@ -3,7 +3,7 @@ export const Wrapper = styled.div`
   /* color: purple; */
 `;
 export const SectionWrapper = styled.div`
-  min-width: 1200px;
+  /* min-width: 1200px; */
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;

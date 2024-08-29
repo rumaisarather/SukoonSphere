@@ -8,7 +8,7 @@ import {
 const Article = ({ article }) => {
     const { title, author, datePublished, category,comments, views} = article;
   return (
-    <div className=" grid grid-cols-3 border-b-2 items-center">
+    <div className=" grid sm:grid-cols-3 w-full grid-cols-1 border-b-2 items-center">
       {/* card body */}
       <div className="card-body p-6 col-span-2 ">
         <Link to="#">
