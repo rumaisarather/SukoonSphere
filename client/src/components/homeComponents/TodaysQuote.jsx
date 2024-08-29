@@ -44,7 +44,7 @@ const TodaysQuote = () => {
                     style={{ maxWidth: '500px' }}
                 />
             </div>
-            <div className="flex-grow m-10">
+            <div className="sm:col-span-8 m-10">
                 <h6 className=" pb-6">Todays Trending Thought's</h6>
                 <div className="transition ease-in-out duration-1000 transform">
                     <h1 className="text-3xl font-bold pb-6">{slides[currentSlide].text}</h1>

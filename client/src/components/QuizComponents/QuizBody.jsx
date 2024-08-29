@@ -17,7 +17,7 @@ const QuizBody = ({ question, handleAnswer, selectedAnswer, disableSelection }) 
 
     return (
         <>
-            <h2 className="text-xl font-semibold text-gray-700 mb-6">{question.question}</h2>
+            <h2 className="text-xl font-semibold text-gray-700 mb-4">{question.question}</h2>
             <ul className="space-y-2">
                 {Object.keys(question).filter(key => key.startsWith('option')).map((key, index) => (
                     <li
