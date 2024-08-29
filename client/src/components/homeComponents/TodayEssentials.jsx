@@ -13,7 +13,11 @@ import CompanyLogo from "../../assets/images/SukoonSphere_Logo.png";
 
 const TodayEssentials = () => {
     return (
+<<<<<<< Updated upstream
         <section className=" px-4  bg-white mt-28">
+=======
+        <section className=" mx-auto px-4  bg-white md:mt-8">
+>>>>>>> Stashed changes
             <SectionWrapper>
                 <SectionTitle title={'recent articles'}></SectionTitle>
                 <div className="grid  lg:grid-cols-12 gap-2  ">
