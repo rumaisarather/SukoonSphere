@@ -5,7 +5,7 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
     return (
         <div className="p-4 md:p-2 lg:p-0">
             <div>
-                <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">{SummaryTitle}</h1>
+                <h1 className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-2">{SummaryTitle}</h1>
                 <p className="text-gray-600 mb-4 text-sm md:text-base lg:text-base">
                     {SummarySubtitle}
                 </p>
@@ -17,9 +17,9 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
                     alt="Avatar"
                     className="w-8 h-8  rounded-full mr-3"
                 />
-                <span className="text-sm md:text-base lg:text-lg font-semibold text-gray-700">Sartaj Ashraf</span>
+                <span className="text-sm md:text-base lg:text-base font-semibold text-gray-700">Sartaj Ashraf</span>
                 <span className="mx-2 text-gray-400">|</span>
-                <span className="text-sm md:text-base lg:text-lg font-semibold text-gray-700">Published On: 20-12-2002</span>
+                <span className="text-sm md:text-base lg:text-base font-semibold text-gray-700">Published On: 20-12-2002</span>
             </div>
 
             <div className="mb-4">
@@ -35,12 +35,12 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
                 </div>
 
                 <div className="mt-4">
-                    <h1 className="text-xl md:text-xl lg:text-3xl font-bold text-gray-900 mb-2">{ContentTitle}</h1>
-                    <h4 className="text-sm md:text-base lg:text-lg text-gray-400 font-medium">{ContentSubtitle}</h4>
+                    <h1 className="text-xl md:text-xl lg:text-1xl font-bold text-gray-900 mb-2">{ContentTitle}</h1>
+                    <h4 className="text-sm md:text-base lg:text-base text-gray-400 font-medium">{ContentSubtitle}</h4>
                 </div>
 
                 <div className="mt-4 flex justify-center sm:justify-start">
-                    <LinkButton size="large" variant="primary" className="text-sm md:text-base font-semibold" to="#">
+                    <LinkButton size="large" variant="primary" to='quiz' className="text-sm md:text-base font-semibold" >
                         Read more
                     </LinkButton>
                 </div>

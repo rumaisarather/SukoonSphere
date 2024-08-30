@@ -35,13 +35,13 @@ const TodaysQuote = () => {
     }, [slides.length]);
 
     return (
-        <div className="relative flex items-center flex-col md:flex-row justify-center bg-[#0c2b64] text-white p-3 m-auto md:mt-[-2.5rem]" style={{ maxWidth: '1200px'}}>
+        <div className="relative flex items-center flex-col md:flex-row justify-center bg-[#0c2b64] text-white p-3 m-auto md:mt-[-2.5rem] max-w-7xl mx-auto " style={{ maxWidth: '1200px' }}>
             <div className="flex-none">
                 <img
                     src={QuoteBanner}
                     alt="Run with 645 meanings"
                     className="w-full h-full object-cover md:w-[500px]"
-                    // style={{ maxWidth: '500px' }}
+                // style={{ maxWidth: '500px' }}
                 />
             </div>
             <div className="flex-grow md:ml-10">

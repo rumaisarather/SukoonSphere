@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { data } from '../../db/QuizData';
-import SectionTitle from '../sharedComponents/SectionTitle';
-import { SectionWrapper } from '@/assets/styles/HomeLayout';
-import QuizHeader from '../QuizComponents/QuizHeader';
-import QuizBody from '../QuizComponents/QuizBody';
-import QuizSummary from '../QuizComponents/QuizSummary';
+import QuizQuestions from '../quizComponents/QuizQuestions';
+import QuizSummary from '../quizComponents/QuizSummary';
 
-function Quiz() {
+function TodaysQuiz() {
     const [index, setIndex] = useState(0);
     const [disableSelection, setDisableSelection] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -32,21 +29,17 @@ function Quiz() {
     };
 
     return (
-        <SectionWrapper>
-            <SectionTitle title="Recent Quizzes" />
+        <>
             <div className="max-w-7xl mx-auto bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div className="col-span-5 grid gap-6 p-6 bg-white rounded-lg shadow-lg">
-                        <QuizHeader
+                        <QuizQuestions
                             title={"What's Your Attachment Style?"}
                             index={index}
                             length={data.length}
-                        />
-
-                        <QuizBody
                             question={question}
                             handleAnswer={handleAnswer}
-                            selectedAnswer={selectedAnswer} // Pass selectedAnswer to QuizBody
+                            selectedAnswer={selectedAnswer}
                             disableSelection={disableSelection}
                         />
                     </div>
@@ -61,8 +54,8 @@ function Quiz() {
                     </div>
                 </div>
             </div>
-        </SectionWrapper>
+        </>
     );
 }
 
-export default Quiz;
+export default TodaysQuiz;
