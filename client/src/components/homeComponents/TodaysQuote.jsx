@@ -35,18 +35,18 @@ const TodaysQuote = () => {
     }, [slides.length]);
 
     return (
-        <div className="relative flex items-center justify-center bg-[#0c2b64] text-white p-3 m-auto" style={{ maxWidth: '1200px', marginTop: '-2.5rem' }}>
+        <div className="relative flex items-center flex-col md:flex-row justify-center bg-[#0c2b64] text-white p-3 m-auto md:mt-[-2.5rem]" style={{ maxWidth: '1200px'}}>
             <div className="flex-none">
                 <img
                     src={QuoteBanner}
                     alt="Run with 645 meanings"
-                    className="w-full h-full object-cover"
-                    style={{ maxWidth: '500px' }}
+                    className="w-full h-full object-cover md:w-[500px]"
+                    // style={{ maxWidth: '500px' }}
                 />
             </div>
-            <div className="flex-grow m-10">
+            <div className="flex-grow md:ml-10">
                 <h6 className=" pb-6">Todays Trending Thought's</h6>
-                <div className="transition ease-in-out duration-1000 transform">
+                <div className="transition ease-in-out duration-1000  transform">
                     <h1 className="text-3xl font-bold pb-6">{slides[currentSlide].text}</h1>
                     <h1 className="text-xl font-bold " style={{ fontFamily: "Luxurious Roman", fontWeight: 400, fontStyle: ' normal', }}>{slides[currentSlide].text}</h1>
                     {/* <PublishDetails author={slides[currentSlide].author} date={slides[currentSlide].date} pageLinkLabel={slides[currentSlide].pagelinkText} /> */}
