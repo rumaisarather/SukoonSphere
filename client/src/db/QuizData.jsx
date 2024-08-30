@@ -1,4 +1,5 @@
 export const data = [
+
     {
         question: "How do you feel when someone close to you starts to spend less time with you and more time with someone else?",
         option1: "I worry that they might drift away from me, and it makes me feel anxious.",

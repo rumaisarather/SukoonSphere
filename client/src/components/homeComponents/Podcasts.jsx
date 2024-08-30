@@ -6,7 +6,7 @@ import { SectionWrapper } from '@/assets/styles/HomeLayout'
 function Podcasts() {
   return (
     <SectionWrapper>
-      <div className='space-y-4'>
+      <div className='space-y-4 max-w-7xl mx-auto bg-white'>
         <SectionTitle title="Recent Podcasts" />
         <div className='space-y-8'>
           <PodcastCard
