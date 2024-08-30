@@ -8,7 +8,7 @@ import {
 const Article = ({ article }) => {
     const { title, author, datePublished, category,comments, views} = article;
   return (
-    <div className=" grid grid-cols-3 border-b-2 items-center">
+    <div className=" grid grid-cols-1 sm:gap-4 border-b-2 items-center sm:grid-cols-3">
       {/* card body */}
       <div className="sm:card-body sm:p-0 py-5 col-span-2 order-2 sm:order-none">
         <Link to="#">
@@ -40,7 +40,7 @@ const Article = ({ article }) => {
         </div>
       </div>
       {/* articles more info  */}
-      <div className="flex items-center col-span-2 px-6 pb-4 justify-start gap-8">
+      <div className="flex items-center col-span-2 pb-4 justify-start gap-8 order-3 sm:order-none">
         <div className="flex items-center justify-center gap-2">
           <img
             className="rounded-full size-7 border-2 border-gray-400"
