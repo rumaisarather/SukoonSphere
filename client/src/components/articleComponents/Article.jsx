@@ -40,7 +40,7 @@ const Article = ({ article }) => {
         </div>
       </div>
       {/* articles more info  */}
-      <div className="flex items-center col-span-2 px-6 pb-4 justify-start gap-8">
+      <div className="flex w-full items-center col-span-2 px-6 pb-4 justify-start gap-8">
         <div className="flex items-center justify-center gap-2">
           <img
             className="rounded-full size-7 border-2 border-gray-400"

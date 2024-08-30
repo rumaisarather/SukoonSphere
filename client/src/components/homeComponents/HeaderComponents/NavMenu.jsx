@@ -4,10 +4,15 @@ import CompanyLogo from "../../../assets/images/SukoonSphere_Logo.png";
 import { links } from "../../../utils/SharedComp/PageLinks";
 import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross2 } from "react-icons/rx";
 
 function NavMenu() {
   const [isSticky, setIsSticky] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 45);
@@ -21,7 +26,7 @@ function NavMenu() {
 
   return (
     <nav
-      className={` flex  sm:items-center sm:flex-row justify-between w-full z-20 transition-colors duration-300 ease-linear p-2 h-20 ${
+      className={` flex items-center sm:items-center  sm:flex-row justify-between w-full z-20 transition-colors duration-[.2s] ease-in-out p-2 h-[70px] px-6 ${
         isSticky ? "fixed top-0 left-0 bg-[#0c2b64] shadow-md" : "absolute"
       }`}
     >
@@ -30,34 +35,75 @@ function NavMenu() {
         className="object-contain w-14 "
         alt="Logo Loading..."
       />
-      <GiHamburgerMenu className="block  md:hidden " />
-      <ul className="flex gap-3 sm:justify-between sm:w-96 sm:items-center   ">
-        {links.map((link) => (
-          <NavLink
-            key={link.name}
-            to={link.address}
-            className={({ isActive }) =>
-
-              isActive
-                ? "text-orange-300 font-bold"
-                : "text-white  hover:text-orange-300"
-            }
-          >
-            {link.name}
-          </NavLink>
-        ))}
-        <LinkButton
-          to="/#"
-          variant="primary"
-          size="small"
-          className={`
+      <GiHamburgerMenu className="block place-content-end absolute right-3 md:hidden cursor-pointer text-[1.4rem] text-white" onClick={toggleMenu} />
+      <div className=" hidden md:block">
+        <ul className="flex gap-3 sm:justify-between sm:w-[450px] sm:items-center   ">
+          {links.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.address}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-300 font-bold"
+                  : "text-white  hover:text-orange-300"
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+          <LinkButton
+            to="/#"
+            variant="primary"
+            size="small"
+            className={`
           ${isSticky && "bg-[#f98702]"}`}
+          >
+            Login
+          </LinkButton>
+        </ul>
+      </div>
+      <div className="block md:hidden">
+        <ul
+          className={`flex flex-col w-80 bg-gradient-to-r from-[#0c2b64] to-[rgb(44,89,174)]  p-4 transition-all  ease-in-out duration-600 absolute top-0 h-[100vh] ${
+            menuOpen ? "left-0" : "-left-full"  }`}
         >
-          Login
-        </LinkButton>
-      </ul>
+          <RxCross2 onClick={toggleMenu} className="absolute right-3 text-[1.4rem] text-white cursor-pointer" />
+          {links.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.address}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-300 font-bold"
+                  : "text-white  hover:text-orange-300"
+              }
+              toggleMenu ={toggleMenu}
+            >
+              {link.name}
+            </NavLink>
+          ))}
+          <LinkButton
+            to="/#"
+            variant="primary"
+            size="small"
+            className={`
+          ${isSticky && "bg-[#f98702]"}`}
+          >
+            Login
+          </LinkButton>
+        </ul>
+      </div>
     </nav>
   );
 }
 
+// gap: 1rem;
+// width: 100%;
+// /* margin-top: 2rem; */
+// background: blue;
+// position: absolute;
+// padding: 1rem;
+// left: -100%;
+// left: 0;
+// transition: .4s ease;
 export default NavMenu;
