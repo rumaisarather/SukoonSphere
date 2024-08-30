@@ -16,7 +16,11 @@
   font-family: "Niveau Regular";
   src: url(/client/src/assets/Fonts/HVD\ Fonts\ -\ NiveauGroteskRegular.otf);
 }
-
+@layer utilities {
+  .custom-grid-row {
+    grid-template-rows: minmax(200px, auto) auto;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -39,6 +43,8 @@ audio::-webkit-media-controls-panel {
 }
 
 :root {
+  --primary:red; /* HSL equivalent of #0c2b64 */
+  --primary-foreground:red; /* Example foreground color */
   /* basic colors */
   --white-color: #ffffff;
   --black-color: #000000;
@@ -53,6 +59,7 @@ audio::-webkit-media-controls-panel {
   --light: #f0f0f0;
   --heaven: #ffffff;
   --light-color: #888;
+
   /* gradients  */
   /* example to use gradient
  .some-element {
