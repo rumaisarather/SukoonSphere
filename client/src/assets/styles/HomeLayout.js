@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
 `;
 export const SectionWrapper = styled.div`
   /* min-width: 1200px; */
-   /* width: 100%;
+   width: 100%;
    padding-right: 15px;
    padding-left: 15px;
    margin-right: auto;
@@ -25,5 +25,5 @@ export const SectionWrapper = styled.div`
 
    @media (min-width: 1400px) {
     max-width: 1320px;
-  } */
+  }
 `;
