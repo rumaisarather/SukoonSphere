@@ -35,7 +35,7 @@ function Quiz() {
         <SectionWrapper>
             <SectionTitle title="Recent Quizzes" />
             <div className="max-w-7xl mx-auto bg-white">
-                <div className="grid grid-cols-12 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div className="col-span-5 grid gap-6 p-6 bg-white rounded-lg shadow-lg">
                         <QuizHeader
                             title={"What's Your Attachment Style?"}
