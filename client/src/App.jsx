@@ -23,6 +23,7 @@ const router = createBrowserRouter([
         element: <Articles />,
         loader:ArticlesLoader
       },
+      // Added Quiz oute
       {
         path: "/quiz",
         element: <Quiz />,
