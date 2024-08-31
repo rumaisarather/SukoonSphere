@@ -1,8 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-
-import { About, Articles, Home, Quiz } from "./pages";
-
+import { About, Articles, Home, Quiz, Podcast } from "./pages";
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
 const router = createBrowserRouter([
@@ -22,12 +19,17 @@ const router = createBrowserRouter([
       {
         path: "/articles",
         element: <Articles />,
-        loader:ArticlesLoader
+        loader: ArticlesLoader,
       },
       // Added Quiz oute
       {
         path: "/quiz",
         element: <Quiz />,
+      },
+      // Podcast Added
+      {
+        path: "/podcast",
+        element: <Podcast />,
       },
     ],
   },
