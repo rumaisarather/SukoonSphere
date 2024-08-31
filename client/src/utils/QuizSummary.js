@@ -1,3 +1,5 @@
+import QuizQuestions from "@/components/quizComponents/QuizQuestions";
+
 export const QuizSummarydata = [
     {
         title: "What is my Attachment Style?",
@@ -77,7 +79,47 @@ export const QuizSummarydata = [
             content: `Remember, it's called attachment theory for a reason. How we act under certain circumstances doesn't define the rest of our lives and all future relationships. So even if you think you have a fix on your attachment style after taking this quiz, know that it may only be one small piece of the puzzle that is your life.
     
             Old behaviors can be unlearned and replaced with new ones, and even a string of unsuccessful relationships doesn't mean you have an insecure attachment style. All it may take is the right person and the right relationship to overturn everything you think you knew about your connection and attachment to others.`
-        }
+        },
+        quizQuestions: [
+            {
+                question: "How do you feel when someone close to you starts to spend less time with you and more time with someone else?",
+                option1: "I worry that they might drift away from me, and it makes me feel anxious.",
+                option2: "I feel a bit left out but understand that relationships evolve.",
+                option3: "It doesn't bother me much; I value our time together when it happens.",
+                option4: "I feel hurt and wonder if I did something wrong."
+            },
+            {
+                question: "When someone you care about seems distant, how do you usually respond?",
+                option1: "I try to reach out and make more effort to reconnect with them.",
+                option2: "I give them space and wait for them to come back around.",
+                option3: "I feel insecure and often question what I might have done wrong.",
+                option4: "I adapt easily and don't let it affect my mood much."
+            },
+            {
+                question: "How do you react if your partner begins spending significant time with new friends?",
+                option1: "I feel jealous and insecure about our relationship.",
+                option2: "I understand that they need social interaction and feel okay with it.",
+                option3: "I try to communicate my feelings and seek reassurance from them.",
+                option4: "I appreciate the independence and find it gives me time for my own interests."
+            },
+            {
+                question: "What are your thoughts when a family member starts prioritizing others over you?",
+                option1: "I feel neglected and may become anxious about our relationship.",
+                option2: "I feel okay and respect their need for balance in their relationships.",
+                option3: "I feel hurt and try to discuss it with them to understand their perspective.",
+                option4: "I feel fine and use the time to focus on my own activities."
+            },
+            {
+                question: "How do you usually feel when a close person doesn't respond to your messages promptly?",
+                option1: "I feel anxious and start to worry if something is wrong.",
+                option2: "I understand that they may be busy and try not to overthink it.",
+                option3: "I feel frustrated and may follow up with another message.",
+                option4: "I feel indifferent and continue with my day as usual."
+            }
+        ]
+
+
+
     },
     {
         title: "How Empathetic Are You?",
@@ -144,7 +186,44 @@ export const QuizSummarydata = [
             High empathy can lead to stronger bonds and better communication, while low empathy can result in misunderstandings and conflicts.
     
             Whether you're looking to strengthen your existing relationships or build new ones, understanding and developing your empathy is an important step.`
-        }
+        },
+        quizQuestions: [
+            {
+                question: "How do you react when someone shares their problems with you?",
+                option1: "I deeply feel their emotions and try to help them.",
+                option2: "I listen and offer support without getting too involved.",
+                option3: "I offer logical advice and try to stay objective.",
+                option4: "I find it hard to connect with their feelings."
+            },
+            {
+                question: "When you see someone crying, how do you usually feel?",
+                option1: "I feel their pain and want to comfort them.",
+                option2: "I feel concerned and try to understand what’s wrong.",
+                option3: "I try to stay calm and think of practical ways to help.",
+                option4: "I feel awkward and prefer to give them space."
+            },
+            {
+                question: "How do you respond when a friend is excited about something?",
+                option1: "I share their excitement and celebrate with them.",
+                option2: "I feel happy for them and offer congratulations.",
+                option3: "I acknowledge their excitement but remain calm.",
+                option4: "I don’t get too involved in their emotions."
+            },
+            {
+                question: "When someone is frustrated, how do you handle the situation?",
+                option1: "I feel their frustration and try to soothe them.",
+                option2: "I listen and offer suggestions to help them calm down.",
+                option3: "I give them advice on how to deal with the situation.",
+                option4: "I prefer to stay out of it until they calm down."
+            },
+            {
+                question: "How do you feel when someone’s emotions are very different from yours?",
+                option1: "I try to understand their perspective and connect with them.",
+                option2: "I respect their feelings and offer support if needed.",
+                option3: "I acknowledge their emotions but stay focused on my own.",
+                option4: "I find it hard to relate and may distance myself."
+            }
+        ]
     },
     {
         title: "What is Your Communication Style?",
@@ -213,7 +292,44 @@ export const QuizSummarydata = [
             Effective communication can lead to better understanding and cooperation, while poor communication can result in conflicts and misunderstandings.
     
             By understanding and improving your communication style, you can enhance your ability to connect with others and achieve your goals.`
-        }
+        },
+        quizQuestions: [
+            {
+                question: "How do you typically express your thoughts in a group discussion?",
+                option1: "I express my opinions clearly and confidently.",
+                option2: "I share my thoughts but often wait for the right moment.",
+                option3: "I prefer to listen more and speak only when necessary.",
+                option4: "I tend to keep my thoughts to myself and avoid speaking up."
+            },
+            {
+                question: "How do you handle disagreements with others?",
+                option1: "I discuss my views openly and try to resolve the issue.",
+                option2: "I listen to the other person and try to find common ground.",
+                option3: "I avoid confrontation and try to keep the peace.",
+                option4: "I tend to withdraw and avoid further discussion."
+            },
+            {
+                question: "How do you communicate when you’re upset about something?",
+                option1: "I express my feelings directly and openly.",
+                option2: "I talk about it calmly and try to resolve the issue.",
+                option3: "I might hint at my feelings but avoid direct confrontation.",
+                option4: "I keep my feelings to myself and wait for them to pass."
+            },
+            {
+                question: "What is your approach when giving feedback to someone?",
+                option1: "I’m direct and honest, even if it’s tough to hear.",
+                option2: "I’m constructive and try to balance positives with negatives.",
+                option3: "I’m gentle and prefer to avoid hurting their feelings.",
+                option4: "I often hesitate to give feedback and may avoid it."
+            },
+            {
+                question: "How do you respond when someone doesn’t understand your point?",
+                option1: "I explain it again more clearly and assertively.",
+                option2: "I try different ways to explain until they understand.",
+                option3: "I simplify my explanation and hope they get it.",
+                option4: "I may give up and move on to avoid frustration."
+            }
+        ]
     },
     {
         title: "Discover Your Stress Management Style",
@@ -269,5 +385,43 @@ export const QuizSummarydata = [
             Building a toolkit of stress management techniques, including relaxation exercises, social support, and problem-solving skills, can help you stay resilient in the face of stress.`,
             reference: "4"
         },
-    }
+        quizQuestions: [
+            {
+                question: "How do you typically react when faced with a sudden challenge?",
+                option1: "I stay calm and immediately start finding solutions.",
+                option2: "I take a moment to breathe and then address the challenge.",
+                option3: "I feel stressed but try to push through it.",
+                option4: "I tend to panic and struggle to focus on solutions."
+            },
+            {
+                question: "How do you manage stress during a busy workday?",
+                option1: "I prioritize tasks and stay focused on my goals.",
+                option2: "I take short breaks to relax and clear my mind.",
+                option3: "I push through the stress and keep working.",
+                option4: "I find it hard to cope and feel overwhelmed."
+            },
+            {
+                question: "How do you handle stress when you feel overloaded with tasks?",
+                option1: "I organize my tasks and tackle them one by one.",
+                option2: "I delegate or ask for help when needed.",
+                option3: "I try to work faster to get everything done.",
+                option4: "I often feel paralyzed and don’t know where to start."
+            },
+            {
+                question: "What’s your approach to dealing with stress after a long day?",
+                option1: "I unwind by doing something I enjoy, like a hobby.",
+                option2: "I relax by spending time with loved ones or friends.",
+                option3: "I try to rest and avoid thinking about the day.",
+                option4: "I find it hard to switch off and often keep stressing."
+            },
+            {
+                question: "How do you feel about taking on additional responsibilities?",
+                option1: "I assess my capacity and take on what I can handle.",
+                option2: "I consider it but prioritize my well-being first.",
+                option3: "I often take on more even if it stresses me out.",
+                option4: "I avoid taking on more if I feel it will overwhelm me."
+            }
+        ]
+    },
+
 ]
