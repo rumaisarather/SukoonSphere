@@ -6,6 +6,7 @@ import { PodcastCard } from "@/components";
 import {podcasts} from "../../utils/Podcast"
 import bgImg from '../../assets/images/bg_podcast.jpg'
 import SimilarPodcasts from "@/components/podcastComponents/SimilarPodcasts";
+
 export const ArticlesLoader = async ({ request }) => {
   const url = new URL(request.url);
   const searchParams = Object.fromEntries(url.searchParams.entries());
@@ -83,6 +84,7 @@ const Podcast = () => {
           style={{ height: "max-content" }}
         >
           {/* <Search  /> */}
+          
         </div>
         <div
           className="bg-white shadow-xl p-4 rounded flex flex-col gap-8 order-3"
