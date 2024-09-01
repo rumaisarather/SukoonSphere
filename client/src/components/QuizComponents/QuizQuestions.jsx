@@ -11,7 +11,7 @@ const QuizQuestions = ({ title, index, length, question, handleAnswer, selectedA
     // Determine the class for a given option based on whether it's selected
     const getOptionClasses = (optionText) => {
         return selectedAnswer === optionText
-            ? 'bg-green-100 border-green-400'
+            ? 'bg-green-300 border-green-400'
             : '';
     };
 

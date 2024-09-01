@@ -2,25 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Niveau Regular";
-  src: url(/client/src/assets/Fonts/HVD\ Fonts\ -\ NiveauGroteskRegular.otf);
-}
-
-@font-face {
-  font-family: "Niveau Regular";
-  src: url(/client/src/assets/Fonts/HVD\ Fonts\ -\ NiveauGroteskRegular.otf);
-}
-
-@font-face {
-  font-family: "Niveau Regular";
-  src: url(/client/src/assets/Fonts/HVD\ Fonts\ -\ NiveauGroteskRegular.otf);
-}
-@layer utilities {
-  .custom-grid-row {
-    grid-template-rows: minmax(200px, auto) auto;
-  }
-}
 * {
   padding: 0;
   margin: 0;
@@ -36,6 +17,7 @@ body {
   background-color: var(--white-color);
 
 }
+
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
   background-color: rgb(187, 184, 184);
@@ -43,8 +25,10 @@ audio::-webkit-media-controls-panel {
 }
 
 :root {
-  --primary:red; /* HSL equivalent of #0c2b64 */
-  --primary-foreground:red; /* Example foreground color */
+  --primary: red;
+  /* HSL equivalent of #0c2b64 */
+  --primary-foreground: red;
+  /* Example foreground color */
   /* basic colors */
   --white-color: #ffffff;
   --black-color: #000000;
@@ -84,22 +68,24 @@ audio::-webkit-media-controls-panel {
 }
 
 /*  */
-.tranctcate-text-5{
+.tranctcate-text-5 {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.tranctcate-text-2{
+
+.tranctcate-text-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.tranctcate-text-3{
-   display: -webkit-box;
+
+.tranctcate-text-3 {
+  display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;

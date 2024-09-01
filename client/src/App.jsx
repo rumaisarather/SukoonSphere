@@ -1,7 +1,9 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { About, Articles, Home, Quiz, Podcast } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts } from "./pages";
+
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,8 +15,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/about",
-        element: <About />,
+        path: "/QA-section",
+        element: <QaSection />,
       },
       {
         path: "/articles",
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/podcast",
         element: <Podcast />,
+      },
+      {
+        path: "/Posts",
+        element: <Posts />,
+      },
+      {
+        path: "/user-profile/:id",
+        element: <ProfessionalsProfile />,
       },
     ],
   },

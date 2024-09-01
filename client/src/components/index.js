@@ -7,6 +7,12 @@ export { default as Infography } from "./homeComponents/Infography";
 export { default as TodaysQuiz } from "./homeComponents/TodaysQuiz";
 export { default as HeaderImg } from "./sharedComponents/HeaderImg";
 
+//Profile components of board members
+export { default as Intro } from "./professinalProfileComponents/Intro";
+export { default as ProfileDetail } from "./professinalProfileComponents/ProfileDetail";
+
+
+
 export { default as Stastistics } from "./homeComponents/Stastistics";
 // Podcast
 export { default as Podcasts } from "./homeComponents/Podcasts";

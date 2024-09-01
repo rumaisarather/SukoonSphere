@@ -1,9 +1,9 @@
-import QuoteBanner from "../../assets/images/testimonial-bg.jpeg";
 import React, { useState, useEffect } from 'react';
 import LinkButton from "../sharedComponents/Buttons/LinkButton";
-// import PublishDetails from "../sharedComponents/PublisherDetails/PublishDetails";
-const avatarUrl = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+
 const TodaysQuote = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [fade, setFade] = useState(true);
     const slides = [
         {
             text: "The Most Complicated Word in the English Language",
@@ -25,38 +25,46 @@ const TodaysQuote = () => {
         }
     ];
 
-    const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-        }, 6000);
+            setFade(false);
+            setTimeout(() => {
+                setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+                setFade(true);
+            }, 1000);
+        }, 8000);
+
         return () => clearInterval(interval);
     }, [slides.length]);
 
     return (
-        <div className="relative flex items-center flex-col md:flex-row justify-center bg-[#0c2b64] text-white p-3 m-auto md:mt-[-2.5rem] max-w-7xl mx-auto " style={{ maxWidth: '1200px' }}>
+        <div className=" relative flex items-center flex-col md:flex-row justify-center bg-[#0c2b64] text-white p-6 m-auto md:mt-[-2.5rem] max-w-7xl mx-auto">
             <div className="flex-none">
                 <img
-                    src={QuoteBanner}
+                    src="https://tteportal.b-cdn.net/wp-content/uploads/elementor/thumbs/01-q16exdssvgx89a8gi3yy0en9dhgnuw7fj70giranpw.jpg"
                     alt="Run with 645 meanings"
                     className="w-full h-full object-cover md:w-[500px]"
-                // style={{ maxWidth: '500px' }}
                 />
             </div>
             <div className="flex-grow md:ml-10">
-                <h6 className=" pb-6">Todays Trending Thought's</h6>
-                <div className="transition ease-in-out duration-1000  transform">
+                <h6 className="pb-6">Todays Trending Thought's</h6>
+                <div
+                    className={`transition-transform ease-in-out duration-1000 ${fade ? 'animate-fadeIn' : 'animate-fadeOut'}`}
+                >
                     <h1 className="text-3xl font-bold pb-6">{slides[currentSlide].text}</h1>
-                    <h1 className="text-xl font-bold " style={{ fontFamily: "Luxurious Roman", fontWeight: 400, fontStyle: ' normal', }}>{slides[currentSlide].text}</h1>
-                    {/* <PublishDetails author={slides[currentSlide].author} date={slides[currentSlide].date} pageLinkLabel={slides[currentSlide].pagelinkText} /> */}
+                    <h1 className="text-xl font-bold" style={{ fontFamily: "Luxurious Roman", fontWeight: 400, fontStyle: 'normal' }}>
+                        {slides[currentSlide].text}
+                    </h1>
                     <div className="flex items-center mt-4">
-                        <img src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp' alt="Avatar" style={{ width: '25px', height: '25px', borderRadius: '50%', marginRight: '10px' }} />
+                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="Avatar" className="w-6 h-6 rounded-full mr-2" />
                         <span className="text-sm font-semibold">{slides[currentSlide].author}</span>
                         <span className="mx-2">|</span>
-                        <span className="text-sm font-semibold" >{slides[currentSlide].date}</span>
+                        <span className="text-sm font-semibold">{slides[currentSlide].date}</span>
                         <span className="mx-2 font-semibold">|</span>
-                        <LinkButton size="small" variant="text" className="text-sm font-semibold">{slides[currentSlide].pagelinkText}</LinkButton>
+                        <LinkButton size="small" variant="text" className="text-sm font-semibold">
+                            {slides[currentSlide].pagelinkText}
+                        </LinkButton>
                     </div>
                 </div>
             </div>
@@ -65,4 +73,3 @@ const TodaysQuote = () => {
 };
 
 export default TodaysQuote;
-
