@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { About, Articles, Home, Quiz, Podcast } from "./pages";
+import { About, Articles, Home, ProfessionalsProfile, Quiz, Podcast } from "./pages";
+
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/podcast",
         element: <Podcast />,
+      },
+      {
+        path: "/user-profile/:id",
+        element: <ProfessionalsProfile />,
       },
     ],
   },

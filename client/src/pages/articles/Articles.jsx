@@ -69,7 +69,7 @@ const Articles = () => {
                 no articles found ! Please try searching for different keywords
                 or adjusting your filters
               </p>
-              <img src={notFoundBySearch} alt="image" className="h-[200px] md:h-[50vh]"/>
+              <img src={notFoundBySearch} alt="image" className="h-[200px] md:h-[50vh]" />
             </div>
           )}
         </div>
@@ -78,7 +78,7 @@ const Articles = () => {
           className="bg-white shadow-xl p-4 rounded order-1 lg:sticky lg:top-[5rem] lg:z-10"
           style={{ height: "max-content" }}
         >
-          <Search category={category} />
+          <Search />
         </div>
         {/* More articles */}
         <div
