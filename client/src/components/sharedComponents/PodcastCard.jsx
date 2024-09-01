@@ -20,7 +20,7 @@ function PodcastCard({ podcast }) {
       <div className="card-body p-3 w-full">
         <div className="flex md:flex-row flex-col gap-3 place-items-center">
         <img
-          className="md:w-40 md:h-40 "
+          className="w-full object-cover md:w-40 md:h-40 "
           src={image}
           alt={title}
         />
