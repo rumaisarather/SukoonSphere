@@ -40,7 +40,7 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
                 </div>
 
                 <div className="mt-4 flex justify-center sm:justify-start">
-                    <LinkButton size="large" variant="primary" to='quiz' className="text-sm md:text-base font-semibold" >
+                    <LinkButton size="large" variant="primary" to={`/all-quizzes/quiz/${1}`} className="text-sm md:text-base font-semibold" >
                         Read more
                     </LinkButton>
                 </div>

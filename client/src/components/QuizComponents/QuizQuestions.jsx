@@ -55,7 +55,7 @@ const QuizQuestions = ({ quizQuestionsList }) => {
         setAnswers([]);
     }
 
-    // Assume `index` comes from props or some other source in the actual implementation
+
     useEffect(() => {
         resetToDefault()
     }, [quizQuestionsList]);
