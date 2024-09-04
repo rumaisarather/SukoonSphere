@@ -1,3 +1,4 @@
+
 export { default as Header } from "./sharedComponents/Header";
 export { default as Footer } from "./sharedComponents/Footer";
 export { default as Hero } from "./homeComponents/Hero";
@@ -26,10 +27,11 @@ export { default as SimilarArticles } from "./articleComponents/SimilarArticles"
 export { default as SidebarArticles } from "./articleComponents/SidebarArticles";
 export { default as SideBarArticle } from "./articleComponents/SideBarArticle";
 
+// post
+export { default as PostModal } from "./posts/PostModel";
 
 
 
-// Single Quizze Page component
 export { default as QuizIntro } from './quizPageComponents/allQuizzesComponents/QuizIntro'
 export { default as QuizList } from './quizPageComponents/allQuizzesComponents/QuizList'
 export { default as FilterQuizByCatagory } from './quizPageComponents/allQuizzesComponents//filterQuizzesByCatagory'
