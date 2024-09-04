@@ -1,10 +1,11 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts, AllQuizzes } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts, AllQuizzes, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
 import { AllQuizzesLoader } from "./pages/quiz/AllQuizzes";
 import { QuizDetailsLoader } from "./pages/quiz/Quiz";
+import PodcastPage from "./pages/podcast/PodcastPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         element: <Podcast />,
       },
       {
+        path: "/podcast-page",
+        element: <PodcastPage/>,
+      },
+      {
         path: "/Posts",
         element: <Posts />,
       },
@@ -53,6 +58,7 @@ const router = createBrowserRouter([
         element: <Quiz />,
         loader: QuizDetailsLoader,
       },
+   
     ],
   },
 ]);

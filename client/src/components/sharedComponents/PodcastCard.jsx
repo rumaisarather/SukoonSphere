@@ -48,7 +48,7 @@ function PodcastCard({ podcast }) {
             <source src={audioSource} type="audio/mpeg" />
           </audio>
           <div className="card-actions flex items-center gap-3">
-            <LinkButton size="large" variant="primary" className="text-sm font-semibold " to={readMoreLink}>Read more</LinkButton>
+            <LinkButton size="large" variant="primary" className="text-sm font-semibold " to="/podcast-page">Read more</LinkButton>
           </div>
         </div>
       </div>
