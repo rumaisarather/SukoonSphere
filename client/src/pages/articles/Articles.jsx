@@ -3,7 +3,7 @@ import { Article, HeaderImg, Search, SimilarArticles } from "@/components";
 import { useLoaderData } from "react-router-dom";
 import React, { useState } from "react";
 import notFoundBySearch from "../../assets/images/notFoundBySearch.jpg";
-import bgImg from "../../assets/images/bg_podcast.jpg";
+import bgImg from "../../assets/images/Articles.jpg";
 
 export const ArticlesLoader = async ({ request }) => {
   const url = new URL(request.url);
@@ -57,7 +57,7 @@ const Articles = () => {
 
   return (
     <>
-      <HeaderImg currentPage="Podcast" bgImg={bgImg} />
+      <HeaderImg currentPage="Articles" bgImg={bgImg} />
       <div className="max-w-7xl mx-auto p-4 bg-white mt-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:custom-grid-row lg:gap-x-8 lg:gap-y-4">
           {/* Articles */}
