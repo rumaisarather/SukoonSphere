@@ -28,7 +28,7 @@ function NavMenu() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+console.log({user})
   return (
     <nav
       className={` flex items-center sm:items-center  sm:flex-row justify-between w-full z-20 transition-colors duration-[.2s] ease-in-out p-2 h-[70px] px-6 ${
@@ -59,29 +59,39 @@ function NavMenu() {
               {link.name}
             </NavLink>
           ))}
-          {isUser?<LinkButton
-            to="/#"
-            variant="primary"
-            size="small"
-            onClick={async () => {
-              logout();
-            }}
-            className={`
+          {isUser ? (
+            <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2">
+                <img src={user.picture} />
+                <span>{user.name}</span>
+              </div>
+              <LinkButton
+                to="/#"
+                variant="primary"
+                size="small"
+                onClick={async () => {
+                  logout();
+                }}
+                className={`
           ${isSticky && "bg-[#f98702]"}`}
-          >
-            logout
-          </LinkButton> :<LinkButton
-            to="/#"
-            variant="primary"
-            size="small"
-            onClick={async () => {
-              loginWithRedirect();
-            }}
-            className={`
+              >
+                logout
+              </LinkButton>
+            </div>
+          ) : (
+            <LinkButton
+              to="/#"
+              variant="primary"
+              size="small"
+              onClick={async () => {
+                loginWithRedirect();
+              }}
+              className={`
           ${isSticky && "bg-[#f98702]"}`}
-          >
-            Login
-          </LinkButton>}
+            >
+              Login
+            </LinkButton>
+          )}
         </ul>
       </div>
       <div className="block md:hidden">

@@ -5,6 +5,8 @@ import QuizList from '@/components/quizPageComponents/QuizList';
 import QuizSummary from '@/components/quizPageComponents/QuizSummary';
 import { QuizSummarydata } from '@/utils/QuizSummary';
 import QuizSubmissionDialog from '@/components/quizPageComponents/QuizSubmissionDialog';
+import { HeaderImg } from '@/components';
+import bgImg from "../../assets/images/Quiz.jpg";
 
 function Quiz() {
     const [index, setIndex] = useState(0);
@@ -74,6 +76,7 @@ function Quiz() {
 
     return (
         <>
+        <HeaderImg currentPage="Quiz" bgImg={bgImg}/>
             <div className="max-w-full mx-auto px-4 mt-24 bg-primary">
                 <div className="grid sm:grid-cols-12 gap-4">
                     <div className="sm:col-span-4 grid gap-6 p-4 rounded bg-[#F7F9F9]">
