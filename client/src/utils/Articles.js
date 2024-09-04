@@ -1,9 +1,10 @@
+
 export const articles = [
   {
     title: "Understanding Anxiety Disorders",
     username: "mentalHealthGuru",
     avatar: "https://example.com/avatars/mentalHealthGuru.png",
-    image: "https://example.com/images/anxiety.jpg",
+    image:"https://media.licdn.com/dms/image/D4D12AQH9auaXpiDARQ/article-cover_image-shrink_720_1280/0/1689866293790?e=2147483647&v=beta&t=nIL-OBG-p770Ts-xaPZ50q64AxwPqeD19crJiLQr5pY",
     description:
       "Anxiety disorders are among the most common mental health issues affecting millions worldwide...",
     category: "Anxiety",
