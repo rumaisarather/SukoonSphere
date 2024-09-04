@@ -1,8 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts, AllQuizzes } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
+import { AllQuizzesLoader } from "./pages/quiz/AllQuizzes";
+import { QuizDetailsLoader } from "./pages/quiz/Quiz";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,16 @@ const router = createBrowserRouter([
       {
         path: "/user-profile/:id",
         element: <ProfessionalsProfile />,
+      },
+      {
+        path: "/all-quizzes",
+        element: <AllQuizzes></AllQuizzes>,
+        loader: AllQuizzesLoader,
+      },
+      {
+        path: "/all-quizzes/quiz/:id",
+        element: <Quiz />,
+        loader: QuizDetailsLoader,
       },
     ],
   },

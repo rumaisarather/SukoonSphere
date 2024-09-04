@@ -19,4 +19,8 @@ export const links = [
     name: "QA-section",
     address: "QA-section",
   },
+  {
+    name: "All Quizzes",
+    address: 'all-quizzes'
+  }
 ];

@@ -2,6 +2,7 @@ import QuizQuestions from "@/components/quizComponents/QuizQuestions";
 
 export const QuizSummarydata = [
     {
+        id: 101,
         title: "What is my Attachment Style?",
         subtitle: "Secure, anxious, avoidant, and disorganized—which one are you?",
         author: {
@@ -10,7 +11,7 @@ export const QuizSummarydata = [
             avatar: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
         },
         mainImage: {
-            src: "https://www.verywellmind.com/thmb/dLVX1N9D4xTj5sXz4q4bCYcFT_k=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/VWlove_separationanxiety_final_nologo-58e76ae2348443329a1bb5f860a21221.jpg",
+            src: "https://www.verywellmind.com/thmb/vpCJ7huBZN7bNeG44BBWOTT1d-M=/868x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/HowtoEndaConversation_final-b4b6ce5dbb3b417789dcb2bf195bd257.png",
             alt: "Quiz Image",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, omnis. Optio eligendi unde dicta? Mollitia tempora veritatis esse cum magni itaque necessitatibus consequatur animi ea!"
         },
@@ -117,11 +118,9 @@ export const QuizSummarydata = [
                 option4: "I feel indifferent and continue with my day as usual."
             }
         ]
-
-
-
     },
     {
+        id: 2,
         title: "How Empathetic Are You?",
         subtitle: "Discover your capacity for empathy and understanding.",
         author: {
@@ -226,6 +225,7 @@ export const QuizSummarydata = [
         ]
     },
     {
+        id: 3,
         title: "What is Your Communication Style?",
         subtitle: "Find out how you express yourself and interact with others.",
         author: {
@@ -332,6 +332,7 @@ export const QuizSummarydata = [
         ]
     },
     {
+        id: 4,
         title: "Discover Your Stress Management Style",
         subtitle: "Learn how you cope with stress and how to manage it more effectively.",
         author: {

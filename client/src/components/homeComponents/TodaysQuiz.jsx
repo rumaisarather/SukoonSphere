@@ -47,9 +47,9 @@ function TodaysQuiz() {
                         <QuizSummary
                             SummaryTitle={'What is my Attachment Style?'}
                             SummarySubtitle={'Secure, anxious, avoidant, and disorganized—which one are you?'}
-                            ShortDescription={'This short free 15-question quiz measures feelings associated with the four main attachment styles—secure, anxious, avoidant, and disorganized. This quiz is not a formal medical or diagnostic test and should not be interpreted as clinical or medical advice.'}
+                            ShortDescription={'This short free 5-question quiz measures feelings associated with the four main attachment styles—secure, anxious, avoidant, and disorganized. This quiz is not a formal medical or diagnostic test and should not be interpreted as clinical or medical advice.'}
                             ContentTitle={'The Four Attachment Styles '}
-                            ContentSubtitle={'Early attachment styles may not be exactly the same as those in adult relationships, but they can be a good predictor of adult behavior patterns.'}
+                            ContentSubtitle={'Early attachment styles may not be exactly the same as those in adult relationships, but they can be a good predictor of adult behavior patterns.Your attachment style consists of a variation of attachment strategies, which strategies show up the most depend on the overall safety you have felt in relationships.'}
                         />
                     </div>
                 </div>

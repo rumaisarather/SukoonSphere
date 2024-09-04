@@ -11,6 +11,7 @@ function QuizSubmissionDialog({ answers }) {
                     <h3 className="font-extrabold text-3xl text-blue-800 text-center mb-6">
                         🎉 Quiz Completed!
                     </h3>
+
                     <p className="text-lg font-semibold text-blue-600 mb-4 text-center">
                         Here are your selected answers:
                     </p>
