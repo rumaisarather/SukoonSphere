@@ -1,6 +1,6 @@
 export const podcasts = [
     {
-      image: "https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWY7eeoKIGlhc8-3qCnhIJISb5ZNxY9qEOA&s",
       avatar: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
       author: "Sartaj Ashraf",
       publishDate: "20-12-2002",
@@ -11,7 +11,7 @@ export const podcasts = [
       readMoreLink: "#"
     },
     {
-      image: "https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbBDDTAMW03jEFb3idqjkuI0vOBsh6PtmA35FHoPA9FaGbLabP6xHxs74KrFUvRNlA6M&usqp=CAU",
       avatar: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
       author: "Aisha Khan",
       publishDate: "15-08-2023",
@@ -22,7 +22,7 @@ export const podcasts = [
       readMoreLink: "#"
     },
     {
-      image: "https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpoTf_27bVZoUmhZ4wtS-qNwz-PV_00WpVQA&s",
       avatar:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
       author: "Ali Ahmad",
       publishDate: "05-07-2021",
@@ -33,7 +33,7 @@ export const podcasts = [
       readMoreLink: "#"
     },
     {
-      image: "https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp",
+      image: "https://media.licdn.com/dms/image/D4D12AQF1z1l77ZlqHg/article-cover_image-shrink_720_1280/0/1685617010944?e=2147483647&v=beta&t=bCs2v94i-qfkXy7oZxHla3Jyi74yuwIej7rzVjeywNE",
       avatar: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
       author: "Fatima Zahra",
       publishDate: "10-11-2022",
@@ -44,7 +44,7 @@ export const podcasts = [
       readMoreLink: "#"
     },
     {
-      image: "https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaN91pw6RsyuNm9BScDUlnTvxMJEhifhGZuA&s",
       avatar: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
       author: "Omar Sheikh",
       publishDate: "22-03-2024",

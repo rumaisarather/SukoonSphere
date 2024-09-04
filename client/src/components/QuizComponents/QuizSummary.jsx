@@ -25,7 +25,7 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
             <div className="mb-4">
                 <div className="mb-6 overflow-hidden rounded-lg flex flex-col md:flex-row " >
                     <img
-                        src="https://www.verywellmind.com/thmb/dLVX1N9D4xTj5sXz4q4bCYcFT_k=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/VWlove_separationanxiety_final_nologo-58e76ae2348443329a1bb5f860a21221.jpg"
+                        src="https://www.verywellmind.com/thmb/vpCJ7huBZN7bNeG44BBWOTT1d-M=/868x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/HowtoEndaConversation_final-b4b6ce5dbb3b417789dcb2bf195bd257.png"
                         alt="Quiz Image"
                         className="md:w-60  object-cover"
                     />
@@ -40,7 +40,7 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
                 </div>
 
                 <div className="mt-4 flex justify-center sm:justify-start">
-                    <LinkButton size="large" variant="primary" to='quiz' className="text-sm md:text-base font-semibold" >
+                    <LinkButton size="large" variant="primary" to={`/all-quizzes/quiz/${1}`} className="text-sm md:text-base font-semibold" >
                         Read more
                     </LinkButton>
                 </div>

@@ -24,7 +24,7 @@ const TodayEssentials = () => {
                                 <div className="space-y-4 flex flex-col  text-center">
                                     <h2 className="text-2xl font-bold  text-blue-800  ">Our Review Board </h2>
                                     <p className="text-gray-800 ">Our team of board-certified physicians and other mental health professionals ensures our content is accurate, up-to-date, and inclusive.</p>
-                                    <h2 className="uppercase text-xl text-bold text-[var(--black-color)] ">The chefs</h2>
+                                    <h2 className="uppercase text-xl text-bold text-[var(--black-color)] ">Meet the Board Members</h2>
                                 </div>
                                 <div className="grid grid-cols-3 gap-3 p-2 place-items-center ">
                                     {ProfessionalsDetails.map((professional) => (
@@ -38,7 +38,7 @@ const TodayEssentials = () => {
                                                     src={professional.profile.image}
                                                     alt={`${professional.profile.name}'s profile`}
                                                     width={'150px'}
-                                                    className="grayscale"
+                                                // className="grayscale"
                                                 />
                                                 <span className=" text-xs font-bold text-center text-gray-900">{professional.profile.fullTitle}</span>
                                             </div>
@@ -48,7 +48,7 @@ const TodayEssentials = () => {
 
 
                             </div>
-                            <LinkButton variant="primary" size="small">Meet our Board Members</LinkButton>
+                            {/* <LinkButton variant="primary" size="small">Meet our Board Members</LinkButton> */}
                         </div>
 
 

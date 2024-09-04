@@ -29,3 +29,9 @@ export { default as SideBarArticle } from "./articleComponents/SideBarArticle";
 
 // post
 export { default as PostModal } from "./posts/PostModel";
+
+
+
+export { default as QuizIntro } from './quizPageComponents/allQuizzesComponents/QuizIntro'
+export { default as QuizList } from './quizPageComponents/allQuizzesComponents/QuizList'
+export { default as FilterQuizByCatagory } from './quizPageComponents/allQuizzesComponents//filterQuizzesByCatagory'
