@@ -45,7 +45,7 @@ console.log({user})
         onClick={toggleMenu}
       />
       <div className=" hidden md:block">
-        <ul className="flex gap-3 sm:justify-between sm:w-[450px] sm:items-center   ">
+        <ul className="flex gap-3 sm:justify-between  sm:items-center   ">
           {links.map((link) => (
             <NavLink
               key={link.name}
@@ -61,9 +61,9 @@ console.log({user})
           ))}
           {isUser ? (
             <div className="flex items-center justify-center gap-2">
-              <div className="flex items-center justify-center gap-2">
-                <img src={user.picture} />
-                <span>{user.name}</span>
+              <div className="flex items-center justify-center gap-2 ">
+                <img className="w-9 h-9 rounded-full border-4 border-blue-400" src={user.picture} />
+                <span className="text-white">{user.name}</span>
               </div>
               <LinkButton
                 to="/#"

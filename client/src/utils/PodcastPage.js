@@ -1,0 +1,48 @@
+export const data = [
+    {
+      title: 'The Art of Living a Healthy Life',
+      episode: '01',
+      date: '01-09-2024',
+      discription: 'Explore the essentials of maintaining a healthy lifestyle, focusing on physical, mental, and emotional well-being.',
+      audio: '',
+      full_discription: 'In this episode, we delve into the core aspects of living a healthy life. We discuss how to balance physical activity, nutrition, and mental health. Join us as we explore practical tips and insights for cultivating a balanced and fulfilling life.',
+      orator: 'Dr. Emily Stone',
+    },
+    {
+      title: 'Embracing Minimalism',
+      episode: '02',
+      date: '08-09-2024',
+      discription: 'Discover how adopting a minimalist lifestyle can lead to greater happiness and less stress.',
+      audio: '',
+      full_discription: 'Minimalism isn’t just about decluttering your home; it’s about simplifying your life to focus on what truly matters. In this episode, we explore the principles of minimalism and how you can apply them to your daily routine to create a more meaningful and purposeful life.',
+      orator: 'Sarah Thompson',
+    },
+    {
+      title: 'The Power of Habit',
+      episode: '03',
+      date: '15-09-2024',
+      discription: 'Understand the science behind habit formation and how to create habits that lead to success.',
+      audio: '',
+      full_discription: 'Habits shape our lives more than we realize. In this episode, we examine the psychology of habits, how they are formed, and how you can harness their power to achieve your goals. Learn strategies to build positive habits and break the ones that hold you back.',
+      orator: 'James Miller',
+    },
+    {
+      title: 'Mindfulness in Everyday Life',
+      episode: '04',
+      date: '22-09-2024',
+      discription: 'Learn how mindfulness practices can improve your daily life and enhance your overall well-being.',
+      audio: '',
+      full_discription: 'Mindfulness is more than just meditation; it’s about being present in every moment. This episode explores practical mindfulness techniques that you can incorporate into your everyday life, helping you to reduce stress, increase focus, and improve emotional well-being.',
+      orator: 'Lisa Chen',
+    },
+    {
+      title: 'Building Resilience',
+      episode: '05',
+      date: '29-09-2024',
+      discription: 'Explore the importance of resilience and how to develop the mental toughness to overcome life’s challenges.',
+      audio: '',
+      full_discription: 'Resilience is the ability to bounce back from adversity. In this episode, we discuss what it means to be resilient and how you can build this crucial skill. We share stories of resilience and provide actionable advice on how to cultivate mental toughness and navigate life’s ups and downs with grace.',
+      orator: 'Dr. Robert Harris',
+    },
+  ];
+  

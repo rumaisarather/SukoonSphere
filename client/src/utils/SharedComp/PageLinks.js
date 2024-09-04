@@ -12,15 +12,16 @@ export const links = [
     address: "articles",
   },
   {
-    name: "podcast",
+    name: "Podcast",
     address: "podcast",
   },
   {
-    name: "QA-section",
-    address: "QA-section",
+    name: "QA-Section",
+    address: "QA-Section",
   },
   {
     name: "All Quizzes",
     address: 'all-quizzes'
-  }
+  },
+ 
 ];
