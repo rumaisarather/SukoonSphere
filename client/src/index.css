@@ -10,6 +10,7 @@
   font-family: "Poppins", sans-serif;
   list-style: none;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -65,6 +66,9 @@ audio::-webkit-media-controls-panel {
   --border-1: #000000dd;
   --max-width: 1600px;
   --fluid-width: 95vw;
+
+  --title-font: "Bebas Neue", sans-serif;
+  --title2-font: "Signika Negative", sans-serif;
 }
 
 /*  */

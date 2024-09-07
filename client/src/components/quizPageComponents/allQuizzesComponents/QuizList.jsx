@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
-function QuizList({ quizCategories }) {
+function QuizList({ quizCategories, }) {
     return (
         <>
             {quizCategories?.map((category) => (
@@ -14,21 +14,20 @@ function QuizList({ quizCategories }) {
                     <h3 className="text-2xl font-bold text-[#0c2b64] mb-4">{category.category}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
                         {category.quizzes.map((quiz) => (
-                            <div key={quiz.id} className="card bg-white shadow-xl">
+                            <div key={quiz.id} className="card bg-white shadow-xl ">
                                 <Link to={`quiz/${quiz.quizId}`}>
-
                                     <figure>
                                         <img
                                             src={quiz.imageSrc || 'default_image_placeholder_url'}
                                             alt={quiz.imageAlt}
-                                            className="h-48 w-full object-cover"
+                                            className="h-48 w-full object-cover transform transition-transform duration-300 ease-in-out hover:scale-105"
                                         />
                                     </figure>
                                 </Link>
-                                <div className="card-body">
+                                <div className="card-body px-4">
                                     <Link to={`quiz/${quiz.quizId}`}>
                                         <h2 className="card-title text-[#0c2b64]">{quiz.title}</h2>
-                                        <p>{quiz.description || "Take the quiz to find out more!"}</p>
+                                        <p className='line-clamp-2'>{quiz.description || "Take the quiz to find out more!"}</p>
                                     </Link>
                                     <div className="flex items-center  pb-4 justify-start gap-4 order-3 sm:order-none">
                                         <div className="flex items-center justify-center gap-2">
@@ -55,8 +54,6 @@ function QuizList({ quizCategories }) {
                                 </div>
 
                             </div>
-
-
                         ))}
                     </div>
 

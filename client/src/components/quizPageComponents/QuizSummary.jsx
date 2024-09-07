@@ -9,7 +9,7 @@ const QuizSummary = ({ data }) => {
         <div className="attachment-styles">
             {/* Quiz Title and Subtitle */}
             <div>
-                <h1 className="sm:text-lg md:text-3xl lg:text-3xl font-bold text-gray-900 mb-2">{data.title}</h1>
+                <h1 className="sm:text-lg md:text-3xl lg:text-3xl font-bold text-[#0c2b64] mb-2">{data.title}</h1>
                 <p className="text-gray-900 mb-4 text-semibold md:text-base lg:text-base">
                     {data.subtitle}
                 </p>
@@ -57,7 +57,7 @@ const QuizSummary = ({ data }) => {
             {/* Detailed Sections */}
             {Object.keys(data).filter(key => !['title', 'subtitle', 'author', 'mainImage'].includes(key)).map((key, index) => (
                 <div key={index} className="attachment-section">
-                    <h2 className="text-xl md:text-1xl lg:text-2xl font-bold text-gray-900 mb-2">{data[key].title}</h2>
+                    <h2 className="text-xl md:text-1xl lg:text-2xl font-bold text-[#364663] mt-6">{data[key].title}</h2>
                     <p className="text-xl md:text-base lg:text-lg font-normal text-gray-500 mb-2 italic">{data[key].content}</p>
                     {data[key].quote && (
                         <blockquote className="attachment-quote">

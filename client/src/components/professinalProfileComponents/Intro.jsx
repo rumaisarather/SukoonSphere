@@ -5,11 +5,11 @@ function Intro({ name, image, fullTitle, role, specialty, expertise }) {
     return (
         <div className='p-6 m-auto max-w-7xl mx-auto bg-[#e8f5f9]'>
             <div className="flex items-center p-6 rounded-lg shadow-md max-w-4xl mx-auto">
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 ">
                     <img
                         src={image}
                         alt={name}
-                        className="rounded-lg h-48 object-cover"
+                        className="h-48 object-cover rounded-full"
                     />
                 </div>
                 <div className="ml-6 flex space-x-12">

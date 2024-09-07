@@ -64,13 +64,13 @@ const QuizQuestions = ({ quizQuestionsList }) => {
         <>
             <div className='space-y-4 sticky top-24'>
                 <div className="flex justify-between items-center ">
-                    <h1 className="text-2xl font-bold text-gray-800">Question {currentQuestionIndex + 1}</h1>
-                    <div className="bg-[var(--logo-primary)] text-white px-4 py-2 rounded-full text-sm">
+                    <h1 className="text-2xl font-bold text-[#0c2b64]">Question {currentQuestionIndex + 1}</h1>
+                    <div className="bg-[#0c2b64] text-white px-4 py-2 rounded-full text-sm">
                         {currentQuestionIndex + 1}/{quizQuestionsList.length}
                     </div>
                 </div>
                 <hr className="border-gray-300 mt-4" />
-                <h2 className="text-xl font-semibold text-gray-700 mb-4">{question}</h2>
+                <h2 className="text-xl font-semibold text-[#364663] mb-4">{question}</h2>
                 <ul className="space-y-2">
                     {[option1, option2, option3, option4].map((option, index) => (
                         <li

@@ -5,7 +5,7 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
     return (
         <div className="p-4 md:p-2 lg:p-0">
             <div>
-                <h1 className="text-xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-2">{SummaryTitle}</h1>
+                <h1 className="text-xl md:text-3xl lg:text-3xl font-bold text-[#0c2b64] mb-2">{SummaryTitle}</h1>
                 <p className="text-gray-600 mb-4 text-sm md:text-base lg:text-base">
                     {SummarySubtitle}
                 </p>
@@ -35,7 +35,7 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
                 </div>
 
                 <div className="mt-4">
-                    <h1 className="text-xl md:text-xl lg:text-1xl font-bold text-gray-900 mb-2">{ContentTitle}</h1>
+                    <h1 className="text-xl md:text-xl lg:text-1xl font-bold text-[#364663] mb-2">{ContentTitle}</h1>
                     <h4 className="text-sm md:text-base lg:text-base text-gray-400 font-medium">{ContentSubtitle}</h4>
                 </div>
 

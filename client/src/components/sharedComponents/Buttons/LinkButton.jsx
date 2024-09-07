@@ -13,7 +13,7 @@ const LinkButton = ({
     const baseStyles = 'inline-flex items-center justify-center font-medium rounded focus:outline-none transition ease-in-out duration-150';
 
     const variants = {
-        primary: 'bg-[var(--logo-primary)] text-white hover:bg-[var(--logo-ternary)]',
+        primary: 'bg-[#0c2b64] text-white hover:bg-[var(--logo-ternary)]',
         secondary: ' hover:text-[var(--logo-ternary)] text-gray-700',
         success: 'bg-green-600 text-white hover:bg-green-700',
         danger: 'bg-red-600 text-white hover:bg-red-700',
