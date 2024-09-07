@@ -8,11 +8,16 @@ function QuizSubmissionDialog({ answers }) {
                             ✕
                         </button>
                     </form>
-                    <h3 className="font-extrabold text-3xl text-blue-800 text-center mb-6">
-                        🎉 Quiz Completed!
-                    </h3>
+                    <div className="header">
+                        <h3 className="font-extrabold text-3xl text-blue-800 text-center mb-6">
+                            🎉 Quiz Completed!
+                        </h3>
+                        <h2 className=" text-xl text-blue-800 text-center mb-6">Your style: <span className="text-gray-700">Anxious</span></h2>
 
-                    <p className="text-lg font-semibold text-blue-600 mb-4 text-center">
+                    </div>
+
+
+                    <p className="text-lg font-semibold text-blue-600 mb-4 ">
                         Here are your selected answers:
                     </p>
                     <ul className="space-y-6">

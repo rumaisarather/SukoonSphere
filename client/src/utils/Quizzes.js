@@ -9,7 +9,10 @@ export const Quizzes = [
                     {
                         "quizId": 1,
                         "title": "What is my attachment style?",
+                        "imageSrc": "https://www.verywellmind.com/thmb/vpCJ7huBZN7bNeG44BBWOTT1d-M=/868x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/HowtoEndaConversation_final-b4b6ce5dbb3b417789dcb2bf195bd257.png",
                         "imageAlt": "Young businesswoman looking away",
+                        "description": "Early attachment styles may not be exactly the same as those in adult relationships, but they can be a good predictor of adult behavior patterns. Your attachment style consists of a variation of attachment strategies, which strategies show up the most depend on the overall safety you have felt in relationships.",
+
                         "quizDetails": [
                             {
                                 title: "What is my Attachment Style?",
@@ -134,7 +137,10 @@ export const Quizzes = [
                     {
                         "quizId": 2,
                         "title": "How Empathetic Are You?",
+                        "imageSrc": "https://www.verywellmind.com/thmb/7OO4hvku6_nUrQVYUcCTIooyT44=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/divorceandmentalhealth_logo-7bd155f4abb2431d95ca77b40042396a.png",
                         "imageAlt": "Woman, in her 40's, hanging picture in her apartment, straightening it to get it 'just right'",
+                        "description": "Empathy allows us to connect deeply with others and understand their emotions.",
+
                         "quizDetails": [
                             {
                                 title: "How Empathetic Are You?",
@@ -246,7 +252,10 @@ export const Quizzes = [
                     {
                         "quizId": 3,
                         "title": "What is Your Communication Style?",
+                        "imageSrc": "https://www.verywellmind.com/thmb/eiT_uaDGkxk1I64C-Qnaqk4kZUc=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/ColorsProvokeSimilarEmotional_withlogo-84797ddea91b434aa895eb832c48a1dc.png",
                         "imageAlt": "Upset couple sitting on opposite sides of the couch",
+                        "description": "Effective communication is key to successful interactions in both personal and professional settings.",
+
                         "quizDetails": [
 
                             {
@@ -361,7 +370,9 @@ export const Quizzes = [
                     {
                         "quizId": 4,
                         "title": "Discover Your Stress Management Style",
+                        "imageSrc": "https://www.verywellmind.com/thmb/XjGXHFS_-_ilgTfQQFM7DLqu2l8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-488337293-cropped-56c5cab03df78c763fa5f33c.jpg",
                         "imageAlt": "businesspeople walking through busy city street",
+                        "description": "Stress is a part of life, but how you manage it can make a big difference in your well-being.",
                         "quizDetails": [
                             {
                                 title: "Discover Your Stress Management Style",
@@ -461,6 +472,8 @@ export const Quizzes = [
                     },
 
                 ]
+
+
             }
         ],
     }

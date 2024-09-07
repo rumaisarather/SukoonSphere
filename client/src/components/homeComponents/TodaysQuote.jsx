@@ -6,22 +6,22 @@ const TodaysQuote = () => {
     const [fade, setFade] = useState(true);
     const slides = [
         {
-            text: "The Most Complicated Word in the English Language",
-            author: "By DAVID CROTTY",
+            text: "You are not a drop in the ocean. You are the entire ocean in a drop.",
+            subtitle: "Embrace your individuality, for you hold immense power within. Your essence contributes to the vastness of the universe.",
+            author: "By Sartaj Ashraf",
             date: "AUG 23, 2024",
-            pagelinkText: "LEAVE A COMMENT"
         },
         {
-            text: "With only three letters, 'run' has over 645 different meanings.",
-            author: "By DAVID CROTTY",
-            date: "AUG 23, 2024",
-            pagelinkText: "LEAVE A COMMENT"
+            text: "Healing takes time, and asking for help is a courageous step.",
+            subtitle: "Do not rush the process of healing. Seeking support is a sign of strength, not weakness.",
+            author: "By Aquib Ahmad",
+            date: "SEP 23, 2024",
         },
         {
-            text: "Another example text to demonstrate the carousel functionality.",
-            author: "By DAVID CROTTY",
-            date: "AUG 23, 2024",
-            pagelinkText: "LEAVE A COMMENT"
+            text: "Every day may not be good, but there is something good in every day.",
+            subtitle: "Focus on the positives, even in challenging times. There’s always a silver lining waiting to be discovered.",
+            author: "Shahid Ahmad",
+            date: "MAR 23, 2024",
         }
     ];
 
@@ -52,19 +52,15 @@ const TodaysQuote = () => {
                 <div
                     className={`transition-transform ease-in-out duration-1000 ${fade ? 'animate-fadeIn' : 'animate-fadeOut'}`}
                 >
-                    <h1 className="text-3xl font-bold pb-6">{slides[currentSlide].text}</h1>
-                    <h1 className="text-xl font-bold" style={{ fontFamily: "Luxurious Roman", fontWeight: 400, fontStyle: 'normal' }}>
-                        {slides[currentSlide].text}
+                    <h1 className="text-3xl font-bold pb-6 text-[var(--title-font)]">{slides[currentSlide].text}</h1>
+                    <h1 className="text-xl font-bold text-[var(--title2-font)]" style={{ fontFamily: "Luxurious Roman", fontWeight: 400, fontStyle: 'normal' }}>
+                        {slides[currentSlide].subtitle}
                     </h1>
                     <div className="flex items-center mt-4">
                         <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="Avatar" className="w-6 h-6 rounded-full mr-2" />
                         <span className="text-sm font-semibold">{slides[currentSlide].author}</span>
                         <span className="mx-2">|</span>
                         <span className="text-sm font-semibold">{slides[currentSlide].date}</span>
-                        <span className="mx-2 font-semibold">|</span>
-                        <LinkButton size="small" variant="text" className="text-sm font-semibold">
-                            {slides[currentSlide].pagelinkText}
-                        </LinkButton>
                     </div>
                 </div>
             </div>

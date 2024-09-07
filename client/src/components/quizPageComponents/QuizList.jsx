@@ -4,16 +4,20 @@ const recentQuizzesTitles = [
   {
     quizId: 2,
     title: "How Empathic are you?",
-    imgSrc: "https://via.placeholder.com/50/000000/FFFFFF/?text=B",
+    imgSrc: "https://via.placeholder.com/50/000000/FFFFFF/?text=A",
   },
   {
     quizId: 3,
     title: "What is your communication style?",
-    imgSrc: "https://via.placeholder.com/50/000000/FFFFFF/?text=C",
+    imgSrc: "https://via.placeholder.com/50/000000/FFFFFF/?text=B",
   },
   {
     quizId: 4,
     title: "Discover your stress management style?",
+    imgSrc: "https://via.placeholder.com/50/000000/FFFFFF/?text=C",
+  }, {
+    quizId: 1,
+    title: "What is your attachment style?",
     imgSrc: "https://via.placeholder.com/50/000000/FFFFFF/?text=D",
   },
 ];
@@ -25,7 +29,7 @@ function QuizItem({ title, imgSrc }) {
       className="flex items-center py-4 border-b border-gray-200 cursor-pointer hover:bg-gray-200"
     >
       <img src={imgSrc} alt={title} className="w-12 h-12 mr-4" />
-      <h3 className="text-lg font-semibold text-gray-600">{title}</h3>
+      <h3 className="text-lg font-semibold text-[#364663]">{title}</h3>
     </div>
   );
 }
