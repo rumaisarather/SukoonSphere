@@ -36,3 +36,10 @@ export { default as PostModal } from "./posts/PostModel";
 export { default as QuizIntro } from './quizPageComponents/allQuizzesComponents/QuizIntro'
 export { default as QuizList } from './quizPageComponents/allQuizzesComponents/QuizList'
 export { default as FilterQuizByCatagory } from './quizPageComponents/allQuizzesComponents//filterQuizzesByCatagory'
+
+
+
+export { default as VideoCard } from './mediaLibrary/VideoCard'
+export { default as RelatedVideoCard } from './mediaLibrary/RelatedVideoCard'
+
+
