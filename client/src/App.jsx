@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts, AllQuizzes, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts, AllQuizzes, MentalHealth, AllVideos, Video, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/podcast-page",
-        element: <PodcastPage/>,
+        element: <PodcastPage />,
       },
       {
         path: "/Posts",
@@ -58,7 +58,20 @@ const router = createBrowserRouter([
         element: <Quiz />,
         loader: QuizDetailsLoader,
       },
-   
+
+      {
+        path: 'about/mental-health',
+        element: <MentalHealth />
+      },
+      {
+        path: 'media/all-videos',
+        element: <AllVideos />
+      },
+      {
+        path: 'media/all-videos/video',
+        element: <Video />
+      }
+
     ],
   },
 ]);

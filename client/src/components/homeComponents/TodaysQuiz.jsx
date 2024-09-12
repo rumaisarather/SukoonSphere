@@ -7,14 +7,14 @@ function TodaysQuiz() {
     const [index, setIndex] = useState(0);
     const [disableSelection, setDisableSelection] = useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [answers, setAnswers] = useState([]); // Store selected answers as text
+    const [answers, setAnswers] = useState([]);
     const question = data[index];
 
     const handleAnswer = (event, optionText) => {
         if (!disableSelection) {
             setSelectedAnswer(optionText);
             setDisableSelection(true);
-            setAnswers(prevAnswers => [...prevAnswers, optionText]); // Store option text
+            setAnswers(prevAnswers => [...prevAnswers, optionText]);
 
             setTimeout(() => {
                 handleNextQuestion();
@@ -25,7 +25,7 @@ function TodaysQuiz() {
     const handleNextQuestion = () => {
         setIndex((prevIndex) => prevIndex + 1);
         setDisableSelection(false);
-        setSelectedAnswer(null); // Reset selected answer for the next question
+        setSelectedAnswer(null);
     };
 
     const quizQuestions = [
