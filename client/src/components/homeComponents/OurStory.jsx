@@ -5,8 +5,13 @@ import SectionTitle from '../sharedComponents/SectionTitle';
 const OurStory = () => {
     return (
         <>
-            <div className=' space-y-4 max-w-7xl mx-auto'>
+            <div className='space-y-4 max-w-7xl mx-auto'>
                 <SectionTitle title={'What we do ?'}></SectionTitle>
+                <div>
+                    <h2 className="text-4xl font-bold text-center text-black">
+                        Our story
+                    </h2>
+                </div>
                 <div className="max-w-7xl mx-auto flex flex-col items-center  py-12">
                     <div className="w-4/5 flex justify-between items-center">
                         <h2 className="text-4xl font-bold text-center text-black">

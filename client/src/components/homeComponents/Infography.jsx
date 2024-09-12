@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FaExclamationCircle, FaSadTear, FaPrescriptionBottle, FaBrain } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Infography() {
     const mentalHealthStats = [
         {
             category: 'Anxiety Disorders',
-            percentage: 31.1, // Changed to number
+            percentage: 31.1,
             description: 'Anxiety disorders affect over 31% of adults globally at some point in their lives, making it one of the most common mental health challenges.',
             icon: <FaExclamationCircle className="text-white text-2xl" />,
         },
@@ -29,7 +30,6 @@ function Infography() {
         },
     ];
 
-    // Simple useEffect with setTimeout to increment percentage
     const useAnimatedPercentage = (finalValue) => {
         const [value, setValue] = useState(0);
 
@@ -42,8 +42,8 @@ function Infography() {
                 } else {
                     clearInterval(interval);
                 }
-            }, 30); // Adjust the speed by changing the interval time
-            return () => clearInterval(interval); // Cleanup on component unmount
+            }, 30);
+            return () => clearInterval(interval);
         }, [finalValue]);
 
         return value;
@@ -81,7 +81,9 @@ function Infography() {
                 </div>
 
                 <div className='float-right pr-10'>
-                    <button type='button' className='btn'>Read more --</button>
+                    <Link to="about/mental-health">
+                        <button type='button' className='btn'>Read more --</button>
+                    </Link>
                 </div>
             </div>
         </div>
