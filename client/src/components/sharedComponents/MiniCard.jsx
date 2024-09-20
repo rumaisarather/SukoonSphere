@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 function MiniCard({ podcast }) {
   return (
-    <div className="cardBody border-[1px] bg-blue-50 h-[400px]  rounded-xl hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
+    <div className="cardBody border-[1px]  h-[400px]  rounded-xl hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
       <img
         className="w-full h-60 object-cover  "
         src={podcast.image}
