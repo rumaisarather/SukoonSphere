@@ -18,7 +18,21 @@ body {
   background-color: var(--white-color);
 
 }
+h1{
+  letter-spacing: 1.5px;
+  font-size: 3rem;
+}
+h1,h2,h3{
+  font-family: "Bebas Neue", "sans-serif" ;
+  letter-spacing: 1.2px;
+  text-wrap: balance;
+}
 
+p,li,figcaption{
+  /* max-width: 65ch; */
+  text-wrap: pretty;
+  font-family: "Signika Negative", "sans-serif";
+}
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
   background-color: rgb(187, 184, 184);
@@ -67,8 +81,8 @@ audio::-webkit-media-controls-panel {
   --max-width: 1600px;
   --fluid-width: 95vw;
 
-  --title-font: "Bebas Neue", sans-serif;
-  --title2-font: "Signika Negative", sans-serif;
+  --title-font: "Bebas Neue", "sans-serif";
+  --title2-font: "Signika Negative", "sans-serif";
 }
 
 /*  */

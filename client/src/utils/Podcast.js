@@ -17,11 +17,8 @@ export const podcasts = [
       "Living a healthy life is more than just eating well and exercising; it's about finding a balance in all areas of life. In this episode, we explore the multidimensional aspects of health, including mental and emotional well-being. " +
       "Dr. Emily Stone shares insights on how stress management, sleep, and social connections are integral parts of maintaining overall health. We delve into the importance of understanding your body’s unique needs and how to listen to its signals. " +
       "The episode also covers how mindfulness and positive thinking can significantly impact your physical health. By integrating healthy habits into your daily routine, you can achieve a more fulfilling and balanced life. " +
-      "We discuss how to set realistic goals, stay motivated, and overcome common obstacles in your health journey. Dr. Stone also emphasizes the role of community and support systems in achieving long-term health. " +
-      "Whether you’re just starting or looking to enhance your current lifestyle, this episode provides practical advice and inspiration. The discussion also includes the latest research on holistic health practices and how they can be incorporated into everyday life. " +
-      "Listeners will learn about the benefits of regular check-ups and preventive care, and how they can lead to a longer, healthier life. We also touch on the importance of mental health in achieving overall well-being and how to seek help when needed. " +
-      "Dr. Stone shares personal anecdotes and experiences, making the advice relatable and easy to apply. The episode concludes with actionable steps to start living a healthier life today. Tune in to gain a deeper understanding of what it truly means to live healthily.",
-  },
+      "We discuss how to set realistic goals, stay motivated, and overcome common obstacles in your health journey. Dr. Stone also emphasizes the role of community and support systems in achieving long-term health. " 
+    },
   {
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbBDDTAMW03jEFb3idqjkuI0vOBsh6PtmA35FHoPA9FaGbLabP6xHxs74KrFUvRNlA6M&usqp=CAU",

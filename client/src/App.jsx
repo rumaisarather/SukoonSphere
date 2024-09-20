@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, Podcast, Posts, AllQuizzes, MentalHealth, AllVideos, Video, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       // Podcast Added
       {
         path: "/podcast",
-        element: <Podcast />,
+        element: <PodcastEpisodes />,
       },
       {
         path: "/podcast-page",
@@ -70,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: 'media/all-videos/video',
         element: <Video />
+      },
+      {
+        path: 'podcast/playlists',
+        element: <PodcastPlaylists/>
       }
 
     ],

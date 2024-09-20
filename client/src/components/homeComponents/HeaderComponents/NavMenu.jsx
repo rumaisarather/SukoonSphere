@@ -28,7 +28,6 @@ function NavMenu() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-console.log({user})
   return (
     <nav
       className={` flex items-center sm:items-center  sm:flex-row justify-between w-full z-20 transition-colors duration-[.2s] ease-in-out p-2 h-[70px] px-6 ${
