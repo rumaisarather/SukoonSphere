@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 function MiniCard({ podcast }) {
   return (
-    <div className="cardBody border-[1px]  h-[400px]  rounded-xl hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
+    <div className="cardBody border-[1px]  h-[400px] shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
       <img
         className="w-full h-60 object-cover  "
         src={podcast.image}
         alt=""
       />
-      <div className="flex flex-col gap-2 text-black px-6 py-3  transition ease-in-out ">
-        <h4 className="text-2xl text-[var(--blue-color)] font-semibold border-b-[1px] border-gray-200">
-          {podcast.title}
-        </h4>
-       <p>Episordes : 8</p>
+      <div className="flex flex-col gap-2 text-black px-3 py-3  transition ease-in-out ">
+        <Link to={"podcast"}>
+          <h4 className="text-xl font-bold text-[#13404f] line-clamp-2 hover:text-[var(--ternery)] cursor-pointer">
+            {podcast.title}
+          </h4>
+        </Link>
+        <p>Episordes : 8</p>
         <div className="flex justify-between">
           <p className="flex  items-center gap-2 a">
             <MdOutlineDateRange className="text-xl text-[var(--blue-color)] " />

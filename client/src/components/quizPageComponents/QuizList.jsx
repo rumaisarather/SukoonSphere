@@ -26,10 +26,10 @@ function QuizItem({ title, imgSrc }) {
   return (
 
     <div
-      className="flex items-center py-4 border-b border-gray-200 cursor-pointer hover:bg-gray-200"
+      className="flex items-center py-4 border-b border-gray-200 cursor-pointer hover:bg-gray-200 "
     >
       <img src={imgSrc} alt={title} className="w-12 h-12 mr-4" />
-      <h3 className="text-lg font-semibold text-[#364663]">{title}</h3>
+      <h3 className="text-lg font-semibold text-[#364663] hover:text-[var(--ternery)]">{title}</h3>
     </div>
   );
 }

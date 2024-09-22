@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaExclamationCircle, FaSadTear, FaPrescriptionBottle, FaBrain } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import SectionTitle from '../sharedComponents/SectionTitle';
 
 function Infography() {
     const mentalHealthStats = [
@@ -50,29 +51,34 @@ function Infography() {
     };
 
     return (
-        <div className='relative'>
-            <div className="max-w-7xl mx-auto text-white relative py-16 px-6">
+        <div className='relative my-12 mb-20'>
+            <SectionTitle title={'Why SukoonSphere?'}></SectionTitle>
+
+            <div className="max-w-7xl mx-auto text-white relative px-6">
                 <div className="space-y-4 max-w-7xl mx-auto relative text-center">
-                    <p className="text-sm uppercase tracking-wide text-black">Great practice means great health care</p>
-                    <h1 className="text-5xl font-bold my-4 text-black">Raising Mental Health Issues</h1>
-                    <p className="text-lg font-light text-black">
-                        Dynamically target high-payoff intellectual capital for customized technologies. Objectively integrate emerging core competencies.
+                    <p className="text-sm uppercase tracking-wide text-[var(--black-color)]">Great practice means great health care</p>
+                    <h1 className="text-5xl font-bold text-[var(--primary)]">Mental Health Challenges</h1>
+                    <p className="text-lg font-light text-[var(--black-color)]">
+                        Dynamically target high-payoff intellectual capital for customized technologies. <br /> Objectively integrate emerging core competencies.
                     </p>
                 </div>
 
-                <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
                     {mentalHealthStats.map((stats, index) => {
                         const animatedValue = useAnimatedPercentage(stats.percentage);
                         return (
-                            <div key={index} className="border-r-2 border-l-2 p-3 text-center">
+                            <div
+                                key={index}
+                                className={`p-3 text-center ${index === 0 ? 'border-l-2 border-r-2' : 'border-r-2'}`}
+                            >
                                 <div className="flex justify-center mt-4">
-                                    <div className="bg-blue-800 rounded-full p-8">
+                                    <div className="bg-[var(--primary)] rounded-full p-8">
                                         {stats.icon}
                                     </div>
                                 </div>
                                 <div className="mt-4 space-y-2">
-                                    <p className="text-sm text-gray-500">{stats.category}</p>
-                                    <h1 className="text-3xl font-semibold text-blue-800">{animatedValue}%</h1>
+                                    <p className="text-md font-bold text-[var(--secondary)]">{stats.category}</p>
+                                    <h1 className="text-3xl font-semibold text-[var(--primary)]">{animatedValue}%</h1>
                                     <p className="mt-2 text-gray-600">{stats.description}</p>
                                 </div>
                             </div>
@@ -80,9 +86,10 @@ function Infography() {
                     })}
                 </div>
 
+
                 <div className='float-right pr-10'>
                     <Link to="about/mental-health">
-                        <button type='button' className='btn'>Read more --</button>
+                        <button type='button' className='px-4 py-2 rounded-[4px] bg-[var(--btn-primary)] text-[var(--white-color)] hover:bg-[var(--btn-secondary)] '>Read more --</button>
                     </Link>
                 </div>
             </div>

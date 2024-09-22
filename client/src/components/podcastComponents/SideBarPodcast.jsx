@@ -6,9 +6,9 @@ const SideBarPodcast = ({ podcast }) => {
     <div className=" py-4 grid grid-cols-3 gap-4 border-b-2">
       <div className="col-span-2">
         <Link to="#">
-          <h1 className="text-black text-lg">{title}</h1>
+          <h1 className="text-lg">{title}</h1>
         </Link>
-        <p className="tranctcate-text-3 text-sm">{description}</p>
+        <p className="tranctcate-text-3 text-sm text-[var(--black-color)]">{description}</p>
       </div>
       <div className="col-span-1">
         <Link to="#">

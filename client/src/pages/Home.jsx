@@ -1,7 +1,6 @@
 import { Fragment } from "react"
-import { Hero, Stastistics, Podcasts, TopIntro, TodaysQuiz, OurStory, Infography } from "../components"
+import { Hero, Stastistics, Podcasts, TopIntro, TodaysQuiz, OurStory, Infography, TrendingVideos } from "../components"
 import TodayEssentials from "@/components/homeComponents/TodayEssentials";
-import SectionTitle from "@/components/sharedComponents/SectionTitle";
 
 const Home = () => {
   return (
@@ -11,8 +10,8 @@ const Home = () => {
       <OurStory></OurStory>
       <Infography></Infography>
       <TodayEssentials></TodayEssentials>
-      <SectionTitle title="Recent Quizzes" />
       <TodaysQuiz></TodaysQuiz>
+      <TrendingVideos></TrendingVideos>
       {/* <Stastistics /> */}
       <Podcasts />
     </Fragment>

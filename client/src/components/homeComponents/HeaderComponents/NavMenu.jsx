@@ -30,9 +30,8 @@ function NavMenu() {
   }, []);
   return (
     <nav
-      className={` flex items-center sm:items-center  sm:flex-row justify-between w-full z-20 transition-colors duration-[.2s] ease-in-out p-2 h-[70px] px-6 ${
-        isSticky ? "fixed top-0 left-0 bg-[#0c2b64] shadow-md" : "absolute"
-      }`}
+      className={` flex items-center sm:items-center  sm:flex-row justify-between w-full z-20 transition-colors duration-[.2s] ease-in-out p-2 h-[70px] px-6 ${isSticky ? "fixed top-0 left-0 bg-[#fff] shadow-md" : "absolute"
+        }`}
     >
       <img
         src={CompanyLogo}
@@ -50,9 +49,9 @@ function NavMenu() {
               key={link.name}
               to={link.address}
               className={({ isActive }) =>
-                isActive
-                  ? "text-orange-300 font-bold"
-                  : "text-white  hover:text-orange-300"
+                `${isActive ? "text-[var(--ternery)] font-extrabold" : "font-bold hover:text-[var(--ternery)]"} 
+                 ${isSticky ? "text-[var(--primary)]" : "text-[var(--white-color)]"
+                }`
               }
             >
               {link.name}
@@ -78,18 +77,16 @@ function NavMenu() {
               </LinkButton>
             </div>
           ) : (
-            <LinkButton
-              to="/#"
-              variant="primary"
-              size="small"
+            <button
+
               onClick={async () => {
                 loginWithRedirect();
               }}
-              className={`
-          ${isSticky && "bg-[#f98702]"}`}
+              className={`action-button action-login-button
+              ${isSticky && "bg-[var(ternery)]"}`}
             >
               Login
-            </LinkButton>
+            </button>
           )}
         </ul>
       </div>
@@ -120,7 +117,7 @@ function NavMenu() {
             variant="primary"
             size="small"
             className={`
-          ${isSticky && "bg-[#f98702]"}`}
+          ${isSticky && "bg-[var(--btn-primary)]"}`}
           >
             Login
           </LinkButton>
