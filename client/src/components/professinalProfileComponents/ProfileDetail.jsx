@@ -6,7 +6,7 @@ const ProfileDetail = () => {
       <div className=" p-8  mx-auto rounded-lg shadow-md">
         {/* Highlights Section */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-[#0c2b64]">Highlights</h2>
+          <h2 className="text-2xl font-bold text-[var(--black-color)]">Highlights</h2>
           <ul className="list-disc list-inside text-gray-700 mt-4 space-y-2">
             <li>
               Assistant professor of psychiatry at{' '}
@@ -31,9 +31,9 @@ const ProfileDetail = () => {
         </div>
 
         {/* Quote Section */}
-        <div className="border-l-4 border-green-600 bg-[#e8f5f9] p-4 mb-6 rounded-lg">
+        <div className="border-l-4 border-green-600 bg-[var(--light-bg)] p-4 mb-6 rounded-lg">
           <p className="italic text-gray-700">
-            “I am thrilled to be involved with Verywell in their mission to bring accurate and accessible information regarding health issues to
+            “I am thrilled to be involved with SukoonSphere in their mission to bring accurate and accessible information regarding health issues to
             everyone. This is an especially critical time that the information available to the public in understanding their health is factual,
             clear, and contextually useful.”
           </p>
@@ -42,7 +42,7 @@ const ProfileDetail = () => {
 
         {/* Experience Section */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-[#0c2b64]">Experience</h2>
+          <h2 className="text-2xl font-bold text-[var(--black-color)]">Experience</h2>
           <p className="text-gray-700 mt-4">
             Dr. Gans is passionately involved in the practice and teaching of psychotherapy. He is an active supervisor, teacher, and mentor in the
             Massachusetts General Hospital (MGH)/McLean Adult Psychiatry Residency Training Program and in their Program in Psychodynamics (PIP). A
@@ -71,7 +71,7 @@ const ProfileDetail = () => {
 
         {/* Education Section */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-[#0c2b64]">Education</h2>
+          <h2 className="text-2xl font-bold text-[var(--black-color)]">Education</h2>
           <p className="text-gray-700 mt-4">
             Dr. Gans received a Bachelor in Science degree from Loyola University of Chicago. He earned his medical degree from Rush University Medical
             College. Dr. Gans did his residency in psychiatry at the Beth Israel Hospital in Boston. He is a graduate of the Boston Psychoanalytic
@@ -81,7 +81,7 @@ const ProfileDetail = () => {
 
         {/* About Section */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-[#0c2b64]">About SukoonSphere</h2>
+          <h2 className="text-2xl font-bold text-[var(--black-color)]">About SukoonSphere</h2>
           <p className="text-gray-700 mt-4">
             SukoonShpere, a{' '}
             <a href="#" className="text-blue-600 underline">

@@ -8,8 +8,8 @@ const SimilarPodcasts = ({ title }) => {
     <div className="card grid ">
       <h1 className="card-title text-black">{title}</h1>
       {
-        podcasts.slice(0,4).map((_podcast)=>{
-return <SideBarPodcast podcast={_podcast}/>;
+        podcasts.slice(0, 4).map((_podcast) => {
+          return <SideBarPodcast podcast={_podcast} />;
         })
       }
     </div>

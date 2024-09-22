@@ -41,5 +41,9 @@ export { default as FilterQuizByCatagory } from './quizPageComponents/allQuizzes
 
 export { default as VideoCard } from './mediaLibrary/VideoCard'
 export { default as RelatedVideoCard } from './mediaLibrary/RelatedVideoCard'
+export { default as TrendingVideos } from './homeComponents/TrendingVideos'
+export { default as ProfileSidebar } from './qaSectionsComponents/ProfileSidebar'
+export { default as GroupsSidebar } from './qaSectionsComponents/GroupsSideBar'
+
 
 

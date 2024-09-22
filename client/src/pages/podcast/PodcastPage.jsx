@@ -27,22 +27,22 @@ function PodcastPage() {
       <section className="container px-40 flex flex-col gap-6 ">
         <span>Episode: {episodeNo}</span>
         <div>
-          <h2 className=" text-4xl text-[var(--blue-color)] font-[var(--title-font)] my-3">
+          <h2 className=" text-4xl text-[var(--black-color)] font-[var(--black-color)] my-3">
             {title}
           </h2>
-          <div className="flex flex-col gap-4">
+          {/* <div className="flex flex-col gap-4">
             <span className="flex items-center">
               <img
                 src={avatar}
                 alt={author}
                 className="w-8 h-8 rounded-full mr-3"
-              />{" "}
+              />
               <span className="font-semibold "> {author} </span>
             </span>
             <span className="text-xs place-items-center font-mono text-[var(--blue-color)] font-bold">
               Date: {publishDate}
             </span>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col  text-black border-b-[1px] border-gray-300 p-4 gap-4 ">
           <div className="flex gap-4">
@@ -54,22 +54,21 @@ function PodcastPage() {
             <source src={audioSource} type="audio/mpeg" />
           </audio>
         </div>
-        <h2 className="text-2xl text-[var(--blue-color)]">Discription:</h2>
-        <p className="text-2xl text-gray-700 border-b-[1px] border-gray-300 pb-3">
+        <h2 className="text-xl text-[var(--blue-color)]">Discription:</h2>
+        <p className="text-xl text-gray-700 border-b-[1px] border-gray-300 pb-3">
           {full_discription}
-          ""
         </p>
         <div className="text-2xl flex flex-col gap-6 text-black">
-        <p>New Episorde every forthnight</p>
-        <p>Explore more on www.sukoonsphere.com</p>
-        <p><span>Produced by:</span> {author}</p>
-        <p></p>
+          <p>New Episorde every forthnight</p>
+          <p>Explore more on www.sukoonsphere.com</p>
+          <p><span>Produced by:</span> {author}</p>
+          <p></p>
 
         </div>
         <div className="grid grid-cols-3 gap-4 ">
           <div className="cardBody border-[1px]  h-[350px]  rounded-xl hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
-          <img className="w-full h-44 object-cover  " src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbBDDTAMW03jEFb3idqjkuI0vOBsh6PtmA35FHoPA9FaGbLabP6xHxs74KrFUvRNlA6M&usqp=CAU' alt="" />
-          <div className="flex flex-col gap-2 text-black px-6 py-3  transition ease-in-out ">
+            <img className="w-full h-44 object-cover  " src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbBDDTAMW03jEFb3idqjkuI0vOBsh6PtmA35FHoPA9FaGbLabP6xHxs74KrFUvRNlA6M&usqp=CAU' alt="" />
+            <div className="flex flex-col gap-2 text-black px-6 py-3  transition ease-in-out ">
               <h4 className="text-3xl text-[var(--blue-color)] font-semibold border-b-[1px] border-gray-200">
                 Akele Aur Chalna Chahiye
               </h4>
@@ -79,14 +78,14 @@ function PodcastPage() {
                   <span className="text-xs text-gray-400"> {publishDate}</span>
                 </p>
                 <Link>
-                <FaArrowRight className="border-2 border-[var(--blue-color)] text-[var(--blue-color)] hover:bg-[var(--blue-color)] transition-all duration-300 ease-in-out hover:text-white rounded-full w-10 h-4 py-[2px]" />
+                  <FaArrowRight className="border-2 border-[var(--blue-color)] text-[var(--blue-color)] hover:bg-[var(--blue-color)] transition-all duration-300 ease-in-out hover:text-white rounded-full w-10 h-4 py-[2px]" />
                 </Link>
               </div>
             </div>
           </div>
           <div className="cardBody border-[1px]  h-[350px] rounded-xl hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
-          <img className="w-full h-44 object-cover  " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpoTf_27bVZoUmhZ4wtS-qNwz-PV_00WpVQA&s" alt="" />
-          <div className="flex flex-col gap-2 text-black px-6 py-3  transition ease-in-out ">
+            <img className="w-full h-44 object-cover  " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpoTf_27bVZoUmhZ4wtS-qNwz-PV_00WpVQA&s" alt="" />
+            <div className="flex flex-col gap-2 text-black px-6 py-3  transition ease-in-out ">
               <h4 className="text-3xl text-[var(--blue-color)] font-semibold border-b-[1px] border-gray-200">
                 Akele Aur Chalna Chahiye
               </h4>
@@ -96,7 +95,7 @@ function PodcastPage() {
                   <span className="text-xs text-gray-400"> {publishDate}</span>
                 </p>
                 <Link>
-                <FaArrowRight className="border-2 border-[var(--blue-color)] text-[var(--blue-color)] hover:bg-[var(--blue-color)] transition-all duration-300 ease-in-out hover:text-white rounded-full w-10 h-4 py-[2px]" />
+                  <FaArrowRight className="border-2 border-[var(--blue-color)] text-[var(--blue-color)] hover:bg-[var(--blue-color)] transition-all duration-300 ease-in-out hover:text-white rounded-full w-10 h-4 py-[2px]" />
                 </Link>
               </div>
             </div>
@@ -113,12 +112,12 @@ function PodcastPage() {
                   <span className="text-xs text-gray-400"> {publishDate}</span>
                 </p>
                 <Link>
-                <FaArrowRight className="border-2 border-[var(--blue-color)] text-[var(--blue-color)] hover:bg-[var(--blue-color)] transition-all duration-300 ease-in-out hover:text-white rounded-full w-10 h-4 py-[2px]" />
+                  <FaArrowRight className="border-2 border-[var(--blue-color)] text-[var(--blue-color)] hover:bg-[var(--blue-color)] transition-all duration-300 ease-in-out hover:text-white rounded-full w-10 h-4 py-[2px]" />
                 </Link>
               </div>
             </div>
           </div>
-     
+
         </div>
         <div className="flex gap-3 text-[var(--blue-color)] border-2 border-[var(--blue-color)] w-24 p-2 rounded-full shadow-inner">
           <FaFacebook className="size-6 " />

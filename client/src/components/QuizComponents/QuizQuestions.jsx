@@ -64,19 +64,19 @@ const QuizQuestions = ({ quizQuestionsList }) => {
         <>
             <div className='space-y-4 sticky top-24'>
                 <div className="flex justify-between items-center ">
-                    <h1 className="text-2xl font-bold text-[#0c2b64]">Question {currentQuestionIndex + 1}</h1>
-                    <div className="bg-[#0c2b64] text-white px-4 py-2 rounded-full text-sm">
+                    <h1 className="text-2xl font-bold text-[var(--primary)]">Question {currentQuestionIndex + 1}</h1>
+                    <div className="bg-[var(--btn-primary)] text-white px-4 py-2 rounded-full text-sm">
                         {currentQuestionIndex + 1}/{quizQuestionsList.length}
                     </div>
                 </div>
                 <hr className="border-gray-300 mt-4" />
-                <h2 className="text-xl font-semibold text-[#364663] mb-4">{question}</h2>
+                <h2 className="text-xl font-semibold text-[--black-color] mb-4">{question}</h2>
                 <ul className="space-y-2">
                     {[option1, option2, option3, option4].map((option, index) => (
                         <li
                             key={index}
                             onClick={(event) => handleOptionClick(event, option)}
-                            className={`p-2 border border-gray-400 rounded-lg text-gray-800 cursor-pointer hover:bg-green-100 hover:border-green-400 ${getOptionClasses(option)}`}
+                            className={`p-2 border border-gray-400 rounded-lg text-gray-800 cursor-pointer hover:bg-green-100 hover:border-green-400 hover:border-l-4 ${getOptionClasses(option)}`}
                         >
                             {option}
                         </li>

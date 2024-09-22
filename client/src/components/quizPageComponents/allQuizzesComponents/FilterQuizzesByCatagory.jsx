@@ -1,23 +1,22 @@
 import React from 'react';
+import { FaSearch } from 'react-icons/fa';
+import { RxReset } from 'react-icons/rx';
 import { Form, Link, useLoaderData } from 'react-router-dom';
 
 function FilterQuizzesByCategory() {
     const { allCategories } = useLoaderData();
 
     return (
-        <div className="p-4 max-w-4xl ">
+        <div className="py-4 max-w-4xl ">
             <Form className="grid gap-6 grid-cols-1 md:grid-cols-3 items-center">
-                <div className="flex flex-col">
-                    <label htmlFor="category" className="text-lg font-semibold mb-2">
-                        Category
-                    </label>
+                <div className="flex flex-col justify-center">
                     <select
                         name="category"
                         id="category"
-                        className="border-b-2 border-blue-800 bg-white rounded-lg p-2 focus:border-blue-800 focus:outline-none focus:ring-0"
+                        className="bg-transparent border-b-2 border-[var(--primary)] rounded-lg p-2 focus:border-[var(--secondary)] focus:outline-none focus:ring-0"
                     >
                         <option value="" disabled selected>
-                            Select a category
+                            Filter by a category
                         </option>
                         {allCategories.map((tag) => (
                             <option key={tag} value={tag}>
@@ -27,18 +26,18 @@ function FilterQuizzesByCategory() {
                     </select>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-4 md:col-span-2 size-2">
+                <div className="flex flex-col md:flex-row gap-4 md:col-span-2 size-2 items-center">
                     <button
                         type="submit"
-                        className="btn btn-primary btn-outline text-white font-bold rounded-xl "
+                        className="text-white  rounded-xl "
                     >
-                        Search
+                        <FaSearch className="text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-5" />
                     </button>
                     <Link
                         to="/all-quizzes"
-                        className="btn btn-ternary py-2 px-4 rounded-xl "
+                        className=" py-2 px-4 rounded-xl "
                     >
-                        Reset
+                        <RxReset className="font-extrabold text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-6" />
                     </Link>
                 </div>
             </Form>

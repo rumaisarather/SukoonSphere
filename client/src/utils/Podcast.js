@@ -10,15 +10,15 @@ export const podcasts = [
     title: "Episode Number One: The Art of Living a Healthy Life",
     subtitle: "Secure, anxious, avoidant, and disorganized—which one are you?",
     description:
-   " Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aut corporis, nihil veritatis et quasi? Eaque provident temporibus neque, minus magnam, debitis maiores architecto delectus, deserunt corrupti totam veniam iusto beatae incidunt animi expedita magni perspiciatis nam vel modi iure dolores! Aperiam et expedita nisi. Repudiandae, repellat molestias velit odit dolorum nostrum repellendus quod animi sapiente sed doloremque quis, quam qui aut blanditiis voluptatibus mollitia deserunt possimus eligendi placeat aperiam.",
+      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aut corporis, nihil veritatis et quasi? Eaque provident temporibus neque, minus magnam, debitis maiores architecto delectus, deserunt corrupti totam veniam iusto beatae incidunt animi expedita magni perspiciatis nam vel modi iure dolores! Aperiam et expedita nisi. Repudiandae, repellat molestias velit odit dolorum nostrum repellendus quod animi sapiente sed doloremque quis, quam qui aut blanditiis voluptatibus mollitia deserunt possimus eligendi placeat aperiam.",
     audioSource: "horse.mp3",
     readMoreLink: "#",
     full_discription:
       "Living a healthy life is more than just eating well and exercising; it's about finding a balance in all areas of life. In this episode, we explore the multidimensional aspects of health, including mental and emotional well-being. " +
       "Dr. Emily Stone shares insights on how stress management, sleep, and social connections are integral parts of maintaining overall health. We delve into the importance of understanding your body’s unique needs and how to listen to its signals. " +
       "The episode also covers how mindfulness and positive thinking can significantly impact your physical health. By integrating healthy habits into your daily routine, you can achieve a more fulfilling and balanced life. " +
-      "We discuss how to set realistic goals, stay motivated, and overcome common obstacles in your health journey. Dr. Stone also emphasizes the role of community and support systems in achieving long-term health. " 
-    },
+      "We discuss how to set realistic goals, stay motivated, and overcome common obstacles in your health journey. Dr. Stone also emphasizes the role of community and support systems in achieving long-term health. "
+  },
   {
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbBDDTAMW03jEFb3idqjkuI0vOBsh6PtmA35FHoPA9FaGbLabP6xHxs74KrFUvRNlA6M&usqp=CAU",
@@ -102,8 +102,8 @@ export const podcasts = [
       "Strategies to overcome adversity and thrive in challenging situations.",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus modi nemo minlat temporibus Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    
-      audioSource: "resilience.mp3",
+
+    audioSource: "resilience.mp3",
     readMoreLink: "#",
     full_discription:
       "Resilience is the ability to bounce back from adversity and continue moving forward, no matter the challenges you face. In this episode, Dr. Robert Harris shares strategies for building resilience and thriving in difficult situations. " +

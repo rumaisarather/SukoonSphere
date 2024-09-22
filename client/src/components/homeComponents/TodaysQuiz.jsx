@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { data } from '../../db/QuizData';
 import QuizQuestions from '../quizComponents/QuizQuestions';
 import QuizSummary from '../quizComponents/QuizSummary';
+import SectionTitle from '../sharedComponents/SectionTitle';
 
 function TodaysQuiz() {
     const [index, setIndex] = useState(0);
@@ -68,6 +69,7 @@ function TodaysQuiz() {
 
     return (
         <>
+            <SectionTitle title="Recent Quizzes" />
             <div className="max-w-7xl mx-auto bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div className="col-span-5 grid gap-6 p-6 bg-white rounded-lg shadow-lg">

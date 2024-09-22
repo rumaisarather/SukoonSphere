@@ -19,5 +19,14 @@ export const links = [
     name: "All Quizzes",
     address: 'all-quizzes'
   },
- 
+  {
+    name: "All Videos",
+    address: 'media/all-videos'
+  },
+  {
+    name: "About",
+    address: 'about-us'
+  },
+
+
 ];

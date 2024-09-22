@@ -1,3 +1,7 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,25 +18,32 @@
 }
 
 body {
-
-  background-color: var(--white-color);
-
-}
-h1{
-  letter-spacing: 1.5px;
-  font-size: 3rem;
-}
-h1,h2,h3{
-  font-family: "Bebas Neue", "sans-serif" ;
-  letter-spacing: 1.2px;
-  text-wrap: balance;
+  font-family: "Lora", serif;
+  /* Applying Lora as the default font for the body */
+  background-color: var(--body);
 }
 
-p,li,figcaption{
-  /* max-width: 65ch; */
-  text-wrap: pretty;
-  font-family: "Signika Negative", "sans-serif";
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
+  color: var(--primary);
+  line-height: 1.3;
+  font-weight: 700;
 }
+
+p,
+li,
+a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+
+
 audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
   background-color: rgb(187, 184, 184);
@@ -40,43 +51,32 @@ audio::-webkit-media-controls-panel {
 }
 
 :root {
-  --primary: red;
-  /* HSL equivalent of #0c2b64 */
+  --primary: #13404f;
+  --secondary: #257f69;
+  --ternery: #d33b52;
+  --light-bg: #e8f5f9;
+  --btn-primary: #25806a;
+  --btn-secondary: #2ebe7e;
+  --body: #f7f9f9;
   --primary-foreground: red;
-  /* Example foreground color */
-  /* basic colors */
   --white-color: #ffffff;
   --black-color: #000000;
   --sky-blue-hover: #207e95;
-  --blue-color: #1c4c93;
+  --blue-color: #13404f;
   --blue-hover: #102b53;
-
-  --logo-primary: #1ea0ad;
-  --logo-secondary: #c80799;
-  --logo-ternary: #f98702;
-
   --light: #f0f0f0;
   --heaven: #ffffff;
   --light-color: #888;
-
-  /* gradients  */
-  /* example to use gradient
- .some-element {
-  background: linear-gradient(to right, var(--gradient-start) 0%, var(--gradient-middle) 50%, var(--gradient-end) 100%);
-} */
   --gradient-start: rgba(130, 190, 66, 1);
   --gradient-middle: rgba(48, 178, 210, 1);
   --gradient-end: rgba(28, 76, 147, 1);
-  /* extra colors */
   --sec-color: #878e99;
   --grey-1: rgba(0, 0, 0, .07);
-
   --shadow: rgba(0, 0, 0, 0.549);
   --background-color-1: linear-gradient(145deg, #1e2024, #23272b);
   --shadow-1: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
   --shadow-2: inset 21px 21px 19px #181a1d, inset -21px -21px 19px #202225;
-  --inner-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset,
-    -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
+  --inner-shadow: 1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset;
   --border-1: #000000dd;
   --max-width: 1600px;
   --fluid-width: 95vw;
@@ -85,27 +85,60 @@ audio::-webkit-media-controls-panel {
   --title2-font: "Signika Negative", "sans-serif";
 }
 
-/*  */
-.tranctcate-text-5 {
+/* Truncate text styles */
+.tranctcate-text-5,
+.tranctcate-text-2,
+.tranctcate-text-3 {
   display: -webkit-box;
-  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.tranctcate-text-5 {
+  -webkit-line-clamp: 5;
 }
 
 .tranctcate-text-2 {
-  display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .tranctcate-text-3 {
-  display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+}
+
+/* Styling for the action buttons */
+.action-button {
+  background-color: var(--btn-primary);
+  color: var(--white-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all .3s ease-in-out;
+}
+
+.action-button:hover {
+  background-color: var(--btn-secondary);
+}
+
+/* Typewriter animation */
+.typewriter {
+  margin-bottom: -5px;
+  height: 35px;
+  border-right: 2px solid white;
+  display: inline-block;
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: white;
+  }
 }

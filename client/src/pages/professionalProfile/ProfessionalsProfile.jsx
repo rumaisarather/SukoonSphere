@@ -1,14 +1,15 @@
-import { HeaderImg, Intro, ProfileDetail } from '@/components'
+import { Intro, ProfileDetail } from '@/components'
 import React from 'react'
 import { ProfessionalsDetails } from '@/utils/ProfessionalsDetails'
-import bgImg from '../../assets/images/bg_podcast.jpg'
+import { useParams } from 'react-router-dom';
 
 function ProfessionalsProfile() {
-  const professional = ProfessionalsDetails[0];
+  const { id: param_id } = useParams();
+  const professional = ProfessionalsDetails.find((user) => user.userId === param_id);
 
+  console.log({ param_id, professional });
   return (
     <>
-      <HeaderImg currentPage="Profile" bgImg={bgImg} />
       <div className='grid sm:grid-cols-12 mt-20'>
         <div className="sm:col-span-12">
           <Intro

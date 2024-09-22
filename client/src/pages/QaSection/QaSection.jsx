@@ -2,26 +2,90 @@ import React, { useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { questions as _questions } from "@/utils/qaSection";
 import bgImg from "../../assets/images/qa.jpg";
-import { HeaderImg } from "@/components";
+import { GroupsSidebar, HeaderImg, ProfileSidebar } from "@/components";
 
 const questions = [..._questions];
 
 const QaSection = () => {
+  const groups = [
+    {
+      id: 1,
+      name: 'Mindfulness Practices 🧘‍♂️',
+      image: 'https://example.com/image_mindfulness.jpg',
+    },
+    {
+      id: 2,
+      name: 'Coping with Anxiety 💭',
+      image: 'https://example.com/image_anxiety.jpg',
+    },
+    {
+      id: 3,
+      name: 'Therapy Techniques 📖',
+      image: 'https://example.com/image_therapy.jpg',
+    },
+    {
+      id: 4,
+      name: 'Depression Support Group ❤️',
+      image: 'https://example.com/image_depression.jpg',
+    },
+    {
+      id: 5,
+      name: 'Stress Management Workshops 🌱',
+      image: 'https://example.com/image_stress.jpg',
+    }
+  ];
+
+
   return (
     <>
       <HeaderImg currentPage="QA Section" bgImg={bgImg} />
+      <div className="relative max-w-7xl mx-auto p-4">
+        <div className="grid grid-cols-12 gap-2">
+          {/* Left sidebar for user information */}
+          <div className="sticky top-[10%] col-span-3 h-screen overflow-y-auto">
+            <ProfileSidebar
+              username="Sartaj Ashraf"
+              userTag="Mental Health Advocate"
+              questionsPosted={33}
+              answersPosted={44}
+              savedItems={['Mindfulness Techniques', 'Stress Reduction']}
+              recentItems={['Mental Health', 'Mindfulness Practices']}
+              groups={['Mindfulness and Meditation', 'Therapy Techniques']}
+              followedHashtags={['#mentalhealth', '#mindfulness', '#selfcare']}
+              events={['Mental Wellness Workshop', 'Mindfulness Session']}
+            />
 
-      <div className="max-w-5xl mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          Questions & Answers
-        </h1>
-        {questions.map((question) => (
-          <QuestionCard key={question.id} question={question} />
-        ))}
-      </div>
+          </div>
+          {/* Questions and top rated answers, middle section */}
+          <div className="col-span-6 ">
+            <div className="text-3xl font-bold mb-6 text-center">
+              <label className="input bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
+                <input
+                  type="text"
+                  className="grow text-[var(--black-color)]"
+                  placeholder="Ask a question "
+                  name="search"
+                />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.426 11.926L3.6 4.287a1 1 0 0 0-1.337.73l-.4 2.733a1 1 0 0 0 .67 1.03l10.6 3.04a.25.25 0 0 1 0 .46l-10.6 3.04a1 1 0 0 0-.67 1.03l.4 2.733a1 1 0 0 0 1.337.73l17.826-7.64a1 1 0 0 0 0-1.828z" />
+                </svg>
+
+              </label>
+            </div>
+            {questions.map((question) => (
+              <QuestionCard key={question.id} question={question} />
+            ))}
+          </div>
+          {/* Rights Groups sections */}
+          <div className="sticky top-[10%] col-span-3 h-screen overflow-y-auto">
+            <GroupsSidebar groups={groups} />
+          </div>
+        </div>
+      </div >
     </>
   );
 };
+
 const QuestionCard = ({ question }) => {
   const [showMoreAnswers, setShowMoreAnswers] = useState(false);
 

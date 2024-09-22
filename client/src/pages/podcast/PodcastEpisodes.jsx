@@ -56,7 +56,7 @@ const PodcastEpisodes = () => {
   return (
     <>
       <HeaderImg currentPage="Podcast" bgImg={bgImg} />
-      <div className="flex flex-col md:flex-row  md:px-7 ">
+      <div className="flex flex-col md:flex-row  md:px-7 bg-white">
         <div className=" grid px-8 md:grid-cols-3 gap-4 mt-6">
           {/* Articles */}
           <div className=" grid gap-5 md:col-span-2 justify-items-center  ">

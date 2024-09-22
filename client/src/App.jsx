@@ -1,17 +1,20 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
 import { AllQuizzesLoader } from "./pages/quiz/AllQuizzes";
 import { QuizDetailsLoader } from "./pages/quiz/Quiz";
 import PodcastPage from "./pages/podcast/PodcastPage";
+import { AllVideosLoader } from "./pages/mediaLibrary/AllVideos";
+import { SingleVideoDetailsLoader } from "./pages/mediaLibrary/video";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     // errorElement: <Error />,
+
     children: [
       {
         index: true,
@@ -25,6 +28,10 @@ const router = createBrowserRouter([
         path: "/articles",
         element: <Articles />,
         loader: ArticlesLoader,
+      },
+      {
+        path: "/articles/article",
+        element: <Article />,
       },
       // Added Quiz oute
       {
@@ -49,6 +56,11 @@ const router = createBrowserRouter([
         element: <ProfessionalsProfile />,
       },
       {
+        path: "/about/our-team",
+        element: <OurTeam />,
+      },
+
+      {
         path: "/all-quizzes",
         element: <AllQuizzes></AllQuizzes>,
         loader: AllQuizzesLoader,
@@ -64,8 +76,13 @@ const router = createBrowserRouter([
         element: <MentalHealth />
       },
       {
+        path: '/about-us',
+        element: <AboutUs />
+      },
+      {
         path: 'media/all-videos',
-        element: <AllVideos />
+        element: <AllVideos />,
+        loader: AllVideosLoader,
       },
       {
         path: 'media/all-videos/video',
@@ -73,9 +90,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'podcast/playlists',
-        element: <PodcastPlaylists/>
-      }
-
+        element: <PodcastPlaylists />
+      },
+      {
+        path: 'media/all-videos/video/:id',
+        element: <Video />,
+        loader: SingleVideoDetailsLoader
+      },
     ],
   },
 ]);
