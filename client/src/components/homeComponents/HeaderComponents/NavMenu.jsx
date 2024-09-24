@@ -11,8 +11,8 @@ function NavMenu() {
   const [isSticky, setIsSticky] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-
-  const { isAuthenticated, loginWithRedirect, isLoading, user, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, isLoading, user, logout } =
+    useAuth0();
   const isUser = isAuthenticated && user;
 
   const toggleMenu = () => {
@@ -30,65 +30,73 @@ function NavMenu() {
   }, []);
   return (
     <nav
-      className={` flex items-center sm:items-center  sm:flex-row justify-between w-full z-20 transition-colors duration-[.2s] ease-in-out p-2 h-[70px] px-6 ${isSticky ? "fixed top-0 left-0 bg-[#fff] shadow-md" : "absolute"
-        }`}
+      className={` flex items-center sm:items-center justify-between sm:flex-row  w-full z-20 transition-all ease-in-out p-2 h-[70px]  ${
+        isSticky
+          ? "fixed top-0 duration-500  bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md"
+          : "sticky "
+      }`}
     >
-      <img
-        src={CompanyLogo}
-        className="object-contain w-14 "
-        alt="Logo Loading..."
-      />
       <GiHamburgerMenu
         className="block place-content-end absolute right-3 md:hidden cursor-pointer text-[1.4rem] text-white"
         onClick={toggleMenu}
       />
-      <div className=" hidden md:block">
-        <ul className="flex gap-3 sm:justify-between  sm:items-center   ">
-          {links.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.address}
-              className={({ isActive }) =>
-                `${isActive ? "text-[var(--ternery)] font-extrabold" : "font-bold hover:text-[var(--ternery)]"} 
-                 ${isSticky ? "text-[var(--primary)]" : "text-[var(--white-color)]"
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-          {isUser ? (
-            <div className="flex items-center justify-center gap-2">
-              <div className="flex items-center justify-center gap-2 ">
-                <img className="w-9 h-9 rounded-full border-4 border-blue-400" src={user.picture} />
-                <span className="text-white">{user.name}</span>
-              </div>
-              <LinkButton
-                to="/#"
-                variant="primary"
-                size="small"
-                onClick={async () => {
-                  logout();
-                }}
-                className={`
-          ${isSticky && "bg-[#f98702]"}`}
-              >
-                logout
-              </LinkButton>
+      <div className="flex w-full justify-between items-center  px-28  ">
+        <img
+          src={CompanyLogo}
+          className="object-contain w-14 "
+          alt="Logo Loading..."
+        />
+        <div className=" hidden md:block">
+          <ul className="flex gap-5 sm:justify-between dsm:items-center   ">
+            {links.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.address}
+                className={({ isActive }) =>
+                  `${isActive ? 
+                      "text-[var(--ternery)] font-extrabold" : 
+                      `${isSticky ? "text-white" : "text-[var(--secondary)]"}`
+                  } hover:text-[var(--ternery)] transition-all duration-300`
+                }
+                >
+                {link.name}
+              </NavLink>
+            ))}
+          </ul>
+        </div>
+        {isUser ? (
+          <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-2 ">
+              <img
+                className="w-9 h-9 rounded-full border-4 border-blue-400"
+                src={user.picture}
+              />
+              <span className="text-white">{user.name}</span>
             </div>
-          ) : (
-            <button
-
+            <LinkButton
+              to="/#"
+              variant="primary"
+              size="small"
               onClick={async () => {
-                loginWithRedirect();
+                logout();
               }}
-              className={`action-button action-login-button
-              ${isSticky && "bg-[var(ternery)]"}`}
+              className={`transition-all ease-in-out duration-200  bg-none px-4 py-1 rounded-[4px]   text-[var(--secondary)]  hover:text-white
+                ${isSticky ? " border-[1.5px] border-white text-white hover:bg-[#62cb9c8d]" : "border-[1.5px] border-[var(--secondary)] hover:bg-[var(--secondary)]"}`}
             >
-              Login
-            </button>
-          )}
-        </ul>
+              logout
+            </LinkButton>
+          </div>
+        ) : (
+          <button
+            onClick={async () => {
+              loginWithRedirect();
+            }}
+            className={`transition-all ease-in-out duration-200  bg-none px-4 py-1 rounded-[4px]   text-[var(--secondary)]  hover:text-white
+              ${isSticky ? " border-[1.5px] border-white text-white hover:bg-[#62cb9c8d]" : "border-[1.5px] border-[var(--secondary)] hover:bg-[var(--secondary)]"}`}
+          >
+            Login
+          </button>
+        )}
       </div>
       <div className="block md:hidden">
         <ul
