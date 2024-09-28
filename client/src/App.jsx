@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
@@ -8,6 +8,7 @@ import { QuizDetailsLoader } from "./pages/quiz/Quiz";
 import PodcastPage from "./pages/podcast/PodcastPage";
 import { AllVideosLoader } from "./pages/mediaLibrary/AllVideos";
 import { SingleVideoDetailsLoader } from "./pages/mediaLibrary/video";
+import { UserAnswers, UserFollowers, UserFollowing, UserPosts } from "./components";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         element: <PodcastEpisodes />,
       },
       {
-        path: "/podcast-page",
+        path: "/podcast-page/:id",
         element: <PodcastPage />,
       },
       {
@@ -96,6 +97,27 @@ const router = createBrowserRouter([
         path: 'media/all-videos/video/:id',
         element: <Video />,
         loader: SingleVideoDetailsLoader
+      },
+      {
+        path: 'about/user',
+        element: <UserProfile />,
+        children: [
+          {
+            index: true,
+            element: <UserPosts />
+          }, {
+            path: "answers",
+            element: <UserAnswers />
+          }, {
+            path: "followers",
+            element: <UserFollowers />
+          }, {
+            path: "following",
+            element: <UserFollowing />
+          }
+
+        ]
+
       },
     ],
   },
