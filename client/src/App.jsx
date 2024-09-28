@@ -40,11 +40,11 @@ const router = createBrowserRouter([
       },
       // Podcast Added
       {
-        path: "/podcast",
+        path: "/podcast/:id",
         element: <PodcastEpisodes />,
       },
       {
-        path: "/podcast-page",
+        path: "/podcast-page/:id",
         element: <PodcastPage />,
       },
       {

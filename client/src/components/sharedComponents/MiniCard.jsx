@@ -2,18 +2,18 @@ import React from "react";
 import { MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
-function MiniCard({ podcast }) {
+function MiniCard({ podcastsList }) {
   return (
     <div className="cardBody border-[1px]  h-[400px] shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
       <img
         className="w-full h-60 object-cover  "
-        src={podcast.image}
+        src="https://images.unsplash.com/photo-1485579149621-3123dd979885?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
       <div className="flex flex-col gap-2 text-black px-3 py-3  transition ease-in-out ">
-        <Link to={"podcast"}>
+        <Link to={`/podcast/${podcastsList.podcastListId}`}>
           <h4 className="text-xl font-bold text-[#13404f] line-clamp-2 hover:text-[var(--ternery)] cursor-pointer">
-            {podcast.title}
+            {podcastsList.podcastTitle}
           </h4>
         </Link>
         <p>Episordes : 8</p>

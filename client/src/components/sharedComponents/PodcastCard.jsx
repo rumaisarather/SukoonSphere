@@ -14,8 +14,10 @@ function PodcastCard({ podcast }) {
     description,
     audioSource,
     readMoreLink,
+    podcastId
   } = podcast;
 
+  // console.log({podcast:podcast.podcasts})
   return (
     <div className=" md:card-side w-full border-b-[1px]  hover:shadow-md transition-all duration-300 border-gray-300  place-items-center p-0 space-y-4">
       <div className="card-body p-3 w-full gap-4">
@@ -60,7 +62,7 @@ function PodcastCard({ podcast }) {
             <source src={audioSource} type="audio/mpeg" />
           </audio>
           <div className="card-actions flex items-center gap-3">
-            <Link to={"/podcast-page"}>
+            <Link to={`/podcast-page/${podcastId}`}>
               <button className="action-button">
                 Read more
               </button>
