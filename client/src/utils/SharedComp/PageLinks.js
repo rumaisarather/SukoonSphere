@@ -8,8 +8,8 @@ export const links = [
     address: "articles",
   },
   {
-    name: "Podcast",
-    address: "podcast",
+    name: "Podcasts",
+    address: "podcast/playlists",
   },
   {
     name: "QA-Section",
