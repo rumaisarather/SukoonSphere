@@ -19,7 +19,7 @@ const SideBarRelatedVideos = () => {
     return (
         <div className="py-4 grid grid-cols-3 gap-4 border-b-2">
             <div className="col-span-2 ">
-                <Link to="#">
+                <Link to={`video/${1}`}>
                     <h1 className="text-lg line-clamp-2 hover:text-[--ternery]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, assumenda.</h1>
                 </Link>
                 <p className="tranctcate-text-3 text-sm text-[var(--black-color)] ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius nemo doloremque id at possimus, necessitatibus esse velit error adipisci architecto!</p>

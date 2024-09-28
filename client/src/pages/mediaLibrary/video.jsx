@@ -6,9 +6,7 @@ import { useLoaderData } from 'react-router-dom';
 import bgImg from '../../assets/images/posts.jpg';
 
 export const SingleVideoDetailsLoader = async ({ params }) => {
-    console.log(Number(params.id))
-    const videoDetails = videos.find(cat => cat.id === Number(params.id));
-    console.log({ videoDetails })
+    const videoDetails = videos.find(video => video.id === Number(params.id));
     return { videoDetails: videoDetails };
 };
 

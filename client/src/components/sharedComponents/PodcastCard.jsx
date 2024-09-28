@@ -5,6 +5,7 @@ import { AiOutlineFieldTime, AiOutlineLike } from "react-icons/ai";
 
 function PodcastCard({ podcast }) {
   const {
+    podcastId,
     image,
     avatar,
     author,
@@ -60,7 +61,7 @@ function PodcastCard({ podcast }) {
             <source src={audioSource} type="audio/mpeg" />
           </audio>
           <div className="card-actions flex items-center gap-3">
-            <Link to={"/podcast-page"}>
+            <Link to={`/podcast-page/${podcastId}`}>
               <button className="action-button">
                 Read more
               </button>
