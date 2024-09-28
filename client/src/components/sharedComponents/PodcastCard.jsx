@@ -15,7 +15,7 @@ function PodcastCard({ podcast }) {
     description,
     audioSource,
     readMoreLink,
-    podcastId
+    
   } = podcast;
 
   // console.log({podcast:podcast.podcasts})
