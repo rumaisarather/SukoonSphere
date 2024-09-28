@@ -5,6 +5,7 @@ import { AiOutlineFieldTime, AiOutlineLike } from "react-icons/ai";
 
 function PodcastCard({ podcast }) {
   const {
+    podcastId,
     image,
     avatar,
     author,

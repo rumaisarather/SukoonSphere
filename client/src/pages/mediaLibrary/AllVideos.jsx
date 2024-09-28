@@ -38,7 +38,7 @@ const AllVideos = () => {
     const { data, category } = useLoaderData();
     return (
         <>
-            <HeaderImg currentPage="Videos" bgImg={bgImg} />
+            {/* <HeaderImg currentPage="Videos" bgImg={bgImg} /> */}
             <div className="relative p-4 max-w-7xl mx-auto ">
                 <div className="flex items-center gap-4 mb-8 ">
                     <SearchFilters category={category}> </SearchFilters>
@@ -47,7 +47,10 @@ const AllVideos = () => {
                 {/* Media Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                     {data?.length > 0 ? (
-                        <VideoCard videos={data}></VideoCard>
+                        <>
+                            <VideoCard videos={data}></VideoCard>
+                            {/* <h1>Hello world</h1> */}
+                        </>
                     ) : (
                         <div className='col-span-4 flex flex-col justify-center items-center'>
                             <p className="pt-4">

@@ -188,7 +188,7 @@ const CommentCard = ({ comment }) => {
   return (
     <div className="flex flex-col mb-2">
       <div className="flex items-start gap-2 mb-1 flex-col md:flex-row md:items-center">
-        <p className="font-semibold text-nowrap">{comment.commentedBy}:</p>
+        <p className="font-semibold text-nowrap">{comment.commentedBy}: . </p>
         <p className="ml-2 text-gray-600">{comment.commentText}</p>
         <p className="text-gray-500 text-xs ml-2 text-nowrap">{comment.dateCommented}</p>
       </div>
