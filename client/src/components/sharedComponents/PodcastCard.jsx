@@ -15,8 +15,10 @@ function PodcastCard({ podcast }) {
     description,
     audioSource,
     readMoreLink,
+    
   } = podcast;
 
+  // console.log({podcast:podcast.podcasts})
   return (
     <div className=" md:card-side w-full border-b-[1px]  hover:shadow-md transition-all duration-300 border-gray-300  place-items-center p-0 space-y-4">
       <div className="card-body p-3 w-full gap-4">
