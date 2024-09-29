@@ -1,5 +1,6 @@
 
 export { default as QaSection } from "./QaSection/QaSection";
+export { default as Answer } from "./answer/Answer";
 export { default as Home } from "./Home";
 export { default as Articles } from "./articles/Articles";
 export { default as Article } from "./articles/Article";

@@ -1,43 +1,80 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { questions as _questions } from "@/utils/qaSection";
 import bgImg from "../../assets/images/qa.jpg";
-import { GroupsSidebar, HeaderImg, ProfileSidebar } from "@/components";
-
-const questions = [..._questions];
+import { FaQuestionCircle } from "react-icons/fa";
+import { AiOutlineComment } from "react-icons/ai";
+import {
+  GroupsSidebar,
+  HeaderImg,
+  ProfileSidebar,
+  QuestionModal,
+} from "@/components";
+import { Link } from "react-router-dom";
 
 const QaSection = () => {
+  const [questions, setQuestions] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showToast, setShowToast] = useState(false); // State to show the toast
+
+  useEffect(() => {
+    // Check if questions are in local storage
+    const storedQuestions = localStorage.getItem("questions");
+    if (storedQuestions) {
+      // If found, parse and set the questions from local storage
+      setQuestions(JSON.parse(storedQuestions));
+    } else {
+      // If not found, use the default questions and save to local storage
+      setQuestions(_questions);
+      localStorage.setItem("questions", JSON.stringify(_questions));
+    }
+  }, []);
+
   const groups = [
     {
       id: 1,
-      name: 'Mindfulness Practices 🧘‍♂️',
-      image: 'https://example.com/image_mindfulness.jpg',
+      name: "Mindfulness Practices 🧘‍♂️",
+      image: "https://example.com/image_mindfulness.jpg",
     },
     {
       id: 2,
-      name: 'Coping with Anxiety 💭',
-      image: 'https://example.com/image_anxiety.jpg',
+      name: "Coping with Anxiety 💭",
+      image: "https://example.com/image_anxiety.jpg",
     },
     {
       id: 3,
-      name: 'Therapy Techniques 📖',
-      image: 'https://example.com/image_therapy.jpg',
+      name: "Therapy Techniques 📖",
+      image: "https://example.com/image_therapy.jpg",
     },
     {
       id: 4,
-      name: 'Depression Support Group ❤️',
-      image: 'https://example.com/image_depression.jpg',
+      name: "Depression Support Group ❤️",
+      image: "https://example.com/image_depression.jpg",
     },
     {
       id: 5,
-      name: 'Stress Management Workshops 🌱',
-      image: 'https://example.com/image_stress.jpg',
-    }
+      name: "Stress Management Workshops 🌱",
+      image: "https://example.com/image_stress.jpg",
+    },
   ];
 
+  const handleAddQuestion = (newQuestion) => {
+    const updatedQuestions = [...questions, newQuestion];
+    setQuestions(updatedQuestions);
+    localStorage.setItem("questions", JSON.stringify(updatedQuestions));
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
 
   return (
     <>
+      {showToast && (
+        <div className="toast toast-center toast-bottom z-50 fixed">
+          <div className="alert alert-success">
+            <span>Your question has been posted!</span>
+          </div>
+        </div>
+      )}
       <HeaderImg currentPage="QA Section" bgImg={bgImg} />
       <div className="relative max-w-7xl mx-auto p-4">
         <div className="grid grid-cols-12 gap-2">
@@ -48,40 +85,57 @@ const QaSection = () => {
               userTag="Mental Health Advocate"
               questionsPosted={33}
               answersPosted={44}
-              savedItems={['Mindfulness Techniques', 'Stress Reduction']}
-              recentItems={['Mental Health', 'Mindfulness Practices']}
-              groups={['Mindfulness and Meditation', 'Therapy Techniques']}
-              followedHashtags={['#mentalhealth', '#mindfulness', '#selfcare']}
-              events={['Mental Wellness Workshop', 'Mindfulness Session']}
+              savedItems={["Mindfulness Techniques", "Stress Reduction"]}
+              recentItems={["Mental Health", "Mindfulness Practices"]}
+              groups={["Mindfulness and Meditation", "Therapy Techniques"]}
+              followedHashtags={["#mentalhealth", "#mindfulness", "#selfcare"]}
+              events={["Mental Wellness Workshop", "Mindfulness Session"]}
             />
-
           </div>
-          {/* Questions and top rated answers, middle section */}
-          <div className="col-span-6 ">
-            <div className="text-3xl font-bold mb-6 text-center">
-              <label className="input bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
-                <input
-                  type="text"
-                  className="grow text-[var(--black-color)]"
-                  placeholder="Ask a question "
-                  name="search"
-                />
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.426 11.926L3.6 4.287a1 1 0 0 0-1.337.73l-.4 2.733a1 1 0 0 0 .67 1.03l10.6 3.04a.25.25 0 0 1 0 .46l-10.6 3.04a1 1 0 0 0-.67 1.03l.4 2.733a1 1 0 0 0 1.337.73l17.826-7.64a1 1 0 0 0 0-1.828z" />
-                </svg>
-
-              </label>
+          {/* Questions and top-rated answers, middle section */}
+          <div className="col-span-6">
+            {/* Header */}
+            <div className="mb-6 text-center">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Have a Question or Insight? Share it with Us!
+              </h2>
+              <div className="flex justify-center gap-4">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="flex items-center bg-blue-600 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-500 transition"
+                >
+                  <FaQuestionCircle className="mr-2" />
+                  Ask
+                </button>
+                <Link
+                  to="/answer"
+                  className="flex items-center bg-green-600 text-white py-2 px-4 rounded-lg shadow hover:bg-green-500 transition"
+                >
+                  <AiOutlineComment className="mr-2" />
+                  Answer
+                </Link>
+              </div>
             </div>
-            {questions.map((question) => (
-              <QuestionCard key={question.id} question={question} />
-            ))}
+            {questions
+              .filter(
+                (question) => question.answers && question.answers.length > 0
+              ) // Filters only questions with at least one answer
+              .map((question) => (
+                <QuestionCard key={question.id} question={question} />
+              ))}
           </div>
-          {/* Rights Groups sections */}
+          {/* Right Groups sections */}
           <div className="sticky top-[10%] col-span-3 h-screen overflow-y-auto">
             <GroupsSidebar groups={groups} />
           </div>
         </div>
-      </div >
+        {/* Modal */}
+        <QuestionModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onAdd={handleAddQuestion} // Pass the function to handle question addition
+        />
+      </div>
     </>
   );
 };
@@ -94,11 +148,13 @@ const QuestionCard = ({ question }) => {
       <div className="flex items-center mb-4">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
-          alt={`${question.askedBy.name}'s avatar`}
+          alt={`${question.askedBy?.name}'s avatar`}
           className="w-12 h-12 rounded-full mr-3 border-2 border-blue-500"
         />
         <div>
-          <p className="font-semibold text-blue-600">{question.askedBy.name}</p>
+          <p className="font-semibold text-blue-600">
+            {question.askedBy?.name}
+          </p>
           <p className="text-gray-500 text-sm">{question.dateAsked}</p>
         </div>
       </div>
@@ -107,7 +163,7 @@ const QuestionCard = ({ question }) => {
       </h2>
       <p className="text-gray-700 mb-4">{question.details}</p>
       <div className="flex flex-wrap mb-4">
-        {question.tags.map((tag) => (
+        {question.tags?.map((tag) => (
           <span
             key={tag}
             className="bg-blue-200 text-blue-800 text-xs font-medium mr-2 px-3 py-1 rounded-full transition duration-200 hover:bg-blue-300"
@@ -117,12 +173,12 @@ const QuestionCard = ({ question }) => {
         ))}
       </div>
       <div>
-        {question.answers
+        {(question.answers || [])
           .slice(0, showMoreAnswers ? question.answers.length : 1)
           .map((answer) => (
             <AnswerCard key={answer.id} answer={answer} />
           ))}
-        {question.answers.length > 1 && (
+        {question.answers && question.answers.length > 1 && (
           <button
             onClick={() => setShowMoreAnswers((prev) => !prev)}
             className="mt-4 text-blue-500 hover:underline font-medium"
@@ -158,11 +214,11 @@ const AnswerCard = ({ answer }) => {
         <AiOutlineLike className="text-gray-600 mr-1" />
         <span>{answer.upvotes}</span>
       </div>
-      {answer.comments.length > 0 && (
+      {answer?.comments?.length > 0 && (
         <>
           <h3 className="font-semibold text-gray-700">Comments:</h3>
           <div className="ml-4">
-            {answer.comments
+            {answer?.comments
               .slice(0, showMoreComments ? answer.comments.length : 1)
               .map((comment) => (
                 <CommentCard key={comment.id} comment={comment} />
@@ -181,47 +237,65 @@ const AnswerCard = ({ answer }) => {
     </div>
   );
 };
-
 const CommentCard = ({ comment }) => {
-  const [showReplies, setShowReplies] = useState(false);
-
   return (
-    <div className="flex flex-col mb-2">
-      <div className="flex items-start gap-2 mb-1 flex-col md:flex-row md:items-center">
-        <p className="font-semibold text-nowrap">{comment.commentedBy}: . </p>
-        <p className="ml-2 text-gray-600">{comment.commentText}</p>
-        <p className="text-gray-500 text-xs ml-2 text-nowrap">{comment.dateCommented}</p>
+    <div className="flex items-start border-b border-gray-200 p-4">
+      {/* User Avatar */}
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
+        alt={`${comment.commentedBy.name}'s avatar`}
+        className="w-10 h-10 rounded-full mr-3 border border-gray-300"
+      />
+      <div className="flex-1">
+        {/* Comment Text */}
+        <p className="text-gray-800 font-medium">{comment.commentedBy.name}</p>
+        <p className="text-gray-700 text-sm">{comment.commentText}</p>{" "}
+        {/* Adjusted text size */}
+        <p className="text-xs text-gray-500 mb-2">{comment.dateCommented}</p>
+        {/* Reply Button */}
+        <button className="text-blue-500 hover:underline text-sm">Reply</button>
+        {/* Display replies recursively */}
+        {comment.replies && comment.replies.length > 0 && (
+          <div className="mt-2 pl-4 border-l border-gray-300">
+            {comment.replies.map((reply) => (
+              <ReplyCard key={reply.id} reply={reply} />
+            ))}
+          </div>
+        )}
       </div>
-      {comment.replies && comment.replies.length > 0 && (
-        <>
-          <button
-            onClick={() => setShowReplies((prev) => !prev)}
-            className="text-blue-500 hover:underline mt-1"
-          >
-            {showReplies ? "Hide Replies" : "Show Replies"}
-          </button>
-          {showReplies && (
-            <div className="ml-4 mt-2 bg-gray-100 p-2 rounded-md">
-              {comment.replies.map((reply, index) => (
-                <>
-                  <div key={index} className="flex items-start flex-col gap-2 mb-1 md:items-center md:flex-row">
-                    <p className="font-semibold">{reply.repliedBy}:</p>
-                    <p className="ml-1 text-gray-600">{reply.replyText}</p>
-                    <span className="text-gray-500 text-xs ml-2">
-                      {reply.dateReplied}
-                    </span>
-                  </div>
-                  {reply.replies && <CommentCard comment={reply} />}
-                </>
-              ))}
-            </div>
-          )}
-        </>
-      )}
     </div>
   );
 };
 
+// Recursive ReplyCard Component
+const ReplyCard = ({ reply }) => {
+  return (
+    <div className="border-b border-gray-200 py-2">
+      <div className="flex items-start">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
+          alt={`${reply.repliedBy.name}'s avatar`}
+          className="w-8 h-8 rounded-full mr-2"
+        />
+        <div className="flex-1">
+          <p className="text-gray-700 font-medium">{reply.repliedBy.name}</p>
+          <p className="text-gray-600 text-sm">{reply.replyText}</p>{" "}
+          {/* Adjusted text size */}
+          <p className="text-xs text-gray-400">{reply.dateReplied}</p>
+        </div>
+      </div>
+
+      {/* Recursively render replies if they exist */}
+      {reply.replies && reply.replies.length > 0 && (
+        <div className="mt-2 pl-4 border-l border-gray-300">
+          {reply.replies.map((nestedReply) => (
+            <ReplyCard key={nestedReply.id} reply={nestedReply} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 
 export default QaSection;
