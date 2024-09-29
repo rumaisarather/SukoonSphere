@@ -3,7 +3,7 @@ import React from "react";
 import SectionTitle from "../sharedComponents/SectionTitle";
 import { SectionWrapper } from "@/assets/styles/HomeLayout";
 import { FaRegCirclePlay } from "react-icons/fa6";
-import { podcasts } from "@/utils/Podcast";
+import { podcastsLists } from "@/utils/podcastsLists";
 import MiniCard from "../sharedComponents/MiniCard";
 import { Link } from "react-router-dom";
 import LinkButton from "../sharedComponents/Buttons/LinkButton";
@@ -33,12 +33,12 @@ function Podcasts() {
           <div className="col-span-8 flex flex-col gap-2 items-center">
             <h2 className="text-3xl text-[var(--black-color)]">Podcast Playlists</h2>
             <div className="grid grid-cols-3 gap-4 mb-4">
-              {podcasts.slice(0, 3).map((podcast, index) => (
-                <MiniCard key={index} podcast={podcast} />
+              {podcastsLists.slice(0, 3).map((podcastsList, index) => (
+                <MiniCard key={index} podcastsList={podcastsList} />
               ))}
             </div>
             <div className="">
-              <Link to={"podcast"}>
+              <Link to={"podcast/playlists"}>
                 <button className="action-button">Explore more</button>
               </Link>
             </div>

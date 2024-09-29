@@ -1,58 +1,18 @@
 import { HeaderImg, Search, SimilarArticles } from "@/components";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import React, { useState } from "react";
 import notFoundBySearch from "../../assets/images/notFoundBySearch.jpg";
 import { PodcastCard } from "@/components";
-import { podcasts } from "../../utils/Podcast";
+import { podcastsLists } from "../../utils/podcastsLists";
 import bgImg from "../../assets/images/bg_podcast.jpg";
 import SimilarPodcasts from "@/components/podcastComponents/SimilarPodcasts";
-
-export const ArticlesLoader = async ({ request }) => {
-  const url = new URL(request.url);
-  const searchParams = Object.fromEntries(url.searchParams.entries());
-
-  const {
-    search = "",
-    category: selectedCategory = "",
-    sort_by: sortBy = "",
-  } = searchParams;
-
-  let filteredArticles = [...articles];
-
-  if (search) {
-    filteredArticles = filteredArticles.filter((article) =>
-      article.title.toLowerCase().includes(search.toLowerCase())
-    );
-  }
-
-  if (selectedCategory) {
-    filteredArticles = filteredArticles.filter((article) =>
-      article.tags.includes(selectedCategory)
-    );
-  }
-
-  if (sortBy === "newest") {
-    filteredArticles.sort(
-      (a, b) => new Date(b.datePublished) - new Date(a.datePublished)
-    );
-  } else if (sortBy === "oldest") {
-    filteredArticles.sort(
-      (a, b) => new Date(a.datePublished) - new Date(b.datePublished)
-    );
-  } else if (sortBy === "most viewed") {
-    filteredArticles.sort((a, b) => b.views - a.views);
-  }
-
-  console.log("Final filtered articles:", filteredArticles); // Log final filtered articles
-
-  const allTags = articles.flatMap((article) => article.tags);
-  const category = Array.from(new Set(allTags));
-
-  return { data: filteredArticles, category };
-};
 const PodcastEpisodes = () => {
-  //   const { data, category } = useLoaderData();
-
+  const {id:paramsId} = useParams()
+  const podcastList = podcastsLists.find(podcast => podcast.podcastListId === paramsId)
+  console.log({paramsId})
+  console.log({podcastList})
+  
+  // console.log(podcastsLists[0].podcasts)
   return (
     <>
       <HeaderImg currentPage="Podcast" bgImg={bgImg} />
@@ -63,9 +23,11 @@ const PodcastEpisodes = () => {
             <h1 className="flex-start text-[var(--blue-color)] font-bold text-5xl">
               Podcast Episodes
             </h1>
-            {podcasts.length > 0 ? (
-              podcasts.map((podcast, index) => {
-                return <PodcastCard key={index} podcast={podcast} />;
+            {podcastList.podcasts.length > 0 ? (
+              podcastList.podcasts.map((podcast) => {
+                return (
+                  <PodcastCard key={podcast.podcastId} podcast={podcast} />
+                );
               })
             ) : (
               <div>

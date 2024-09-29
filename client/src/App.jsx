@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       },
       // Podcast Added
       {
-        path: "/podcast",
+        path: "/podcast/:id",
         element: <PodcastEpisodes />,
       },
       {
