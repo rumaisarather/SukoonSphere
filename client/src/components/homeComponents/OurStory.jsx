@@ -1,5 +1,4 @@
 import React from 'react';
-import { GiBottomRight3DArrow } from 'react-icons/gi';
 import SectionTitle from '../sharedComponents/SectionTitle';
 
 import IntroVideo from "../../assets/videos/Story Video.mp4"

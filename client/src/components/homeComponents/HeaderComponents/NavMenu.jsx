@@ -74,7 +74,7 @@ function NavMenu() {
           <>
             <div className="flex items-center justify-center gap-2">
               <img
-                className="w-10 h-10 rounded-full border-3 border-blue-300"
+                className="w-9 h-9 rounded-full border-[3px] border-blue-400"
                 src={user.picture}
                 alt="User"
               />

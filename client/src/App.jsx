@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, Answer, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
@@ -24,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/QA-section",
         element: <QaSection />,
+      },
+      {
+        path: "/answer",
+        element: <Answer />,
       },
       {
         path: "/articles",
@@ -73,51 +77,52 @@ const router = createBrowserRouter([
       },
 
       {
-        path: 'about/mental-health',
-        element: <MentalHealth />
+        path: "about/mental-health",
+        element: <MentalHealth />,
       },
       {
-        path: '/about-us',
-        element: <AboutUs />
+        path: "/about-us",
+        element: <AboutUs />,
       },
       {
-        path: 'media/all-videos',
+        path: "media/all-videos",
         element: <AllVideos />,
         loader: AllVideosLoader,
       },
       {
-        path: 'media/all-videos/video',
-        element: <Video />
-      },
-      {
-        path: 'podcast/playlists',
-        element: <PodcastPlaylists />
-      },
-      {
-        path: 'media/all-videos/video/:id',
+        path: "media/all-videos/video",
         element: <Video />,
-        loader: SingleVideoDetailsLoader
       },
       {
-        path: 'about/user',
+        path: "podcast/playlists",
+        element: <PodcastPlaylists />,
+      },
+      {
+        path: "media/all-videos/video/:id",
+        element: <Video />,
+        loader: SingleVideoDetailsLoader,
+      },
+      {
+        path: "about/user",
         element: <UserProfile />,
         children: [
           {
             index: true,
-            element: <UserPosts />
-          }, {
+            element: <UserPosts />,
+          },
+          {
             path: "answers",
-            element: <UserAnswers />
-          }, {
+            element: <UserAnswers />,
+          },
+          {
             path: "followers",
-            element: <UserFollowers />
-          }, {
+            element: <UserFollowers />,
+          },
+          {
             path: "following",
-            element: <UserFollowing />
-          }
-
-        ]
-
+            element: <UserFollowing />,
+          },
+        ],
       },
     ],
   },

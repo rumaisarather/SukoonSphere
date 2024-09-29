@@ -44,3 +44,5 @@ export { default as UserPosts } from './user/userProfile/UserPosts'
 export { default as UserAnswers } from './user/userProfile/UserAnswers'
 export { default as UserFollowers } from './user/userProfile/UserFollowers'
 export { default as UserFollowing } from './user/userProfile/UserFollowing'
+export { default as QuestionModal } from "./qaSectionsComponents/QuestionModal";
+
