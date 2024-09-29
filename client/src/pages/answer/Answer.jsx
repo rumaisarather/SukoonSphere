@@ -91,12 +91,12 @@ const Answer = () => {
 
   return (
     <>
-      <HeaderImg currentPage="Answer" bgImg={bgImg} />
+      {/* <HeaderImg currentPage="Answer" bgImg={bgImg} /> */}
       <div className="relative max-w-7xl mx-auto p-4">
         <div className="grid grid-cols-12 gap-2">
           <div className="sticky top-[10%] col-span-3 h-screen overflow-y-auto">
             <ProfileSidebar
-              username="Sartaj Ashraf" // You might want to replace this with Auth0 user name as well
+              username="Sartaj Ashraf"
               userTag="Mental Health Advocate"
               questionsPosted={33}
               answersPosted={44}
@@ -122,7 +122,7 @@ const Answer = () => {
                     className="w-10 h-10 rounded-full mr-2"
                   />
                   <div>
-                    <p className="font-semibold">{question.askedBy.name}</p>
+                    <p className="font-semibold text-[var(--primary)]">{question.askedBy.name}</p>
                     <p className="text-sm text-gray-500">
                       {question.askedBy.dateAsked}
                     </p>
@@ -136,7 +136,7 @@ const Answer = () => {
                 </p>
                 <button
                   onClick={() => handleAnswerButtonClick(question.id)}
-                  className="bg-green-600 text-white py-1 px-3 rounded-lg hover:bg-green-500"
+                  className="action-button"
                 >
                   {selectedQuestionId === question.id ? "Cancel" : "Answer"}
                 </button>

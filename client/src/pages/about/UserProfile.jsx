@@ -45,7 +45,7 @@ const UserProfile = () => {
     ];
     return (
         <>
-            <HeaderImg currentPage="Profile" bgImg={bgImg} />
+            {/* <HeaderImg currentPage="Profile" bgImg={bgImg} /> */}
             <div className='relative grid  sm:grid-cols-12 grid-cols-12 max-w-7xl mx-auto'>
                 <div className="sticky top-[12%] h-screen col-span-3 ">
                     <ProfileCard {...userData} />

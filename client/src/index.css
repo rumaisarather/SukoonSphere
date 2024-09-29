@@ -31,7 +31,7 @@ h5,
 h6 {
   font-family: "Lora", serif;
   color: var(--primary);
-  line-height: 1.3;
+  line-height: 1.4;
   font-weight: 700;
 }
 
@@ -55,7 +55,7 @@ audio::-webkit-media-controls-panel {
   --secondary: #257f69;
   --ternery: #d33b52;
   --light-bg: #e8f5f9;
-  --btn-primary: #25806a;
+  --btn-primary: #48a999;
   --btn-secondary: #2ebe7e;
   --body: #f7f9f9;
   --primary-foreground: red;
@@ -81,8 +81,6 @@ audio::-webkit-media-controls-panel {
   --max-width: 1600px;
   --fluid-width: 95vw;
 
-  --title-font: "Bebas Neue", "sans-serif";
-  --title2-font: "Signika Negative", "sans-serif";
 }
 
 /* Truncate text styles */
@@ -146,4 +144,8 @@ audio::-webkit-media-controls-panel {
 .active {
   color: var(--ternery);
   /* background-color: palegoldenrod; */
+}
+
+.link-hover {
+  color: var(--ternery)
 }

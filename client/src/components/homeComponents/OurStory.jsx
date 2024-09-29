@@ -11,11 +11,12 @@ const OurStory = () => {
                 <SectionTitle title={'What we do ?'}></SectionTitle>
 
                 <div className="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
-
                     {/* Left Side: Content Section */}
                     <div className="md:w-1/2 space-y-6">
-                        <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">Our Mission</h2>
-                        <h1 className="text-5xl font-bold my-4 text-[var(--primary)]">Reducing Mental Health Challenges</h1>
+                        <h2 className="text-3xl md:text-2xl font-bold text-[var(--black-color)]">Our Mission</h2>
+                        <Link to="/about-us">
+                            <h1 className="text-5xl font-bold my-4 text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer ">Reducing Mental Health Challenges</h1>
+                        </Link>
                         <p className="text-lg font-light text-[var(--black-color)] mb-4">
                             Our content helps you make the best choices for your mental well-being. Through powerful storytelling, expert advice, and a supportive community, we aim to raise awareness about mental health and break the stigma surrounding it. Join us as we embark on this journey towards a healthier mind and a brighter future.
                         </p>

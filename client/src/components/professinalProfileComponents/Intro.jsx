@@ -3,7 +3,7 @@ import React from 'react';
 function Intro({ name, image, fullTitle, role, specialty, expertise }) {
     return (
         <div className='p-6 m-auto max-w-7xl mx-auto bg-[var(--light-bg)]'>
-            <div className="flex items-center p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+            <div className="flex items-center p-6 rounded-lg shadow-md max-w-4xl mx-auto bg-[var(--light)]">
                 <div className="flex-shrink-0 ">
                     <img
                         src={image}

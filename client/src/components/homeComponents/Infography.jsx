@@ -57,7 +57,9 @@ function Infography() {
             <div className="max-w-7xl mx-auto text-white relative px-6">
                 <div className="space-y-4 max-w-7xl mx-auto relative text-center">
                     <p className="text-sm uppercase tracking-wide text-[var(--black-color)]">Great practice means great health care</p>
-                    <h1 className="text-5xl font-bold text-[var(--primary)]">Mental Health Challenges</h1>
+                    <Link to="about/mental-health">
+                        <h1 className="text-5xl font-bold text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer mt-4">Mental Health Challenges</h1>
+                    </Link>
                     <p className="text-lg font-light text-[var(--black-color)]">
                         Dynamically target high-payoff intellectual capital for customized technologies. <br /> Objectively integrate emerging core competencies.
                     </p>
@@ -87,11 +89,11 @@ function Infography() {
                 </div>
 
 
-                <div className='float-right pr-10'>
+                {/* <div className='float-right pr-10'>
                     <Link to="about/mental-health">
                         <button type='button' className='px-4 py-2 rounded-[4px] bg-[var(--btn-primary)] text-[var(--white-color)] hover:bg-[var(--btn-secondary)] '>Read more --</button>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );

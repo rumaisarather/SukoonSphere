@@ -18,7 +18,7 @@ function Podcasts() {
           <div className="col-span-4 rounded-md bg-[var(--blue-color)] text-white flex flex-col gap-4 p-4">
             <img
               className="h-96 object-contain"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              src="https://img.freepik.com/free-vector/gradient-podcast-cover-template_23-2149449551.jpg"
               alt=""
             />
             <div className="flex gap-3 items-center">

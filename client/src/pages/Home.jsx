@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { Hero, Stastistics, Podcasts, TopIntro, TodaysQuiz, OurStory, Infography, TrendingVideos } from "../components"
+import { Hero, Podcasts, TopIntro, TodaysQuiz, OurStory, Infography, TrendingVideos, CampusPartners } from "../components"
 import TodayEssentials from "@/components/homeComponents/TodayEssentials";
 
 const Home = () => {
@@ -12,8 +12,8 @@ const Home = () => {
       <TodayEssentials></TodayEssentials>
       <TodaysQuiz></TodaysQuiz>
       <TrendingVideos></TrendingVideos>
-      {/* <Stastistics /> */}
       <Podcasts />
+      <CampusPartners />
     </Fragment>
   )
 }

@@ -11,7 +11,7 @@ const TrendingVideos = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                     <VideoCard videos={videos.slice(0, 4)} />
                 </div>
-                <button className="action-button my-4  float-right">Explore more</button>
+                {/* <button className="action-button my-4  float-right">Explore more</button> */}
             </div>
         </>
     )

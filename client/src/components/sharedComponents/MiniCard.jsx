@@ -7,7 +7,7 @@ function MiniCard({ podcastsList }) {
     <div className="cardBody border-[1px]  h-[400px] shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col gap-4">
       <img
         className="w-full h-60 object-cover  "
-        src="https://images.unsplash.com/photo-1485579149621-3123dd979885?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={podcastsList.poadcasteImg}
         alt=""
       />
       <div className="flex flex-col gap-2 text-black px-3 py-3  transition ease-in-out ">

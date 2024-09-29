@@ -88,7 +88,7 @@ const QuestionModal = ({ isOpen, onClose, onAdd }) => {
   return (
     <>
       {/* Modal */}
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25">
         <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg transition duration-300 transform scale-95 hover:scale-100">
           <h3 className="text-lg font-bold mb-4">Ask a Question</h3>
           <input
@@ -131,7 +131,7 @@ const QuestionModal = ({ isOpen, onClose, onAdd }) => {
             </button>
             <button
               onClick={handleAddQuestion}
-              className="flex items-center bg-blue-600 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-500 transition"
+              className="flex items-center action-button"
             >
               Add Question
             </button>

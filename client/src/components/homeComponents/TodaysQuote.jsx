@@ -40,8 +40,8 @@ const TodaysQuote = () => {
     }, [slides.length]);
 
     return (
-        <div className=" relative flex items-center flex-col md:flex-row justify-center bg-[var(--light-bg)] p-6 m-auto md:mt-[-2.5rem] max-w-7xl mx-auto rounded-[4px]">
-            <div className="flex-none" style={{ boxShadow: '-10px 10px 2px var(--primary)' }}>
+        <div className="my-10 relative flex items-center flex-col md:flex-row justify-center  p-6 m-auto  max-w-7xl mx-auto rounded-[4px]">
+            <div className="flex-none" style={{ boxShadow: '-20px 20px 2px var(--primary)' }}>
                 <img
                     src="https://tteportal.b-cdn.net/wp-content/uploads/elementor/thumbs/01-q16exdssvgx89a8gi3yy0en9dhgnuw7fj70giranpw.jpg"
                     alt="Run with 645 meanings"

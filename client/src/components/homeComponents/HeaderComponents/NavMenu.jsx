@@ -35,11 +35,10 @@ function NavMenu() {
   }, []);
   return (
     <nav
-      className={`flex items-center justify-between w-full z-20 transition-all ease-in-out p-2 h-[70px] ${
-        isSticky
-          ? "sticky  top-0 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md"
-          : "sticky "
-      }`}
+      className={` flex items-center sm:items-center justify-between sm:flex-row  w-full z-20 transition-all ease-in-out p-2 h-[60px]  ${isSticky
+        ? "fixed top-0 duration-500 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md"
+        : "sticky shadow-md"
+        }`}
     >
       <GiHamburgerMenu
         className="block place-content-end absolute right-3 md:hidden cursor-pointer text-[1.4rem] text-white"
@@ -58,10 +57,11 @@ function NavMenu() {
                 key={link.name}
                 to={link.address}
                 className={({ isActive }) =>
-                  `${
-                    isActive
-                      ? "text-[var(--ternery)] font-extrabold"
-                      : `${isSticky ? "text-white" : "text-[var(--secondary)]"}`
+                  ` font-extrabold ${isActive ?
+                    "text-[var(--ternery)] " :
+                    `${isSticky
+                      ? "text-white"
+                      : "text-[var(--secondary)]"}`
                   } hover:text-[var(--ternery)] transition-all duration-300`
                 }
               >
@@ -79,14 +79,19 @@ function NavMenu() {
                 alt="User"
               />
               <BsThreeDotsVertical
-                className={`block cursor-pointer  text-[1.4rem] ${isSticky?'text-white':'text-[var(--secondary)]'}`}
+                className={`block cursor-pointer  text-[1.4rem] ${isSticky ? 'text-white' : 'text-[var(--secondary)]'}`}
                 onClick={toggleMiniMenu}
               />
+              <Link to={'about/user'}>
+                <span className="text-black ">{user.name}</span>
+              </Link>
             </div>
             <div
-              className={`${
-                miniMenu ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
-              }  absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
+              className={`
+                ${miniMenu
+                  ? "opacity-100 max-h-[500px]"
+                  : "opacity-0 max-h-0"} 
+                 absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
               style={{
                 transition:
                   "opacity 0.5s ease, max-height 0.5s ease dropdown-content menu",
@@ -98,7 +103,7 @@ function NavMenu() {
                   src={user.picture}
                   alt="User"
                 />
-               <Link > <span className="text-black">{user.name}</span> </Link>
+                <Link to={"about/user"}> <span className="text-black">{user.name}</span> </Link>
               </div>
 
               <button
