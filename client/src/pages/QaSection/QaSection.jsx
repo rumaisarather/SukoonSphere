@@ -75,7 +75,7 @@ const QaSection = () => {
           </div>
         </div>
       )}
-      <HeaderImg currentPage="QA Section" bgImg={bgImg} />
+      {/* <HeaderImg currentPage="QA Section" bgImg={bgImg} /> */}
       <div className="relative max-w-7xl mx-auto p-4">
         <div className="grid grid-cols-12 gap-2">
           {/* Left sidebar for user information */}
@@ -95,21 +95,21 @@ const QaSection = () => {
           {/* Questions and top-rated answers, middle section */}
           <div className="col-span-6">
             {/* Header */}
-            <div className="mb-6 text-center">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            <div className="mb-3 text-center bg-white pb-4 rounded-[10px]">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">
                 Have a Question or Insight? Share it with Us!
               </h2>
               <div className="flex justify-center gap-4">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="flex items-center bg-blue-600 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-500 transition"
+                  className="flex items-center border border-[var(--primary)]  text-[var(--primary)] hover:text-[var(--white-color)] py-2 px-4 rounded-[4px] shadow hover:bg-[var(--btn-secondary)] transition"
                 >
                   <FaQuestionCircle className="mr-2" />
                   Ask
                 </button>
                 <Link
                   to="/answer"
-                  className="flex items-center bg-green-600 text-white py-2 px-4 rounded-lg shadow hover:bg-green-500 transition"
+                  className="flex items-center text-white py-2 px-4 rounded-[4px] shadow transition action-button "
                 >
                   <AiOutlineComment className="mr-2" />
                   Answer
@@ -144,7 +144,7 @@ const QuestionCard = ({ question }) => {
   const [showMoreAnswers, setShowMoreAnswers] = useState(false);
 
   return (
-    <div className="mb-8 border border-gray-300 p-6 rounded-lg shadow-lg bg-white transition duration-300 hover:shadow-xl">
+    <div className="mb-8  p-6 rounded-lg shadow-lg bg-white transition duration-300 hover:shadow-xl">
       <div className="flex items-center mb-4">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
@@ -152,7 +152,7 @@ const QuestionCard = ({ question }) => {
           className="w-12 h-12 rounded-full mr-3 border-2 border-blue-500"
         />
         <div>
-          <p className="font-semibold text-blue-600">
+          <p className="font-semibold  text-[var(--primary)]">
             {question.askedBy?.name}
           </p>
           <p className="text-gray-500 text-sm">{question.dateAsked}</p>
@@ -181,7 +181,7 @@ const QuestionCard = ({ question }) => {
         {question.answers && question.answers.length > 1 && (
           <button
             onClick={() => setShowMoreAnswers((prev) => !prev)}
-            className="mt-4 text-blue-500 hover:underline font-medium"
+            className="mt-4 text-[var(--primary)] hover:underline hover:text-[var(--ternery)] font-medium"
           >
             {showMoreAnswers ? "Show Less Answers" : "Show More Answers"}
           </button>
@@ -195,7 +195,7 @@ const AnswerCard = ({ answer }) => {
   const [showMoreComments, setShowMoreComments] = useState(false);
 
   return (
-    <div className="border-l-4 border-blue-500 pl-4 mb-4 bg-gray-50 p-4 rounded-lg shadow">
+    <div className="border-l-4 border-[var(--secondary)] pl-4 mb-4 bg-gray-50 p-4 rounded-lg shadow">
       <div className="flex items-center mb-2">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
@@ -203,7 +203,7 @@ const AnswerCard = ({ answer }) => {
           className="w-10 h-10 rounded-full mr-2 border-2 border-blue-500"
         />
         <div>
-          <p className="font-semibold text-blue-600">
+          <p className="font-semibold text-[var(--primary)]">
             {answer.answeredBy.name}
           </p>
           <p className="text-gray-500 text-sm">{answer.dateAnswered}</p>
@@ -226,7 +226,7 @@ const AnswerCard = ({ answer }) => {
             {answer.comments.length > 1 && (
               <button
                 onClick={() => setShowMoreComments((prev) => !prev)}
-                className="mt-2 text-blue-500 hover:underline font-medium"
+                className="mt-2 text-[var(--primary)] hover:underline hover:text-[var(--ternery)] font-medium"
               >
                 {showMoreComments ? "Show Less Comments" : "Show More Comments"}
               </button>
@@ -253,7 +253,7 @@ const CommentCard = ({ comment }) => {
         {/* Adjusted text size */}
         <p className="text-xs text-gray-500 mb-2">{comment.dateCommented}</p>
         {/* Reply Button */}
-        <button className="text-blue-500 hover:underline text-sm">Reply</button>
+        <button className="text-blue-500 hover:underline hover:text-[var(--ternery)] text-sm">Reply</button>
         {/* Display replies recursively */}
         {comment.replies && comment.replies.length > 0 && (
           <div className="mt-2 pl-4 border-l border-gray-300">

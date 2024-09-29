@@ -2,6 +2,7 @@ export const podcastsLists = [
   {
     podcastListId: "1",
     podcastTitle: "Mindful Moments",
+    poadcasteImg: "https://rachelcorbett.com.au/wp-content/uploads/2018/07/Neon-podcast-logo.jpg",
     podcastDiscription:
       "Join us as we explore the art of mindfulness and meditation. Each episode features expert insights, practical tips, and calming exercises designed to help you live a more present and balanced life. Tune in for soothing conversations that encourage you to reconnect with yourself and find peace in the chaos.",
 
@@ -132,13 +133,14 @@ export const podcastsLists = [
   {
     podcastListId: "2",
     podcastTitle: "Voices of Change",
+    poadcasteImg: "https://media.wired.com/photos/620eb0f39266d5d11c07b3c5/master/pass/Gear-Podcast-Gear-1327244548.jpg",
     podcastDiscription:
       "Dive into the inspiring stories of individuals who are making a difference in their communities. From grassroots activists to renowned leaders, each episode highlights their journeys, challenges, and triumphs. Discover how small actions can create ripple effects, leading to monumental changes in the world.",
 
     podcasts: [
       {
         podcastId: 1,
-        image: "https://example.com/podcast-image1.jpg",
+        image: "https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         avatar: "https://example.com/podcast-avatar1.jpg",
         author: "Alex Johnson",
         episodeNo: "01",
@@ -173,6 +175,7 @@ export const podcastsLists = [
   {
     podcastListId: "3",
     podcastTitle: "Health Matters",
+    poadcasteImg: "https://media.istockphoto.com/id/1283532997/vector/podcast-concept-thin-line-icon-abstract-icon-abstract-gradient-background-modern-sound-wave.jpg?s=612x612&w=0&k=20&c=YLg7rHeSuYqeIuGRAcvf2a7J8X8Sx-IkmqYHXIJGPYQ=",
     podcastDiscription:
       "Navigate the complex world of health and wellness with our expert guests. This podcast tackles pressing health topics, from nutrition and fitness to mental health and wellness strategies. Each episode offers evidence-based advice and personal stories to empower listeners to take charge of their health.",
 

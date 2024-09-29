@@ -4,6 +4,10 @@ import { GroupsSidebar, HeaderImg, ProfileSidebar } from '@/components';
 import bgImg from '../../assets/images/posts.jpg';
 import { posts as initialPosts } from '@/utils/posts';
 import { PostModal } from '@/components'; // Assuming PostModal is in the same directory
+import { Share1Icon } from '@radix-ui/react-icons';
+import { FaComment, FaComments, FaHamburger } from 'react-icons/fa';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { FaRegComments } from 'react-icons/fa6';
 
 const Posts = () => {
   const groups = [
@@ -45,12 +49,13 @@ const Posts = () => {
     const updatedPosts = [newPost, ...posts];
     setPosts(updatedPosts);
     localStorage.setItem('posts', JSON.stringify(updatedPosts));
+    setShowModal(false)
   };
 
   return (
     <>
-      <HeaderImg currentPage="Posts" bgImg={bgImg} />
-      <div className="relative max-w-7xl mx-auto px-4 ">
+      {/* <HeaderImg currentPage="Posts" bgImg={bgImg} /> */}
+      <div className="relative max-w-7xl mx-auto px-4 mt-2">
 
         <div className='grid grid-cols-12 gap-2'>
           <div className="col-span-3 sticky top-[10%] h-screen overflow-y-auto">
@@ -67,7 +72,7 @@ const Posts = () => {
               </p>
               <button
                 onClick={() => setShowModal(true)}
-                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                className="action-button"
               >
                 Add Post
               </button>
@@ -75,35 +80,48 @@ const Posts = () => {
 
             {/* Render Posts */}
             {posts.map((post) => (
-              <div key={post.id} className="mb-6 p-4 border rounded-lg shadow-md">
-                <div className="flex items-center mb-4">
-                  <img
-                    src={post.avatar}
-                    alt={post.username}
-                    className="w-10 h-10 rounded-full mr-3"
-                  />
-                  <div>
-                    <h2 className="font-semibold">{post.username}</h2>
-                    <p className="text-gray-500 text-sm">
-                      {new Date(post.datePublished).toLocaleDateString()}
-                    </p>
+              <div key={post?.id} className="mb-6 p-4 border rounded-lg shadow-md">
+                <div className="flex items-center mb-4 justify-between">
+                  <div className='flex'>
+                    <img
+                      src={post?.avatar}
+                      alt={post?.username}
+                      className="w-10 h-10 rounded-full mr-3"
+                    />
+                    <div>
+                      <h2 className="font-semibold">{post?.username}</h2>
+                      <p className="text-gray-500 text-sm">
+                        {new Date(post?.datePublished).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+                  <div className='flex justify-between'>
+
+                    <div className='flex items-center gap-2'>
+                      <h1 className='text-lg hover:underline hover:text-[var(--ternery)] cursor-pointer'>Follow</h1>
+                      <BsThreeDotsVertical className='text-black  cursor-pointer' />
+                    </div>
                   </div>
                 </div>
                 <img
-                  src={post.image}
+                  src={post?.image}
                   alt="Post visual"
                   className="w-full h-[300px] object-contain rounded-lg mb-4"
                 />
-                <p className="mb-4">{post.description}</p>
+                <p className="mb-4">{post?.description}</p>
                 <div className="flex justify-between text-gray-500 text-sm">
-                  <div className="flex items-center justify-center gap-2">
-                    <span>{post.views}</span>
-                    <AiOutlineLike className="hover:text-blue-500 cursor-pointer mr-1" />
+                  <div className="flex items-center justify-center gap-4">
+                    <span className='text-base'>1200</span>
+                    <AiOutlineLike className="hover:text-blue-500 cursor-pointer mr-1 size-6 text-[var(--primary)]" />
+                    <span className='text-base'>150</span>
+                    <FaRegComments className="hover:text-blue-500 cursor-pointer mr-1 size-6 text-[var(--primary)]" />
+                    <span className='text-base'>200</span>
+                    <Share1Icon className="hover:text-blue-500 cursor-pointer mr-1 size-6 text-[var(--primary)]" />
                   </div>
-                  <span>{post.readingTime} read</span>
+                  <span>{post?.readingTime} read</span>
                 </div>
                 <div className="mt-2">
-                  {post.tags.map((tag) => (
+                  {post?.tags.map((tag) => (
                     <span
                       key={tag}
                       className="inline-block bg-blue-200 text-blue-800 text-xs font-semibold px-2 py-1 rounded-full mr-2"
@@ -135,7 +153,7 @@ const Posts = () => {
       </div>
 
       {/* Modal */}
-      {showModal && <PostModal onClose={setShowModal} onSave={handleAddPost} />}
+      {showModal && <PostModal onClose={() => setShowModal(false)} onSave={() => handleAddPost()} />}
     </>
   );
 };

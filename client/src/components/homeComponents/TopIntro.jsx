@@ -60,7 +60,7 @@ const TopIntro = () => {
               <span className='typewriter'></span>
             </h1>
             <h1 className="text-2xl font-extrabold" style={{ color: 'var(--white-color)', fontWeight: 400 }}>
-              Helping you find span clarity and balance
+              Helping you find clarity and balance
             </h1>
           </div>
         </div>

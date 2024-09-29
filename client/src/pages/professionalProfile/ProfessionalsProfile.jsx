@@ -6,11 +6,9 @@ import { useParams } from 'react-router-dom';
 function ProfessionalsProfile() {
   const { id: param_id } = useParams();
   const professional = ProfessionalsDetails.find((user) => user.userId === param_id);
-
-  console.log({ param_id, professional });
   return (
     <>
-      <div className='grid sm:grid-cols-12 mt-20'>
+      <div className='grid sm:grid-cols-12 '>
         <div className="sm:col-span-12">
           <Intro
             image={professional.profile.image}

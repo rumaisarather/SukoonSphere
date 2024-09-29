@@ -1,3 +1,5 @@
+import { FaSearch } from "react-icons/fa";
+import { RxReset } from "react-icons/rx";
 import { Form, Link, useLoaderData } from "react-router-dom";
 
 const search = () => {
@@ -6,11 +8,11 @@ const search = () => {
   return (
     // search by title,filter  by category, range by readingtime,filter by newest,oldest,
     <Form className="grid gap-4 grid-cols-2">
-      <label className="col-span-2 input input-bordered bg-transparent flex items-center gap-2">
+      <label className="col-span-2 input  bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
         <input
           type="text"
-          className="grow"
-          placeholder="Search"
+          className="grow text-[var(--black-color)]"
+          placeholder="Search article by title..."
           name="search"
         />
         <svg
@@ -27,19 +29,21 @@ const search = () => {
         </svg>
       </label>
       <select
+        style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}
         name="category"
-        className="select bg-transparent select-bordered w-full max-w-xs"
+        className="select bg-transparent  w-full max-w-xs text-[var(--primary)]"
       >
         <option disabled selected>
           category
         </option>
-        {category.map((tag)=>{
-        return <option key={tag}>{tag}</option>;
+        {category.map((tag) => {
+          return <option key={tag}>{tag}</option>;
         })}
       </select>
       <select
         name="sort_by"
-        className="select bg-transparent select-bordered w-full max-w-xs"
+        className="select bg-transparent  w-full max-w-xs text-[var(--primary)]"
+        style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}
       >
         <option disabled selected>
           sort by
@@ -48,10 +52,16 @@ const search = () => {
         <option>oldest</option>
         <option>most viewed</option>
       </select>
-      <button type="submit" className="btn btn-outline btn-primary text-white">
-        search
+      <button
+        type="submit"
+        className=" btn btn-outline btn-[red]"
+      >
+        <FaSearch className="text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-5" />
+
       </button>
-      <Link to="/articles" className="btn btn-outline btn-[red]">reset</Link>
+      <Link to="/articles" className="btn btn-outline btn-[red]">
+        <RxReset className="font-extrabold text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-6" />
+      </Link>
     </Form>
   );
 }

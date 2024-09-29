@@ -472,8 +472,6 @@ export const Quizzes = [
                     },
 
                 ]
-
-
             },
 
             {
