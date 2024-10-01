@@ -11,8 +11,11 @@ import {
   QuestionModal,
 } from "@/components";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const QaSection = () => {
+  const { user } = useAuth0();
+
   const [questions, setQuestions] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showToast, setShowToast] = useState(false); // State to show the toast
@@ -81,7 +84,7 @@ const QaSection = () => {
           {/* Left sidebar for user information */}
           <div className="sticky top-[10%] col-span-3 h-screen overflow-y-auto">
             <ProfileSidebar
-              username="Sartaj Ashraf"
+              username={user ? user.name : "Anonmyous"}
               userTag="Mental Health Advocate"
               questionsPosted={33}
               answersPosted={44}

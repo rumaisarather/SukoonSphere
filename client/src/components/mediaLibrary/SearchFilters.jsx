@@ -5,11 +5,11 @@ import { Form, Link, useLoaderData } from "react-router-dom";
 function SearchFilters() {
     const { category } = useLoaderData()
     return (
-        <Form className=' flex gap-4 sm:flex items-center justify-center'>
-            <label className="input bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
+        <Form className='grid grid-cols-12 gap-4  justify-center items-end'>
+            <label className=" col-span-3 input bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
                 <input
                     type="text"
-                    className="grow"
+                    className="grow text-[var(--black-color)]"
                     placeholder="Search by name or category"
                     name="search"
                 />
@@ -26,30 +26,32 @@ function SearchFilters() {
                     />
                 </svg>
             </label>
-            <label>
+            <label className='col-span-2'>
                 <select
                     name="category"
-                    className="select bg-transparent  "
+                    className="select bg-transparent cursor-pointer "
                     style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}
                 >
                     <option disabled selected>
-                        category
+                        Category
                     </option>
                     {category.map((tag) => {
-                        return <option key={tag}>{tag}</option>;
+                        return <option key={tag} className='text-[var(--primary)] cursor-pointer'>{tag}</option>;
                     })}
                 </select>
             </label>
-            <button
-                type="submit"
-                className="text-white  rounded-xl "
-            >
-                <FaSearch className="text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-5" />
+            <div className='flex gap-2'>
+                <button
+                    type="submit"
+                    className=" btn btn-outline btn-[red] btn-sm"
+                >
+                    <FaSearch className="text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-5" />
 
-            </button>
-            <Link to="/media/all-videos" >
-                <RxReset className="font-extrabold text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-6" />
-            </Link>
+                </button>
+                <Link to="/media/all-videos" className=' btn btn-outline btn-[red] btn-sm' >
+                    <RxReset className=" font-extrabold text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-6" />
+                </Link>
+            </div>
         </Form>
     );
 }

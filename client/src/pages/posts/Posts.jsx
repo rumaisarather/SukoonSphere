@@ -8,8 +8,10 @@ import { Share1Icon } from '@radix-ui/react-icons';
 import { FaComment, FaComments, FaHamburger } from 'react-icons/fa';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaRegComments } from 'react-icons/fa6';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Posts = () => {
+  const { user } = useAuth0(); // Get user information from Auth0
   const groups = [
     {
       id: 1,
@@ -137,7 +139,7 @@ const Posts = () => {
 
           <div className="col-span-3 sticky top-[10%] h-screen overflow-y-auto">
             <ProfileSidebar
-              username="Sartaj Ashraf"
+              username={user ? user.name : "Anonmyous"}
               userTag="Mental Health Advocate"
               questionsPosted={33}
               answersPosted={44}
@@ -153,7 +155,7 @@ const Posts = () => {
       </div>
 
       {/* Modal */}
-      {showModal && <PostModal onClose={() => setShowModal(false)} onSave={() => handleAddPost()} />}
+      {showModal && <PostModal onClose={() => setShowModal(false)} onSave={handleAddPost} />}
     </>
   );
 };

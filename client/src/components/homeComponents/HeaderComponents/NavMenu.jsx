@@ -50,23 +50,37 @@ function NavMenu() {
           className="object-contain w-14 "
           alt="Logo Loading..."
         />
-        <div className=" hidden md:block">
-          <ul className="flex gap-5 sm:justify-between dsm:items-center   ">
+        <div className="hidden md:block">
+          <ul className="flex gap-5 sm:justify-between dsm:items-center">
             {links.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.address}
-                className={({ isActive }) =>
-                  ` font-extrabold ${isActive ?
-                    "text-[var(--ternery)] " :
-                    `${isSticky
-                      ? "text-white"
-                      : "text-[var(--secondary)]"}`
-                  } hover:text-[var(--ternery)] transition-all duration-300`
-                }
-              >
-                {link.name}
-              </NavLink>
+              <div className="relative group" key={link.name}>
+                <NavLink
+                  to={link.address}
+                  className={({ isActive }) =>
+                    `font-extrabold ${isActive
+                      ? "text-[var(--ternery)]"
+                      : `${isSticky ? "text-white" : "text-[var(--secondary)]"}`
+                    } hover:text-[var(--ternery)] transition-all duration-300`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+
+                {link.name === "About" && link.sublinks && (
+                  <ul className="absolute hidden group-hover:block bg-white shadow-lg p-2 rounded-md w-48">
+                    {link.sublinks.map((sublink) => (
+                      <li key={sublink.name} >
+                        <NavLink
+                          to={sublink.address}
+                          className="block px-4 py-2 text-[var(--primary)] hover:text-[var(--ternery)] transition-all duration-200"
+                        >
+                          {sublink.name}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             ))}
           </ul>
         </div>
@@ -163,7 +177,7 @@ function NavMenu() {
           </LinkButton>
         </ul>
       </div>
-    </nav>
+    </nav >
   );
 }
 export default NavMenu;

@@ -1,6 +1,6 @@
 import React from 'react'
 import MentalHeathSummary from '@/utils/about/MentalHealth'
-import bgImg from '../../assets/images/bg_podcast.jpg'
+import bgImg from '../../assets/images/mentalHealthImg.jpg'
 import { HeaderImg } from '@/components'
 
 function MentalHealth() {

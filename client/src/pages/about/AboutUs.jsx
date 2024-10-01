@@ -1,6 +1,6 @@
 import React from 'react'
 import { OurTeam } from '..'
-import bgImg from '../../assets/images/bg_podcast.jpg'
+import bgImg from '../../assets/images/Quiz.jpg'
 import { HeaderImg } from '@/components'
 
 

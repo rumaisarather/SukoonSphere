@@ -19,23 +19,23 @@ function FilterQuizzesByCategory() {
                             Filter by a category
                         </option>
                         {allCategories.map((tag) => (
-                            <option key={tag} value={tag}>
+                            <option key={tag} value={tag} className='text-[var(--primary)]'>
                                 {tag}
                             </option>
                         ))}
                     </select>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-4 md:col-span-2 size-2 items-center">
+                <div className="flex flex-col md:flex-row gap-4 md:col-span-2 size-2 items-start">
                     <button
                         type="submit"
-                        className="text-white  rounded-xl "
+                        className=" btn btn-outline btn-[red] btn-sm"
                     >
                         <FaSearch className="text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-5" />
                     </button>
                     <Link
                         to="/all-quizzes"
-                        className=" py-2 px-4 rounded-xl "
+                        className="  btn btn-outline btn-[red] btn-sm"
                     >
                         <RxReset className="font-extrabold text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-6" />
                     </Link>
