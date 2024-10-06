@@ -62,6 +62,7 @@ const TopIntro = () => {
             <h1 className="text-2xl font-extrabold" style={{ color: 'var(--white-color)', fontWeight: 400 }}>
               Helping you find clarity and balance
             </h1>
+            {/* <p className='text-base mt-2 font-normal'>We are on a mission to prevent and combat mental illness through mental health education <br /></p> */}
           </div>
         </div>
       </div>

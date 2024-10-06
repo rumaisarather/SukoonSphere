@@ -18,6 +18,8 @@ export { default as ProfessionalsProfile } from "../pages/professionalProfile/Pr
 export { default as OurTeam } from "../pages/about/OurTeam";
 export { default as AboutUs } from "../pages/about/AboutUs";
 export { default as MentalHealth } from "../pages/about/MentalHealth";
+export { default as ContactUs } from "../pages/about/ContactUs";
+
 
 
 

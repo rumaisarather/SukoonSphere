@@ -58,10 +58,16 @@ const Articles = () => {
   return (
     <>
       {/* <HeaderImg currentPage="Articles" bgImg={bgImg} /> */}
-      <div className="max-w-7xl mx-auto p-4 bg-white mt-10">
+      <div className="max-w-7xl mx-auto p-4 bg-white ">
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:custom-grid-row lg:gap-x-8 lg:gap-y-4">
+
+          {/* Search filters */}
+
           {/* Articles */}
           <div className=" grid gap-6 rounded order-2 lg:col-span-2 lg:row-span-2 lg:content-start lg:order-1">
+            <div className=" py-4 ">
+              <Search category={category} />
+            </div>
             {data.length > 0 ? (
               data.map((article, index) => {
                 return <Article key={index} article={article} />;
@@ -80,13 +86,7 @@ const Articles = () => {
               </div>
             )}
           </div>
-          {/* Search filters */}
-          <div
-            className="bg-white shadow-xl p-4 rounded order-1 lg:sticky lg:top-[5rem] lg:z-10"
-            style={{ height: "max-content" }}
-          >
-            <Search category={category} />
-          </div>
+
           {/* More articles */}
           <div
             className="bg-white shadow-xl p-4 rounded flex flex-col gap-8 order-3"

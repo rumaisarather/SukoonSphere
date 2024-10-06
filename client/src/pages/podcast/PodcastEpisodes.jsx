@@ -7,16 +7,16 @@ import { podcastsLists } from "../../utils/podcastsLists";
 import bgImg from "../../assets/images/bg_podcast.jpg";
 import SimilarPodcasts from "@/components/podcastComponents/SimilarPodcasts";
 const PodcastEpisodes = () => {
-  const {id:paramsId} = useParams()
+  const { id: paramsId } = useParams()
   const podcastList = podcastsLists.find(podcast => podcast.podcastListId === paramsId)
-  console.log({paramsId})
-  console.log({podcastList})
-  
+  console.log({ paramsId })
+  console.log({ podcastList })
+
   // console.log(podcastsLists[0].podcasts)
   return (
     <>
-      <HeaderImg currentPage="Podcast" bgImg={bgImg} />
-      <div className="flex flex-col md:flex-row  md:px-7 bg-white">
+      {/* <HeaderImg currentPage="Podcast" bgImg={bgImg} /> */}
+      <div className="flex flex-col md:flex-row  md:px-7 bg-white ">
         <div className=" grid px-8 md:grid-cols-3 gap-4 mt-6">
           {/* Articles */}
           <div className=" grid gap-5 md:col-span-2 justify-items-center  ">

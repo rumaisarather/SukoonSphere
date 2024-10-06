@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, Answer, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, Answer, ContactUs, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
@@ -101,6 +101,10 @@ const router = createBrowserRouter([
         path: "media/all-videos/video/:id",
         element: <Video />,
         loader: SingleVideoDetailsLoader,
+      },
+      {
+        path: "contact-us",
+        element: <ContactUs />,
       },
       {
         path: "about/user",

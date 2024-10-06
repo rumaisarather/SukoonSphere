@@ -18,8 +18,8 @@ const Article = () => {
 
     return (
         <>
-            <HeaderImg currentPage="Article" bgImg={bgImg} />
-            <div className='relative max-w-7xl mx-auto grid grid-cols-12 gap-6'>
+            {/* <HeaderImg currentPage="Article" bgImg={bgImg} /> */}
+            <div className='relative max-w-7xl mx-auto grid grid-cols-12 gap-6 mt-3'>
 
                 <div className="col-span-8">
                     <div className=' space-y-4'>

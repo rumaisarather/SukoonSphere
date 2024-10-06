@@ -17,8 +17,8 @@ function VideoCard({ videos }) {
 
                             {/* Play Icon */}
                             <div className="absolute top-2 right-2">
-                                <div className="rounded-full bg-[#13404f] text-white p-2 transform scale-75 transition-transform duration-500 ease-in-out group-hover:scale-100">
-                                    <FaRegCirclePlay size={20} />
+                                <div className="rounded-full bg-[#13404f] text-white p-2 transform scale-75 transition-transform duration-500 ease-in-out group-hover:scale-110">
+                                    <FaRegCirclePlay size={32} />
                                 </div>
                             </div>
                         </div>
@@ -33,8 +33,8 @@ function VideoCard({ videos }) {
 
                         {/* Additional Details */}
                         <div className="mt-4">
-                            <p className="font-medium text-sm text-[var(--black-color)]">Views: <span className="font-normal text-[var(--black-color)]">{video.views}</span>
-                                | Watch Time: <span className="font-normal text-[var(--black-color)]">{video.watchTime}</span></p>
+                            <p className="font-medium text-sm text-[var(--black-color)]">Views: <span className="font-normal text-[var(--black-color)] mr-2">{video.views}</span>
+                                Watch Time: <span className="font-normal text-[var(--black-color)]">{video.watchTime}</span></p>
                             <p className="font-medium text-sm text-[var(--black-color)]">Published on: <span className="font-normal text-[var(--black-color)]">{video.datePublished}</span></p>
                         </div>
                     </div>

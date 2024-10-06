@@ -16,16 +16,36 @@ export const links = [
     address: "QA-Section",
   },
   {
-    name: "All Quizzes",
-    address: 'all-quizzes'
+    name: "Quizzes",
+    address: 'all-quizzes',
+
   },
   {
-    name: "All Videos",
+    name: "Videos",
     address: 'media/all-videos'
   },
   {
+    name: "Contact",
+    address: "contact-us"
+  },
+  {
     name: "About",
-    address: 'about-us'
+    address: 'about-us',
+    sublinks: [
+      {
+        name: "About-Us",
+        address: 'about-us',
+      },
+      {
+        name: "Mental Health",
+        address: 'about/mental-health',
+      },
+      {
+        name: "Our Review Board",
+        address: '/about/our-team',
+      },
+
+    ]
   },
 
 

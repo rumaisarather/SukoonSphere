@@ -7,8 +7,8 @@ const search = () => {
   console.log(category)
   return (
     // search by title,filter  by category, range by readingtime,filter by newest,oldest,
-    <Form className="grid gap-4 grid-cols-2">
-      <label className="col-span-2 input  bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
+    <Form className="grid gap-2 grid-cols-12  items-end">
+      <label className="col-span-4 input  bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
         <input
           type="text"
           className="grow text-[var(--black-color)]"
@@ -31,7 +31,7 @@ const search = () => {
       <select
         style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}
         name="category"
-        className="select bg-transparent  w-full max-w-xs text-[var(--primary)]"
+        className="select bg-transparent  w-full max-w-xs text-[var(--primary)] col-span-3"
       >
         <option disabled selected>
           category
@@ -42,7 +42,7 @@ const search = () => {
       </select>
       <select
         name="sort_by"
-        className="select bg-transparent  w-full max-w-xs text-[var(--primary)]"
+        className="select bg-transparent  w-full max-w-xs text-[var(--primary)] col-span-3"
         style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}
       >
         <option disabled selected>
@@ -54,12 +54,12 @@ const search = () => {
       </select>
       <button
         type="submit"
-        className=" btn btn-outline btn-[red]"
+        className=" btn btn-outline btn-[red] btn-sm"
       >
         <FaSearch className="text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-5" />
 
       </button>
-      <Link to="/articles" className="btn btn-outline btn-[red]">
+      <Link to="/articles" className="btn btn-outline btn-[red] btn-sm">
         <RxReset className="font-extrabold text-[var(--primary)] text-6 hover:text-[var(--ternery)] size-6" />
       </Link>
     </Form>
