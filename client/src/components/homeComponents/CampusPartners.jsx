@@ -34,8 +34,8 @@ function CampusPartners() {
 
 
                     <div className="carousel-content pb-10">
-                        {duplicatedPartnersData.map((logo) => (
-                            <img key={logo.id} src={logo.url} alt={logo.name} className="logo" />
+                        {duplicatedPartnersData.map((logo, index) => (
+                            <img key={`${logo.name}-${index}`} src={logo.url} alt={logo.name} className="logo" />
                         ))}
                     </div>
                 </div>

@@ -1,8 +1,5 @@
 
-import { TbWorldUpload } from "react-icons/tb";
 
-import LinkButton from "../sharedComponents/Buttons/LinkButton";
-import { SectionWrapper } from "@/assets/styles/HomeLayout";
 import SectionTitle from "../sharedComponents/SectionTitle";
 import { articles } from "@/utils/Articles";
 import Article from "../articleComponents/Article";
@@ -33,6 +30,7 @@ const TodayEssentials = () => {
                                     to={`/user-profile/${professional.userId}`}
                                     key={professional.userId}
                                     className="block"
+
                                 >
                                     <div className="text-center">
                                         <img
@@ -50,9 +48,9 @@ const TodayEssentials = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-8 flex flex-col space-y-12 ">
+                <div className="col-span-8 flex flex-col space-y-12 " data-aos="zoom-in-left">
                     {articles.slice(0, 4).map((article) => (
-                        <Article key={article.id} article={article} />
+                        <Article key={article.title.slice(0, 4)} article={article} />
                     ))
                     }
                 </div>

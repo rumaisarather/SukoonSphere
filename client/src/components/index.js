@@ -5,6 +5,7 @@ export { default as TopIntro } from "./homeComponents/TopIntro";
 export { default as TodayEssemtials } from "./homeComponents/TodayEssentials";
 export { default as Infography } from "./homeComponents/Infography";
 export { default as DisorderTags } from "./homeComponents/DisorderTags";
+export { default as OurTeam } from "./homeComponents/OurTeam";
 
 export { default as OurStory } from "./homeComponents/OurStory";
 export { default as TodaysQuiz } from "./homeComponents/TodaysQuiz";
