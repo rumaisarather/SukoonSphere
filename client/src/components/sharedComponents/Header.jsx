@@ -4,7 +4,7 @@ import NavMenu from '../homeComponents/HeaderComponents/NavMenu';
 const Header = () => {
   return (
     <>
-      <SocialLinks />
+      {/* <SocialLinks /> */}
       <NavMenu />
     </>
   );
