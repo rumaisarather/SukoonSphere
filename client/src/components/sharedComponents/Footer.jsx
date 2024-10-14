@@ -70,10 +70,10 @@ const Footer = () => {
 
         <div className="space-y-2 text-white col-span-3 text-center mt-10 items-center border-t border-[var(--ternery)] " >
           <ul className="flex flex-col gap-3 sm:justify-between  sm:items-center mt-2">
-            {links.map((link) => (
-              <li className='text-base font-extrabold'>
+            {links.map((link, index) => (
+              <li className='text-base font-extrabold' key={`${link.name}-${index}`}>
                 <NavLink
-                  key={link.name}
+
                   to={link.address}
                   className="text-[var(--white-color)] hover:text-[var(--ternery)]"
                 >

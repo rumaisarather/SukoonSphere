@@ -41,3 +41,13 @@
         transform: translateX(0);
     }
 }
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    z-index: 100;
+    white-space: nowrap;
+}

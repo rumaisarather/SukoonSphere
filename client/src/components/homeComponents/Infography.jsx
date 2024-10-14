@@ -56,16 +56,16 @@ function Infography() {
 
             <div className="max-w-7xl mx-auto text-white relative px-6">
                 <div className="space-y-4 max-w-7xl mx-auto relative text-center">
-                    <p className="text-sm uppercase tracking-wide text-[var(--black-color)]">Great practice means great health care</p>
+                    <p className="text-sm uppercase tracking-wide text-[var(--black-color)]" data-aos="fade-up">Great practice means great health care</p>
                     <Link to="about/mental-health">
-                        <h1 className="text-5xl font-bold text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer mt-4">Mental Health Challenges</h1>
+                        <h1 className="text-5xl font-bold text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer mt-4" data-aos="fade-up">Mental Health Challenges</h1>
                     </Link>
-                    <p className="text-lg font-light text-[var(--black-color)]">
+                    <p className="text-lg font-light text-[var(--black-color)]" data-aos="fade-up">
                         Dynamically target high-payoff intellectual capital for customized technologies. <br /> Objectively integrate emerging core competencies.
                     </p>
                 </div>
 
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8" data-aos="fade-up">
                     {mentalHealthStats.map((stats, index) => {
                         const animatedValue = useAnimatedPercentage(stats.percentage);
                         return (
@@ -79,7 +79,7 @@ function Infography() {
                                     </div>
                                 </div>
                                 <div className="mt-4 space-y-2">
-                                    <p className="text-md font-bold text-[var(--secondary)]">{stats.category}</p>
+                                    <p className="text-md font-bold text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer"><Link to="about/mental-health">{stats.category} </Link></p>
                                     <h1 className="text-3xl font-semibold text-[var(--primary)]">{animatedValue}%</h1>
                                     <p className="mt-2 text-gray-600">{stats.description}</p>
                                 </div>

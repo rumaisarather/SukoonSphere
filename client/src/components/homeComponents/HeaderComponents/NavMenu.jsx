@@ -35,7 +35,7 @@ function NavMenu() {
   }, []);
   return (
     <nav
-      className={`flex items-center sm:items-center justify-between sm:flex-row  w-full z-20 transition-all ease-in-out p-2 h-[80px]  
+      className={`flex items-center sm:items-center justify-between sm:flex-row  w-full z-20 transition-all ease-in-out p-2 h-[60px]  
         ${isSticky
           ? "fixed top-0 duration-1000 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md h-[55px]"
           : "sticky shadow-md"
