@@ -13,7 +13,24 @@
   font-weight: normal;
   font-style: normal;
 }
+/* In your custom CSS file */
+.custom-bg {
+  @apply bg-gradient-to-b;
+  /* Use Tailwind's gradient utility */
+  background-image: linear-gradient(180deg, rgba(247, 245, 242, 0) 28%, var(--brand--stone) 100%, var(--brand--stone));
+}
 
+.border-1 {
+  border: 1px solid var(--grey--200);
+}
+
+.shadow-1 {
+  box-shadow:0 10px 20px #0000000a,
+    0 2px 6px #0000000a;
+}
+.shadow-2 {
+      box-shadow: 0 100px 80px #0000000a, 0 40px 33px #00000008, 0 23px 17px #00000008, 0 12px 10px #00000005;
+}
 
 * {
   padding: 0;
@@ -109,9 +126,21 @@ audio::-webkit-media-controls-panel {
 }
 
 :root {
-  --primary: #13404f;
-  --secondary: #257f69;
-  --ternery: #d33b52;
+  --primary: #0b3948;
+  --primary-hover: #061c23;
+
+  --secondary: #ffd470;
+  --secondary-hover: #ffc847;
+
+  --ternery: #247fff;
+  --ternery-hover: #1267dd;
+
+  --green:#39aba3;
+  --green-hover: #288982;
+/* 
+all other colors below
+*/
+
   --grey--900: #2e3749;
   --light-bg: #e8f5f9;
   --btn-primary: #48a999;
@@ -238,6 +267,61 @@ audio::-webkit-media-controls-panel {
   animation: blink-caret 0.75s step-end infinite;
 }
 
+.btn-1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: var(--white-color);
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: all .3s;
+}
+.btn-1:hover{
+  background-color: var(--primary-hover);
+}
+.btn-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: all .3s;
+}
+
+.btn-2:hover {
+  background-color: var(--secondary-hover);
+}
+.btn-3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ternery);
+  color: var(--white-color);
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: all .3s;
+}
+
+.btn-3:hover {
+  background-color: var(--ternery-hover);
+}
+.btn-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green);
+  color: var(--white-color);
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: all .3s;
+}
+
+.btn-4:hover {
+  background-color: var(--green-hover);
+}
 @keyframes blink-caret {
 
   from,
