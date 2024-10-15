@@ -35,13 +35,21 @@ function NavMenu() {
   }, []);
   return (
     <nav
+<<<<<<< Updated upstream
       className={` flex items-center sm:items-center justify-between sm:flex-row  w-full z-20 transition-all ease-in-out p-2 h-[60px]  ${isSticky
         ? "fixed top-0 duration-500 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md"
         : "sticky shadow-md"
         }`}
+=======
+      className={`flex items-center justify-between w-full z-20 transition-all shadow-[0 1px #0000000a] ease-in-out p-2 h-[70px] ${
+        isSticky
+          ? "sticky  top-0 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md"
+          : "sticky "
+      }`}
+>>>>>>> Stashed changes
     >
       <GiHamburgerMenu
-        className="block place-content-end absolute right-3 md:hidden cursor-pointer text-[1.4rem] text-white"
+        className={`block place-content-end absolute right-3 md:hidden cursor-pointer text-[1.4rem]  ${isSticky ? "text-white" : "text-[var(--secondary)]"} `}
         onClick={toggleMenu}
       />
       <div className="flex w-full justify-between items-center  px-28  ">
@@ -108,7 +116,7 @@ function NavMenu() {
                  absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
               style={{
                 transition:
-                  "opacity 0.5s ease, max-height 0.5s ease dropdown-content menu",
+                  "opacity 0.5s ease, max-height 0.5s ease ",
               }}
             >
               <div className="flex items-center gap-3 pb-3">
