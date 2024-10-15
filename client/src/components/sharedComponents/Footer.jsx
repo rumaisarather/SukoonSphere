@@ -1,127 +1,189 @@
-// import CompanyLogo from "../../assets/images/SukoonSphere_Logo.png";
-// import { FaFacebook } from "react-icons/fa";
-// import { FaTwitter } from "react-icons/fa";
-// import { AiFillInstagram } from "react-icons/ai";
-// const Footer = () => {
-//   return (
-//     <footer className="grid  grid-cols-1 sm:grid-cols-3 sm:place-items-center place-items-start  text-white p-4 sm:pt-4  mt-7  bg-gradient-to-r from-[#0c2b64] to-[rgb(44,89,174)] ">
-//       <div className=" ">
-//         <img
-//           src={CompanyLogo}
-//           className="object-cover w-32"
-//           alt="Logo Loading..."
-//         />
-//         <h4 className="pb-3">Social</h4>
-//         <div className="flex gap-3">
-//           <FaFacebook className="size-6 " />
-//           <FaTwitter className="size-6" />
-//           <AiFillInstagram className="size-6" />
-//         </div>
-//       </div>
-//       <div className="pt-3 pb-3 sm:p-6 ">
-//         <p>
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Id velit eum
-//           laborum officiis et? Ipsa perferendis, saepe eaque quaerat quasi
-//           recusandae dolore hic earum aliquid adipisci quas! Maiores velit unde
-//           atque corporis consequatur tempore perspiciatis, voluptatem numquam
-//           sunt doloribus? Laboriosam!
-//         </p>
-//       </div>
-//       <nav className=" flex flex-col">
-//         <h6 className="footer-title">Quick Links</h6>
-//         <a className="link link-hover">About us</a>
-//         <a className="link link-hover">Contact</a>
-//         <a className="link link-hover">Jobs</a>
-//         <a className="link link-hover">Press kit</a>
-//       </nav>
-//       <div className="col-span-full mt-3 border-t-[.03px] text-center p-4 border-t-[#ffffff81] w-full">
-//         <p>
-//           Copyright© 2024 PVHC - All Rights Reserved | Website by Sukoon Sphere
-//         </p>
-//       </div>
-//     </footer>
-//   );
-// };
-// export default Footer;
-
-
-import React from 'react';
-
+import React from "react";
 import CompanyLogo from "../../assets/images/SukoonSphere_Logo.png";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { links } from '@/utils/SharedComp/PageLinks';
-import { Link, NavLink } from 'react-router-dom';
+import { links } from "@/utils/SharedComp/PageLinks";
+import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className="text-white text-sm p-5" style={{ background: 'linear-gradient(var(--primary), var(--secondary))' }}>
-      <div className="container mx-auto grid grid-cols-12  gap-4">
-        <div className='col-span-3 flex flex-col justify-center items-center'>
-          <img
-            src={CompanyLogo}
-            className="object-cover w-32"
-            alt="Logo Loading..."
-          />
-          <p className='text-sm text-justify' >
-            Our content helps you make the best choices for your mental well-being. Through powerful storytelling, expert advice, and a supportive community, we aim to raise awareness about mental health and break the stigma surrounding it. Join us as we embark on this journey towards a healthier mind and a brighter future.
+    // Main Containerg
+    <div className="bg-[#061c23]">
+      {/* Top Container */}
+      <div className="flex  px-20 py-6 gap-4 ">
+        <div className="text-white flex flex-col gap-4 mt-4">
+          {/* Left container */}
+          <h1>Subscribe to People First Dispatch</h1>
+          <p>A weekly digest of latest news, articles and resources</p>
+          <div className="flex gap-4">
+            <input
+              type="search"
+              className="p-4 w-full bg-white rounded-[4px] "
+              placeholder="Enter Your Quries"
+            />
+            <button className="bg-[var(--brand--goldenrod)] text-[var(--grey--900)] rounded-[6px] px-6 py-2 text-sm leading-[1.32]">
+              Search
+            </button>
+          </div>
+          <p>
+            By continuing, you agree to NovaBenefits{" "}
+            <Link className="text-blue-600">Terms of Use</Link> and{" "}
+            <Link className="text-blue-600">Privacy Policy</Link>
           </p>
+          <div className="flex gap-3  md:mt-0 cursor-pointer text-white">
+            <span>Follow us on </span>
+            <FaFacebook className="size-6 hover:text-[var(--ternery)]" />
+            <FaTwitter className="size-6 hover:text-[var(--ternery)]" />
+            <AiFillInstagram className="size-6 hover:text-[var(--ternery)]" />
+          </div>
         </div>
-
-        <div className="space-y-2 text-white col-span-3 text-center mt-10 items-center border-t border-[var(--ternery)] " >
-          <ul className="flex flex-col gap-3 sm:justify-between  sm:items-center mt-2">
+        <div className="bg-[var(--grey--900)] w-[1px] mx-[60px]"></div>
+        <div className="flex gap-8 ">
+          {/* Right Container */}
+          <ul className="flex flex-col gap-3 sm:justify-between  mt-2">
+            <span className="text-gray-500 uppercase font-extrabold text-lg">
+              Quick Links
+            </span>
             {links.map((link, index) => (
-              <li className='text-base font-extrabold' key={`${link.name}-${index}`}>
+              <li
+                className="text-white font-extrabold"
+                key={`${link.name}-${index}`}
+              >
                 <NavLink
-
                   to={link.address}
-                  className="text-[var(--white-color)] hover:text-[var(--ternery)]"
+                  className="text-base hover:text-[var(--ternery)]"
                 >
                   {link.name}
                 </NavLink>
               </li>
             ))}
           </ul>
-        </div>
-        <div className='col-span-3 items-center text-center mt-10 border-t border-[var(--ternery)]'>
           <ul className="space-y-3 mt-2">
-            <li className='text-base font-extrabold'>
-              <Link to="about/mental-health" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> About Mental Health</Link>
+            <span className="text-gray-500 uppercase font-extrabold text-lg">
+              Know Us
+            </span>
+            <li className="text-base font-extrabold">
+              <Link
+                to="about/mental-health"
+                className="text-[var(--white-color)] hover:text-[var(--ternery)]"
+              >
+                {" "}
+                About Mental Health
+              </Link>
             </li>
-            <li className='text-base font-extrabold'>
-              <Link to="about/mental-health" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> About Us</Link>
+            <li className="text-base font-extrabold">
+              <Link
+                to="about/mental-health"
+                className="text-[var(--white-color)] hover:text-[var(--ternery)]"
+              >
+                {" "}
+                About Us
+              </Link>
             </li>
-            <li className='text-base font-extrabold'>
-              <Link to="/about/our-team" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> Our Review Board</Link>
+            <li className="text-base font-extrabold">
+              <Link
+                to="/about/our-team"
+                className="text-[var(--white-color)] hover:text-[var(--ternery)]"
+              >
+                {" "}
+                Our Review Board
+              </Link>
             </li>
-            <li className='text-base font-extrabold'>
+            <li className="text-white font-extrabold">
               <Link to=""> Contact Page</Link>
             </li>
-            <li className='text-base font-extrabold'>
-              <Link to="" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> Terms of Service</Link>
+            <li className="text-base font-extrabold">
+              <Link
+                to=""
+                className="text-[var(--white-color)] hover:text-[var(--ternery)]"
+              >
+                {" "}
+                Terms of Service
+              </Link>
             </li>
           </ul>
         </div>
-        <div className="col-span-3  flex flex-col justify-between text-center mt-10  items-center border-t border-[var(--ternery)] ">
-          <div className='mt-2'>
-            <h1 className="text-lg font-bold text-[var(--white-color)]">Daily Tips for a Healthy Mind to Your Inbox</h1>
-            <input type="email" placeholder="Enter your email" className="input w-full max-w-xs mt-2" />
-            <button className="action-button mt-2">SIGN UP</button>
-          </div>
-          <div className="flex space-x-4 mt-4 md:mt-0 cursor-pointer">
-            <FaFacebook className="size-6 hover:text-[var(--ternery)]" />
-            <FaTwitter className="size-6 hover:text-[var(--ternery)]" />
-            <AiFillInstagram className="size-6 hover:text-[var(--ternery)]" />
-          </div>
+      </div>
+      {/* Bottom Container */}
+      <div className="bg-gray-500  h-[.1px] mt-[28px] mb-[18px] mx-20"
+      ></div>
+      <div >
+        <div className="bg-[#061c23] px-20 text-gray-500">
+          <p className="text-sm">
+            SukoonSphere's content is for informational and educational purposes
+            only. Our website is not intended to be a substitute for
+            professional medical advice, diagnosis, or treatment.
+          </p>
+          <p>© 2024 Inc. — All rights reserved.</p>
         </div>
       </div>
-      <div className="border-t border-gray-700 mt-4 pt-4 text-xs text-[var(--white-color)] max-w-7xl pl-6 ">
-        <p className='text-sm'>SukoonSphere's content is for informational and educational purposes only. Our website is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
-        <p>© 2024 Inc. — All rights reserved.</p>
-      </div>
-    </div >
+    </div>
   );
 };
 
-export default Footer;
+// <div className="text-white text-sm p-5 bg-[#061c23]" >
+// <div className="container mx-auto grid grid-cols-12  gap-4">
+//   <div className='col-span-3 flex flex-col justify-center items-center'>
+//     <img
+//       src={CompanyLogo}
+//       className="object-cover w-32"
+//       alt="Logo Loading..."
+//     />
+//     <p className='text-sm text-justify' >
+//       Our content helps you make the best choices for your mental well-being. Through powerful storytelling, expert advice, and a supportive community, we aim to raise awareness about mental health and break the stigma surrounding it. Join us as we embark on this journey towards a healthier mind and a brighter future.
+//     </p>
+//   </div>
 
+//   <div className="space-y-2 text-white col-span-3 text-center mt-10 items-center border-t border-[var(--ternery)] " >
+//     <ul className="flex flex-col gap-3 sm:justify-between  sm:items-center mt-2">
+//       {links.map((link, index) => (
+//         <li className='text-base font-extrabold' key={`${link.name}-${index}`}>
+//           <NavLink
+
+//             to={link.address}
+//             className="text-[var(--white-color)] hover:text-[var(--ternery)]"
+//           >
+//             {link.name}
+//           </NavLink>
+//         </li>
+//       ))}
+//     </ul>
+//   </div>
+//   <div className='col-span-3 items-center text-center mt-10 border-t border-[var(--ternery)]'>
+//     <ul className="space-y-3 mt-2">
+//       <li className='text-base font-extrabold'>
+//         <Link to="about/mental-health" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> About Mental Health</Link>
+//       </li>
+//       <li className='text-base font-extrabold'>
+//         <Link to="about/mental-health" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> About Us</Link>
+//       </li>
+//       <li className='text-base font-extrabold'>
+//         <Link to="/about/our-team" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> Our Review Board</Link>
+//       </li>
+//       <li className='text-base font-extrabold'>
+//         <Link to=""> Contact Page</Link>
+//       </li>
+//       <li className='text-base font-extrabold'>
+//         <Link to="" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> Terms of Service</Link>
+//       </li>
+//     </ul>
+//   </div>
+//   <div className="col-span-3  flex flex-col justify-between text-center mt-10  items-center border-t border-[var(--ternery)] ">
+//     <div className='mt-2'>
+//       <h1 className="text-lg font-bold text-[var(--white-color)]">Daily Tips for a Healthy Mind to Your Inbox</h1>
+//       <input type="email" placeholder="Enter your email" className="input w-full max-w-xs mt-2" />
+//       <button className="action-button mt-2">SIGN UP</button>
+//     </div>
+//     <div className="flex space-x-4 mt-4 md:mt-0 cursor-pointer">
+//       <FaFacebook className="size-6 hover:text-[var(--ternery)]" />
+//       <FaTwitter className="size-6 hover:text-[var(--ternery)]" />
+//       <AiFillInstagram className="size-6 hover:text-[var(--ternery)]" />
+//     </div>
+//   </div>
+// </div>
+// <div className="border-t border-gray-700 mt-4 pt-4 text-xs text-[var(--white-color)] max-w-7xl pl-6 ">
+//   <p className='text-sm'>SukoonSphere's content is for informational and educational purposes only. Our website is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+//   <p>© 2024 Inc. — All rights reserved.</p>
+// </div>
+// </div >
+export default Footer;
