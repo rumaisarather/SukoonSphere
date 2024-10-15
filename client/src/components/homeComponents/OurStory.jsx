@@ -1,45 +1,70 @@
 import React from 'react';
 import SectionTitle from '../sharedComponents/SectionTitle';
-
-import IntroVideo from "../../assets/videos/Story Video.mp4"
+import IntroVideo from "../../assets/videos/Story Video.mp4";
 import { Link } from 'react-router-dom';
+import bgImg from "../../assets/images/teams-bg.png"
 
 const OurStory = () => {
     return (
         <>
-            <div className='space-y-4 max-w-7xl mx-auto px-4 md:px-0'>
-                <SectionTitle title={'What we do ?'}></SectionTitle>
+            <SectionTitle title={'Our Story'}></SectionTitle>
+            <div className='space-y-4 max-w-7xl mx-auto px-4 md:px-0 bg-[#013340] text-white py-8 rounded-[20px]' data-aos="fade-up">
 
-                <div className="flex flex-col md:flex-row items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
-                    {/* Left Side: Content Section */}
-                    <div className="md:w-1/2 space-y-6">
-                        <h2 className="text-3xl md:text-2xl font-bold text-[var(--black-color)]" data-aos="fade-up">Our Mission</h2>
-                        <Link to="/about-us">
-                            <h1 className="text-5xl font-bold my-4 text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer" data-aos="fade-up">Reducing Mental Health Challenges</h1>
-                        </Link>
-                        <p className="text-lg font-light text-[var(--black-color)] mb-4" data-aos="fade-up">
-                            Our content helps you make the best choices for your mental well-being. Through powerful storytelling, expert advice, and a supportive community, we aim to raise awareness about mental health and break the stigma surrounding it. Join us as we embark on this journey towards a healthier mind and a brighter future.
+                <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+                    <div className="md:w-1/2 space-y-6 p-8" data-aos="fade-up">
+                        <div className="bg-[var(--grey--900)] text-[--gray-700] text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
+                            <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">N</span>
+                            <Link to={"https://www.nhm.gov.in/index1.php?lang=1&level=2&sublinkid=1043&lid=359"} target='_blank' className='hover:text-[var(--ternery)]'>
+                                NMHP: National Mental Health Programme
+                            </Link>
+                        </div>
+                        <h2 className=" font-bold h2" data-aos="fade-up">Secure your team’s health without losing sleep</h2>
+                        <p className="text-lg font-light mb-4" >
+                            Cultivate a work culture that stands out with Nova's affordable and flexible suite of insurance and wellness offerings.
                         </p>
+                        <hr />
+                        {/* <ul className="list-none space-y-3 text-lg">
+                        <li className="flex items-center">
+                            <span className="mr-2 text-green-500">✔</span> Surpass competitors when it comes to employee wellness with Nova.
+                        </li>
+                        <li className="flex items-center">
+                            <span className="mr-2 text-green-500">✔</span> Access every employee wellness and insurance benefit out there.
+                        </li>
+                        <li className="flex items-center">
+                            <span className="mr-2 text-green-500">✔</span> Unlock the best plans and prices with our tailor-made recommendations.
+                        </li>
+                        <li className="flex items-center">
+                            <span className="mr-2 text-green-500">✔</span> Ensure seamless employee experience on our tech-first platform.
+                        </li>
+                    </ul> */}
                         <div>
                             <Link to="/about-us">
-                                <button className='action-button' data-aos="fade-up">Read more</button>
+                                <button className='btn-4' >Know more</button>
                             </Link>
                         </div>
                     </div>
 
                     {/* Right Side: Video Section */}
-                    <div className="relative md:w-1/2 flex justify-center items-center shadow-2xl" data-aos="fade-left">
-                        <div className="relative w-full h-72 md:h-96 " style={{ boxShadow: '20px 20px 2px var(--primary)' }}>
-                            <video
-                                className="absolute inset-0 w-full h-full object-cover "
-                                src={IntroVideo}
-                                loop
-                                muted
-                                controls
-                                playsInline
-                            />
+                    <div className="relative md:w-1/2 flex flex-col justify-center items-center p-12" data-aos="fade-left" data-aos-duration="1500">
+                        <div
+                            className="w-full h-full bg-contain bg-center flex justify-center items-center "
+                            style={{
+                                backgroundImage: `url(${bgImg})`,
+                                height: '30rem',
+                            }}>
+                            <div className="relative w-full h-72 md:h-96 flex justify-center items-center">
+                                <video
+                                    className="absolute inset-0 w-full h-full object-cover rounded-md"
+                                    src={IntroVideo}
+                                    loop
+                                    muted
+                                    controls
+                                    playsInline
+                                />
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </>

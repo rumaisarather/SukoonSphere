@@ -72,12 +72,12 @@ function TodaysQuiz() {
             <SectionTitle title="Recent Quizzes" />
             <div className="max-w-7xl mx-auto bg-white">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                    <div className="col-span-5 grid gap-6 p-6 bg-white rounded-lg shadow-lg">
+                    <div className="col-span-5 grid gap-6 p-6 bg-white rounded-lg shadow-lg" data-aos="fade-down">
                         <QuizQuestions
                             quizQuestionsList={quizQuestions}
                         />
                     </div>
-                    <div className="col-span-7 p-6 bg-white rounded-lg">
+                    <div className="col-span-7 p-6 bg-white rounded-lg" data-aos="fade-up" data-aos-delay="300">
                         <QuizSummary
                             SummaryTitle={'What is my Attachment Style?'}
                             SummarySubtitle={'Secure, anxious, avoidant, and disorganized—which one are you?'}

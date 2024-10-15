@@ -93,9 +93,8 @@ function NavMenu() {
               </Link>
             </div>
             <div
-              className={`${
-                miniMenu ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
-              } absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
+              className={`${miniMenu ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
+                } absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
               style={{
                 transition: "opacity 0.5s ease, max-height 0.5s ease ",
               }}

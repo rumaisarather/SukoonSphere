@@ -1,39 +1,45 @@
 import React from 'react';
 import SectionTitle from '../sharedComponents/SectionTitle';
-
+import bgImg from "../../assets/images/teams-bg.png"
+import { Link } from 'react-router-dom';
 const OurTeam = () => {
     return (
         <>
             <SectionTitle title={'Meet our team'}></SectionTitle>
-            <div className="min-h-screen max-w-7xl mx-auto flex flex-col items-center justify-center text-center p-4 " data-aos="fade-up" data-aos-duration="1000">
-                {/* Image Section */}
-                <div className="flex justify-center mb-12 ">
-                    {/* Profile Images */}
-                    <div className="w-56 h-56 rounded-lg overflow-hidden" >
-                        <img src="https://www.verywellmind.com/thmb/ZgeW37AcI2ucF1VrLhQYXaCY34I=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/carly-935717a415724b9b9c849c26fd0450ea.jpg"
+            <div className="min-h-screen max-w-7xl mx-auto flex flex-col items-center justify-center text-center p-4 " data-aos="fade-up" >
+
+                <div className="flex justify-center mb-12 bg-contain md:bg-center object-bottom gap-12"
+                    style={{
+                        backgroundImage: `url(${bgImg}) `, width: '1200px',
+                    }}>
+
+                    <div className="w-72 h-72 rounded-lg overflow-hidden" data-aos="fade-up-left">
+                        <img src="https://img.freepik.com/free-photo/smiling-young-male-professional-standing-with-arms-crossed-while-making-eye-contact-against-isolated-background_662251-838.jpg?size=626&ext=jpg&ga=GA1.1.1020016862.1728561713&semt=ais_hybrid"
                             alt="Team Member 1"
                             className="w-full h-full object-cover rounded-[20px]" />
                     </div>
-                    <div className="w-56 h-56 rounded-lg overflow-hidden m-[-50px]" data-aos="fade-up" data-aos-duration="2000">
-                        <img src="https://www.verywellmind.com/thmb/V-ughpr6HaErjm965-iLR-V967o=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/steven-gans-1000-51582b7f23b6462f8713961deb74959f.jpg "
+                    <div className="w-72 h-72 rounded-lg overflow-hidden m-[-100px]" data-aos="fade-up" data-aos-duration="2000">
+                        <img src="https://img.freepik.com/free-photo/happy-satisfied-mature-businessman-with-laptop-watching-content_74855-3531.jpg?ga=GA1.1.1020016862.1728561713&semt=ais_hybrid"
                             alt="Team Member 2"
                             className="w-full h-full object-cover rounded-[20px]" />
                     </div>
-                    <div className="w-56 h-56 rounded-lg overflow-hidden">
-                        <img src="https://www.verywellmind.com/thmb/h5MMllmTdDPDC-JIMlbRqMMtht0=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/Shaheen-Lakhan-660-594fd00c787a40e2bcf15a60eaf9b89a.jpg"
+                    <div className="w-72 h-72 rounded-lg overflow-hidden" data-aos="fade-up-right">
+                        <img src="https://img.freepik.com/premium-photo/young-indian-businesswoman-employee-standing-white-background_1254992-268805.jpg?size=626&ext=jpg&ga=GA1.1.1020016862.1728561713&semt=ais_hybrid"
                             alt="Team Member 3"
                             className="w-full h-full object-cover rounded-[20px]" />
                     </div>
                 </div>
 
                 {/* Heading */}
-                <h1 className="text-black text-6xl font-bold mb-4" data-aos="fade" data-aos-duration="2000">
-                    We're dedicated to one thing — <span className="text-[var(--primary)]">your success</span>.
-                </h1>
-
+                <Link to="/about/our-team" className='text-blue-700'>
+                    <h1 className="text-black text-6xl font-bold mb-4" data-aos="fade" data-aos-duration="2000">
+                        We're dedicated to one thing — <span className="text-[var(--primary)]">your mental peace</span>.
+                    </h1>
+                </Link>
                 {/* Subheading */}
                 <p className="text-black text-lg mt-2" data-aos="fade" data-aos-duration="2000">
                     No matter your goals, we're here to guide and support you through all moments and milestones.
+                    <Link to="/about/our-team" className='text-blue-700'>View all</Link>
                 </p>
             </div>
         </>

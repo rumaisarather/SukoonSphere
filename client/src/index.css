@@ -13,6 +13,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 /* In your custom CSS file */
 .custom-bg {
   @apply bg-gradient-to-b;
@@ -25,11 +26,12 @@
 }
 
 .shadow-1 {
-  box-shadow:0 10px 20px #0000000a,
+  box-shadow: 0 10px 20px #0000000a,
     0 2px 6px #0000000a;
 }
+
 .shadow-2 {
-      box-shadow: 0 100px 80px #0000000a, 0 40px 33px #00000008, 0 23px 17px #00000008, 0 12px 10px #00000005;
+  box-shadow: 0 100px 80px #0000000a, 0 40px 33px #00000008, 0 23px 17px #00000008, 0 12px 10px #00000005;
 }
 
 * {
@@ -135,9 +137,9 @@ audio::-webkit-media-controls-panel {
   --ternery: #247fff;
   --ternery-hover: #1267dd;
 
-  --green:#39aba3;
+  --green: #39aba3;
   --green-hover: #288982;
-/* 
+  /* 
 all other colors below
 */
 
@@ -267,7 +269,7 @@ all other colors below
   animation: blink-caret 0.75s step-end infinite;
 }
 
-.btn-1{
+.btn-1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,9 +279,11 @@ all other colors below
   border-radius: 6px;
   transition: all .3s;
 }
-.btn-1:hover{
+
+.btn-1:hover {
   background-color: var(--primary-hover);
 }
+
 .btn-2 {
   display: flex;
   align-items: center;
@@ -294,6 +298,7 @@ all other colors below
 .btn-2:hover {
   background-color: var(--secondary-hover);
 }
+
 .btn-3 {
   display: flex;
   align-items: center;
@@ -308,6 +313,7 @@ all other colors below
 .btn-3:hover {
   background-color: var(--ternery-hover);
 }
+
 .btn-4 {
   display: flex;
   align-items: center;
@@ -322,6 +328,7 @@ all other colors below
 .btn-4:hover {
   background-color: var(--green-hover);
 }
+
 @keyframes blink-caret {
 
   from,
@@ -344,6 +351,8 @@ all other colors below
 }
 
 
+
+/* Hero section styles */
 /* Hero section */
 .h2 {
   letter-spacing: -.02em;

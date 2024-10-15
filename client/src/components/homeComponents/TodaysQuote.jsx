@@ -1,90 +1,105 @@
-import React, { useState, useEffect } from 'react';
-import LinkButton from "../sharedComponents/Buttons/LinkButton";
-import { AiOutlineComment, AiOutlineFieldTime, AiOutlineLike } from 'react-icons/ai';
+import React, { useEffect, useState } from "react";
+import { FaArrowCircleRight, FaArrowCircleLeft, FaLongArrowAltRight } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import "../../assets/styles/TodaysQuote.css"
+import SectionTitle from "../sharedComponents/SectionTitle";
+
 
 const TodaysQuote = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [fade, setFade] = useState(true);
-    const slides = [
-        {
-            text: "You are not a drop in the ocean. You are the entire ocean in a drop.",
-            subtitle: "Embrace your individuality, for you hold immense power within. Your essence contributes to the vastness of the universe.",
-            author: "By Sartaj Ashraf",
-            date: "AUG 23, 2024",
-        },
-        {
-            text: "Healing takes time, and asking for help is a courageous step.",
-            subtitle: "Do not rush the process of healing. Seeking support is a sign of strength, not weakness.",
-            author: "By Aquib Ahmad",
-            date: "SEP 23, 2024",
-        },
-        {
-            text: "Every day may not be good, but there is something good in every day.",
-            subtitle: "Focus on the positives, even in challenging times. There’s always a silver lining waiting to be discovered.",
-            author: "Shahid Ahmad",
-            date: "MAR 23, 2024",
-        }
+    const [activeWidget, setActiveWidget] = useState(null);
+    const [isVisible, setIsVisible] = useState({});
+
+    // Widget data
+    const widgets = [
+        { id: 1, color: "bg-yellow-400", text: "Positivity", description: "You are not a drop in the ocean. You are the entire ocean in a drop." },
+        { id: 2, color: "bg-blue-500", text: "Courage", description: "Healing takes time, and asking for help is a courageous step." },
+        { id: 3, color: "bg-green-400", text: "Gratitude", description: "Every day may not be good, but there is something good in every day." },
+        { id: 4, color: "bg-red-400", text: "Empowerment", description: "Embrace your individuality, for you hold immense power within." },
+        { id: 5, color: "bg-purple-400", text: "Hope", description: "Focus on the positives, even in challenging times." },
+        { id: 6, color: "bg-teal-400", text: "Resilience", description: "Do not rush the process of healing. Seeking support is a sign of strength, not weakness." },
     ];
 
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setFade(false);
-            setTimeout(() => {
-                setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-                setFade(true);
-            }, 1000);
-        }, 8000);
 
-        return () => clearInterval(interval);
-    }, [slides.length]);
+    const handleWidgetClick = (id) => {
+        setActiveWidget((prevId) => (prevId === id ? null : id));
+    };
+
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                setIsVisible((prev) => ({ ...prev, [entry.target.id]: entry.isIntersecting }));
+            });
+        });
+
+        const elements = document.querySelectorAll(".scroll-widget");
+        elements.forEach((el) => observer.observe(el));
+
+        return () => {
+            elements.forEach((el) => observer.unobserve(el));
+        };
+    }, []);
 
     return (
-        <>
+        <section className="max-w-7xl mx-auto text-center my-20 overflow-x-hidden ">
+            <SectionTitle title={"Quotes"}></SectionTitle>
 
-            <div data-aos="fade-up" data-aos-duration="2000" className="my-10 relative flex items-center flex-col md:flex-row justify-center  p-6 m-auto  max-w-7xl mx-auto rounded-[4px]">
-                <div className="flex-none" style={{ boxShadow: '-20px 20px 2px var(--primary)' }}>
-                    <img
-                        src="https://tteportal.b-cdn.net/wp-content/uploads/elementor/thumbs/01-q16exdssvgx89a8gi3yy0en9dhgnuw7fj70giranpw.jpg"
-                        alt="Run with 645 meanings"
-                        className="w-full h-full object-cover md:w-[500px]"
-                    />
-                </div>
-                <div className="flex-grow md:ml-10">
-                    <h6 className="pb-6 text-[var(--black-color)]">Todays Trending Thought's</h6>
+            <p className="text-sm uppercase tracking-wide text-[var(--black-color)]" data-aos="fade-up">Great practice means great health care</p>
+            <h1 className="text-5xl font-bold text-[var(--primary)]  mt-4" data-aos="fade-up">Open a Quote to get started!</h1>
+            <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden p-4">
+                {widgets.map((widget, index) => (
                     <div
-                        className={`transition-transform ease-in-out duration-1000 ${fade ? 'animate-fadeIn' : 'animate-fadeOut'}`}
+                        key={widget.id}
+                        id={`widget-${widget.id}`}
+                        onClick={() => handleWidgetClick(widget.id)}
+                        className={`scroll-widget absolute flex items-center justify-center cursor-pointer shadow-2xl ${widget.color} 
+                        ${activeWidget === widget.id
+                                ? "w-80 h-48 rounded-[20px]  z-20"
+                                : "w-52 h-16 p-2 rounded-full z-10 hover:rotate-6"} 
+                        transition-all duration-500 ease-in-out transform hover:scale-110 hover:shadow-lg 
+                        ${isVisible[`widget-${widget.id}`]
+                                ? "animate-float"
+                                : "opacity-0 "} 
+                        glossy-effect`} // Apply float animation and glossy effect
+                        style={{
+                            top: `${(index + 1) * 10}%`,
+                            left: `${index === 0 ? "10%" :
+                                index === 1 ? "70%" :
+                                    index === 2 ? "45%" :
+                                        index === 3 ? "15%" :
+                                            index === 4 ? "60%" :
+                                                index === 5 ? "35%" : "70%"
+                                }`,
+                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+                        }}
                     >
-                        <h1 className="text-3xl font-bold pb-6 text-[var(--primary)]">{slides[currentSlide].text}</h1>
-                        <h1 className="text-xl font-bold text-[var(--black-color)]" style={{ fontFamily: "Luxurious Roman", fontWeight: 400, fontStyle: 'normal' }}>
-                            {slides[currentSlide].subtitle}
-                        </h1>
-                        <div className="flex items-center mt-4 col-span-2 justify-start gap-8 order-3 sm:order-none">
-                            <div className="flex items-center justify-center gap-2  cursor-pointer">
-                                <img
-                                    className="rounded-full size-7 border-2 border-[var(--ternery)]"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                                    alt="alt"
-                                />
-                                <span className="text-sm text-[var(--primary)]">{slides[currentSlide].author || "auther"}</span>
+                        <div className="relative w-full h-full flex justify-between items-center pl-2" data-aos="zoom-in-up" data-aos-duration="1500">
+                            <div className="absolute top-1 right-2 flex items-center">
+                                {activeWidget === widget.id ? (
+                                    <FaArrowCircleLeft size={28} className="text-black hover:text-gray-700" />
+                                ) : (
+                                    <FaArrowCircleRight size={40} className="text-black hover:text-gray-700" />
+                                )}
                             </div>
-                            <div className="flex items-center justify-center gap-2">
-                                <AiOutlineFieldTime color="var(--ternery)" />
-                                <span className="text-sm text-[var(--primary)]"> {slides[currentSlide].date || "date"}</span>
+                            <div className={`text-black text-center transition-all duration-300 flex flex-col justify-center items-center p-4 ${activeWidget === widget.id ? "text-lg" : "text-lg"}`}>
+                                {activeWidget === widget.id ? widget.description : widget.text}
+                                {activeWidget === widget.id && (
+                                    <Link to="/get-started" className="mt-4 text-sm text-white px-4 py-1 rounded-full transition">
+                                        <button className="btn-1">
+                                            Get an estimated quote
+                                            <FaLongArrowAltRight className='ml-2' />
+                                        </button>
+                                    </Link>
+                                )}
                             </div>
-                            <div className="hidden sm:flex items-center justify-between sm:justify-center gap-4">
-                                <div className=" flex items-center justify-center gap-2 ">
-                                    <AiOutlineLike color="var(--ternery)" />
-                                    <span className="text-xs text-[var(--primary)]">490</span>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
-                </div>
+                ))}
             </div>
-        </>
+        </section>
     );
 };
 
 export default TodaysQuote;
+
