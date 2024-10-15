@@ -133,10 +133,10 @@ const TopIntro = () => {
 
           {/* CTA Buttons */}
           <div className="flex gap-4">
-            <button className="bg-[#01427a] text-white py-3 px-6 rounded-lg hover:bg-opacity-90">
+            <button className="btn-1">
               Get an estimated quote
             </button>
-            <button className="bg-[#eab308] text-white py-3 px-6 rounded-lg hover:bg-opacity-90">
+            <button className="btn-2">
               Schedule a call
             </button>
           </div>

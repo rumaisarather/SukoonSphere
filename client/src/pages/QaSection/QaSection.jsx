@@ -105,14 +105,14 @@ const QaSection = () => {
               <div className="flex justify-center gap-4">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="flex items-center border border-[var(--primary)]  text-[var(--primary)] hover:text-[var(--white-color)] py-2 px-4 rounded-[4px] shadow hover:bg-[var(--btn-secondary)] transition"
+                  className="btn-1"
                 >
                   <FaQuestionCircle className="mr-2" />
                   Ask
                 </button>
                 <Link
                   to="/answer"
-                  className="flex items-center text-white py-2 px-4 rounded-[4px] shadow transition action-button "
+                  className="btn-3"
                 >
                   <AiOutlineComment className="mr-2" />
                   Answer
@@ -147,7 +147,7 @@ const QuestionCard = ({ question }) => {
   const [showMoreAnswers, setShowMoreAnswers] = useState(false);
 
   return (
-    <div className="mb-8  p-6 rounded-lg shadow-lg bg-white transition duration-300 hover:shadow-xl">
+    <div className="mb-8  p-6 rounded-lg  bg-white transition duration-300 shadow-1 hover:shadow-2">
       <div className="flex items-center mb-4">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
@@ -198,7 +198,7 @@ const AnswerCard = ({ answer }) => {
   const [showMoreComments, setShowMoreComments] = useState(false);
 
   return (
-    <div className="border-l-4 border-[var(--secondary)] pl-4 mb-4 bg-gray-50 p-4 rounded-lg shadow">
+    <div className="border-l-4 border-[var(--secondary)] pl-4 mb-4  p-4 rounded-lg bg-white border-1 shadow-1">
       <div className="flex items-center mb-2">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
