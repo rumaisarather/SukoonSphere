@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QuizSubmissionDialog from '../quizPageComponents/QuizSubmissionDialog';
+import "../../assets/styles/global.css"
 
 const QuizQuestions = ({ quizQuestionsList }) => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -71,17 +72,18 @@ const QuizQuestions = ({ quizQuestionsList }) => {
                 </div>
                 <hr className="border-gray-300 mt-4" />
                 <h2 className="text-xl font-semibold text-[--black-color] mb-4">{question}</h2>
-                <ul className="space-y-2">
+                <ul className="space-y-2 rounded-xl">
                     {[option1, option2, option3, option4].map((option, index) => (
                         <li
                             key={index}
                             onClick={(event) => handleOptionClick(event, option)}
-                            className={`p-2 border border-gray-400 rounded-lg text-gray-800 cursor-pointer hover:bg-green-100 hover:border-green-400 hover:border-l-4 ${getOptionClasses(option)}`}
+                            className={`p-2 bg-[var(--body)] rounded-[10px] text-gray-800 cursor-pointer hover:border-[var(--primary)] hover:border-l-4 hover:glossy-effect-bar transition-all duration-300 ease-in-out ${getOptionClasses(option)}`}
                         >
                             {option}
                         </li>
                     ))}
                 </ul>
+
             </div>
             <QuizSubmissionDialog answers={answers} />
         </>

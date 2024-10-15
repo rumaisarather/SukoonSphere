@@ -26,12 +26,14 @@ const duplicatedPartnersData = [...PartnersData, ...PartnersData];
 function CampusPartners() {
     return (
         <>
-            <div className='max-w-7xl mx-auto mb-20'>
+            <div className=' mb-20 '>
                 <SectionTitle title={"Our Partners"}></SectionTitle>
-                <div className="carousel-wrapper">
-                    <p className="text-sm uppercase tracking-wide text-[var(--black-color)] text-center">Great practice means great health care</p>
-                    <h1 className='text-3xl text-[var(--black-color)] text-center '>Our Partners</h1>
-
+                <div className="carousel-wrapper bg-[#061c23] p-6">
+                    <p className="text-lg uppercase tracking-wide text-[var(--grey--700)] text-center pb-4">Trusted by
+                        500+
+                        teams to empower
+                        2,00,000+
+                        people</p>
 
                     <div className="carousel-content pb-10">
                         {duplicatedPartnersData.map((logo, index) => (

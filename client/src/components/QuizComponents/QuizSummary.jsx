@@ -2,6 +2,7 @@ import React from 'react';
 import LinkButton from '../sharedComponents/Buttons/LinkButton';
 import { Link } from 'react-router-dom';
 import { AiOutlineFieldTime, AiOutlineLike } from 'react-icons/ai';
+import { FaReadme } from 'react-icons/fa';
 
 function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentTitle, ContentSubtitle }) {
     return (
@@ -58,8 +59,9 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
 
                 <div className="mt-8 flex justify-center sm:justify-start">
                     <Link to={`/all-quizzes/quiz/${1}`}>
-                        <button className="action-button text-sm md:text-base font-semibold" >
+                        <button className="btn-1" >
                             Read more
+                            <FaReadme className='ml-4' />
                         </button>
                     </Link>
                 </div>

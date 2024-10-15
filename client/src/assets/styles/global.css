@@ -1,0 +1,37 @@
+/* Glossy effect for the titles */
+.glossy-effect-bar {
+    position: relative;
+    overflow: hidden;
+    /* Hide overflow for the glossy effect */
+}
+
+.glossy-effect-bar::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    /* Make sure it's larger than the parent */
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    animation: glossy-animation 4s infinite;
+    /* Adjust duration for speed */
+    transform: rotate(30deg);
+}
+
+@keyframes glossy-animation {
+    0% {
+        top: -100%;
+        left: -100%;
+    }
+
+    50% {
+        top: 100%;
+        left: 100%;
+    }
+
+    100% {
+        top: -100%;
+        left: -100%;
+    }
+}
