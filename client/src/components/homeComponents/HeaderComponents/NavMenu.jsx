@@ -35,18 +35,10 @@ function NavMenu() {
   }, []);
   return (
     <nav
-<<<<<<< Updated upstream
       className={` flex items-center sm:items-center justify-between sm:flex-row  w-full z-20 transition-all ease-in-out p-2 h-[60px]  ${isSticky
         ? "fixed top-0 duration-500 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md"
         : "sticky shadow-md"
         }`}
-=======
-      className={`flex items-center justify-between w-full z-20 transition-all shadow-[0 1px #0000000a] ease-in-out p-2 h-[70px] ${
-        isSticky
-          ? "sticky  top-0 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white shadow-md"
-          : "sticky "
-      }`}
->>>>>>> Stashed changes
     >
       <GiHamburgerMenu
         className={`block place-content-end absolute right-3 md:hidden cursor-pointer text-[1.4rem]  ${isSticky ? "text-white" : "text-[var(--secondary)]"} `}

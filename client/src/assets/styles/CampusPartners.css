@@ -6,9 +6,7 @@
 .carousel-content {
     display: flex;
     width: calc(200px * 16);
-    /* Double the original width if logos are duplicated */
     animation: scroll-left 30s linear infinite;
-    /* Adjust timing as needed */
 }
 
 @keyframes scroll-left {
