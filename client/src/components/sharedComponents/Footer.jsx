@@ -41,23 +41,26 @@ const Footer = () => {
         <div className="flex gap-8 ">
           {/* Right Container */}
           <ul className="flex flex-col gap-3 sm:justify-between text-white mt-2">
-            <span className="text-gray-500 uppercase font-extrabold text-lg">
-              Quick Links
-            </span>
-            {links.map((link, index) => (
-              <li
-                className="text-white font-extrabold"
-                key={`${link.name}-${index}`}
-              >
-                <NavLink
-                  to={link.address}
-                  className=" hover:text-[var(--ternery)]"
-                >
-                  {link.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+  <span className="text-gray-500 uppercase font-extrabold text-lg">
+    Quick Links
+  </span>
+  {links.map((link) => 
+    link.sublinks?.map((sublink, index) => (
+      <li
+        className="text-white font-extrabold"
+        key={sublink.name} // Ensure 'sublink.name' is unique
+      >
+        <NavLink
+          to={sublink.address}
+          className="hover:text-[var(--ternery)]"
+        >
+          {sublink.name}
+        </NavLink>
+      </li>
+    ))
+  )}
+</ul>
+
           <ul className="space-y-3 mt-2">
             <span className="text-gray-500 uppercase font-extrabold text-lg">
               Know Us
