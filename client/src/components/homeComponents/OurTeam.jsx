@@ -32,7 +32,7 @@ const OurTeam = () => {
 
                 {/* Heading */}
                 <Link to="/about/our-team" className='text-blue-700'>
-                    <h1 className="text-black text-6xl font-bold mb-4" data-aos="fade" data-aos-duration="2000">
+                    <h1 className="text-[var(--grey--900)]  font-bold mb-4 h2" data-aos="fade" data-aos-duration="2000">
                         We're dedicated to one thing — <span className="text-[var(--primary)]">your mental peace</span>.
                     </h1>
                 </Link>

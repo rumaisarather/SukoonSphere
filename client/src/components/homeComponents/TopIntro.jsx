@@ -24,13 +24,13 @@ const TopIntro = () => {
 
 
           {/* Main Heading */}
-          <h1 className="text-[#0c0c0d]  font-bold mb-4  h2">
-            Empowering You to Heal, Grow, and Thrive
+          <h1 className="h2 mb-4  font-extrabold text-[var(--grey--900)]">
+            Empowering you to Heal, Grow, and Thrive
           </h1>
 
           {/* Subtext */}
-          <p className="text-[#6c6c6c] text-lg mb-8 text-b4 hero-para">
-            Get the best-in-class group health insurance plans and wellness benefits for your team.
+          <p className="text-[var(--grey--800)] text-lg mb-8 text-b4 hero-para">
+            Through personalized resources, expert guidance, and a compassionate community, we provide the tools you need to overcome challenges, foster personal growth, and lead a fulfilling, balanced life.
           </p>
 
           {/* CTA Buttons */}
@@ -39,10 +39,12 @@ const TopIntro = () => {
               Get an estimated quote
               <FaLongArrowAltRight className='ml-2' />
             </button>
-            <button className="btn-2">
-              Schedule a call
-              <FaLongArrowAltRight className='ml-2' />
-            </button>
+            <Link to={"/contact-us"}>
+              <button className="btn-2">
+                Schedule a callback
+                <FaLongArrowAltRight className='ml-2' />
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -54,7 +56,7 @@ const TopIntro = () => {
           <img src={bg_hero} alt="Healthcare Illustration" className="max-w-full h-auto" />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
