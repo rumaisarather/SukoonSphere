@@ -37,7 +37,7 @@ const OurTeam = () => {
                     </h1>
                 </Link>
                 {/* Subheading */}
-                <p className="text-black text-lg mt-2" data-aos="fade" data-aos-duration="2000">
+                <p className="text-[var(--grey--800)] text-lg mt-2" data-aos="fade" data-aos-duration="2000">
                     No matter your goals, we're here to guide and support you through all moments and milestones.
                     <Link to="/about/our-team" className='text-blue-700'>View all</Link>
                 </p>
