@@ -1,42 +1,47 @@
 import { FaHome } from "react-icons/fa";
 
-
 export const links = [
   {
     name: "Home",
     address: "/",
-    icon: FaHome,  // JSX version of the icon
+    icon: FaHome,
   },
   {
     name: "Articles & Resources",
     address: '',
-    // icon: <MdArticle />, 
+    // icon: <MdArticle />,
+    description: "Educational content and tools",
     sublinks: [
       {
         name: "Articles",
         address: 'articles',
-        // icon: <MdArticle />, 
+        description: "In-depth written content",
+        // icon: <MdArticle />,
       },
       {
         name: "Quizzes",
         address: 'all-quizzes',
-        // icon: <BiQuestionMark />, 
+        description: "Interactive knowledge tests",
+        // icon: <BiQuestionMark />,
       },
     ],
   },
   {
     name: 'Debates & Discussions',
     address: "",
-    // icon: <BsChatDots />, 
+    // icon: <BsChatDots />,
+    description: "Engage in dialogues",
     sublinks: [
       {
         name: "QA-Section",
         address: "QA-Section",
-        // icon: <BiQuestionMark />, 
+        description: "Question and answer forum",
+        // icon: <BiQuestionMark />,
       },
       {
         name: "Stories",
         address: 'Posts',
+        description: "User-submitted discussions",
         // icon: <BsChatDots />,
       },
     ],
@@ -44,44 +49,52 @@ export const links = [
   {
     name: 'Media Libraries',
     address: "",
-    // icon: <MdVideoLibrary />, 
+    // icon: <MdVideoLibrary />,
+    description: "Audio-visual resources",
     sublinks: [
       {
         name: "Podcasts",
         address: "podcast/playlists",
-        // icon: <GiPodium />, 
+        description: "Audio-based discussions",
+        // icon: <GiPodium />,
       },
       {
         name: "Videos",
         address: 'media/all-videos',
-        // icon: <MdVideoLibrary />, 
+        description: "Visual media content",
+        // icon: <MdVideoLibrary />,
       },
     ],
   },
   {
     name: 'Contact & Help',
     address: "",
-    // icon: <AiOutlineMail />, 
+    // icon: <AiOutlineMail />,
+    description: "Get support or learn more",
     sublinks: [
       {
         name: "Contact Us",
         address: "contact-us",
-        // icon: <AiOutlineMail />, 
+        description: "Get in touch with support",
+        // icon: <AiOutlineMail />,
       },
       {
         name: "About Us",
         address: 'about-us',
-        // icon: <AiOutlineInfoCircle />, 
+        description: "Learn about our mission",
+        // icon: <AiOutlineInfoCircle />,
       },
       {
         name: "Mental Health",
         address: 'about/mental-health',
-        // icon: <FaBrain />, 
+        description: "Mental health resources",
+        // icon: <FaBrain />,
       },
       {
         name: "Our Review Board",
         address: '/about/our-team',
-        // icon: <FiUsers />, 
+        description: "Meet our expert team",
+        // icon: <FiUsers />,
       },
     ],
   },
