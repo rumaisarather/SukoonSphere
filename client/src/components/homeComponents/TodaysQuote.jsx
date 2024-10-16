@@ -42,39 +42,43 @@ const TodaysQuote = () => {
     }, []);
 
     return (
-        <section className="max-w-7xl mx-auto text-center my-20 overflow-x-hidden ">
+        <section className="max-w-7xl mx-auto text-center  overflow-x-hidden ">
             <SectionTitle title={"Quotes"}></SectionTitle>
-
-            <p className="text-sm uppercase tracking-wide text-[var(--black-color)]" data-aos="fade-up">Great practice means great health care</p>
-            <h1 className="text-5xl font-bold text-[var(--primary)]  mt-4" data-aos="fade-up">Open a Quote to get started!</h1>
+            <div className="bg-[var(--light-bg)] text-[--gray-700] text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
+                <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">S</span>
+                <Link to={"https://nhm.gov.in/images/pdf/National_Health_Mental_Policy.pdf"} target='_blank' className='hover:text-[var(--ternery)]'>
+                    SukoonSphere: Personalized Quotes
+                </Link>
+            </div>
+            <h1 className="font-bold text-[var(--grey--900)]  h2" data-aos="fade-up">Open a Quote to get started!</h1>
             <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden p-4">
                 {widgets.map((widget, index) => (
-                 <div
-                 key={widget.id}
-                 id={`widget-${widget.id}`}
-                 onClick={() => handleWidgetClick(widget.id)}
-                 className={`scroll-widget absolute flex items-center justify-center cursor-pointer shadow-2xl ${widget.color} 
+                    <div
+                        key={widget.id}
+                        id={`widget-${widget.id}`}
+                        onClick={() => handleWidgetClick(widget.id)}
+                        className={`scroll-widget absolute flex items-center justify-center cursor-pointer shadow-2xl ${widget.color} 
                    ${activeWidget === widget.id
-                     ? "w-80 h-48 rounded-[20px] z-20"
-                     : "w-52 h-16 p-2 rounded-full z-10 hover:rotate-3"} 
+                                ? "w-80 h-48 rounded-[20px] z-20"
+                                : "w-52 h-16 p-2 rounded-full z-10 "} 
                    transition-[width,height,transform,opacity] duration-700 ease-in-out transform hover:scale-105 hover:shadow-xl 
                    ${isVisible[`widget-${widget.id}`]
-                     ? "animate-float"
-                     : "opacity-0"} 
+                                ? "animate-float"
+                                : "opacity-0"} 
                    glossy-effect`}
-                 style={{
-                   top: `${(index + 1) * 10}%`,
-                   left: `${index === 0 ? "10%" :
-                     index === 1 ? "70%" :
-                       index === 2 ? "45%" :
-                         index === 3 ? "15%" :
-                           index === 4 ? "60%" :
-                             index === 5 ? "35%" : "70%"
-                   }`,
-                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-                 }}
-               >
-               
+                        style={{
+                            top: `${(index + 1) * 10}%`,
+                            left: `${index === 0 ? "10%" :
+                                index === 1 ? "70%" :
+                                    index === 2 ? "45%" :
+                                        index === 3 ? "15%" :
+                                            index === 4 ? "60%" :
+                                                index === 5 ? "35%" : "70%"
+                                }`,
+                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+                        }}
+                    >
+
                         <div className="relative w-full h-full flex justify-between items-center pl-1" data-aos="zoom-in-up" data-aos-duration="1500">
                             <div className="absolute top-1 right-0 flex items-center  ">
                                 {activeWidget === widget.id ? (

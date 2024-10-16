@@ -6,7 +6,7 @@ function VideoCard({ videos }) {
     return (
         <>
             {videos.map((video, index) => (
-                <div key={index} className="group bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-[101%]" >
+                <div key={index} className="group bg-white shadow-lg  overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-[101%]" >
                     <Link to={`video/${video.id}`}>
                         <div className="relative">
                             {/* Image or Thumbnail */}
