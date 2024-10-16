@@ -9,7 +9,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsFillTriangleFill } from "react-icons/bs";
-import { IoIosArrowDown } from "react-icons/io";
 function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [miniMenu, setMiniMenu] = useState(false);
@@ -50,7 +49,7 @@ function NavMenu() {
                 >
                   {link.icon}
                   <span className="ml-1">{link.name}</span>
-                  {index !== 0 && <IoIosArrowDown className="mt-[3px] ml-1" />}
+                  {/* {index !== 0 && <IoIosArrowDown className="mt-[3px] ml-1" />} */}
                 </NavLink>
 
                 {link.sublinks && (
@@ -100,9 +99,8 @@ function NavMenu() {
               </Link>
             </div>
             <div
-              className={`${
-                miniMenu ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
-              } absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
+              className={`${miniMenu ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
+                } absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
               style={{
                 transition: "opacity 0.5s ease, max-height 0.5s ease ",
               }}

@@ -3,14 +3,15 @@ import SectionTitle from '../sharedComponents/SectionTitle';
 import IntroVideo from "../../assets/videos/Story Video.mp4";
 import { Link } from 'react-router-dom';
 import bgImg from "../../assets/images/teams-bg.png"
+import { MdOutlineReadMore } from "react-icons/md";
 
 const OurStory = () => {
     return (
         <>
             <SectionTitle title={'Our Story'}></SectionTitle>
-            <div className='space-y-4 max-w-7xl mx-auto px-4 md:px-0 bg-[#013340] text-white py-8 rounded-[20px]' data-aos="fade-up">
+            <div className=' max-w-7xl mx-auto px-4 md:px-0 bg-[#013340] text-white  rounded-[20px]' data-aos="fade-up">
 
-                <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+                <div className="flex flex-col md:flex-row items-center justify-between  md:space-y-0 md:space-x-8">
                     <div className="md:w-1/2 space-y-6 p-8" data-aos="fade-up">
                         <div className="bg-[var(--grey--900)] text-[--gray-700] text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
                             <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">N</span>
@@ -39,7 +40,9 @@ const OurStory = () => {
                     </ul> */}
                         <div>
                             <Link to="/about-us">
-                                <button className='btn-4' >Know more</button>
+                                <button className='btn-4' >Know more
+                                    <MdOutlineReadMore className='ml-2' size={20} />
+                                </button>
                             </Link>
                         </div>
                     </div>
@@ -52,9 +55,9 @@ const OurStory = () => {
                                 backgroundImage: `url(${bgImg})`,
                                 height: '30rem',
                             }}>
-                            <div className="relative w-full h-72 md:h-96 flex justify-center items-center">
+                            <div className="relative w-full h-72 md:h-96 flex justify-center items-center ">
                                 <video
-                                    className="absolute inset-0 w-full h-full object-cover rounded-md"
+                                    className="absolute inset-0 w-full h-full object-cover rounded-[10px]"
                                     src={IntroVideo}
                                     loop
                                     muted

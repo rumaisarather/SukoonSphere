@@ -63,21 +63,29 @@ const QuizQuestions = ({ quizQuestionsList }) => {
 
     return (
         <>
-            <div className='space-y-4 sticky top-24'>
-                <div className="flex justify-between items-center ">
-                    <h1 className="text-2xl font-bold text-[var(--primary)]">Question {currentQuestionIndex + 1}</h1>
-                    <div className="bg-[var(--btn-primary)] text-white px-4 py-2 rounded-full text-sm">
-                        {currentQuestionIndex + 1}/{quizQuestionsList.length}
+            <div className='space-y-2 sticky top-16 '>
+                <div className='bg-[var(--primary)] rounded-t-[20px] p-4 '>
+                    <div className="flex justify-between items-center ">
+                        <h1 className="text-2xl font-bold text-[var(--white-color)]">Question {currentQuestionIndex + 1}</h1>
+                        <div className="bg-[var(--btn-primary)] text-white px-4 py-2 rounded-full text-sm">
+                            {currentQuestionIndex + 1}/{quizQuestionsList.length}
+                        </div>
+                    </div>
+                    <hr className="border-gray-300 mt-4" />
+                    <div>
+                        <h2 className="text-xl font-semibold text-[--white-color] my-2">{question}</h2>
                     </div>
                 </div>
-                <hr className="border-gray-300 mt-4" />
-                <h2 className="text-xl font-semibold text-[--black-color] mb-4">{question}</h2>
-                <ul className="space-y-2 rounded-xl">
+
+
+                <ul className="space-y-2 rounded-xl p-2 ">
                     {[option1, option2, option3, option4].map((option, index) => (
                         <li
                             key={index}
                             onClick={(event) => handleOptionClick(event, option)}
-                            className={`p-2 bg-[var(--body)] rounded-[10px] text-gray-800 cursor-pointer hover:border-[var(--primary)] hover:border-l-4 hover:glossy-effect-bar transition-all duration-300 ease-in-out ${getOptionClasses(option)}`}
+                            className={`p-2 bg-[var(--body)] rounded-[10px] text-black cursor-pointer hover:border-[var(--primary)] hover:border-l-4 hover:glossy-effect-bar transition-all duration-200 ease-in-out ${getOptionClasses(option)}`}
+                            data-aos="fade-up"
+                            data-aos-duration="1500"
                         >
                             {option}
                         </li>
