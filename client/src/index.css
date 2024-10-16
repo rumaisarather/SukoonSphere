@@ -342,7 +342,7 @@ all other colors below
 }
 
 .active {
-  color: var(--ternery);
+  /* color: var(--ternery); */
   /* background-color: palegoldenrod; */
 }
 

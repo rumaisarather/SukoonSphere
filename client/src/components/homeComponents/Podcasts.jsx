@@ -22,11 +22,11 @@ function Podcasts() {
               alt=""
             />
             <div className="flex gap-3 items-center">
-              <h2 className="text-xl text-white ">
+              <h2 className="text-xl font-bold text-[var(--primary)] ">
                 Suneeta Prajapati: The Joys of Reporting Crime
               </h2>
               <Link to={"/podcast-page"}>
-                <FaRegCirclePlay className=" text-white hover:rounded-full text-4xl" />
+                <FaRegCirclePlay className="text-[var(--primary)] hover:rounded-full text-4xl" />
               </Link>
             </div>
           </div>

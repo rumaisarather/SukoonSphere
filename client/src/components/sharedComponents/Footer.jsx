@@ -8,7 +8,7 @@ import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     // Main Containerg
-    <div className="bg-[#061c23]">
+    <div className="bg-[#061c23] mt-6">
       {/* Top Container */}
       <div className="flex  px-20 py-6 gap-4 ">
         <div className="text-white flex flex-col gap-4 mt-4">
@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="bg-[var(--grey--900)] w-[1px] mx-[60px]"></div>
         <div className="flex gap-8 ">
           {/* Right Container */}
-          <ul className="flex flex-col gap-3 sm:justify-between  mt-2">
+          <ul className="flex flex-col gap-3 sm:justify-between text-white mt-2">
             <span className="text-gray-500 uppercase font-extrabold text-lg">
               Quick Links
             </span>
@@ -51,7 +51,7 @@ const Footer = () => {
               >
                 <NavLink
                   to={link.address}
-                  className="text-base hover:text-[var(--ternery)]"
+                  className=" hover:text-[var(--ternery)]"
                 >
                   {link.name}
                 </NavLink>

@@ -49,37 +49,38 @@ const TodaysQuote = () => {
             <h1 className="text-5xl font-bold text-[var(--primary)]  mt-4" data-aos="fade-up">Open a Quote to get started!</h1>
             <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden p-4">
                 {widgets.map((widget, index) => (
-                    <div
-                        key={widget.id}
-                        id={`widget-${widget.id}`}
-                        onClick={() => handleWidgetClick(widget.id)}
-                        className={`scroll-widget absolute flex items-center justify-center cursor-pointer shadow-2xl ${widget.color} 
-                        ${activeWidget === widget.id
-                                ? "w-80 h-48 rounded-[20px]  z-20"
-                                : "w-52 h-16 p-2 rounded-full z-10 hover:rotate-6"} 
-                        transition-all duration-500 ease-in-out transform hover:scale-110 hover:shadow-lg 
-                        ${isVisible[`widget-${widget.id}`]
-                                ? "animate-float"
-                                : "opacity-0 "} 
-                        glossy-effect`} // Apply float animation and glossy effect
-                        style={{
-                            top: `${(index + 1) * 10}%`,
-                            left: `${index === 0 ? "10%" :
-                                index === 1 ? "70%" :
-                                    index === 2 ? "45%" :
-                                        index === 3 ? "15%" :
-                                            index === 4 ? "60%" :
-                                                index === 5 ? "35%" : "70%"
-                                }`,
-                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-                        }}
-                    >
-                        <div className="relative w-full h-full flex justify-between items-center pl-2" data-aos="zoom-in-up" data-aos-duration="1500">
-                            <div className="absolute top-1 right-2 flex items-center">
+                 <div
+                 key={widget.id}
+                 id={`widget-${widget.id}`}
+                 onClick={() => handleWidgetClick(widget.id)}
+                 className={`scroll-widget absolute flex items-center justify-center cursor-pointer shadow-2xl ${widget.color} 
+                   ${activeWidget === widget.id
+                     ? "w-80 h-48 rounded-[20px] z-20"
+                     : "w-52 h-16 p-2 rounded-full z-10 hover:rotate-3"} 
+                   transition-[width,height,transform,opacity] duration-700 ease-in-out transform hover:scale-105 hover:shadow-xl 
+                   ${isVisible[`widget-${widget.id}`]
+                     ? "animate-float"
+                     : "opacity-0"} 
+                   glossy-effect`}
+                 style={{
+                   top: `${(index + 1) * 10}%`,
+                   left: `${index === 0 ? "10%" :
+                     index === 1 ? "70%" :
+                       index === 2 ? "45%" :
+                         index === 3 ? "15%" :
+                           index === 4 ? "60%" :
+                             index === 5 ? "35%" : "70%"
+                   }`,
+                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+                 }}
+               >
+               
+                        <div className="relative w-full h-full flex justify-between items-center pl-1" data-aos="zoom-in-up" data-aos-duration="1500">
+                            <div className="absolute top-1 right-0 flex items-center  ">
                                 {activeWidget === widget.id ? (
-                                    <FaArrowCircleLeft size={28} className="text-black hover:text-gray-700" />
+                                    <FaArrowCircleLeft size={28} className="text-black hover:text-gray-700 p-1 mb-2" />
                                 ) : (
-                                    <FaArrowCircleRight size={40} className="text-black hover:text-gray-700" />
+                                    <FaArrowCircleRight size={40} className="text-black hover:text-gray-700 p-1 mb-2" />
                                 )}
                             </div>
                             <div className={`text-black text-center transition-all duration-300 flex flex-col justify-center items-center p-4 ${activeWidget === widget.id ? "text-lg" : "text-lg"}`}>
