@@ -9,6 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsFillTriangleFill } from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
 function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [miniMenu, setMiniMenu] = useState(false);
@@ -49,7 +50,7 @@ function NavMenu() {
                 >
                   {link.icon}
                   <span className="ml-1">{link.name}</span>
-                  {/* {index !== 0 && <IoIosArrowDown className="mt-[3px] ml-1" />} */}
+                  {index !== 0 && <IoIosArrowDown className="mt-[3px] ml-1" />}
                 </NavLink>
 
                 {link.sublinks && (

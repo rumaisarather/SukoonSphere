@@ -105,6 +105,16 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
+          <ul>
+          <span className="text-gray-500 uppercase font-extrabold text-lg">
+            RECO BY NMHP
+            </span>
+            <li>
+              <Link>
+              
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
       {/* Bottom Container */}
