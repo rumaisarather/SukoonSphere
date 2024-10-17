@@ -36,7 +36,7 @@ function PodcastPlaylists() {
         </div>
         {podcastsLists.map((podcastsList) => (
           <div
-            className="flex  rounded-[25px] shadow-lg mt-4 w-[70%] border-b-[1px] border-[var(--secondary)] p-6 gap-4 "
+            className="flex  rounded-[25px] shadow-lg mt-4 w-[70%] border-b-[1px] border-[var(--secondary)] p-4 py-6 gap-4 "
             data-aos="fade-up"
             style={{
               objectFit: "contain",
@@ -45,17 +45,17 @@ function PodcastPlaylists() {
           >
             <img
               className="w-52 rounded-[20px]"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWY7eeoKIGlhc8-3qCnhIJISb5ZNxY9qEOA&s"
+              src={podcastsList.poadcasteImg}
               alt=""
             />
-            <div className="flex flex-col gap-1 text-black  ">
+            <div className="flex flex-col gap-1 text-[var(--primary)]  ">
               <Link to={`/podcast/${podcastsList.podcastListId}`}>
                 {" "}
                 <h3 className="text-4xl text-[var(--primary)] font-bold mb-2">
                   {podcastsList.podcastTitle}
                 </h3>
               </Link>
-              <div className="flex gap-3 items-center">
+              <div className="flex gap-3 items-center text-[var(--primary)]">
                 <img
                   className="w-7 h-7 rounded-full"
                   src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -64,7 +64,7 @@ function PodcastPlaylists() {
                 <span>Dr. Emily Stone</span>
               </div>
               <span>Episodes : 10</span>
-              <p className="text-black">{podcastsList.podcastDiscription}</p>
+              <p className="text-[var(--primary)]">{podcastsList.podcastDiscription}</p>
             </div>
           </div>
         ))}
