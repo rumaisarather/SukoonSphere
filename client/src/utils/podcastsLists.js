@@ -2,7 +2,7 @@ export const podcastsLists = [
   {
     podcastListId: "1",
     podcastTitle: "Mindful Moments",
-    poadcasteImg: "https://rachelcorbett.com.au/wp-content/uploads/2018/07/Neon-podcast-logo.jpg",
+    poadcasteImg: "https://jimthorpecurrent.com/wp-content/uploads/2018/11/mindful-moments.jpg",
     podcastDiscription:
       "Join us as we explore the art of mindfulness and meditation. Each episode features expert insights, practical tips, and calming exercises designed to help you live a more present and balanced life. Tune in for soothing conversations that encourage you to reconnect with yourself and find peace in the chaos.",
 
@@ -133,7 +133,7 @@ export const podcastsLists = [
   {
     podcastListId: "2",
     podcastTitle: "Voices of Change",
-    poadcasteImg: "https://media.wired.com/photos/620eb0f39266d5d11c07b3c5/master/pass/Gear-Podcast-Gear-1327244548.jpg",
+    poadcasteImg: "https://www.pmi.com/resources/images/default-source/who-we-are/voices-of-change/voices-of-change-thumbnail.jpg?sfvrsn=cad50ab4_4",
     podcastDiscription:
       "Dive into the inspiring stories of individuals who are making a difference in their communities. From grassroots activists to renowned leaders, each episode highlights their journeys, challenges, and triumphs. Discover how small actions can create ripple effects, leading to monumental changes in the world.",
 
@@ -175,7 +175,7 @@ export const podcastsLists = [
   {
     podcastListId: "3",
     podcastTitle: "Health Matters",
-    poadcasteImg: "https://media.istockphoto.com/id/1283532997/vector/podcast-concept-thin-line-icon-abstract-icon-abstract-gradient-background-modern-sound-wave.jpg?s=612x612&w=0&k=20&c=YLg7rHeSuYqeIuGRAcvf2a7J8X8Sx-IkmqYHXIJGPYQ=",
+    poadcasteImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIB2BoUYJVkUwOyJR5wTc8bM3znWvpy5ZGA&s",
     podcastDiscription:
       "Navigate the complex world of health and wellness with our expert guests. This podcast tackles pressing health topics, from nutrition and fitness to mental health and wellness strategies. Each episode offers evidence-based advice and personal stories to empower listeners to take charge of their health.",
 
@@ -218,6 +218,7 @@ export const podcastsLists = [
   {
     podcastListId: "4",
     podcastTitle: "Creative Conversations",
+    poadcasteImg:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4iA8IV9UrI-xUEchvHnMDdzjNziP7h0UoFA&s",
     podcastDiscription:
       "Explore the minds of artists, writers, and creators as they discuss their creative processes, struggles, and breakthroughs. This podcast is a deep dive into the world of creativity, where imagination knows no bounds. Get inspired by stories of passion and perseverance that fuel artistic endeavors.",
     podcasts: [
