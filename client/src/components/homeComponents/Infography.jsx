@@ -55,7 +55,7 @@ function Infography() {
             <SectionTitle title={'Why SukoonSphere?'}></SectionTitle>
 
             <div className="max-w-7xl mx-auto text-white relative px-6">
-                <div className="space-y-4 max-w-7xl mx-auto relative text-center">
+                <div className="max-w-7xl mx-auto relative text-center">
                     <div className="bg-[var(--primary)] text-[--gray-700] text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
                         <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">S</span>
                         <Link to={"https://nhm.gov.in/images/pdf/National_Health_Mental_Policy.pdf"} target='_blank' className='hover:text-[var(--ternery)]'>
@@ -63,9 +63,9 @@ function Infography() {
                         </Link>
                     </div>
                     <Link to="about/mental-health">
-                        <h1 className="font-bold text-[var(--grey--900)] hover:text-[var(--ternery)] cursor-pointer mt-4 h2" data-aos="fade-up">Mental Health Challenges</h1>
+                        <h1 className="font-bold text-[var(--grey--900)] hover:text-[var(--ternery)] cursor-pointer h2" data-aos="fade-up">Mental Health Challenges</h1>
                     </Link>
-                    <p className="text-lg font-light text-[var(--black-color)]" data-aos="fade-up">
+                    <p className="text-lg font-light text-[var(--grey--800)]" data-aos="fade-up">
                         Dynamically target high-payoff intellectual capital for customized technologies. <br /> Objectively integrate emerging core competencies.
                     </p>
                 </div>
@@ -81,7 +81,7 @@ function Infography() {
                                 data-aos-delay="500"
                             >
                                 <div className="flex justify-center mt-4">
-                                    <div className="w-[200px] h-[200px] bg-gray-200 rounded-[20px]">
+                                    <div className="w-[270px] h-[200px] bg-gray-200 rounded-[20px]">
                                         <img
                                             src={stats.image}
                                             alt={stats.category}
@@ -91,11 +91,11 @@ function Infography() {
                                     </div>
                                 </div>
                                 <div className="mt-4 space-y-2">
-                                    <p className="text-md font-bold text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer">
+                                    <h4 className="text-md font-bold text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer">
                                         <Link to="about/mental-health">{stats.category} </Link>
-                                    </p>
-                                    <h1 className="text-3xl font-semibold text-[var(--primary)]">{animatedValue}%</h1>
-                                    <p className="mt-2 text-gray-600">{stats.description}</p>
+                                    </h4>
+                                    <h1 className="text-3xl font-semibold text-[var(--primary)]">{animatedValue} <span>%</span></h1>
+                                    <p className="mt-2 text-[var(--grey--800)]">{stats.description}</p>
                                 </div>
                             </div>
 

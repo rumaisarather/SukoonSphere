@@ -8,16 +8,16 @@ import bgImg from "../../assets/images/ContactImg.jpg"
 const ContactUs = () => {
     return (
         <>
-            <HeaderImg currentPage="Contact" bgImg={bgImg} />
-            <div className="flex flex-col lg:flex-row text-white rounded-lg overflow-hidden  max-w-7xl mx-auto">
+            {/* <HeaderImg currentPage="Contact" bgImg={bgImg} /> */}
+            <div className="flex flex-col lg:flex-row text-white rounded-lg overflow-hidden  max-w-7xl mx-auto " data-aos="fade" data-aos-duration="1500">
                 <div className="lg:w-1/2 p-8 space-y-6">
-                    <h1 className="text-4xl font-bold">SukoonSphere HelpLine</h1>
-                    <p className="text-lg text-[var(--black-color)]">The SukoonSphere HelpLine provides the one-on-one help and information necessary to tackle tough challenges that you, your family or friends are facing. Call, Text or Chat with the HelpLine M-F, 10 a.m. - 10 p.m. ET. 988 crisis service available 24/7.</p>
+                    <h1 className="text-4xl font-bold h2 text-[var(--grey--900)]">SukoonSphere HelpLine</h1>
+                    <p className="text-lg text-[var(--grey--800)]">The SukoonSphere HelpLine provides the one-on-one help and information necessary to tackle tough challenges that you, your family or friends are facing. Call, Text or Chat with the HelpLine M-F, 10 a.m. - 10 p.m. ET. 988 crisis service available 24/7.</p>
                     <div className="space-y-6">
                         <div className="flex items-center">
                             <img src={call_Icon} alt="" />
                             <div className="ml-4">
-                                <h2 className="text-xl font-semibold">Call</h2>
+                                <h2 className="text-xl font-semibold text-[var(--grey--900)]">Call</h2>
                                 <p className='text-[var(--black-color)]'>1-800-950-6264</p>
                             </div>
                         </div>
@@ -25,7 +25,7 @@ const ContactUs = () => {
                         <div className="flex items-center">
                             <img src={chat_Icon} alt="" />
                             <div className="ml-4">
-                                <h2 className="text-xl font-semibold">Chat or Text</h2>
+                                <h2 className="text-xl font-semibold text-[var(--grey--900)]">Chat or Text</h2>
                                 <p className='text-[var(--black-color)]'>Text 'helpline' to 62640</p>
                             </div>
                         </div>
@@ -34,7 +34,7 @@ const ContactUs = () => {
                             <img src={crisis_Icon} alt="" />
 
                             <div className="ml-4">
-                                <h2 className="text-xl font-semibold">In a crisis?</h2>
+                                <h2 className="text-xl font-semibold text-[var(--grey--900)]">In a crisis?</h2>
                                 <p className='text-[var(--black-color)]'>Call or Text 988</p>
                             </div>
                         </div>
@@ -42,7 +42,7 @@ const ContactUs = () => {
                 </div>
 
                 {/* Right Section: Image */}
-                <div className="lg:w-1/2" >
+                <div className="lg:w-1/2 rounded-[20px]" >
                     <ContactForm />
                 </div>
             </div>
@@ -55,12 +55,12 @@ export default ContactUs;
 const ContactForm = () => {
     return (
         <div className="flex justify-center  items-center ">
-            <div className="bg-white shadow-lg p-8 w-full  rounded-lg">
-                <h2 className="text-2xl font-semibold mb-4">Tell us about your situations</h2>
-                <form className="space-y-2">
-                    <div className="form-control">
+            <div className="bg-[var(--primary)] shadow-lg p-8 w-full rounded-[20px]">
+                <h2 className="text-2xl font-semibold mb-4 text-[var(--white-color)] ">Tell us about your situations</h2>
+                <form className="space-y-2 text-[var(--grey--800)]  ">
+                    <div className="form-control ">
                         <label className="label">
-                            <span className="label-text text-[var(--black-color)]">Your name</span>
+                            <span className="label-text ">Your name</span>
                         </label>
                         <input
                             type="text"
@@ -71,7 +71,7 @@ const ContactForm = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-[var(--black-color)]">Your email address</span>
+                            <span className="label-text ">Your email address</span>
                         </label>
                         <input
                             type="email"
@@ -82,7 +82,7 @@ const ContactForm = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-[var(--black-color)]">Your phone number</span>
+                            <span className="label-text">Your phone number</span>
                         </label>
                         <input
                             type="text"
@@ -93,7 +93,7 @@ const ContactForm = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-[var(--black-color)]">Your message</span>
+                            <span className="label-text ">Your message</span>
                         </label>
                         <textarea
                             placeholder="Your message"

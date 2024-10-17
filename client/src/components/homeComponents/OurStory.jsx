@@ -20,7 +20,7 @@ const OurStory = () => {
                             </Link>
                         </div>
                         <h2 className=" font-bold h2" data-aos="fade-up">Secure your team’s health without losing sleep</h2>
-                        <p className="text-lg font-light mb-4" >
+                        <p className="text-lg font-light mb-4 text-[var(--grey--800)]" >
                             Cultivate a work culture that stands out with Nova's affordable and flexible suite of insurance and wellness offerings.
                         </p>
                         <hr />
