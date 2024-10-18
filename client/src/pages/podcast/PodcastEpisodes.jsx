@@ -16,10 +16,10 @@ const PodcastEpisodes = () => {
   return (
     <>
       {/* <HeaderImg currentPage="Podcast" bgImg={bgImg} /> */}
-      <div className="flex flex-col md:flex-row  md:px-7 bg-white ">
-        <div className=" grid px-8 md:grid-cols-3 gap-4 mt-6">
+      <div className="md:px-7 ">
+        <div className=" gap-4 mt-6">
           {/* Articles */}
-          <div className=" grid gap-5 md:col-span-2 justify-items-center  ">
+          <div className="  gap-5 ">
             <h1 className="flex-start text-[var(--blue-color)] font-bold text-5xl">
               Podcast Episodes
             </h1>
@@ -45,25 +45,8 @@ const PodcastEpisodes = () => {
           </div>
           {/* Search filters */}
 
-          {/* More articles */}
-          <div className="">
-            <div
-              className="bg-white shadow-xl p-4 rounded order-1 lg:sticky lg:top-[5rem] lg:z-10"
-              style={{ height: "max-content" }}
-            >
-              {/* <Search  /> */}
-            </div>
-            <div
-              className="bg-white shadow-xl p-4 rounded flex flex-col gap-8 order-3"
-              style={{ height: "max-content" }}
-            >
-              {/* Similar articles */}
-              <SimilarPodcasts title="Recent Podcast" />
-              {/* Recent articles */}
-              {/* <SimilarArticles title="Similar Articles" /> */}
-            </div>
+      
           </div>
-        </div>
       </div>
     </>
   );
