@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz, PodcastEpisodes, Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, Answer, ContactUs, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz,  Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, Answer, ContactUs, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
@@ -8,7 +8,7 @@ import { QuizDetailsLoader } from "./pages/quiz/Quiz";
 import PodcastPage from "./pages/podcast/PodcastPage";
 import { AllVideosLoader } from "./pages/mediaLibrary/AllVideos";
 import { SingleVideoDetailsLoader } from "./pages/mediaLibrary/video";
-import { UserAnswers, UserFollowers, UserFollowing, UserPosts } from "./components";
+import { PodcastCard, UserAnswers, UserFollowers, UserFollowing, UserPosts } from "./components";
 
 const router = createBrowserRouter([
   {
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       // Podcast Added
       {
         path: "/podcast/:id",
-        element: <PodcastEpisodes />,
+        element: <PodcastCard />,
       },
       {
         path: "/podcast-page/:id",
