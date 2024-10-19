@@ -4,6 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { links } from "@/utils/SharedComp/PageLinks";
+import { FaCircleDot } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
   return (
@@ -40,26 +41,60 @@ const Footer = () => {
         <div className="bg-[var(--grey--900)] w-[1px] mx-[60px]"></div>
         <div className="flex gap-8 ">
           {/* Right Container */}
-          <ul className="flex flex-col gap-3 sm:justify-between text-white mt-2">
-  <span className="text-gray-500 uppercase font-extrabold text-lg">
-    Quick Links
-  </span>
-  {links.map((link) => 
-    link.sublinks?.map((sublink, index) => (
-      <li
-        className="text-white font-extrabold"
-        key={sublink.name} // Ensure 'sublink.name' is unique
-      >
-        <NavLink
-          to={sublink.address}
-          className="hover:text-[var(--ternery)]"
-        >
-          {sublink.name}
-        </NavLink>
-      </li>
-    ))
-  )}
-</ul>
+          <div className="flex flex-col gap-3 sm:justify-between text-white mt-2">
+          <span className="text-gray-500 uppercase font-extrabold text-lg">
+              Quick Links
+            </span>
+            <ul className="flex flex-col gap-3 sm:justify-between mt-2">
+              {links.map((link, index) => (
+                <li
+                  className="text-base font-extrabold"
+                  key={`${link.name}-${index}`}
+                >
+                  <NavLink
+                    to={link.address}
+                    className="text-[var(--white-color)] hover:text-[var(--ternery)]"
+                  >
+                    {link.name}
+                  </NavLink>
+
+                  {link.sublinks && (
+                    <ul>
+                      {link.sublinks.map((sublink) => (
+                        <li key={sublink.name} className="flex gap-2 font-normal items-center "> 
+                        <FaCircleDot className="text-[.6rem]" />
+                          <NavLink to={sublink.address}
+
+                          >
+                            <span>{sublink.name}</span>
+                          </NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* <ul className="flex flex-col gap-3 sm:justify-between text-white mt-2">
+            <span className="text-gray-500 uppercase font-extrabold text-lg">
+              Quick Links
+            </span>
+            {links.map((link) =>
+              link.sublinks?.map((sublink, index) => (
+
+                <li className="text-white font-extrabold" key={sublink.name}>
+                  <NavLink
+                    to={sublink.address}
+                    className="hover:text-[var(--ternery)]"
+                  >
+                    {sublink.name}
+                  </NavLink>
+                </li>
+              ))
+            )}
+          </ul> */}
 
           <ul className="space-y-3 mt-2">
             <span className="text-gray-500 uppercase font-extrabold text-lg">
@@ -106,21 +141,18 @@ const Footer = () => {
             </li>
           </ul>
           <ul>
-          <span className="text-gray-500 uppercase font-extrabold text-lg">
-            RECO BY NMHP
+            <span className="text-gray-500 uppercase font-extrabold text-lg">
+              RECO BY NMHP
             </span>
             <li>
-              <Link>
-              
-              </Link>
+              <Link></Link>
             </li>
           </ul>
         </div>
       </div>
       {/* Bottom Container */}
-      <div className="bg-gray-500  h-[.1px] mt-[28px] mb-[18px] mx-20"
-      ></div>
-      <div >
+      <div className="bg-gray-500  h-[.1px] mt-[28px] mb-[18px] mx-20"></div>
+      <div>
         <div className="bg-[#061c23] px-20 text-gray-500">
           <p className="text-sm">
             SukoonSphere's content is for informational and educational purposes
