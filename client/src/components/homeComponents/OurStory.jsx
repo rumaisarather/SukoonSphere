@@ -9,7 +9,7 @@ const OurStory = () => {
     return (
         <>
             <SectionTitle title={'Our Story'}></SectionTitle>
-            <div className=' max-w-7xl mx-auto px-4 md:px-0 bg-[#013340] text-white  rounded-[20px]' data-aos="fade-up">
+            <div className=' max-w-7xl mx-auto px-4 md:px-0 bg-[--primary] text-white  rounded-[20px]' data-aos="fade-up">
 
                 <div className="flex flex-col md:flex-row items-center justify-between  md:space-y-0 md:space-x-8">
                     <div className="md:w-1/2 space-y-6 p-8" data-aos="fade-up">
@@ -19,28 +19,14 @@ const OurStory = () => {
                                 NMHP: National Mental Health Programme
                             </Link>
                         </div>
-                        <h2 className=" font-bold h2" data-aos="fade-up">Secure your team’s health without losing sleep</h2>
-                        <p className="text-lg font-light mb-4 text-[var(--grey--800)]" >
-                            Cultivate a work culture that stands out with Nova's affordable and flexible suite of insurance and wellness offerings.
+                        <h2 className=" font-bold h2" data-aos="fade-up"> Committed to Your Mental Health and Wellness Journey</h2>
+                        <p className="text-lg font-light mb-4 text-[var(--grey--600)]" data-aos="fade" data-aos-duration="1500">
+                            We're passionate about supporting individuals in achieving emotional well-being through personalized care and guidance.
                         </p>
                         <hr />
-                        {/* <ul className="list-none space-y-3 text-lg">
-                        <li className="flex items-center">
-                            <span className="mr-2 text-green-500">✔</span> Surpass competitors when it comes to employee wellness with Nova.
-                        </li>
-                        <li className="flex items-center">
-                            <span className="mr-2 text-green-500">✔</span> Access every employee wellness and insurance benefit out there.
-                        </li>
-                        <li className="flex items-center">
-                            <span className="mr-2 text-green-500">✔</span> Unlock the best plans and prices with our tailor-made recommendations.
-                        </li>
-                        <li className="flex items-center">
-                            <span className="mr-2 text-green-500">✔</span> Ensure seamless employee experience on our tech-first platform.
-                        </li>
-                    </ul> */}
                         <div>
                             <Link to="/about-us">
-                                <button className='btn-4' >Know more
+                                <button className='btn-4 glossy-effect-bar' >Know more
                                     <MdOutlineReadMore className='ml-2' size={20} />
                                 </button>
                             </Link>

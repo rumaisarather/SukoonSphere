@@ -38,7 +38,6 @@ const AllVideos = () => {
     const { data, category } = useLoaderData();
     return (
         <>
-            {/* <HeaderImg currentPage="Videos" bgImg={bgImg} /> */}
             <div className="relative p-4 max-w-7xl mx-auto ">
                 <div className="flex items-center gap-4 mb-8 ">
                     <SearchFilters category={category}> </SearchFilters>

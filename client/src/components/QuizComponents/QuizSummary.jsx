@@ -59,7 +59,7 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
 
                 <div className="mt-8 flex justify-center sm:justify-start">
                     <Link to={`/all-quizzes/quiz/${1}`}>
-                        <button className="btn-1" >
+                        <button className="btn-1 glossy-effect-bar" >
                             Read more
                             <FaReadme className='ml-4' />
                         </button>

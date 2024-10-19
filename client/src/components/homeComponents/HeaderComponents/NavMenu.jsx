@@ -9,8 +9,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsFillTriangleFill } from "react-icons/bs";
-import { IoIosArrowUp } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [miniMenu, setMiniMenu] = useState(false);
@@ -27,7 +27,7 @@ function NavMenu() {
   };
 
   return (
-    <nav className="flex  bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)] w-full z-20 transition-all ease-in-out p-2 h-[60px]">
+    <nav className="flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)] w-full z-50 transition-all ease-in-out p-2 h-[70px]">
       <GiHamburgerMenu
         className="block absolute right-3 md:hidden cursor-pointer text-[1.4rem]"
         onClick={toggleMenu}
@@ -51,8 +51,8 @@ function NavMenu() {
                 >
                   {link.icon}
                   <span className="ml-1">{link.name}</span>
-                  {index !== 0 && 
-                  <IoIosArrowUp className="mt-[3px] size-[1rem] ml-1 group-hover:rotate-180 transition-all " />}
+                  {index !== 0 &&
+                    <MdOutlineKeyboardArrowUp className="size-[1.4rem] ml-1 group-hover:rotate-180 transition-all" />}
                 </NavLink>
 
                 {link.sublinks && (
@@ -68,10 +68,10 @@ function NavMenu() {
                           className="flex items-center gap-2 px-2 py-2 text-[var(--primary)] hover:text-[var(--ternery)] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                         >
                           <div className=" border bg-[var(--primary)] text-white text-base border-[var(--primary)] rounded-full p-2 font-bold ">
-                            <IoIosArrowForward />
+                            < MdKeyboardArrowRight size={22} />
                           </div>
                           <div className="flex flex-col ml-2 text-[16px] text-gray-600">
-                            <span>{sublink.name}</span>
+                            <span className="hover:text-[var(--ternery)]">{sublink.name}</span>
                             <span className="text-[12px] text-gray-400 ">
                               {sublink.description}
                             </span>
@@ -102,9 +102,8 @@ function NavMenu() {
               </Link>
             </div>
             <div
-              className={`${
-                miniMenu ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
-              } absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
+              className={`${miniMenu ? "opacity-100 max-h-[500px]" : "opacity-0 max-h-0"
+                } absolute overflow-hidden transition-all duration-300 ease-in-out p-2 shadow-lg rounded-[4px] bg-white flex flex-col w-44 top-[4.5rem] right-[7.5rem]`}
               style={{
                 transition: "opacity 0.5s ease, max-height 0.5s ease ",
               }}

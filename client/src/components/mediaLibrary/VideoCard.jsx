@@ -25,7 +25,7 @@ function VideoCard({ videos }) {
                     </Link>
 
                     {/* Video Info */}
-                    <div className="p-4" data-aos="fade-up">
+                    <div className="p-4" data-aos="fade-up" data-aos-duration="1500">
                         <Link to={`/media/all-videos/video/${video.id}`}>
                             <h1 className="text-xl font-bold text-[#13404f] line-clamp-2 hover:text-[var(--ternery)]">{video.title}</h1>
                         </Link>

@@ -28,7 +28,7 @@ function QuizList({ quizCategories, }) {
                                 <div className="card-body p-3">
                                     <Link to={`quiz/${quiz.quizId}`}>
                                         <h1 className="card-title text-[var(--primary)] hover:text-[var(--ternery)] pt-0 mb-3">{quiz.title}</h1>
-                                        <p className='line-clamp-2 text-[var(--black-color)]'>{quiz.description || "Take the quiz to find out more!"}</p>
+                                        <p className='line-clamp-2 text-[var(--grey--800)]'>{quiz.description || "Take the quiz to find out more!"}</p>
                                     </Link>
                                     <div className="flex items-center pb-4 justify-start gap-1 order-3 sm:order-none">
                                         <div className="flex items-center mt-1 col-span-2 justify-start gap-4 order-3 sm:order-none">

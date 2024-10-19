@@ -11,12 +11,12 @@ const TodaysQuote = () => {
 
     // Widget data
     const widgets = [
-        { id: 1, color: "bg-yellow-400", text: "Positivity", description: "You are not a drop in the ocean. You are the entire ocean in a drop." },
-        { id: 2, color: "bg-blue-500", text: "Courage", description: "Healing takes time, and asking for help is a courageous step." },
-        { id: 3, color: "bg-green-400", text: "Gratitude", description: "Every day may not be good, but there is something good in every day." },
-        { id: 4, color: "bg-red-400", text: "Empowerment", description: "Embrace your individuality, for you hold immense power within." },
-        { id: 5, color: "bg-purple-400", text: "Hope", description: "Focus on the positives, even in challenging times." },
-        { id: 6, color: "bg-teal-400", text: "Resilience", description: "Do not rush the process of healing. Seeking support is a sign of strength, not weakness." },
+        { id: 1, color: "bg-yellow-400", text: "Positivity", description: "You are not a drop in the ocean. You are the entire ocean in a drop.", navLInk: 'QA-section', buttonText: 'Ask a question' },
+        { id: 2, color: "bg-blue-500", text: "Courage", description: "Healing takes time, and asking for help is a courageous step.", navLInk: 'articles', buttonText: 'Read an article' },
+        { id: 3, color: "bg-green-400", text: "Gratitude", description: "Every day may not be good, but there is something good in every day.", navLInk: 'all-quizzes', buttonText: 'Attempt a quiz' },
+        { id: 4, color: "bg-red-400", text: "Empowerment", description: "Embrace your individuality, for you hold immense power within.", navLInk: 'Posts', buttonText: 'Share a post' },
+        { id: 5, color: "bg-purple-400", text: "Hope", description: "Focus on the positives, even in challenging times.", navLInk: 'podcast/playlists', buttonText: 'Listen to a podcast' },
+        { id: 6, color: "bg-teal-400", text: "Resilience", description: "Do not rush the process of healing. Seeking support is a sign of strength, not weakness.", navLInk: 'media/all-videos', buttonText: 'Watch some videos' },
     ];
 
 
@@ -51,13 +51,13 @@ const TodaysQuote = () => {
                 </Link>
             </div>
             <h1 className="font-bold text-[var(--grey--900)]  h2" data-aos="fade-up">Open a Quote to get started!</h1>
-            <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden p-4">
+            <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden p-4 ">
                 {widgets.map((widget, index) => (
                     <div
                         key={widget.id}
                         id={`widget-${widget.id}`}
                         onClick={() => handleWidgetClick(widget.id)}
-                        className={`scroll-widget absolute flex items-center justify-center cursor-pointer shadow-2xl ${widget.color} 
+                        className={`scroll-widget absolute flex items-center justify-center cursor-pointer shadow-2xl  ${widget.color} 
                    ${activeWidget === widget.id
                                 ? "w-80 h-48 rounded-[20px] z-20"
                                 : "w-52 h-16 p-2 rounded-full z-10 "} 
@@ -79,7 +79,7 @@ const TodaysQuote = () => {
                         }}
                     >
 
-                        <div className="relative w-full h-full flex justify-between items-center pl-1" data-aos="zoom-in-up" data-aos-duration="1500">
+                        <div className="relative w-full h-full flex justify-between items-center pl-1 " data-aos="zoom-in-up" data-aos-duration="1200">
                             <div className="absolute top-1 right-0 flex items-center  ">
                                 {activeWidget === widget.id ? (
                                     <FaArrowCircleLeft size={28} className="text-black hover:text-gray-700 p-1 mb-2" />
@@ -88,11 +88,11 @@ const TodaysQuote = () => {
                                 )}
                             </div>
                             <div className={`text-black text-center transition-all duration-300 flex flex-col justify-center items-center p-4 ${activeWidget === widget.id ? "text-lg" : "text-lg"}`}>
-                                {activeWidget === widget.id ? widget.description : widget.text}
+                                {activeWidget === widget.id ? <h4>{widget.description} </h4> : widget.text}
                                 {activeWidget === widget.id && (
-                                    <Link to="/get-started" className="mt-4 text-sm text-white px-4 py-1 rounded-full transition">
+                                    <Link to={widget.navLInk} className="mt-4 text-sm text-white px-4 py-1 rounded-full transition">
                                         <button className="btn-1">
-                                            Get an estimated quote
+                                            {widget.buttonText}
                                             <FaLongArrowAltRight className='ml-2' />
                                         </button>
                                     </Link>

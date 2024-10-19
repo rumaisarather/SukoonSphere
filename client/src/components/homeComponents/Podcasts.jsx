@@ -10,7 +10,7 @@ import LinkButton from "../sharedComponents/Buttons/LinkButton";
 function Podcasts() {
   return (
 
-    <div className='max-w-7xl mx-auto my-12 mt-20'>
+    <div className='max-w-7xl mx-auto my-12 mt-20' data-aos="fade-up">
       <SectionTitle title="Recent Podcasts" />
       <div className="space-y-4 ">
         <h2 className="text-3xl mt-0 text-[var(--black-color)]">Our Latest Podcast</h2>
@@ -32,14 +32,14 @@ function Podcasts() {
           </div>
           <div className="col-span-8 flex flex-col gap-2 items-center">
             <h2 className="text-3xl text-[var(--black-color)]">Podcast Playlists</h2>
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-3 gap-4 mb-4" data-aos="zoom-in">
               {podcastsLists.slice(0, 3).map((podcastsList, index) => (
                 <MiniCard key={index} podcastsList={podcastsList} />
               ))}
             </div>
             <div className="">
               <Link to={"podcast/playlists"}>
-                <button className="action-button">Explore more</button>
+                <button className="btn-1">Explore more</button>
               </Link>
             </div>
           </div>

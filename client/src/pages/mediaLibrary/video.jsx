@@ -14,7 +14,7 @@ const video = () => {
     const { videoDetails } = useLoaderData()
     return (
         <>
-            <HeaderImg currentPage="Video" bgImg={bgImg} />
+            {/* <HeaderImg currentPage="Video" bgImg={bgImg} /> */}
             <div className="relative max-w-7xl mx-auto w-full ">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div className="col-span-8 grid gap-6 p-6 bg-white ">

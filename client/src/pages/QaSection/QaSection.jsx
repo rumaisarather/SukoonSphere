@@ -112,7 +112,7 @@ const QaSection = () => {
                 </button>
                 <Link
                   to="/answer"
-                  className="btn-3"
+                  className="btn-2"
                 >
                   <AiOutlineComment className="mr-2" />
                   Answer
