@@ -26,10 +26,10 @@ const duplicatedPartnersData = [...PartnersData, ...PartnersData];
 function CampusPartners() {
     return (
         <>
-            <div className=' mb-20 '>
+            <div className='mb-20 '>
                 <SectionTitle title={"Our Partners"}></SectionTitle>
                 <div className="carousel-wrapper bg-[var(--primary)] p-6">
-                    <p className="text-lg uppercase tracking-wide text-[var(--grey--700)] text-center pb-4">With
+                    <p className="text-lg uppercase tracking-wide text-[var(--grey--500)] text-center pb-4">With
                         10+
                         top institutes to empower
                         2,00,000+

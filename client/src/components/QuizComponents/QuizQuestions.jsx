@@ -73,7 +73,7 @@ const QuizQuestions = ({ quizQuestionsList }) => {
                     </div>
                     <hr className="border-gray-300 mt-4" />
                     <div>
-                        <h2 className="text-xl font-semibold text-[--white-color] my-2">{question}</h2>
+                        <h2 className="text-xl text-[--white-color] my-2">{question}</h2>
                     </div>
                 </div>
 
@@ -84,8 +84,8 @@ const QuizQuestions = ({ quizQuestionsList }) => {
                             key={index}
                             onClick={(event) => handleOptionClick(event, option)}
                             className={`p-2 bg-[var(--body)] rounded-[10px] text-black cursor-pointer hover:border-[var(--primary)] hover:border-l-4 hover:glossy-effect-bar transition-all duration-200 ease-in-out ${getOptionClasses(option)}`}
-                            data-aos="fade-up"
-                            data-aos-duration="1500"
+                        // data-aos="fade-up"
+                        // data-aos-duration="1500"
                         >
                             {option}
                         </li>

@@ -3,6 +3,7 @@ import { podcastsLists } from "@/utils/podcastsLists";
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import notFoundBySearch from "../../assets/images/notFoundBySearch.jpg";
+import { FaRegCirclePlay } from "react-icons/fa6";
 
 const PodcastCard = () => {
   const { id: paramsId } = useParams();
@@ -22,7 +23,7 @@ const PodcastCard = () => {
 
   return (
     <>
-      <h1 className="max-w-7xl mx-auto my-4 font-bold">Podcast Episodes</h1>
+      <h1 className="max-w-7xl mx-auto my-4 font-bold">Podcast Playlist</h1>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left Main Section */}
         <div className="md:col-span-2 space-y-8">
@@ -34,9 +35,8 @@ const PodcastCard = () => {
                 src="https://randomuser.me/api/portraits/women/1.jpg"
                 alt="Trending Podcast"
               />
-              <div className="flex flex-col items-start justify-between">
+              <div className="flex flex-col items-start justify-between space-y-2">
                 <h1 className="text-3xl font-bold">{podcastDetails.podcastTitle}</h1>
-                <span>Dr. Emily Stone</span>
                 <div className="flex gap-3 items-center text-[var(--white-color)] ">
                   <img
                     className="w-7 h-7 rounded-full"
@@ -60,14 +60,14 @@ const PodcastCard = () => {
           </div>
 
           {/* Most Popular Section */}
-          
-            <h1>PlayList</h1>
+
+          <h1>PlayList Episodes</h1>
           <div className="grid grid-cols-2 gap-4">
             {podcastList.podcasts.length > 0 ? (
               podcastList.podcasts.map((podcast) => (
                 <div key={podcast.id} className="">
                   <div
-                    className="bg-[#0b3948] text-white p-4 rounded-[10px] shadow-md flex items-center justify-between cursor-pointer"
+                    className="bg-[#0b3948] text-white p-4 rounded-[10px] shadow-md cursor-pointer"
                     onClick={() => handlePlayAudio(podcast.audioSrc)} // Set audio source on click
                   >
                     <div className="flex items-center gap-4">
@@ -77,11 +77,14 @@ const PodcastCard = () => {
                         alt={`Podcast ${podcast.title}`}
                       />
                       <div>
-                        <h3 className="font-bold text-xl">{podcast.title}</h3>
+                        <h5 className=" text-base">{podcast.title}</h5>
                         <p className="text-sm text-[#b6c2db]">{podcast.author}</p>
                       </div>
                     </div>
-                    <AiOutlineLike className="text-white" size={24} />
+                    <div className="flex items-center  gap-6">
+                      <button className='flex items-center hover:text-[var(--ternery)]'>Play <FaRegCirclePlay size={20} style={{ marginLeft: '1rem', color: "white" }} className="hover:color-[var(--ternery)]" /></button>
+                      <AiOutlineLike className="text-white" size={24} />
+                    </div>
                   </div>
                 </div>
               ))
@@ -102,8 +105,8 @@ const PodcastCard = () => {
         </div>
 
         {/* Sidebar */}
-          {/* Quick Search */}
-        <div className="space-y-8 py-4 shadow-[0px_1px_10px_rgba(0,0,0,0.1)] rounded-[10px]">
+        {/* Quick Search */}
+        <div className="space-y-8  shadow-[0px_1px_10px_rgba(0,0,0,0.1)] rounded-[10px]">
           {/* <div className="p-4 rounded-lg">
             <input
               className="w-full p-2 rounded-[10px] shadow-md bg-white"
@@ -112,28 +115,28 @@ const PodcastCard = () => {
             />
           </div> */}
 
-              {/* Audio Player */}
-              <div className="mx-4 py-4 sticky top-24 flex flex-col gap-5 rounded-[10px] p-4 bg-[#0b3948] text-white shadow-lg">
-                <div className="flex flex-col items-center gap-4">
-                  <img
-                    className="w-24 h-24 rounded-full"
-                    src="https://randomuser.me/api/portraits/women/1.jpg"
-                    alt="Now Playing"
-                  />
-                  <div className="flex flex-col items-center">
-                    <span className="text-xl font-semibold">Now Playing</span>
-                    <span className="text-xs">Podcast Title</span>
-                  </div>
-                </div>
-                <audio controls className="w-full mt-4" src={currentAudio}>
-                  <source src={currentAudio} type="audio/mpeg" />
-                  Your browser does not support the audio tag.
-                </audio>
+          {/* Audio Player */}
+          <div className="sticky top-24 flex flex-col gap-5 rounded-[10px] p-4 bg-[#0b3948] text-white shadow-lg">
+            <div className="flex flex-col items-center gap-4">
+              <img
+                className="w-24 h-24 rounded-full"
+                src="https://randomuser.me/api/portraits/women/1.jpg"
+                alt="Now Playing"
+              />
+              <div className="flex flex-col items-center">
+                <span className="text-xl font-semibold">Now Playing</span>
+                <span className="text-xs">Episode Number One: The Art of Living a Healthy Life</span>
               </div>
             </div>
+            <audio controls className="w-full mt-4" src={currentAudio}>
+              <source src={currentAudio} type="audio/mpeg" />
+              Your browser does not support the audio tag.
+            </audio>
           </div>
-          {/* Top Podcasters */}
-          {/* <div className="p-4 rounded-lg">
+        </div>
+      </div>
+      {/* Top Podcasters */}
+      {/* <div className="p-4 rounded-lg">
             <h2 className="text-lg font-bold mb-4">Top Podcasters</h2>
             <div className="space-y-4">
               {["Dashiell", "Soren", "Orion", "Caspian"].map((name, index) => (

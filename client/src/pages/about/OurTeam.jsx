@@ -17,7 +17,7 @@ function OurTeam() {
             <div className="">
                 <h1 className="text-lg font-semibold mb-2 h2 text-[var(--grey--900)]">Review Board Members</h1>
                 <h1 className="text-2xl font-bold mb-4 text-[var(--black-color)]">Learn more about the experts who review our articles to make sure they are accurate and trustworthy.</h1>
-                <p className="mb-4 text-base">
+                <p className="mb-4 text-base text-[var(--grey--800)]">
                     SukoonSphere Health Review Board has a team of board-qualified physicians and established mental health experts who ensure our content is high-quality and inclusive. The job of our experts who are compassionate resources that helps you prioritize your mental health and well-being.
                 </p>
                 <div className="mb-6 grid grid-cols-12 md:grid-cols-12 gap-6 text-left ">
@@ -30,7 +30,7 @@ function OurTeam() {
                                 <Link to={`/user-profile/${member.userId}`} >
                                     <h3 className="text-xl font-bold hover:text-[var(--ternery-hover)]">{member.name}</h3>
                                 </Link>
-                                <p className=" italic">{member.qualification}
+                                <p>{member.qualification}
 
                                     <span className='ml-4'>
                                         <Link

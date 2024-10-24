@@ -91,7 +91,7 @@ const Posts = () => {
                       className="w-10 h-10 rounded-full mr-3"
                     />
                     <div>
-                      <h2 className="font-semibold">{post?.username}</h2>
+                      <h4 className="font-semibold">{post?.username}</h4>
                       <p className="text-gray-500 text-sm">
                         {new Date(post?.datePublished).toLocaleDateString()}
                       </p>
