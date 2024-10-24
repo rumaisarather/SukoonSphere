@@ -66,7 +66,7 @@ function Infography() {
                         <h1 className="font-bold text-[var(--grey--900)] hover:text-[var(--ternery)] cursor-pointer h2" data-aos="fade-up">Mental Health Challenges</h1>
                     </Link>
                     <p className="text-lg font-light text-[var(--grey--800)]" data-aos="fade-up">
-                        Dynamically target high-payoff intellectual capital for customized technologies. <br /> Objectively integrate emerging core competencies.
+                        Overcoming emotional, psychological, and social hurdles that impact mental well-being and daily functioning <br /> through support, guidance, and resilience-building.
                     </p>
                 </div>
 

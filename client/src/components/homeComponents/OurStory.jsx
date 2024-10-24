@@ -9,7 +9,7 @@ const OurStory = () => {
     return (
         <>
             <SectionTitle title={'Our Story'}></SectionTitle>
-            <div className=' max-w-7xl mx-auto px-4 md:px-0 bg-[--primary] text-white  rounded-[20px]' data-aos="fade-up">
+            <div className=' max-w-7xl mx-auto px-4 md:px-0 bg-[--primary] text-white rounded-[20px]' data-aos="fade-up">
 
                 <div className="flex flex-col md:flex-row items-center justify-between  md:space-y-0 md:space-x-8">
                     <div className="md:w-1/2 space-y-6 p-8" data-aos="fade-up">

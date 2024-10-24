@@ -9,24 +9,23 @@ function QuizSubmissionDialog({ answers }) {
                         </button>
                     </form>
                     <div className="header">
-                        <h3 className="font-extrabold text-3xl text-blue-800 text-center mb-6">
+                        <h3 className="font-extrabold text-3xl  text-center mb-6 text-[var(--primary)]">
                             🎉 Quiz Completed!
                         </h3>
-                        <h2 className=" text-xl text-blue-800 text-center mb-6">Your style: <span className="text-gray-700">Anxious</span></h2>
+                        <h2 className=" text-xl  text-center mb-6">Your style: <span className="text-[var(--grey--900)]">Anxious</span></h2>
 
                     </div>
 
-
-                    <p className="text-lg font-semibold text-blue-600 mb-4 ">
+                    <p className="text-lg font-semibold  mb-4 ">
                         Here are your selected answers:
                     </p>
                     <ul className="space-y-6">
                         {answers.map((answer, index) => (
                             <li key={index} className="bg-white p-4 rounded-lg shadow-lg">
-                                <strong className="block text-blue-800 text-lg mb-2">
+                                <strong className="block  text-lg mb-2">
                                     Question {index + 1}:
                                 </strong>
-                                <p className="text-blue-600 mb-2">{answer.question}</p>
+                                <h4 className="mb-2 text-[var(--primary)]">{answer.question}</h4>
                                 <p>
                                     <strong className="text-gray-600">Your Answer:</strong>
                                     <span className="ml-2 text-gray-800">{answer.selectedOption}</span>

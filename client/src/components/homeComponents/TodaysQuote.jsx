@@ -42,7 +42,7 @@ const TodaysQuote = () => {
     }, []);
 
     return (
-        <section className="max-w-7xl mx-auto text-center  overflow-x-hidden ">
+        <section className="max-w-7xl mx-auto text-center">
             <SectionTitle title={"Quotes"}></SectionTitle>
             <div className="bg-[var(--light-bg)] text-[--gray-700] text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
                 <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">S</span>
@@ -67,7 +67,7 @@ const TodaysQuote = () => {
                                 : "opacity-0"} 
                    glossy-effect`}
                         style={{
-                            top: `${(index + 1) * 10}%`,
+                            top: `${(index + 1) * 50}px`,
                             left: `${index === 0 ? "10%" :
                                 index === 1 ? "70%" :
                                     index === 2 ? "45%" :
@@ -88,7 +88,7 @@ const TodaysQuote = () => {
                                 )}
                             </div>
                             <div className={`text-black text-center transition-all duration-300 flex flex-col justify-center items-center p-4 ${activeWidget === widget.id ? "text-lg" : "text-lg"}`}>
-                                {activeWidget === widget.id ? <h4>{widget.description} </h4> : widget.text}
+                                {activeWidget === widget.id ? <h4>{widget.description} </h4> : <h4>{widget.text}</h4>}
                                 {activeWidget === widget.id && (
                                     <Link to={widget.navLInk} className="mt-4 text-sm text-white px-4 py-1 rounded-full transition">
                                         <button className="btn-1">

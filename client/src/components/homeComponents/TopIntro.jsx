@@ -37,14 +37,14 @@ const TopIntro = () => {
           <div className="flex gap-4">
             <Link to={"/QA-section"}>
 
-              <button className="btn-1 glossy-effect-bar">
+              <button className="btn-1 ">
                 Ask questions to professionals
                 <FaLongArrowAltRight className='ml-2' />
               </button>
             </Link>
-            <Link to={"/contact-us"}>
+            <Link to={"/posts"}>
               <button className="btn-2 glossy-effect-bar">
-                Schedule a callback
+                Share a story
                 <FaLongArrowAltRight className='ml-2' />
               </button>
             </Link>

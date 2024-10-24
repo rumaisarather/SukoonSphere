@@ -6,8 +6,7 @@ const OurTeam = () => {
     return (
         <>
             <SectionTitle title={'Meet our team'}></SectionTitle>
-            <div className="min-h-screen max-w-7xl mx-auto flex flex-col items-center justify-center text-center p-4 " data-aos="fade-up" >
-
+            <div className=" max-w-7xl mx-auto flex flex-col items-center justify-center text-center pt-20" data-aos="fade-up" >
                 <div className="flex justify-center mb-12 bg-contain md:bg-center object-bottom gap-12"
                     style={{
                         backgroundImage: `url(${bgImg}) `, width: '1200px',

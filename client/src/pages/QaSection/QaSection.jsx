@@ -219,7 +219,7 @@ const AnswerCard = ({ answer }) => {
       </div>
       {answer?.comments?.length > 0 && (
         <>
-          <h3 className="font-semibold text-gray-700">Comments:</h3>
+          <h4 className="font-semibold text-gray-700">Comments:</h4>
           <div className="ml-4">
             {answer?.comments
               .slice(0, showMoreComments ? answer.comments.length : 1)

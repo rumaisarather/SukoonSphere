@@ -17,7 +17,7 @@ const video = () => {
             {/* <HeaderImg currentPage="Video" bgImg={bgImg} /> */}
             <div className="relative max-w-7xl mx-auto w-full ">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                    <div className="col-span-8 grid gap-6 p-6 bg-white ">
+                    <div className="col-span-8 grid gap-6 p-6 ">
                         <div className="max-w-5xl mx-auto">
                             <div className="mb-4">
                                 <h1 className="text-2xl font-bold text-[var(--black-color)]">
@@ -26,7 +26,7 @@ const video = () => {
                             </div>
 
                             {/* Video Section */}
-                            <div className="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                            <div className="relative  overflow-hidden shadow-lg rounded-[10px]">
                                 <img
                                     src="https://via.placeholder.com/800x450"
                                     alt="Vaccination video thumbnail"
@@ -46,7 +46,7 @@ const video = () => {
                                 <div className="text-md ">
                                     <div className="description mb-4">
                                         {/* <h2 className="text-lg font-semibold text-gray-800 mb-2">{videoDetails.title}</h2> */}
-                                        <p className="text-lg text-[var(--black-color)] mb-4">{videoDetails.description}</p>
+                                        <p className="text-base text-[var(--grey--800)] mb-4">{videoDetails.description}</p>
                                         <div className="flex items-center mb-4">
                                             <img
                                                 src={videoDetails.avatar}
@@ -54,7 +54,7 @@ const video = () => {
                                                 className="w-10 h-10 rounded-full mr-3"
                                             />
                                             <div>
-                                                <h3 className="font-medium text-[var(--primary)]">{videoDetails.author}</h3>
+                                                <h4 className="font-medium text-[var(--primary)]">{videoDetails.author}</h4>
                                                 <p className="text-xs text-gray-500">Published on {new Date(videoDetails.datePublished).toLocaleDateString()}</p>
                                             </div>
                                         </div>

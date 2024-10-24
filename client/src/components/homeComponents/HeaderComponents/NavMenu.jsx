@@ -27,7 +27,7 @@ function NavMenu() {
   };
 
   return (
-    <nav className="flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)] w-full z-50 transition-all ease-in-out p-2 h-[70px]">
+    <nav className="flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)] w-full z-50 transition-all ease-in-out p-2 h-[65px]">
       <GiHamburgerMenu
         className="block absolute right-3 md:hidden cursor-pointer text-[1.4rem]"
         onClick={toggleMenu}
@@ -140,15 +140,14 @@ function NavMenu() {
               <span>Sign in</span>
               <FaArrowRightLong />
             </button>
-            <button
-              onClick={async () => {
-                loginWithRedirect();
-              }}
-              className="hidden sm:flex bg-black items-center gap-1 rounded-[5px] transition-all ease-in-out duration-600 text-white px-3 py-2 text-xs leading-[1.32] hover:bg-[#15264e]"
-            >
-              <span>Get in touch</span>
-              <FaArrowRightLong />
-            </button>
+            <Link to={"/contact-us"}>
+              <button
+                className="hidden sm:flex bg-black items-center gap-1 rounded-[5px] transition-all ease-in-out duration-600 text-white px-3 py-2 text-xs leading-[1.32] hover:bg-[#15264e]"
+              >
+                <span>Get in touch</span>
+                <FaArrowRightLong />
+              </button>
+            </Link>
           </div>
         )}
       </div>
