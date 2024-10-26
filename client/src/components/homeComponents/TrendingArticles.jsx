@@ -21,13 +21,13 @@ const SpotlightArticle = articles.reduce((max, article) => {
         <div className=" grid grid-cols-12 gap-4">
           <div className="col-span-8 flex flex-col gap-2 items-center">
             <h2 className="text-3xl text-[var(--black-color)] mb-4">Recents</h2>
-            <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-3 gap-4 mb-4 " data-aos="fade-up">
               {articles.slice(0, 3).map((article, index) => (
                 <MiniArticle key={index} article={article} />
               ))}
             </div>
           </div>
-          <div className="col-span-4 rounded-md bg-[var(--blue-color)] text-white flex flex-col gap-4 p-4">
+          <div className="col-span-4 rounded-md bg-[var(--blue-color)] text-white flex flex-col gap-4 p-4"  data-aos="fade-left">
             <img
               className="h-96 object-cover"
               src={SpotlightArticle.image}
