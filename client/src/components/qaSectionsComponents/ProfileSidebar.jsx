@@ -35,7 +35,7 @@ const ProfileSidebar = ({
             </div>
 
             <div>
-                <h3 className="font-semibold text-[var(--black-color)]">Recent</h3>
+                <h4 className="font-semibold text-[var(--black-color)]">Recent</h4>
                 <ul>
                     {recentItems.map(item => (
                         <li key={item} className={'text-[var(--primary)]'}>{item}</li>
@@ -43,7 +43,7 @@ const ProfileSidebar = ({
                 </ul>
             </div>
             <div>
-                <h3 className="font-semibold text-[var(--black-color)]">Groups</h3>
+                <h4 className="font-semibold text-[var(--black-color)]">Groups</h4>
                 <ul>
                     {groups.map(group => (
                         <li key={group} className={'text-[var(--primary)]'}>{group}</li>
@@ -51,7 +51,7 @@ const ProfileSidebar = ({
                 </ul>
             </div>
             <div>
-                <h3 className="font-semibold text-[var(--black-color)]">Followed Hashtags</h3>
+                <h4 className="font-semibold text-[var(--black-color)]">Followed Hashtags</h4>
                 <ul>
                     {followedHashtags.map(tag => (
                         <li key={tag} className={'text-[var(--primary)]'}>{tag}</li>
@@ -60,7 +60,7 @@ const ProfileSidebar = ({
             </div>
             {events && (
                 <div>
-                    <h3 className="font-semibold text-[var(--black-color)]">Events</h3>
+                    <h4 className="font-semibold text-[var(--black-color)]">Events</h4>
                     <ul>
                         {events.map(event => (
                             <li key={event} className={'text-[var(--primary)]'}>{event}</li>

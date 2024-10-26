@@ -6,8 +6,7 @@ const OurTeam = () => {
     return (
         <>
             <SectionTitle title={'Meet our team'}></SectionTitle>
-            <div className="min-h-screen max-w-7xl mx-auto flex flex-col items-center justify-center text-center p-4 " data-aos="fade-up" >
-
+            <div className=" max-w-7xl mx-auto flex flex-col items-center justify-center text-center pt-20" data-aos="fade-up" >
                 <div className="flex justify-center mb-12 bg-contain md:bg-center object-bottom gap-12"
                     style={{
                         backgroundImage: `url(${bgImg}) `, width: '1200px',
@@ -33,7 +32,7 @@ const OurTeam = () => {
                 {/* Heading */}
                 <Link to="/about/our-team" className='text-blue-700'>
                     <h1 className="text-[var(--grey--900)]  font-bold mb-4 h2" data-aos="fade" data-aos-duration="2000">
-                        We're dedicated to one thing — <span className="text-[var(--primary)]">your mental peace</span>.
+                        We're dedicated to one thing — <span className="text-[var(--primary)]">your inner peace</span>.
                     </h1>
                 </Link>
                 {/* Subheading */}

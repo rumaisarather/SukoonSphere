@@ -23,10 +23,10 @@ function Quiz() {
     const { quiz, quizDetails, quizQuestions } = useLoaderData()
     return (
         <>
-            <HeaderImg currentPage="Quiz" bgImg={bgImg} />
+            {/* <HeaderImg currentPage="Quiz" bgImg={bgImg} /> */}
             <div className="max-w-full mx-auto px-4  bg-primary">
                 <div className="grid sm:grid-cols-12 gap-4">
-                    <div className="sm:col-span-4 grid gap-6 p-4 rounded bg-[#F7F9F9]">
+                    <div className="sm:col-span-4 grid gap-6  rounded-[20px] bg-[var(--white-color)]">
                         <div>
                             <QuizQuestions
                                 quizQuestionsList={quizQuestions}

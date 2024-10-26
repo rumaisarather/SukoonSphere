@@ -353,6 +353,7 @@ all other colors below
 
 .btn-1:hover {
   background-color: var(--primary-hover);
+  transform: scale(1.03);
 }
 
 .btn-2 {
@@ -368,6 +369,7 @@ all other colors below
 
 .btn-2:hover {
   background-color: var(--secondary-hover);
+  transform: scale(1.03);
 }
 
 .btn-3 {
@@ -383,6 +385,7 @@ all other colors below
 
 .btn-3:hover {
   background-color: var(--ternery-hover);
+  transform: scale(1.03);
 }
 
 .btn-4 {
@@ -398,6 +401,7 @@ all other colors below
 
 .btn-4:hover {
   background-color: var(--green-hover);
+  transform: scale(1.03);
 }
 
 @keyframes blink-caret {

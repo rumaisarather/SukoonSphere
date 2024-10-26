@@ -10,7 +10,7 @@ import "../../index.css"
 
 const TopIntro = () => {
   return (
-    <div className="flex items-center justify-center p-6 max-w-7xl mx-auto overflow-x-hidden pt-4">
+    <div className="flex items-center justify-center p-6 max-w-7xl mx-auto overflow-x-hidden pt-4" data-aos="fade">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Section - Text and CTAs */}
         <div>
@@ -24,7 +24,7 @@ const TopIntro = () => {
 
 
           {/* Main Heading */}
-          <h1 className="h2 mb-4  font-extrabold text-[var(--grey--900)]">
+          <h1 className="h2 mb-4  font-extrabold text-[var(--grey--900)] ">
             Empowering you to Heal, Grow, and Thrive
           </h1>
 
@@ -35,13 +35,16 @@ const TopIntro = () => {
 
           {/* CTA Buttons */}
           <div className="flex gap-4">
-            <button className="btn-1">
-              Get an estimated quote
-              <FaLongArrowAltRight className='ml-2' />
-            </button>
-            <Link to={"/contact-us"}>
-              <button className="btn-2">
-                Schedule a callback
+            <Link to={"/QA-section"}>
+
+              <button className="btn-1 ">
+                Ask questions to professionals
+                <FaLongArrowAltRight className='ml-2' />
+              </button>
+            </Link>
+            <Link to={"/posts"}>
+              <button className="btn-2 glossy-effect-bar">
+                Share a story
                 <FaLongArrowAltRight className='ml-2' />
               </button>
             </Link>

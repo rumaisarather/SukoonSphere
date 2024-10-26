@@ -1,5 +1,3 @@
-import { HeaderImg } from "@/components";
-import Playlist from "../../assets/images/playlist.jpg";
 import React from "react";
 import { podcastsLists } from "@/utils/podcastsLists";
 import { Link, useParams } from "react-router-dom";
@@ -44,7 +42,7 @@ function PodcastPlaylists() {
             // }}
           >
             <img
-              className="w-52 rounded-[20px]"
+              className="w-52 rounded-[20px] "
               src={podcastsList.poadcasteImg}
               alt=""
             />
@@ -62,9 +60,14 @@ function PodcastPlaylists() {
                   alt=""
                 />
                 <span>Dr. Emily Stone</span>
+                  <button className="bg-white text-blue-700 px-4 py-2 rounded-full shadow-md mr-4 ml-auto">
+                    Listen Now
+                  </button>
+
               </div>
               <span>Episodes : 10</span>
               <p className="text-[#b6c2db] ">{podcastsList.podcastDiscription}</p>
+           
             </div>
           </div>
         ))}

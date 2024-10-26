@@ -10,9 +10,9 @@ import { ProfessionalsDetails } from "@/utils/ProfessionalsDetails";
 const TodayEssentials = () => {
     return (
         <div className=" max-w-7xl mx-auto mb-4">
-            <SectionTitle title={'recent articles'}></SectionTitle>
+            {/* <SectionTitle title={'recent articles'}></SectionTitle> */}
             <div className="bg-white grid lg:grid-cols-12 gap-6">
-                <div className="col-span-4 flex flex-col justify-between shadow-lg" >
+                {/* <div className="col-span-4 flex flex-col justify-between shadow-lg" >
                     <div className="w-full p-3 pt-4 sticky top-20">
 
                         <div className="space-y-4 flex flex-col text-center">
@@ -47,13 +47,13 @@ const TodayEssentials = () => {
                             ))}
                         </div>
                     </div>
-                </div>
-                <div className="col-span-8 flex flex-col space-y-12 " data-aos="zoom-in-left">
+                </div> */}
+                {/* <div className="col-span-8 flex flex-col space-y-12 " data-aos="zoom-in-left">
                     {articles.slice(0, 4).map((article) => (
                         <Article key={article.title.slice(0, 4)} article={article} />
                     ))
                     }
-                </div>
+                </div> */}
             </div>
         </div>
 
