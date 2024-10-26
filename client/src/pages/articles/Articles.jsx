@@ -1,9 +1,15 @@
 import { articles } from "@/utils/Articles";
-import { Article, HeaderImg, Search, SimilarArticles } from "@/components";
+import {
+  Article,
+  HeaderImg,
+  Search,
+  SidebarArticles,
+  SimilarArticles,
+  Spotlight,
+} from "@/components";
 import { useLoaderData } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 import notFoundBySearch from "../../assets/images/notFoundBySearch.jpg";
-import bgImg from "../../assets/images/Articles.jpg";
 
 export const ArticlesLoader = async ({ request }) => {
   const url = new URL(request.url);
@@ -15,8 +21,7 @@ export const ArticlesLoader = async ({ request }) => {
     sort_by: sortBy = "",
   } = searchParams;
 
-
-  let filteredArticles = [...articles]
+  let filteredArticles = [...articles];
 
   if (search) {
     filteredArticles = filteredArticles.filter((article) =>
@@ -42,65 +47,55 @@ export const ArticlesLoader = async ({ request }) => {
     filteredArticles.sort((a, b) => b.views - a.views);
   }
 
-  console.log("Final filtered articles:", filteredArticles); // Log final filtered articles
-
   const allTags = articles.flatMap((article) => article.tags);
   const category = Array.from(new Set(allTags));
 
   return { data: filteredArticles, category };
 };
 
-
-
 const Articles = () => {
   const { data, category } = useLoaderData();
 
   return (
-    <>
-      {/* <HeaderImg currentPage="Articles" bgImg={bgImg} /> */}
-      <div className="max-w-7xl mx-auto p-4 bg-white ">
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:custom-grid-row lg:gap-x-8 lg:gap-y-4">
-
-          {/* Search filters */}
-
-          {/* Articles */}
-          <div className=" grid gap-6 rounded order-2 lg:col-span-2 lg:row-span-2 lg:content-start lg:order-1">
-            <div className=" py-4 ">
-              <Search category={category} />
-            </div>
+    <div className="max-w-7xl mx-auto p-4 bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-4">
+        <div className="bg-white p-4 flex flex-col gap-8">
+          {/* Sticky Search Component */}
+          <div className="sticky top-16">
+            <Search category={category} />
+          </div>
+        </div>
+        <div className="col-span-3">
+          <h1 className="font-semibold tracking-wider mb-12 border-b pb-1 text-5xl">
+            Articles
+          </h1>
+          <div className="grid gap-8 lg:grid-cols-2 md:grid-cols-2 border-b mb-12 pb-12">
+            <Spotlight />
+            <SidebarArticles />
+          </div>
+          <div className="grid gap-8 lg:grid-cols-2 md:grid-cols-2">
             {data.length > 0 ? (
-              data.map((article, index) => {
-                return <Article key={index} article={article} />;
-              })
+              data.map((article, index) => (
+                <Article key={index} article={article} />
+              ))
             ) : (
               <div>
                 <p className="pt-4">
-                  no articles found ! Please try searching for different
-                  keywords or adjusting your filters
+                  No articles found! Please try searching for different keywords
+                  or adjusting your filters.
                 </p>
                 <img
                   src={notFoundBySearch}
-                  alt="image"
+                  alt="No articles found"
                   className="h-[200px] md:h-[50vh]"
                 />
               </div>
             )}
           </div>
-
-          {/* More articles */}
-          <div
-            className="bg-white shadow-xl p-4 rounded flex flex-col gap-8 order-3"
-            style={{ height: "max-content" }}
-          >
-            {/* Similar articles */}
-            <SimilarArticles title="Recent Articles" />
-            {/* Recent articles */}
-            <SimilarArticles title="Similar Articles" />
-          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Articles
+export default Articles;

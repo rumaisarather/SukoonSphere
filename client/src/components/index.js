@@ -6,6 +6,7 @@ export { default as TodayEssemtials } from "./homeComponents/TodayEssentials";
 export { default as Infography } from "./homeComponents/Infography";
 export { default as DisorderTags } from "./homeComponents/DisorderTags";
 export { default as OurTeam } from "./homeComponents/OurTeam";
+export { default as TrendingArticles } from "./homeComponents/TrendingArticles";
 
 export { default as OurStory } from "./homeComponents/OurStory";
 export { default as TodaysQuiz } from "./homeComponents/TodaysQuiz";
@@ -30,6 +31,7 @@ export { default as Search } from "./articleComponents/search";
 export { default as SimilarArticles } from "./articleComponents/SimilarArticles";
 export { default as SidebarArticles } from "./articleComponents/SidebarArticles";
 export { default as SideBarArticle } from "./articleComponents/SideBarArticle";
+export { default as Spotlight } from "./articleComponents/Spotlight";
 
 // post
 export { default as PostModal } from "./posts/PostModel";

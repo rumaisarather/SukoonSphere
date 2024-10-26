@@ -16,7 +16,7 @@ const TopIntro = () => {
         <div>
           {/* Badge */}
           <div className="bg-[var(--light-bg)] text-[--gray-700] text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
-            <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">N</span>
+            <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2 p-3">N</span>
             <Link to={"https://nhm.gov.in/images/pdf/National_Health_Mental_Policy.pdf"} target='_blank' className='hover:text-[var(--ternery)]'>
               NMHP: National Mental Health Programme
             </Link>
