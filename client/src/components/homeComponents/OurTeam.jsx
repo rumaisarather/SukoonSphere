@@ -13,17 +13,17 @@ const OurTeam = () => {
                     }}>
 
                     <div className="w-72 h-72 rounded-lg overflow-hidden" data-aos="fade-up-left">
-                        <img src="https://img.freepik.com/free-photo/smiling-young-male-professional-standing-with-arms-crossed-while-making-eye-contact-against-isolated-background_662251-838.jpg?size=626&ext=jpg&ga=GA1.1.1020016862.1728561713&semt=ais_hybrid"
+                        <img src="https://img.freepik.com/premium-photo/man-with-beard-blue-circle-with-white-background_1057389-84761.jpg?semt=ais_hybrid"
                             alt="Team Member 1"
                             className="w-full h-full object-cover rounded-[20px]" />
                     </div>
                     <div className="w-72 h-72 rounded-lg overflow-hidden m-[-100px]" data-aos="fade-up" data-aos-duration="2000">
-                        <img src="https://img.freepik.com/free-photo/happy-satisfied-mature-businessman-with-laptop-watching-content_74855-3531.jpg?ga=GA1.1.1020016862.1728561713&semt=ais_hybrid"
+                        <img src="https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16818.jpg?semt=ais_hybrid"
                             alt="Team Member 2"
                             className="w-full h-full object-cover rounded-[20px]" />
                     </div>
                     <div className="w-72 h-72 rounded-lg overflow-hidden" data-aos="fade-up-right">
-                        <img src="https://img.freepik.com/premium-photo/young-indian-businesswoman-employee-standing-white-background_1254992-268805.jpg?size=626&ext=jpg&ga=GA1.1.1020016862.1728561713&semt=ais_hybrid"
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg"
                             alt="Team Member 3"
                             className="w-full h-full object-cover rounded-[20px]" />
                     </div>

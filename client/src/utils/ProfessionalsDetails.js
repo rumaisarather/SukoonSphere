@@ -2,7 +2,7 @@ export const ProfessionalsDetails = [
     {
         "userId": "1",
         "profile": {
-            "image": "https://www.verywellmind.com/thmb/V-ughpr6HaErjm965-iLR-V967o=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/steven-gans-1000-51582b7f23b6462f8713961deb74959f.jpg",
+            "image": "https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16807.jpg",
             "name": "Alice Johnson",
             "fullTitle": "Alice Johnson, MD",
             "role": "Senior Review Board Member",
@@ -39,7 +39,7 @@ export const ProfessionalsDetails = [
     {
         "userId": "2",
         "profile": {
-            "image": "https://www.verywellmind.com/thmb/3jKiWaqZgW8oqiisNdQLcGiYqHc=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/Sara-Clark-1000-ec845b3e32314f9782370ec43ea68e82.jpg",
+            "image": "https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16807.jpg",
             "name": "Robert Lee",
             "fullTitle": "Robert Lee, PhD",
             "role": "Board Member",
@@ -76,7 +76,7 @@ export const ProfessionalsDetails = [
     {
         "userId": "3",
         "profile": {
-            "image": "https://www.verywellmind.com/thmb/ZgeW37AcI2ucF1VrLhQYXaCY34I=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/carly-935717a415724b9b9c849c26fd0450ea.jpg",
+            "image": "https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16807.jpg",
             "name": "Emily Davis",
             "fullTitle": "Emily Davis, MD",
             "role": "Medical Advisor",
@@ -113,7 +113,7 @@ export const ProfessionalsDetails = [
     {
         "userId": "4",
         "profile": {
-            "image": "https://www.verywellmind.com/thmb/zLkG5rDNj9pVE4iMm-TzEL0Hh5k=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/block-8924ca72ff94426d940e8f7e639e3942.jpg",
+            "image": "https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16807.jpg",
             "name": "Michael Smith",
             "fullTitle": "Michael Smith, MD",
             "role": "Lead Consultant",
@@ -150,7 +150,7 @@ export const ProfessionalsDetails = [
     {
         "userId": "5",
         "profile": {
-            "image": "https://www.verywellmind.com/thmb/h5MMllmTdDPDC-JIMlbRqMMtht0=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/Shaheen-Lakhan-660-594fd00c787a40e2bcf15a60eaf9b89a.jpg",
+            "image": "https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16807.jpg",
             "name": "Sophia Martinez",
             "fullTitle": "Sophia Martinez, PhD",
             "role": "Research Advisor",
@@ -187,7 +187,7 @@ export const ProfessionalsDetails = [
     {
         "userId": "6",
         "profile": {
-            "image": "https://www.verywellmind.com/thmb/n6eFVK2XQebXGirXzMDQ9LZrVPM=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/akeemmarsh_1000-d247c981705a46aba45acff9939ff8b0.jpg",
+            "image": "https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16807.jpg",
             "name": "David Wilson",
             "fullTitle": "David Wilson, MD",
             "role": "Clinical Expert",
@@ -224,7 +224,7 @@ export const ProfessionalsDetails = [
     {
         "userId": "7",
         "profile": {
-            "image": "https://www.verywellmind.com/thmb/V-ughpr6HaErjm965-iLR-V967o=/87x87/filters:no_upscale():max_bytes(150000):strip_icc()/steven-gans-1000-51582b7f23b6462f8713961deb74959f.jpg",
+            "image": "https://img.freepik.com/premium-photo/man-face-black-linear-cartoon-icon-user-isolated-white-background-ai-generated_1095381-16807.jpg",
             "name": "Laura Green",
             "fullTitle": "Laura Green, MD",
             "role": "Senior Consultant",

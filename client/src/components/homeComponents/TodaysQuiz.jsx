@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { data } from '../../db/QuizData';
 import QuizQuestions from '../quizComponents/QuizQuestions';
-import QuizSummary from '../quizComponents/QuizSummary';
 import SectionTitle from '../sharedComponents/SectionTitle';
+import QuizSummary from '../quizComponents/QuizSummary';
 
 function TodaysQuiz() {
     const [index, setIndex] = useState(0);

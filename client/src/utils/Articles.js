@@ -1,6 +1,7 @@
 
 export const articles = [
   {
+    id: 1,
     title: "Understanding Anxiety Disorders",
     username: "mentalHealthGuru",
     avatar: "https://example.com/avatars/mentalHealthGuru.png",
@@ -50,6 +51,7 @@ export const articles = [
     ],
   },
   {
+    id: 2,
     title: "Coping with Depression",
     username: "wellnessWarrior",
     avatar: "https://example.com/avatars/wellnessWarrior.png",
@@ -84,6 +86,7 @@ export const articles = [
     ],
   },
   {
+    id: 3,
     title: "Overcoming Social Anxiety",
     username: "calmMind",
     avatar: "https://example.com/avatars/calmMind.png",
@@ -118,6 +121,7 @@ export const articles = [
     ],
   },
   {
+    id: 4,
     title: "Mindfulness for Mental Health",
     username: "peacefulSoul",
     avatar: "https://example.com/avatars/peacefulSoul.png",
@@ -151,6 +155,7 @@ export const articles = [
     ],
   },
   {
+    id: 5,
     title: "Dealing with PTSD",
     username: "traumaSupport",
     avatar: "https://example.com/avatars/traumaSupport.png",
@@ -185,6 +190,7 @@ export const articles = [
     ],
   },
   {
+    id: 6,
     title: "Managing Bipolar Disorder",
     username: "balanceSeeker",
     avatar: "https://example.com/avatars/balanceSeeker.png",
@@ -219,6 +225,7 @@ export const articles = [
     ],
   },
   {
+    id: 7,
     title: "Schizophrenia: Myths and Facts",
     username: "mentalHealthAdvocate",
     avatar: "https://example.com/avatars/mentalHealthAdvocate.png",

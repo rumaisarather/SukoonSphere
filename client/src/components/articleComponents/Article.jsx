@@ -18,7 +18,7 @@ const Article = ({ article }) => {
         className="relative h-[260px]  overflow-hidden"
         style={{ borderRadius: "20px" }}
       >
-        <Link to={`/article/${article.id}`}>
+        <Link to={`/articles/article`}>
           <img className="w-full h-full object-cover" src={image} alt={title} />
         </Link>
 
@@ -30,7 +30,7 @@ const Article = ({ article }) => {
 
       <div className="p-2">
         <Link
-          to={`/article/${article.id}`}
+          to={`/articles/article`}
           className="inline-block mt-2 text-2xl font-semibold hover:cursor-pointer"
         >
           {title}
