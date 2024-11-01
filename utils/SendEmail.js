@@ -7,14 +7,14 @@ const SendEmail = async ({ to, subject, html }) => {
       host: 'smtp.ethereal.email',
       port: 587,
       auth: {
-        user: "magdalena42@ethereal.email",
-        pass: "wyUgG35gkM3nC8VkYV",
-      },
+        user: 'tre68@ethereal.email',
+        pass: 'UnRjxyFvbQhvbw6Hwa'
+      }
     });
 
     // Define the mail options
     const mailOptions = {
-      from: '"Aquib Ahmad" <aquib445488@gmail.com>', // sender address
+      from: '"Aquib Ahmad" <aquib445488@gmail.com>',
       to,
       subject,
       html,

@@ -131,20 +131,23 @@ function NavMenu() {
           </>
         ) : (
           <div className="flex gap-2">
-            <button
-              onClick={async () => {
-                loginWithRedirect();
-              }}
-              className="hidden sm:flex bg-white items-center gap-1 rounded-[5px] shadow-[0_2px_0_0_rgba(0,0,0,0.04),_inset_0_0_0_2px_#e0e0e0] transition-all ease-in-out duration-600 text-gray-900 px-3 py-2 text-xs leading-[1.32] hover:bg-[#f2f6ff]"
-            >
-              <span>Sign Up</span>
-              <FaArrowRightLong />
-            </button>
-            <Link to={"/contact-us"}>
+
+            <Link to={"/auth/sign-up"}>
+              <button
+                // onClick={async () => {
+                //   loginWithRedirect();
+                // }}
+                className="hidden sm:flex bg-white items-center gap-1 rounded-[5px] shadow-[0_2px_0_0_rgba(0,0,0,0.04),_inset_0_0_0_2px_#e0e0e0] transition-all ease-in-out duration-600 text-gray-900 px-3 py-2 text-xs leading-[1.32] hover:bg-[#f2f6ff]"
+              >
+                <span>Sign Up</span>
+                <FaArrowRightLong />
+              </button>
+            </Link>
+            <Link to={"/auth/sign-in"}>
               <button
                 className="hidden sm:flex bg-black items-center gap-1 rounded-[5px] transition-all ease-in-out duration-600 text-white px-3 py-2 text-xs leading-[1.32] hover:bg-[#15264e]"
               >
-                <span>Get in touch</span>
+                <span>Login</span>
                 <FaArrowRightLong />
               </button>
             </Link>
