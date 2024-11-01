@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowCircleRight, FaArrowCircleLeft, FaLongArrowAltRight } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import "../../assets/styles/TodaysQuote.css"
+import "../../assets/styles/global.css"
 import SectionTitle from "../sharedComponents/SectionTitle";
 
 
@@ -65,7 +66,7 @@ const TodaysQuote = () => {
                    ${isVisible[`widget-${widget.id}`]
                                 ? "animate-float"
                                 : "opacity-0"} 
-                   glossy-effect`}
+                   `}
                         style={{
                             top: `${(index + 1) * 50}px`,
                             left: `${index === 0 ? "10%" :
@@ -79,7 +80,7 @@ const TodaysQuote = () => {
                         }}
                     >
 
-                        <div className="relative w-full h-full flex justify-between items-center pl-1 " data-aos="zoom-in-up" data-aos-duration="1200">
+                        <div className=" glossy-effect relative w-full h-full flex justify-between items-center pl-1 ">
                             <div className="absolute top-1 right-0 flex items-center  ">
                                 {activeWidget === widget.id ? (
                                     <FaArrowCircleLeft size={28} className="text-black hover:text-gray-700 p-1 mb-2" />

@@ -1,56 +1,66 @@
+import { createOptimizedComponent } from "../utils/CreateOptimizedComponent"
+
+// Shared Components
 export { default as Header } from "./sharedComponents/Header";
 export { default as Footer } from "./sharedComponents/Footer";
-export { default as Hero } from "./homeComponents/Hero";
-export { default as TopIntro } from "./homeComponents/TopIntro";
-export { default as TodayEssemtials } from "./homeComponents/TodayEssentials";
-export { default as Infography } from "./homeComponents/Infography";
-export { default as DisorderTags } from "./homeComponents/DisorderTags";
-export { default as OurTeam } from "./homeComponents/OurTeam";
-export { default as TrendingArticles } from "./homeComponents/TrendingArticles";
-
-export { default as OurStory } from "./homeComponents/OurStory";
-export { default as TodaysQuiz } from "./homeComponents/TodaysQuiz";
 export { default as HeaderImg } from "./sharedComponents/HeaderImg";
-export { default as CampusPartners } from "./homeComponents/CampusPartners";
-
-//Profile components of board members
-export { default as Intro } from "./professinalProfileComponents/Intro";
-export { default as ProfileDetail } from "./professinalProfileComponents/ProfileDetail";
-
-
-
-// export { default as Stastistics } from "./homeComponents/Stastistics";
-// Podcast
-export { default as Podcasts } from "./homeComponents/Podcasts";
 export { default as PodcastCard } from "./sharedComponents/PodcastCard";
-// export { default as podcastsLists } from "../utils/podcastsLists";
 
-// arttcle- components
-export { default as Article } from "./articleComponents/Article";
-export { default as Search } from "./articleComponents/search";
-export { default as SimilarArticles } from "./articleComponents/SimilarArticles";
-export { default as SidebarArticles } from "./articleComponents/SidebarArticles";
-export { default as SideBarArticle } from "./articleComponents/SideBarArticle";
-export { default as Spotlight } from "./articleComponents/Spotlight";
+// Home Components
+export const TopIntro = createOptimizedComponent(() => import("./homeComponents/TopIntro"));
+export const Infography = createOptimizedComponent(() => import("./homeComponents/Infography"));
+export const DisorderTags = createOptimizedComponent(() => import("./homeComponents/DisorderTags"));
+export const OurTeam = createOptimizedComponent(() => import("./homeComponents/OurTeam"));
+export const TrendingArticles = createOptimizedComponent(() => import("./homeComponents/TrendingArticles"));
+export const OurStory = createOptimizedComponent(() => import("./homeComponents/OurStory"));
+export const TodaysQuiz = createOptimizedComponent(() => import("./homeComponents/TodaysQuiz"));
+export const TodaysQuote = createOptimizedComponent(() => import("./homeComponents/TodaysQuote"));
+export const CampusPartners = createOptimizedComponent(() => import("./homeComponents/CampusPartners"));
+export const Podcasts = createOptimizedComponent(() => import("./homeComponents/Podcasts"));
+export const TrendingVideos = createOptimizedComponent(() => import("./homeComponents/TrendingVideos"));
 
-// post
-export { default as PostModal } from "./posts/PostModel";
+// Professional Profile Components
+export const Intro = createOptimizedComponent(() => import("./professinalProfileComponents/Intro"));
+export const ProfileDetail = createOptimizedComponent(() => import("./professinalProfileComponents/ProfileDetail"));
 
-export { default as QuizIntro } from "./quizPageComponents/allQuizzesComponents/QuizIntro";
-export { default as QuizList } from "./quizPageComponents/allQuizzesComponents/QuizList";
-export { default as FilterQuizByCatagory } from "./quizPageComponents/allQuizzesComponents//filterQuizzesByCatagory";
+// Article Components
+export const Article = createOptimizedComponent(() => import("./articleComponents/Article"));
+export const Search = createOptimizedComponent(() => import("./articleComponents/search"));
+export const SimilarArticles = createOptimizedComponent(() => import("./articleComponents/SimilarArticles"));
+export const SidebarArticles = createOptimizedComponent(() => import("./articleComponents/SidebarArticles"));
+export const SideBarArticle = createOptimizedComponent(() => import("./articleComponents/SideBarArticle"));
+export const Spotlight = createOptimizedComponent(() => import("./articleComponents/Spotlight"));
 
-export { default as VideoCard } from "./mediaLibrary/VideoCard";
-export { default as RelatedVideoCard } from "./mediaLibrary/RelatedVideoCard";
-export { default as TrendingVideos } from "./homeComponents/TrendingVideos";
-export { default as ProfileSidebar } from "./qaSectionsComponents/ProfileSidebar";
-export { default as GroupsSidebar } from "./qaSectionsComponents/GroupsSideBar";
+// Post Components
+export const PostModal = createOptimizedComponent(() => import("./posts/PostModel"));
 
-export { default as ProfileCard } from './user/userProfile/ProfileCard'
-export { default as ProfileDetails } from './user/userProfile/ProfileDetails'
-export { default as UserPosts } from './user/userProfile/UserPosts'
-export { default as UserAnswers } from './user/userProfile/UserAnswers'
-export { default as UserFollowers } from './user/userProfile/UserFollowers'
-export { default as UserFollowing } from './user/userProfile/UserFollowing'
-export { default as QuestionModal } from "./qaSectionsComponents/QuestionModal";
+// Quiz Components
+export const QuizIntro = createOptimizedComponent(() => import("./quizPageComponents/allQuizzesComponents/QuizIntro"));
+export const QuizList = createOptimizedComponent(() => import("./quizPageComponents/allQuizzesComponents/QuizList"));
+export const FilterQuizByCatagory = createOptimizedComponent(() => import("./quizPageComponents/allQuizzesComponents/filterQuizzesByCatagory"));
 
+// Media Components
+export const VideoCard = createOptimizedComponent(() => import("./mediaLibrary/VideoCard"));
+export const RelatedVideoCard = createOptimizedComponent(() => import("./mediaLibrary/RelatedVideoCard"));
+
+// QA Section Components
+export const ProfileSidebar = createOptimizedComponent(() => import("./qaSectionsComponents/ProfileSidebar"));
+export const GroupsSidebar = createOptimizedComponent(() => import("./qaSectionsComponents/GroupsSideBar"));
+export const QuestionModal = createOptimizedComponent(() => import("./qaSectionsComponents/QuestionModal"));
+
+// User Profile Components
+export const ProfileCard = createOptimizedComponent(() => import("./user/userProfile/ProfileCard"));
+export const ProfileDetails = createOptimizedComponent(() => import("./user/userProfile/ProfileDetails"));
+export const UserPosts = createOptimizedComponent(() => import("./user/userProfile/UserPosts"));
+export const UserAnswers = createOptimizedComponent(() => import("./user/userProfile/UserAnswers"));
+export const UserFollowers = createOptimizedComponent(() => import("./user/userProfile/UserFollowers"));
+export const UserFollowing = createOptimizedComponent(() => import("./user/userProfile/UserFollowing"));
+
+// const componentCache = new Set();
+
+// export const preloadComponent = (Component) => {
+//     if (!componentCache.has(Component)) {
+//         Component.preload?.();
+//         componentCache.add(Component);
+//     }
+// };

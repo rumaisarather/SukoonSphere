@@ -1,9 +1,7 @@
-import { HeaderImg, RelatedVideoCard } from '@/components';
+import { RelatedVideoCard } from '@/components';
 import { videos } from '@/utils/Vidoes/AllVidoes';
-import React from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
-import bgImg from '../../assets/images/posts.jpg';
 
 export const SingleVideoDetailsLoader = async ({ params }) => {
     const videoDetails = videos.find(video => video.id === Number(params.id));
@@ -14,7 +12,6 @@ const video = () => {
     const { videoDetails } = useLoaderData()
     return (
         <>
-            {/* <HeaderImg currentPage="Video" bgImg={bgImg} /> */}
             <div className="relative max-w-7xl mx-auto w-full ">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div className="col-span-8 grid gap-6 p-6 ">

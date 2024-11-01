@@ -1,11 +1,3 @@
-// auth
-export { default as Auth } from "./auth/Auth";
-
-
-
-
-
-
 
 export { default as QaSection } from "./QaSection/QaSection";
 export { default as Answer } from "./answer/Answer";
@@ -33,4 +25,5 @@ export { default as ContactUs } from "../pages/about/ContactUs";
 
 
 export { default as UserProfile } from "../pages/about/UserProfile";
+export { default as SignUp } from "../pages/auth/SignUp";
 

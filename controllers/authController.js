@@ -39,26 +39,26 @@ export const register = async (req, res) => {
     origin,
   });
   res.status(StatusCodes.CREATED).json({
-    msg: "success! please check your email to verify account",
+    msg: "Success! please check your email to verify account",
   });
 };
 
 export const verifyEmail = async (req, res) => {
-  const {verificationToken, email} = req.body
-  const user = await User.findOne({email})
+  const { verificationToken, email } = req.body
+  const user = await User.findOne({ email })
 
-  if(!user) {
+  if (!user) {
     throw new UnAuthenticatedErr("verification failed")
   }
-  if (user.verificationToken !== verificationToken){
+  if (user.verificationToken !== verificationToken) {
     throw new UnAuthenticatedErr("verification failed");
   }
-  user.isVerified =true
-   user.verified = Date.now()
-   user.verificationToken = ""
+  user.isVerified = true
+  user.verified = Date.now()
+  user.verificationToken = ""
 
-   await user.save()
-   res.status(StatusCodes.OK).json({msg:"email verified"})
+  await user.save()
+  res.status(StatusCodes.OK).json({ msg: "email verified" })
 };
 
 export const login = async (req, res) => {
@@ -68,7 +68,7 @@ export const login = async (req, res) => {
   if (!isValidUser) throw new UnAuthenticatedErr("invalid Credentials");
   // if (!user.isVerified)
   //   throw new UnAuthenticatedErr("please verify your email");
-  const token = createJWT({ userId: user._id, role: user.role, email: user.email});
+  const token = createJWT({ userId: user._id, role: user.role, email: user.email });
   const oneDay = 1000 * 60 * 60 * 24;
   res.cookie("token", token, {
     httpOnly: true,

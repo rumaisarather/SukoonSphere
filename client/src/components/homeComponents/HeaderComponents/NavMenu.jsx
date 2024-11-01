@@ -137,7 +137,7 @@ function NavMenu() {
               }}
               className="hidden sm:flex bg-white items-center gap-1 rounded-[5px] shadow-[0_2px_0_0_rgba(0,0,0,0.04),_inset_0_0_0_2px_#e0e0e0] transition-all ease-in-out duration-600 text-gray-900 px-3 py-2 text-xs leading-[1.32] hover:bg-[#f2f6ff]"
             >
-              <span>Sign in</span>
+              <span>Sign Up</span>
               <FaArrowRightLong />
             </button>
             <Link to={"/contact-us"}>

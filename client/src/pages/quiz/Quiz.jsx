@@ -7,18 +7,7 @@ import bgImg from '../../assets/images/bg_podcast.jpg'
 import { HeaderImg } from '@/components';
 import { useLoaderData } from 'react-router-dom';
 
-// Loader function
-export const QuizDetailsLoader = async ({ params }) => {
-    const category = Quizzes[0].quizCategories[0];
-    const quiz = category.quizzes.find(q => q.quizId === Number(params.id));
 
-    if (quiz) {
-        const quizDetails = quiz.quizDetails ? quiz.quizDetails[0] : {};
-        const quizQuestions = quiz.quizQuestions || [];
-        return { quiz, quizDetails, quizQuestions };
-    }
-    return { quiz: null, quizDetails: null };
-};
 function Quiz() {
     const { quiz, quizDetails, quizQuestions } = useLoaderData()
     return (
