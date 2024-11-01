@@ -16,22 +16,22 @@ const FormRow = ({ type, name, labelText, value, disable }) => {
 
     return (
         <div >
-      <label htmlFor={name} className="formLabel">
-        {labelText}
-      </label>
-      <input
-      style={{cursor:disable && "not-allowed"}}
-        type={labelText === "password" ? Type : type}
-        id={name}
-        name={name}
-        className="formInput"
-        defaultValue={value || ""}
-        required
-        readOnly ={disable}
-      />
-{ type === "password" && <span className="passwordIcon" onClick={showPassword}>{Type === "password" ? <FaEyeSlash /> : <FaRegEye />}</span> }
-    </div >
-  );
+            <label htmlFor={name} className="formLabel">
+                {labelText}
+            </label>
+            <input
+                style={{ cursor: disable && "not-allowed" }}
+                type={labelText === "password" ? Type : type}
+                id={name}
+                name={name}
+                className="formInput"
+                defaultValue={value || ""}
+                required
+                readOnly={disable}
+            />
+            {type === "password" && <span className="passwordIcon" onClick={showPassword}>{Type === "password" ? <FaEyeSlash /> : <FaRegEye />}</span>}
+        </div >
+    );
 };
 export const FormTextareaRow = ({ name, labelText, value = "" }) => {
     return (

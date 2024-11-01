@@ -77,7 +77,7 @@ function Infography() {
                             <div
                                 key={index}
                                 className={`p-3 text-center ${index === 0 ? 'border-l-2 border-r-2' : 'border-r-2'}`}
-                                data-aos="zoom-in"
+                                data-aos="fade-up"
                                 data-aos-delay="500"
                             >
                                 <div className="flex justify-center mt-4">

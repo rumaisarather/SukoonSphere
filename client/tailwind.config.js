@@ -10,6 +10,10 @@ module.exports = {
   prefix: "",
   theme: {
     keyframes: {
+      breathe: {
+        '0%, 100%': { transform: 'scale(0.9) translate(-50%, -50%)', opacity: 0.9 },
+        '50%': { transform: 'scale(1.1) translate(-50%, -50%)', opacity: 1 },
+      },
       fadeIn: {
         '0%': { opacity: '0', transform: 'translateY(-10px)' },
         '100%': { opacity: '1', transform: 'translateY(0)' },
@@ -22,6 +26,9 @@ module.exports = {
     animation: {
       fadeIn: 'fadeIn 1s ease-in-out',
       fadeOut: 'fadeOut 1s ease-in-out',
+      'spin-slow': 'spin 3s linear infinite',
+      'spin-slow-reverse': 'spin 4s linear infinite reverse',
+      'breathe': 'breathe 4s ease-in-out infinite',
     },
     container: {
       center: true,
@@ -89,3 +96,5 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate"), require("daisyui")],
 };
+
+

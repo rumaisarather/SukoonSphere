@@ -15,7 +15,6 @@ const Article = () => {
             "These families are often people of color. They are exposed to 30% more particulate matter than the general population. Beyond the direct impacts of air pollution, increased heat waves can result in more excess deaths than COVID-19. It is undeniable that pollution and extreme heat have real human health impacts.",
         ]
     };
-
     return (
         <>
             {/* <HeaderImg currentPage="Article" bgImg={bgImg} /> */}
