@@ -1,3 +1,11 @@
+// auth
+export { default as Auth } from "./auth/Auth";
+
+
+
+
+
+
 
 export { default as QaSection } from "./QaSection/QaSection";
 export { default as Answer } from "./answer/Answer";

@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QaSection, Articles, Home, ProfessionalsProfile, Quiz,  Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, Answer, ContactUs, } from "./pages";
+import { QaSection, Articles, Home, ProfessionalsProfile, Quiz,  Posts, AllQuizzes, MentalHealth, AllVideos, Video, PodcastPlaylists, OurTeam, AboutUs, Article, UserProfile, Answer, ContactUs, Auth, } from "./pages";
 
 import HomeLayout from "./layouts/HomeLayout";
 import { ArticlesLoader } from "./pages/articles/Articles";
@@ -11,6 +11,10 @@ import { SingleVideoDetailsLoader } from "./pages/mediaLibrary/video";
 import { PodcastCard, UserAnswers, UserFollowers, UserFollowing, UserPosts } from "./components";
 
 const router = createBrowserRouter([
+  {path:"user-auth",
+    element:<Auth/>
+  },
+
   {
     path: "/",
     element: <HomeLayout />,

@@ -28,7 +28,7 @@ export const register = async (req, res) => {
   const isFirst = (await User.countDocuments()) === 0;
   req.body.role = isFirst ? "admin" : "user";
   req.body.password = await hashpasword(req.body.password);
-  // req.body.verificationToken = crypto.randomBytes(20).toString("hex");
+  req.body.verificationToken = crypto.randomBytes(20).toString("hex");
 
   const user = await User.create(req.body);
   const origin = "http://localhost:5173";
@@ -42,6 +42,7 @@ export const register = async (req, res) => {
     msg: "success! please check your email to verify account",
   });
 };
+
 export const verifyEmail = async (req, res) => {
   const {verificationToken, email} = req.body
   const user = await User.findOne({email})
