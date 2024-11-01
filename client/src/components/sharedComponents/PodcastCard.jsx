@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import notFoundBySearch from "../../assets/images/notFoundBySearch.jpg";
 import { FaRegCirclePlay } from "react-icons/fa6";
+import MusicPlayer from "./MusicPlayer";
 
 const PodcastCard = () => {
   const { id: paramsId } = useParams();
@@ -106,7 +107,7 @@ const PodcastCard = () => {
 
         {/* Sidebar */}
         {/* Quick Search */}
-        <div className="space-y-8  shadow-[0px_1px_10px_rgba(0,0,0,0.1)] rounded-[10px]">
+        <div className="space-y-8 ">
           {/* <div className="p-4 rounded-lg">
             <input
               className="w-full p-2 rounded-[10px] shadow-md bg-white"
@@ -116,7 +117,8 @@ const PodcastCard = () => {
           </div> */}
 
           {/* Audio Player */}
-          <div className="sticky top-24 flex flex-col gap-5 rounded-[10px] p-4 bg-[#0b3948] text-white shadow-lg">
+          <MusicPlayer />
+          {/* <div className="sticky top-24 flex flex-col gap-5 rounded-[10px] p-4 bg-[#0b3948] text-white shadow-lg">
             <div className="flex flex-col items-center gap-4">
               <img
                 className="w-24 h-24 rounded-full"
@@ -132,7 +134,7 @@ const PodcastCard = () => {
               <source src={currentAudio} type="audio/mpeg" />
               Your browser does not support the audio tag.
             </audio>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Top Podcasters */}
