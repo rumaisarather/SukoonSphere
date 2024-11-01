@@ -1,46 +1,58 @@
-// src/pages/auth/VerifyEmailAddres.js
+import customFetch from "@/utils/customFetch"
+import React, { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import customFetch from '@/utils/customFetch';
+function useQuery() {
+    return new URLSearchParams(useLocation().search)
+}
 
-export const VerifyEmailAddres = () => {
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
-    const location = useLocation();
+const VerifyEmailAddres = () => {
 
-    useEffect(() => {
-        // Extract query parameters from the URL
-        const params = new URLSearchParams(location.search);
-        const token = params.get('token');
-        const email = params.get('email');
+const [error, setError] = useState(false)
+const [loading, setLoading] = useState(false);
+const query = useQuery()
 
-        if (token && email) {
-            const verifyEmail = async () => {
-                try {
-                    const response = await customFetch.post('verify-email', {
-                        email,
-                        verificationToken: token,
-                    });
-                    setMessage(response.data.msg);
-                } catch (err) {
-                    setError(err.response?.data?.msg || 'Verification failed');
-                }
-            };
-            verifyEmail();
-        } else {
-            setError('Invalid verification link');
-        }
-    }, [location]);
 
-    return (
-        <div className="email-verification p-4 flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                {message && <p className="text-green-500 text-center mb-4">{message}</p>}
-                {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-            </div>
+const verifyToken  = async () => {
+setLoading(true)
+
+try {
+   const { data } = await customFetch.post("/auth/verify-email", {
+     verificationToken: query.get("token"),
+     email: query.get("email"),
+   });
+   console.log({datafrombeackend:data})
+}
+ catch (error) {
+    setError(true)
+}
+setLoading(false)
+}
+ 
+useEffect(()=>{
+    verifyToken()
+},[])
+if (loading){
+    return(
+        <div>
+            <h2>Loading...................</h2>
         </div>
-    );
-};
+    )
+}
+if(error) {
+    return(
+        <div>
+            There was an error, please double check your verification link
+        </div>
+    )
+}
 
-export default VerifyEmailAddres;
+return(
+    <div>
+        <h2>Acount confirmed</h2>
+        <Link to="/login" className="primary-btn">
+         Login</Link>
+    </div>
+)
+}
+export default VerifyEmailAddres
