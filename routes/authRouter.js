@@ -23,6 +23,8 @@ router.post("/register", validateRegisterInput, register);
 router.post("/login", validateLoginInput, login);
 router.get("/logout", logout);
 router.get("/userRole", getUserRole);
+router.post("/verify-email", verifyEmail);
+
 
 
 // not in use yet
