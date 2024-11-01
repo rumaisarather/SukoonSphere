@@ -1,15 +1,16 @@
 import customFetch from "@/utils/customFetch";
 import React from "react";
-import { Form } from "react-router-dom";
+import { Form, useActionData } from "react-router-dom";
 import img_bg from "../../assets/images/bg_signup.png";
 import { Link } from "react-router-dom";
+import { useNavigation } from "react-router-dom";
 export const signupAction = async ({ request }) => {
   const result = await request.formData();
-  const data = Object.fromEntries(result);
+  const user = Object.fromEntries(result);
   try {
-    const response = await customFetch.post("auth/register", data);
-    console.log({ response });
-    return response;
+    const {data} = await customFetch.post("auth/register", user);
+    console.log({ data });
+    return data
   } catch (error) {
     console.log(error);
     return error;
@@ -17,6 +18,10 @@ export const signupAction = async ({ request }) => {
 };
 
 const SignUp = () => {
+    const navigation = useNavigation()
+    const isSubmitting = navigation.state === "submitting"
+    const data = useActionData()
+    console.log(data)
   return (
     <div className="grid grid-cols-2 max-w-7xl mx-auto my-6 align-middle">
       <div className="flex flex-col gap-6 py-6  ">
@@ -61,7 +66,7 @@ const SignUp = () => {
             placeholder="Enter passoword.."
             className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]"
           />
-          <input
+          {/* <input
             type="text"
             name="test"
             id="text"
@@ -81,9 +86,9 @@ const SignUp = () => {
             id="text"
             placeholder="test...."
             className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]"
-          />
-          <button type="submit" className="btn w-full action-button">
-            SignUp
+          /> */}
+          <button type="submit" disabled ={isSubmitting} className="btn w-full action-button">
+            {isSubmitting ? "submitting...": "Submit"}
           </button>
           <Link to='/' className="text-white text-center"> Already have an account! </Link>
         </Form>
