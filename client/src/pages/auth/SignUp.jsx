@@ -1,6 +1,6 @@
 import customFetch from '@/utils/customFetch';
 import React from 'react'
-import { Form } from 'react-router-dom'
+import { Form, useActionData } from 'react-router-dom'
 export const signupAction = async ({ request }) => {
     const result = await request.formData();
     const data = Object.fromEntries(result);
@@ -17,6 +17,8 @@ export const signupAction = async ({ request }) => {
 }
 
 const SignUp = () => {
+    const data = useActionData()
+    console.log({data})
     return (
         <div>
             <h1>Signup</h1>
