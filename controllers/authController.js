@@ -5,6 +5,8 @@ import { UnauthenticatedError } from "../errors/customErors.js";
 import { createJWT } from "../utils/tokenUtils.js";
 import crypto from "crypto";
 import sendVerificationEmail from "../utils/sendVerificationEmail.js";
+import sendResetPasswordEmail from "../utils/sendResetPasswordEmail.js";
+
 // register
 export const register = async (req, res) => {
   const isFirst = (await User.countDocuments()) === 0;
@@ -24,6 +26,7 @@ export const register = async (req, res) => {
     msg: "Success! please check your email to verify account",
   });
 };
+
 // verify-email
 export const verifyEmail = async (req, res) => {
   const { verificationToken, email } = req.body;
@@ -41,6 +44,7 @@ export const verifyEmail = async (req, res) => {
   await user.save();
   res.status(StatusCodes.OK).json({ msg: "email verified" });
 };
+
 // login
 export const login = async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
@@ -59,6 +63,7 @@ export const login = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "user logged in" });
   console.log(res.cookie);
 };
+
 export const changePassword = async (req, res) => {
   const user = await User.findById(req.user.userId);
 
@@ -82,6 +87,29 @@ export const changePassword = async (req, res) => {
    
   res.status(StatusCodes.OK).json({ msg: "password changed sucessfully" });
 };
+
+// forget password
+export const forgetPassword = async (req, res) => {
+  const user = await User.findOne({ email: req.body.email });
+
+  if (user){
+    const passwordToken = crypto.randomBytes(70).toString("hex")
+    // send email
+      const origin = "http://localhost:5173";
+    await sendResetPasswordEmail({name:user.name,email:user.email,token:passwordToken,origin})
+    const tenMinutes = 1000 * 60 *10
+    const passwordTokenExpirationDate = new Date(Date.now() + tenMinutes)
+
+    user.passwordToken = passwordToken
+    user.passwordTokenExpirationDate = passwordTokenExpirationDate
+   await user.save()
+  }
+
+  res.status(StatusCodes.OK).json({
+    msg: "Success! please check your email for reset password link",
+  });
+};
+
 
 // logout
 export const logout = (req, res) => {

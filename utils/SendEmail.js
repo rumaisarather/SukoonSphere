@@ -3,14 +3,14 @@ import nodemailer from "nodemailer";
 const SendEmail = async ({ to, subject, html }) => {
   try {
     // Use your Ethereal account or create a new one
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    auth: {
-      user: "rogers.sawayn74@ethereal.email",
-      pass: "Pejw9AqPyJCUSP8znX",
-    },
-  })
+    const transporter = nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      auth: {
+        user: "rogers.sawayn74@ethereal.email",
+        pass: "Pejw9AqPyJCUSP8znX",
+      },
+    });
 
     // Define the mail options
     const mailOptions = {

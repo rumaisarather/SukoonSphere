@@ -3,6 +3,7 @@ const router = Router();
 
 import {
   changePassword,
+  forgetPassword,
   login,
   logout,
   register,
@@ -10,6 +11,7 @@ import {
 } from "../controllers/authController.js";
 import {
   validateChangePasswordInput,
+  validateForgetPasswordInput,
   validateLoginInput,
   validateRegisterInput,
 } from "../middleware/validationMiddleware.js";
@@ -25,6 +27,11 @@ router.get("/logout", logout);
 router.get("/userRole", getUserRole);
 router.post("/verify-email", verifyEmail);
 router.post("/change-password",authenticateUser,validateChangePasswordInput, changePassword);
+router.post(
+  "/forget-password",
+  validateForgetPasswordInput,
+  forgetPassword
+);
 
 
 

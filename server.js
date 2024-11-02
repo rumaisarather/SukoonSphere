@@ -36,7 +36,6 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.json());
 app.use(cookieParser());
 
-
 app.use("/api/v1/auth", AuthRouter);
 // app.use("/api/v1/jobs", jobRouter);
 // app.use("/api/v1/projects", projectRouter);
@@ -44,8 +43,6 @@ app.use("/api/v1/auth", AuthRouter);
 // app.use("/api/v1/inboxs", inboxRouter);
 // app.use("/api/v1/expriences", exprienceRouter);
 // app.use("/api/v1/certifications", certificationRouter);
-
-
 
 //not found
 app.use("*", (req, res) => {
