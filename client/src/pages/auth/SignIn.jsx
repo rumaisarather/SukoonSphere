@@ -17,9 +17,9 @@ export const signinAction = async ({ request }) => {
 };
 const SignIn = () => {
   return (
-    <div className="grid grid-cols-2 max-w-7xl mx-auto my-6 align-middle">
+    <div className="grid grid-cols-2 max-w-5xl mx-auto my-6 align-middle">
       <div className="flex flex-col p-6 items-center gap-4 my-auto mr-4">
-      <h2 className="font-bold text-5xl text-[var(--grey--900)] text-left leading">
+        <h2 className="font-bold text-5xl text-[var(--grey--900)] text-left leading">
           Welcome to Your Sanctuary of Peace
         </h2>
         <p className="text-[1.2rem]">
@@ -31,7 +31,7 @@ const SignIn = () => {
           method="post"
           className=" flex flex-col gap-4 bg-[var(--primary)] shadow-lg p-8 w-full rounded-[20px]"
         >
-        <h1 className="font-bold text-white text-center">Sign In</h1>
+          <h1 className="font-bold text-white text-center">Sign In</h1>
           <input
             type="email"
             name="email"
@@ -54,7 +54,7 @@ const SignIn = () => {
         </Form>
       </div>
       <div className="flex flex-col gap-6 py-6  ">
-    
+
         <img
           src={img_bg}
           alt="bg-mind-img"
