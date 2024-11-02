@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import User from "../models/userModel.js";
-import { comparePassword, hashpasword } from "../utils/passwordUtils.js";
+import { comparePassword, hashpasword, hashString } from "../utils/passwordUtils.js";
 import { UnauthenticatedError } from "../errors/customErors.js";
 import { createJWT } from "../utils/tokenUtils.js";
 import crypto from "crypto";
@@ -100,7 +100,7 @@ export const forgetPassword = async (req, res) => {
     const tenMinutes = 1000 * 60 *10
     const passwordTokenExpirationDate = new Date(Date.now() + tenMinutes)
 
-    user.passwordToken = passwordToken
+    user.passwordToken = hashString(passwordToken);
     user.passwordTokenExpirationDate = passwordTokenExpirationDate
    await user.save()
   }
@@ -109,7 +109,25 @@ export const forgetPassword = async (req, res) => {
     msg: "Success! please check your email for reset password link",
   });
 };
-
+// resetpassword
+export const resetPassword = async (req, res) =>{
+  const {token,email, password} = req.body
+  const user = await User.findOne({email})
+   if(user){
+    const currentDate = new Date()
+     if (
+       user.passwordToken === hashString(token) &&
+       user.passwordTokenExpirationDate > currentDate
+     ) {
+       const hashedPassword = await hashpasword(password);
+       user.passwordToken = null;
+       user.passwordTokenExpirationDate = null;
+       user.password = hashedPassword;
+       await user.save();
+     }
+   }
+     res.status(StatusCodes.OK).json({ msg: "password changed sucessfully" });
+}
 
 // logout
 export const logout = (req, res) => {

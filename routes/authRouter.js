@@ -7,6 +7,7 @@ import {
   login,
   logout,
   register,
+  resetPassword,
   verifyEmail,
 } from "../controllers/authController.js";
 import {
@@ -14,6 +15,7 @@ import {
   validateForgetPasswordInput,
   validateLoginInput,
   validateRegisterInput,
+  validateResetPasswordInput,
 } from "../middleware/validationMiddleware.js";
 import {
   getUserRole,
@@ -33,6 +35,7 @@ router.post(
   forgetPassword
 );
 
+router.post("/reset-password",validateResetPasswordInput, resetPassword);
 
 
 

@@ -19,7 +19,7 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
 //middleware
-// import errorHandlerMiddleware from "./middleware/errorhandlerMiddleware.js";
+import errorHandlerMiddleware from "./middleware/errorhandlerMiddleware.js";
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -50,7 +50,7 @@ app.use("*", (req, res) => {
 });
 
 //err HANDLING  middleware
-// app.use(errorHandlerMiddleware);
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT;
 try {
