@@ -4,6 +4,7 @@ import { signupAction } from '@/pages/auth/SignUp';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
 import SignIn, { signinAction } from '@/pages/auth/SignIn';
 import VerifyEmailAddres from '@/pages/auth/VerifyEmailAddres';
+import ChangePassword, { changePasswordAction } from '@/pages/auth/ChangePassword';
 
 export const authRoutes = [
   {
@@ -31,5 +32,14 @@ export const authRoutes = [
         <VerifyEmailAddres />
       </Suspense>
     ),
+  },
+  {
+    path: "/user/change-passowrd",
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <ChangePassword />
+      </Suspense>
+    ),
+    action:changePasswordAction
   },
 ];
