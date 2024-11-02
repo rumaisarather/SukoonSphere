@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import { NotFoundErr, UnauthorizedErr } from "../errors/customErors.js";
+import { NotFoundError, UnauthorizedError } from "../errors/customErors.js";
 import { verifyJWT } from "../utils/tokenUtils.js";
 import User from "../models/userModel.js";
 import { formatImage } from "../middleware/multer.js";
@@ -29,7 +29,7 @@ export const getAdminData = async(req, res) => {
 }
 export const updateAdminData = async (req, res) => {
   if (req.user.role !== "admin")
-    throw new UnauthorizedErr("You are not authorized to access this route");
+    throw new UnauthorizedError("You are not authorized to access this route");
 
   const { id } = req.params;
   const updateUser = { ...req.body };
@@ -49,7 +49,7 @@ export const updateAdminData = async (req, res) => {
   }
 
   const UpdatedUser = await User.findByIdAndUpdate(id, updateUser);
-  if (!UpdatedUser) throw new NotFoundErr(`No user with id ${id}`);
+  if (!UpdatedUser) throw new NotFoundError(`No user with id ${id}`);
 
   // Remove old images from Cloudinary
   if (req.files && req.files.avatar && UpdatedUser.avatarPublicId) {
