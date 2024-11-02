@@ -15,6 +15,12 @@ const userSchema = mongoose.Schema({
     default: false,
   },
   verified: Date,
+  passwordToken:{
+    type:String
+  },
+  passwordTokenExpirationDate:{
+    type:Date,
+  },
   avatar: String,
   avatarPublicId: String,
   phone: String,

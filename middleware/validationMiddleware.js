@@ -81,3 +81,10 @@ export const validateChangePasswordInput = withValidationErrors([
     }),
 ]);
 
+export const validateForgetPasswordInput = withValidationErrors([
+  body("email")
+    .notEmpty()
+    .withMessage("email is required")
+    .isEmail()
+    .withMessage("invalid email")
+]);
