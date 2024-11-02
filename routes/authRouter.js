@@ -2,19 +2,19 @@ import { Router } from "express";
 const router = Router();
 
 import {
+  changePassword,
   login,
   logout,
   register,
   verifyEmail,
 } from "../controllers/authController.js";
 import {
+  validateChangePasswordInput,
   validateLoginInput,
   validateRegisterInput,
 } from "../middleware/validationMiddleware.js";
 import {
-  getAdminData,
   getUserRole,
-  updateAdminData,
 } from "../controllers/userController.js";
 import { authenticateUser } from "../middleware/authMiddleware.js";
 import upload from "../middleware/multer.js";
@@ -24,6 +24,8 @@ router.post("/login", validateLoginInput, login);
 router.get("/logout", logout);
 router.get("/userRole", getUserRole);
 router.post("/verify-email", verifyEmail);
+router.post("/change-password",authenticateUser,validateChangePasswordInput, changePassword);
+
 
 
 
