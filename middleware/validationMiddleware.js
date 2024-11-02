@@ -88,3 +88,17 @@ export const validateForgetPasswordInput = withValidationErrors([
     .isEmail()
     .withMessage("invalid email")
 ]);
+export const validateResetPasswordInput = withValidationErrors([
+  body("password")
+    .notEmpty()
+    .withMessage(" password is required")
+    .isLength({ min: 8 })
+    .withMessage(" password must be at least 8 characters"),
+
+  body("token").notEmpty().withMessage("token is required"),
+  body("email")
+    .notEmpty()
+    .withMessage("email is required")
+    .isEmail()
+    .withMessage("invalid email"),
+]);

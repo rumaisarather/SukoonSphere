@@ -27,12 +27,13 @@ export const signupAction = async ({ request }) => {
   // Return errors if validation fails
   if (Object.keys(errors).length > 0) {
     return { errors };
-  }
+  } 
 
   try {
     const data = await customFetch.post("auth/register", user);
     return data.data;
   } catch (error) {
+    console.log({error})
     return { error: error?.response?.data?.message || "An error occurred during signup." };
   }
 };
