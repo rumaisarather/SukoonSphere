@@ -287,10 +287,10 @@ all other colors below
   --fluid-width: 95vw;
   /*  */
   --color-purple: #8B5CF6;
-    --color-pink: #EC4899;
-    --color-gray: #9CA3AF;
-    --color-black: #1F2937;
-    --card-size: 28rem;
+  --color-pink: #EC4899;
+  --color-gray: #9CA3AF;
+  --color-black: #1F2937;
+  --card-size: 28rem;
 
 }
 
@@ -404,6 +404,24 @@ all other colors below
   transform: scale(1.03);
 }
 
+.btn-red {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--red--700);
+  color: var(--white-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all .3s;
+}
+
+
+.btn-red:hover {
+  background-color: var(--red--900);
+  transform: scale(1.03);
+}
+
 @keyframes blink-caret {
 
   from,
@@ -450,6 +468,7 @@ all other colors below
   display: block;
   padding-right: 4rem;
 }
+
 /*  */
 .carousel_ {
   position: relative;

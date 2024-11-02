@@ -56,6 +56,12 @@ export const UserAnswers = createOptimizedComponent(() => import("./user/userPro
 export const UserFollowers = createOptimizedComponent(() => import("./user/userProfile/UserFollowers"));
 export const UserFollowing = createOptimizedComponent(() => import("./user/userProfile/UserFollowing"));
 
+
+
+// Admin Components
+export const AdminHeader = createOptimizedComponent(() => import("./dashboard/admin/AdminHeader"));
+export const AdminNavbar = createOptimizedComponent(() => import("./dashboard/admin/AdminNavbar"));
+
 // const componentCache = new Set();
 
 // export const preloadComponent = (Component) => {

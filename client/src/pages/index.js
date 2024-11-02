@@ -27,3 +27,9 @@ export { default as ContactUs } from "../pages/about/ContactUs";
 export { default as UserProfile } from "../pages/about/UserProfile";
 export { default as SignUp } from "../pages/auth/SignUp";
 
+
+// Admin Pages
+export { default as CampaignArticles } from "./dashboards/components/admin/articles/CampaignArticles";
+export { default as AddArticles } from "./dashboards/components/admin/articles/AddArticles";
+
+

@@ -7,8 +7,10 @@ import { mediaRoutes } from './mediaRoutes';
 import { aboutRoutes } from './aboutRoutes';
 import { authRoutes } from './authRoutes';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
+import { adminRoutes } from './adminRoutes';
 
 const HomeLayout = lazy(() => import('@/layouts/HomeLayout'));
+const AdminLayout = lazy(() => import('@/layouts/AdminLayout'));
 
 export const routes = [
   {
@@ -26,4 +28,16 @@ export const routes = [
     ],
   },
   ...authRoutes,
+
+  {
+    path: '/admin',
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <AdminLayout />
+      </Suspense>
+    ),
+    children: [
+      ...adminRoutes,
+    ],
+  },
 ];
