@@ -4,11 +4,11 @@ const SendEmail = async ({ to, subject, html }) => {
   try {
     // Use your Ethereal account or create a new one
     const transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
+      host: "smtp-relay.brevo.com",
       port: 587,
       auth: {
-        user: "rogers.sawayn74@ethereal.email",
-        pass: "Pejw9AqPyJCUSP8znX",
+        user: "7f2f7b001@smtp-brevo.com",
+        pass: "pz3Tw5xh2Q0gW4cn",
       },
     });
 
