@@ -1,9 +1,11 @@
 import React, { lazy, Suspense } from 'react';
-import { SignUp } from '@/pages';
+import { ForgetPassword, ResetPassword, SignUp } from '@/pages';
 import { signupAction } from '@/pages/auth/SignUp';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
 import SignIn, { signinAction } from '@/pages/auth/SignIn';
 import VerifyEmailAddres from '@/pages/auth/VerifyEmailAddres';
+import ChangePassword, { changePasswordAction } from '@/pages/auth/ChangePassword';
+import { forgetPasswordAction } from '@/pages/auth/ForgetPassword';
 
 export const authRoutes = [
   {
@@ -29,6 +31,40 @@ export const authRoutes = [
     element: (
       <Suspense fallback={<LoadingSpinner />}>
         <VerifyEmailAddres />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/user/change-passowrd",
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <ChangePassword />
+      </Suspense>
+    ),
+    action: changePasswordAction
+  },
+  {
+    path: "/user/forget-password",
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <ForgetPassword />
+      </Suspense>
+    ),
+    action: forgetPasswordAction
+  },
+  {
+    path: "/user/reset-password",
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <ResetPassword />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/user/",
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <ResetPassword />
       </Suspense>
     ),
   },

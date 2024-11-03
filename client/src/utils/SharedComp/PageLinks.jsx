@@ -1,27 +1,29 @@
 import { FaHome } from "react-icons/fa";
-
-export const links = [
+import { FaCaretRight } from "react-icons/fa";
+const links = [
   {
     name: "Home",
     address: "/",
-    icon: FaHome,
+    icon: <FaHome />,
   },
   {
     name: "Articles & Resources",
     address: '',
-    // icon: <MdArticle />,
+
     description: "Educational content and tools",
     sublinks: [
       {
         name: "Articles",
         address: 'articles',
         description: "In-depth written content",
-        // icon: <MdArticle />,
+        icon: <FaCaretRight />,
       },
       {
         name: "Quizzes",
         address: 'all-quizzes',
         description: "Interactive knowledge tests",
+        icon: <FaCaretRight />,
+
         // icon: <BiQuestionMark />,
       },
     ],
@@ -36,12 +38,16 @@ export const links = [
         name: "QA-Section",
         address: "QA-Section",
         description: "Question and answer forum",
+        icon: <FaCaretRight />,
+
         // icon: <BiQuestionMark />,
       },
       {
         name: "Stories",
         address: 'Posts',
         description: "User-submitted discussions",
+        icon: <FaCaretRight />,
+
         // icon: <BsChatDots />,
       },
     ],
@@ -56,12 +62,16 @@ export const links = [
         name: "Podcasts",
         address: "podcast/playlists",
         description: "Audio-based discussions",
+        icon: <FaCaretRight />,
+
         // icon: <GiPodium />,
       },
       {
         name: "Videos",
         address: 'media/all-videos',
         description: "Visual media content",
+        icon: <FaCaretRight />,
+
         // icon: <MdVideoLibrary />,
       },
     ],
@@ -76,26 +86,35 @@ export const links = [
         name: "Contact Us",
         address: "contact-us",
         description: "Get in touch with support",
+        icon: <FaCaretRight />,
+
         // icon: <AiOutlineMail />,
       },
       {
         name: "About Us",
         address: 'about-us',
         description: "Learn about our mission",
+        icon: <FaCaretRight />,
+
         // icon: <AiOutlineInfoCircle />,
       },
       {
         name: "Mental Health",
         address: 'about/mental-health',
         description: "Mental health resources",
+        icon: <FaCaretRight />,
+
         // icon: <FaBrain />,
       },
       {
         name: "Our Review Board",
         address: '/about/our-team',
         description: "Meet our expert team",
+        icon: <FaCaretRight />,
+
         // icon: <FiUsers />,
       },
     ],
   },
 ];
+export default links;
