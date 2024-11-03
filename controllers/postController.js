@@ -18,3 +18,7 @@ export const createPost = async (req, res) => {
   const post = await Post.create(newPost);
   res.status(StatusCodes.CREATED).json({ msg: "Post uploaded sucessesfully" });
 };
+export const getAllPosts = async (req, res) => {
+  const posts = await Post.find({})
+    res.status(StatusCodes.OK).json({ posts });
+};
