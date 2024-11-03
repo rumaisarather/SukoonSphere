@@ -53,7 +53,13 @@ export const login = async (req, res) => {
   if (!isValidUser) throw new UnauthenticatedError("invalid Credentials");
   if (!user.isVerified)
     throw new UnauthenticatedError("please verify your email, you have already recieved verification link, check your mail");
-  const token = createJWT({ userId: user._id, role: user.role, email: user.email });
+  const token = createJWT({
+    userId: user._id,
+    role: user.role,
+    email: user.email,
+    username: user.name,
+    avatar: user.avatar,
+  });
   const oneDay = 1000 * 60 * 60 * 24;
   res.cookie("token", token, {
     httpOnly: true,
