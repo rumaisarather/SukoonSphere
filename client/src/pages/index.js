@@ -33,3 +33,6 @@ export { default as CampaignArticles } from "./dashboards/components/admin/artic
 export { default as AddArticles } from "./dashboards/components/admin/articles/AddArticles";
 
 
+
+export { default as ForgetPassword } from "./auth/ForgetPassword";
+export { default as ResetPassword } from "./auth/ResetPassword";

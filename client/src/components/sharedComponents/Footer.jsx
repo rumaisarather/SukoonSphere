@@ -3,7 +3,7 @@ import CompanyLogo from "../../assets/images/SukoonSphere_Logo.png";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
-import { links } from "@/utils/SharedComp/PageLinks";
+import links from "@/utils/SharedComp/PageLinks";
 import { FaCircleDot } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="flex gap-8 ">
           {/* Right Container */}
           <div className="flex flex-col gap-3 sm:justify-between text-white mt-2">
-          <span className="text-gray-500 uppercase font-extrabold text-lg">
+            <span className="text-gray-500 uppercase font-extrabold text-lg">
               Quick Links
             </span>
             <ul className="flex flex-col gap-3 sm:justify-between mt-2">
@@ -61,8 +61,8 @@ const Footer = () => {
                   {link.sublinks && (
                     <ul>
                       {link.sublinks.map((sublink) => (
-                        <li key={sublink.name} className="flex gap-2 font-normal items-center "> 
-                        <FaCircleDot className="text-[.6rem]" />
+                        <li key={sublink.name} className="flex gap-2 font-normal items-center ">
+                          <FaCircleDot className="text-[.6rem]" />
                           <NavLink to={sublink.address}
 
                           >
