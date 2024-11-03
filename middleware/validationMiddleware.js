@@ -102,3 +102,20 @@ export const validateResetPasswordInput = withValidationErrors([
     .isEmail()
     .withMessage("invalid email"),
 ]);
+export const validatePostInput = withValidationErrors([
+  body("description")
+    .notEmpty()
+    .withMessage("Description is required")
+    .isLength({ max: 1000 })
+    .withMessage("Description must not exceed 1000 characters"),
+
+  body("tags")
+    .isArray()
+    .withMessage("Tags must be an array")
+    .custom((tags) => {
+      if (tags.length === 0) {
+        throw new BadRequestError("At least one tag is required");
+      }
+      return true;
+    }),
+]);

@@ -3,7 +3,7 @@ export const posts = [
     id: 1,
     userId: 1,
     username: "JaneDoe",
-    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+    userAvatar: "https://randomuser.me/api/portraits/women/1.jpg",
     description:
       "Navigating anxiety can feel overwhelming, but I've found that journaling helps me process my thoughts and emotions. In this post, I share my personal journey and techniques that have brought me some peace. It's crucial to acknowledge our feelings and take small steps toward healing.",
     image:
