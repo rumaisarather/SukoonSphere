@@ -2,28 +2,21 @@ import React, { useState } from "react";
 import LinkButton from "@/components/sharedComponents/Buttons/LinkButton";
 import CompanyLogo from "../../../assets/images/SukoonSphere_Logo.png";
 import links from "@/utils/SharedComp/PageLinks";
-import { Form, Link, NavLink } from "react-router-dom";
+import { Form, Link, NavLink, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
-import { useAuth0 } from "@auth0/auth0-react";
 import { BsDatabase, BsKey, BsPencil, BsThreeDotsVertical } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsFillTriangleFill } from "react-icons/bs";
 import { MdOutlineKeyboardArrowUp, MdPrivateConnectivity } from "react-icons/md";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { useUser } from "@/context/UserContext";
+
 function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [miniMenu, setMiniMenu] = useState(false);
-  const isUser = false;
-
-  const user = {
-    name: "Sartaj Ashraf",
-    email: 'sartajashraf842@gmail.com',
-    picture: "https://cdn-icons-png.flaticon.com/512/147/147142.png",
-  }
-  // const { isAuthenticated, loginWithRedirect, user, logout } = useAuth0();
-  // const isUser = isAuthenticated && user;
-
+  const navigate = useNavigate()
+  const { user, isLoading, logout } = useUser();
+  const isUser = user !== null;
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -31,6 +24,10 @@ function NavMenu() {
   const toggleMiniMenu = () => {
     setMiniMenu(!miniMenu);
   };
+  const handleLogout = async () => {
+    await logout()
+    navigate("/auth/sign-in")
+  }
 
   return (
     <nav className="w-full flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)]  z-50 transition-all ease-in-out p-2 h-[65px]">
@@ -96,7 +93,7 @@ function NavMenu() {
             <div className="flex items-center justify-center gap-2">
               <img
                 className="w-9 h-9 rounded-full border-[3px] border-blue-400"
-                src={user.picture}
+                src={user?.avatar || "https://cdn-icons-png.flaticon.com/512/147/147142.png"}
                 alt="User"
               />
               <BsThreeDotsVertical
@@ -121,7 +118,7 @@ function NavMenu() {
               <div className="flex items-center flex-col gap-4 pb-3 relative">
                 {/* Header Section */}
                 <div className="bg-[var(--primary)] w-full h-[100px] flex items-center justify-center relative rounded-t-lg">
-                  <h4 className="text-white text-lg font-bold">SARTAJ</h4>
+                  <h4 className="text-white text-lg font-bold">{user.name}</h4>
                   <button className="absolute right-4 bottom-2 text-white text-sm hover:text-gray-300">
                     <BsPencil />
                   </button>
@@ -131,11 +128,11 @@ function NavMenu() {
                 <div className="flex flex-col justify-center items-center mt-[-40px] z-10">
                   <img
                     className="w-12 h-12 rounded-full border-1 border-black shadow-lg"
-                    src={user.picture || '/path/to/default/profile.jpg'}
+                    src={user?.avatar || "https://cdn-icons-png.flaticon.com/512/147/147142.png"}
                     alt="User"
                   />
-                  <h4 className="text-[var(--gray--900)] mt-2 font-semibold">SARTAJ ASHRAF</h4>
-                  <p className="text-[var(--grey--800)] text-sm">sartajashraf842@gmail.com</p>
+                  <h4 className="text-[var(--gray--900)] mt-2 font-semibold">{user.name}</h4>
+                  <p className="text-[var(--grey--800)] text-sm">{user.email}</p>
                   <div className="flex gap-1">
                     <Link to={"/user/change-passowrd"}>
                       <button className="bg-gray-800 hover:bg-gray-900 text-white rounded-full p-2 ">
@@ -154,35 +151,24 @@ function NavMenu() {
                     </Link>
                   </div>
                   <div className="flex justify-center gap-4 mt-4">
-                    {/* <button className="bg-gray-800 hover:bg-gray-900 text-white rounded-full p-3">
-                      <i className="fas fa-id-card text-lg"></i>
-                    </button>
-                    <button className="bg-gray-800 hover:bg-gray-900 text-white rounded-full p-3">
-                      <i className="fas fa-map-marker-alt text-lg"></i>
-                    </button> */}
                   </div>
 
                   <div>
-                    <Form method="post" action="/logout">
-                      <button type="submit" className={`btn-2 `}>Logout</button>
-                    </Form>
+                    <button
+                      onClick={handleLogout}
+                      className={`btn-2 `}
+                    >
+                      Logout
+                    </button>
                   </div>
                 </div>
-
-
               </div>
-
-
             </div>
           </>
         ) : (
           <div className="flex gap-2">
-
             <Link to={"/auth/sign-up"}>
               <button
-                // onClick={async () => {
-                //   loginWithRedirect();
-                // }}
                 className="hidden sm:flex bg-white items-center gap-1 rounded-[5px] shadow-[0_2px_0_0_rgba(0,0,0,0.04),_inset_0_0_0_2px_#e0e0e0] transition-all ease-in-out duration-600 text-gray-900 px-3 py-2 text-xs leading-[1.32] hover:bg-[#f2f6ff]"
               >
                 <span>Sign Up</span>

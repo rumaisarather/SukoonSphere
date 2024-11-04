@@ -4,9 +4,13 @@ import { Share1Icon } from '@radix-ui/react-icons';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { LikePost } from '@/components';
 import CommentSection from './CommentSection';
+import { useUser } from '@/context/UserContext';
+import ActionButtons from '../shared/ActionButtons';
 
 const PostCard = ({ post }) => {
     const [showComments, setShowComments] = useState(false);
+    const { user } = useUser();
+    const isAuthor = user?._id === post.userId;
 
     return (
         <div className="mb-4 p-3 sm:p-4 border rounded-lg shadow-md">
@@ -38,7 +42,6 @@ const PostCard = ({ post }) => {
                 alt="Post visual"
                 className="w-full h-[200px] sm:h-[300px] object-contain rounded-lg mb-4"
             />
-
             {/* Post Content */}
             <p className="mb-4 text-sm sm:text-base">{post?.description || 'No description available'}</p>
 
@@ -67,7 +70,7 @@ const PostCard = ({ post }) => {
                             <FaRegComments className="size-4 sm:size-6 text-[var(--primary)]" />
                         </button>
                     </div>
-                    <Share1Icon className="hover:text-blue-500 cursor-pointer size-4 sm:size-6 text-[var(--primary)]" />
+                    {/* <Share1Icon className="hover:text-blue-500 cursor-pointer size-4 sm:size-6 text-[var(--primary)]" /> */}
                 </div>
             </div>
 
@@ -77,6 +80,14 @@ const PostCard = ({ post }) => {
                     <CommentSection postId={post._id} />
                 </div>
             )}
+
+            {/* {isAuthor && (
+                <ActionButtons
+                    // onEdit={handleEdit}
+                    // onDelete={handleDelete}
+                    isAuthor={isAuthor}
+                />
+            )} */}
         </div>
     );
 };
