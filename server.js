@@ -14,6 +14,7 @@ import cloudinary from "cloudinary";
 //routers
 import AuthRouter from "./routes/authRouter.js";
 import PostRouter from "./routes/postRoutes.js";
+import UserRouter from "./routes/userRouter.js";
 
 //public
 import path, { dirname } from "path";
@@ -37,13 +38,11 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.json());
 app.use(cookieParser());
 
+app.use("/api/v1/user", UserRouter);
 app.use("/api/v1/auth", AuthRouter);
 app.use("/api/v1/posts", PostRouter);
-// app.use("/api/v1/projects", projectRouter);
-// app.use("/api/v1/techstacks", techstackRouter);
-// app.use("/api/v1/inboxs", inboxRouter);
-// app.use("/api/v1/expriences", exprienceRouter);
-// app.use("/api/v1/certifications", certificationRouter);
+
+
 
 //not found
 app.use("*", (req, res) => {
