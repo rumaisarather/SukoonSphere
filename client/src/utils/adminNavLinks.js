@@ -18,26 +18,24 @@ export const adminNavLinks = [
 
         ],
     },
-    // {
-    //     name: 'Debates & Discussions',
-    //     address: "",
-    //     // icon: <BsChatDots />,
-    //     description: "Engage in dialogues",
-    //     sublinks: [
-    //         {
-    //             name: "QA-Section",
-    //             address: "QA-Section",
-    //             description: "Question and answer forum",
-    //             // icon: <BiQuestionMark />,
-    //         },
-    //         {
-    //             name: "Stories",
-    //             address: 'Posts',
-    //             description: "User-submitted discussions",
-    //             // icon: <BsChatDots />,
-    //         },
-    //     ],
-    // },
+    {
+        name: 'Debates & Discussions',
+        address: "",
+        // icon: <BsChatDots />,
+        sublinks: [
+            // {
+            //     name: "QA-Section",
+            //     address: "QA-Section",
+            //     description: "Question and answer forum",
+            //     // icon: <BiQuestionMark />,
+            // },
+            {
+                name: "Stories",
+                address: '/admin/view-all-posts',
+                // icon: <BsChatDots />,
+            },
+        ],
+    },
     // {
     //     name: 'Media Libraries',
     //     address: "",

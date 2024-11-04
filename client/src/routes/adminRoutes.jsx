@@ -2,7 +2,8 @@ import React, { Suspense } from 'react';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
 import CampaignArticles from '@/pages/dashboards/components/admin/articles/CampaignArticles';
 import Statistics from '@/pages/dashboards/components/admin/Statistics';
-import { AddArticles } from '@/pages';
+import { AddArticles, ViewAllPosts } from '@/pages';
+import { postsLoader } from '@/pages/posts/Posts';
 
 export const adminRoutes = [
     {
@@ -29,5 +30,14 @@ export const adminRoutes = [
                 <AddArticles />
             </Suspense>
         ),
+    },
+    {
+        path: "view-all-posts",
+        element: (
+            <Suspense fallback={<LoadingSpinner />}>
+                <ViewAllPosts />
+            </Suspense>
+        ),
+        loader: postsLoader
     },
 ];

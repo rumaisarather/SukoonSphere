@@ -1,71 +1,19 @@
 import React, { useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-
+import { TAGS } from "../../../../utils/constants"
+import { Form } from "react-router-dom";
 const PostModal = ({ onClose, onSave }) => {
-  const { isAuthenticated, user, logout } =
-    useAuth0();
-  const isUser = isAuthenticated && user;
-  const [formData, setFormData] = useState({
-    description: "",
-    imageFile: null, // Store the file object
-    imagePreviewUrl: "", // URL for image preview
-    tags: "",
-    readingTime: "",
-    views: 0,
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({
-          ...formData,
-          imageFile: file, // Set the file object
-          imagePreviewUrl: reader.result, // Use FileReader to get Data URL
-        });
-      };
-      reader.readAsDataURL(file); // Read the file as a Data URL
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newPost = {
-      ...formData,
-      id: Date.now(),
-      datePublished: new Date().toISOString(),
-      tags: formData.tags.split(",").map((tag) => tag.trim()),
-      username: user.name,
-      avatar: user.picture,
-      image: formData.imagePreviewUrl,
-    };
-
-    onSave(newPost);
-
-  };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white rounded-lg w-full max-w-lg p-6 shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Add a New Post</h2>
-        <form onSubmit={handleSubmit}>
+        <Form method="post" encType="multipart/form-data">
           <div className="mb-4">
             <label className="label">
               <span className="label-text">Description</span>
             </label>
             <textarea
               name="description"
-              value={formData.description}
-              onChange={handleChange}
               className="textarea textarea-bordered w-full bg-white text-gray-700"
             />
           </div>
@@ -76,8 +24,7 @@ const PostModal = ({ onClose, onSave }) => {
             </label>
             <input
               type="file"
-              name="image"
-              onChange={handleImageChange}
+              name="imageUrl"
               className="file-input file-input-bordered w-full bg-white text-gray-700"
               accept="image/*"
             />
@@ -85,29 +32,22 @@ const PostModal = ({ onClose, onSave }) => {
 
           <div className="mb-4">
             <label className="label">
-              <span className="label-text">Tags (comma separated)</span>
+              <span className="label-text">Select Tags</span>
             </label>
-            <input
-              type="text"
+            <select
               name="tags"
-              value={formData.tags}
-              onChange={handleChange}
-              className="input input-bordered w-full bg-white text-gray-700"
-            />
+              multiple
+              className="select select-bordered w-full bg-white text-gray-700 min-h-[100px]"
+            >
+              {Object.values(TAGS).map((tag) => (
+                <option key={tag} value={tag}>
+                  {tag}
+                </option>
+              ))}
+            </select>
+            <span className="text-xs text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple tags</span>
           </div>
 
-          <div className="mb-4">
-            <label className="label">
-              <span className="label-text">Reading Time</span>
-            </label>
-            <input
-              type="text"
-              name="readingTime"
-              value={formData.readingTime}
-              onChange={handleChange}
-              className="input input-bordered w-full bg-white  text-gray-700"
-            />
-          </div>
 
           <div className="flex justify-end space-x-4">
             <button
@@ -124,7 +64,7 @@ const PostModal = ({ onClose, onSave }) => {
               Post
             </button>
           </div>
-        </form>
+        </Form>
       </div>
     </div>
   );

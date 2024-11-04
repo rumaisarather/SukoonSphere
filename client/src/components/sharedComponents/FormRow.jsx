@@ -69,26 +69,25 @@ export const FormImageRow = ({ name, labelText }) => {
 
 export const FormSelectRow = ({ name, labelText, list, value = "" }) => {
     return (
-        <div className="formRow">
-            <label htmlFor={name} className="formLabel">
-                {labelText}
-            </label>
-            <select
-                id={name}
-                name={name}
-                className="formInput"
-                defaultValue={value}
-                required
-            >
-                {list.map((item) => {
-                    return (
-                        <option key={item} value={item}>
-                            {item}
-                        </option>
-                    );
-                })}
-            </select>
-        </div>
+        <select
+            id={name}
+            name={name}
+            className="formInput"
+            defaultValue={value}
+            required
+        >
+            {list.map((item) => {
+                return (
+                    <option key={item} value={item}>
+                        {item}
+                    </option>
+                );
+            })}
+        </select>
     );
 };
+export const InputComponent = ({ type, name, placeholder, }) => {
+
+    return <input type={type} name={name} placeholder={placeholder} className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]" />
+}
 export default FormRow;

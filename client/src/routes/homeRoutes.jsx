@@ -9,6 +9,7 @@ const Article = lazy(() => import('../pages/articles/Article'));
 // Keep the loader as is
 import { ArticlesLoader } from '../pages/articles/Articles';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
+import { postsAction, postsLoader } from '@/pages/posts/Posts';
 
 export const homeRoutes = [
     {
@@ -59,5 +60,7 @@ export const homeRoutes = [
                 <Posts />
             </Suspense>
         ),
+        action: postsAction,
+        loader: postsLoader,
     },
 ];
