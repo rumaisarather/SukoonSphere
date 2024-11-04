@@ -83,20 +83,24 @@ export const getAllCommentsByPostId = async (req, res) => {
 
 export const createReply = async (req, res) => {
   const { content } = req.body;
-  const { id: commentId } = req.params;
-  const comment = await PostComments.findById(commentId);
-  if (!comment) {
-    throw new BadRequestError("Comment not found");
+  const { id: parentId } = req.params;
+
+  const comment = await PostComments.findById(parentId);
+  const parentReply = await PostReplies.findById(parentId);
+
+  if (!comment && !parentReply) {
+    throw new BadRequestError("Parent comment or reply not found");
   }
+
   const reply = await PostReplies.create({
-    commentId,
+    commentId: comment ? comment._id : parentReply.commentId, 
     createdBy: req.user.userId,
     username: req.user.username,
     userAvatar: req.user.avatar,
     content,
-    commentUserId: comment.createdBy,
-    commentUsername: comment.username,
-    commentUserAvatar: comment.userAvatar,
+    commentUserId: comment ? comment.createdBy : parentReply.createdBy,
+    commentUsername: comment ? comment.username : parentReply.username,
+    commentUserAvatar: comment ? comment.userAvatar : parentReply.userAvatar,
   });
 
   res.status(StatusCodes.CREATED).json({
