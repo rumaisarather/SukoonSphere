@@ -3,6 +3,7 @@ import Post from "../models/postModel.js";
 import { formatImage } from "../middleware/multer.js";
 import cloudinary from "cloudinary";
 import { BadRequestError } from "../errors/customErors.js";
+import PostComments from "../models/postComments.js";
 export const createPost = async (req, res) => {
   const newPost = {
     createdBy: req.user.userId,
@@ -37,7 +38,7 @@ export const likePosts = async (req, res) => {
     throw new BadRequestError("Post not found");
   }
 
-  if (post.likes.includes(userId)) {
+  if (post?.likes?.includes(userId)) {
     post.likes = post.likes.filter((id) => id.toString() !== userId.toString());
     await post.save();
     return res
@@ -51,3 +52,20 @@ export const likePosts = async (req, res) => {
       .json({ message: "Post liked successfully", post });
   }
 };
+
+export const createComment = async(req,res)=>{
+  const { content } = req.body;
+    const { id:postId } = req.params;
+
+  const comment = await PostComments.create({
+      postId,
+      createdBy: req.user.userId,
+      username: req.user.username,
+      userAvatar: req.user.avatar,
+      content,
+    });
+     res.status(StatusCodes.CREATED).json({
+       message: "Comment created successfully",
+       comment,
+     });
+}
