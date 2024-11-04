@@ -7,6 +7,11 @@ const replySchema = new mongoose.Schema(
       ref: "Comment",
       required: true,
     },
+    parentId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Reply", // Allows referencing another reply for nested replies
+      default: null,
+    },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -23,15 +28,6 @@ const replySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    datePublished: {
-      type: Date,
-      default: Date.now,
-    },
-    deleted: {
-      type: Boolean,
-      default: false,
-    },
-    // New fields for tracking the original commenter's info
     commentUserId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -44,10 +40,16 @@ const replySchema = new mongoose.Schema(
     commentUserAvatar: {
       type: String,
     },
+    datePublished: {
+      type: Date,
+      default: Date.now,
+    },
+    deleted: {
+      type: Boolean,
+      default: false,
+    },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 export default mongoose.model("Reply", replySchema);
