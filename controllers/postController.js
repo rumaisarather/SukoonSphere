@@ -53,7 +53,7 @@ export const likePosts = async (req, res) => {
   }
 };
 
-export const createComment = async(req,res)=>{
+export const createPostComment = async(req,res)=>{
   const { content } = req.body;
     const { id:postId } = req.params;
 
@@ -68,4 +68,10 @@ export const createComment = async(req,res)=>{
        message: "Comment created successfully",
        comment,
      });
+}
+
+export const  getAllCommentsByPostId= async (req,res)=>{
+const {id: postId} = req.params
+const postComments = await PostComments.find({postId}) 
+res.status(StatusCodes.OK).json(postComments)
 }
