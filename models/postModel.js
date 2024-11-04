@@ -31,10 +31,12 @@ const postSchema = new mongoose.Schema(
       enum: Object.values(TAGS),
       required: true,
     },
-    likes: {
-      type: Number,
-      default: 0,
-    },
+    likes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User", // Reference to the User model
+      },
+    ],
     // comments: [
     //   {
     //     type: mongoose.Schema.Types.ObjectId,

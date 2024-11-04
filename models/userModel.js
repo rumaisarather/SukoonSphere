@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
   password: String,
   role: {
     type: String,
-    enum: ["user","contributor","admin"],
+    enum: ["user", "contributor", "admin"],
     default: "user",
   },
   verificationToken: String,
@@ -15,17 +15,16 @@ const userSchema = mongoose.Schema({
     default: false,
   },
   verified: Date,
-  passwordToken:{
-    type:String
+  passwordToken: {
+    type: String,
   },
-  passwordTokenExpirationDate:{
-    type:Date,
+  passwordTokenExpirationDate: {
+    type: Date,
   },
   avatar: String,
   avatarPublicId: String,
   phone: String,
   location: String,
-
 });
 
-export default mongoose.model("user", userSchema)
+export default mongoose.model("user", userSchema);
