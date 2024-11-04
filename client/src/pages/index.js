@@ -31,6 +31,7 @@ export { default as SignUp } from "../pages/auth/SignUp";
 // Admin Pages
 export { default as CampaignArticles } from "./dashboards/components/admin/articles/CampaignArticles";
 export { default as AddArticles } from "./dashboards/components/admin/articles/AddArticles";
+export { default as ViewAllPosts } from "./dashboards/components/admin/articles/posts/ViewAllPosts";
 
 
 

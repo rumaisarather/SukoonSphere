@@ -4,6 +4,7 @@ import { Form, useActionData } from "react-router-dom";
 import img_bg from "../../assets/images/bg_signup.png";
 import { Link } from "react-router-dom";
 import { useNavigation } from "react-router-dom";
+import { InputComponent } from "@/components/sharedComponents/FormRow";
 export const signupAction = async ({ request }) => {
   const result = await request.formData();
   const user = Object.fromEntries(result);
@@ -19,68 +20,57 @@ const SignUp = () => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const data = useActionData();
-  console.log({ data })
+
   return (
-    <div className="grid grid-cols-2 max-w-7xl mx-auto my-6 align-middle">
-
-      <div className="flex flex-col gap-6 py-6">
-        <h2 className="font-bold text-[3rem] text-[var(--grey--900)] text-left">
-          Welcome to SukoonSphere
-        </h2>
-        <p className="text-[1.2rem]">
-          Through personalized resources, expert guidance, and a compassionate
-          community, we empower you to overcome challenges, foster growth, and
-          lead a balanced, fulfilling life.
-        </p>
-        <img src={img_bg} alt="bg-mind-img" className="mx-auto object-cover" />
-      </div>
-      <div className="flex flex-col p-6 items-center gap-4">
-        <Form
-          method="post"
-          className="flex flex-col gap-4 bg-[var(--primary)] shadow-lg p-8 w-full rounded-[20px]"
-        >
-          <h1 className="font-bold text-white text-center">Signup</h1>
-          {data?.success && (
-            <p className="text-[var(--white-color)] text-center">{data.success}</p>
-          )}
-          <p className="text-red-400 text-center">
-            {data?.error && data.error.split(",")[0]}
+    <div className="min-h-screen flex items-center justify-center p-4 rounded-[10px]">
+      <div className="bg-white shadow-xl max-w-6xl flex">
+        {/* Image Section - left Half */}
+        <div className="w-1/2 p-4 pt-12 flex flex-col justify-center items-center bg-gray-50 rounded-r-lg">
+          <h2 className="font-bold text-[2.5rem] text-[var(--gray--900)] text-center mb-4">
+            SukoonSphere
+          </h2>
+          <p className=" text-center mb-6 max-w-[400px] text-[var(--grey--800)]">
+            Join our community and start your journey towards peace, growth, and well-being today.
           </p>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Type name here.."
-            className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]"
+          <img
+            src={img_bg}
+            alt="bg-mind-img"
+            className="w-full max-w-[400px] object-cover"
           />
+        </div>
+        {/* Form Section - Right  Half */}
+        <div className="w-1/2 p-4 flex flex-col justify-center items-center bg-[var(--primary)]">
+          <div>
+            <img src="https://cdn-icons-png.flaticon.com/512/4822/4822695.png" alt="logo" className="w-14  h-14" />
+          </div>
+          <Form
+            method="post"
+            className="flex flex-col gap-4 p-4 rounded-[10px] w-full max-w-[500px] mx-auto "
+          >
+            <h1 className="font-bold text-[var(--white-color)] text-center text-2xl">Signup </h1>
+            {data?.success && (
+              <p className="text-[var(--btn-secondary)] text-center">{data.success}</p>
+            )}
+            <p className="text-red-400 text-center">
+              {data?.error && data.error.split(",")[0]}
+            </p>
+            <InputComponent type="name" name="name" placeholder="Enter your name.." />
+            <InputComponent type="email" name="email" placeholder="Enter an email.." />
+            <InputComponent type="password" name="password" placeholder="Enter password.." />
+
+            <button type="submit" disabled={isSubmitting} className="btn-2 w-full ">
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </button>
+            <Link to="/auth/sign-in" className="text-[var(--white-color)] text-center">
+              Already have an account!
+            </Link>
+            <Link to="/user/forget-password" className="text-[var(--white-color)] text-center">
+              Forget Password
+            </Link>
+          </Form>
+        </div>
 
 
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter an email.."
-            className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]"
-          />
-
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter password.."
-            className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]"
-          />
-
-          <button type="submit" disabled={isSubmitting} className="btn w-full action-button">
-            {isSubmitting ? "Submitting..." : "Submit"}
-          </button>
-          <Link to="/auth/sign-in" className="text-white text-center">
-            Already have an account!
-          </Link>
-          <Link to="/user/forget-password" className="text-white text-center">
-            Forget Passowrd
-          </Link>
-        </Form>
       </div>
     </div>
   );

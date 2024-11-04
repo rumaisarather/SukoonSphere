@@ -6,6 +6,7 @@ import SignIn, { signinAction } from '@/pages/auth/SignIn';
 import VerifyEmailAddres from '@/pages/auth/VerifyEmailAddres';
 import ChangePassword, { changePasswordAction } from '@/pages/auth/ChangePassword';
 import { forgetPasswordAction } from '@/pages/auth/ForgetPassword';
+import { logoutAction } from '@/layouts/HomeLayout';
 
 export const authRoutes = [
   {
@@ -67,5 +68,9 @@ export const authRoutes = [
         <ResetPassword />
       </Suspense>
     ),
+  },
+  {
+    path: "/logout",
+    action: logoutAction
   },
 ];

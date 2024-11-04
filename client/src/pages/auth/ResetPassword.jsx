@@ -13,11 +13,13 @@ const ResetPassword = () => {
     const navigation = useNavigation();
     const isSubmitting = navigation.state === "submitting";
     const data = useActionData();
+    const paramtoken = query.get("token")
+    const paramEmail = query.get("email")
     const resetPassword = async () => {
         try {
-            const { data } = await customFetch.post("/auth/reset-email", {
-                token: query.get("token"),
-                email: query.get("email"),
+            const { data } = await customFetch.post("/auth/reset-password", {
+                token: paramtoken,
+                email: paramEmail,
                 password
             });
             console.log({ data });

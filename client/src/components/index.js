@@ -62,6 +62,10 @@ export const UserFollowing = createOptimizedComponent(() => import("./user/userP
 export const AdminHeader = createOptimizedComponent(() => import("./dashboard/admin/AdminHeader"));
 export const AdminNavbar = createOptimizedComponent(() => import("./dashboard/admin/AdminNavbar"));
 
+
+// Posts Components
+export const LikePost = createOptimizedComponent(() => import("./posts/LikePost"));
+
 // const componentCache = new Set();
 
 // export const preloadComponent = (Component) => {

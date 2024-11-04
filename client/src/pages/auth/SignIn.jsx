@@ -1,92 +1,91 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import customFetch from "@/utils/customFetch";
 import { Form, redirect, useNavigate } from "react-router-dom";
 import img_bg from "../../assets/images/bg_login.png";
 import { Link } from "react-router-dom";
+import { GrLogin } from "react-icons/gr";
+import { InputComponent } from "@/components/sharedComponents/FormRow";
 
 export const signinAction = async ({ request }) => {
   const result = await request.formData();
   const data = Object.fromEntries(result);
   try {
-    await customFetch.post("auth/login", data);
-    return redirect("/posts");
+    const response = await customFetch.post("auth/login", data);
+    if (response.data.success) {
+      return redirect("/posts");
+    }
+    return { error: "Invalid credentials" };
   } catch (error) {
-    console.log(error);
-    return error;
+    return { error: error?.response?.data?.msg || "Something went wrong" };
   }
 };
 
 const SignIn = () => {
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isLoggingIn) {
-      const timer = setTimeout(() => {
-        navigate("/posts");
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoggingIn, navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsLoggingIn(true);
+    const formData = new FormData(event.target);
+    try {
+      const response = await customFetch.post("auth/login", Object.fromEntries(formData));
+      console.log({ response })
+      if (response.data.success) {
+        navigate("/posts");
+      } else {
+        setError("Invalid credentials");
+      }
+    } catch (err) {
+      setError(err?.response?.data?.msg || "Something went wrong");
+    }
   };
 
   return (
-    <div className="grid grid-cols-2 max-w-5xl mx-auto my-6 align-middle">
-      {isLoggingIn ? (
-        <div className="w-full h-screen flex items-center justify-center bg-green-600 text-white">
-          <h1 className="text-3xl">Successfully logged in, redirecting in 3 seconds...</h1>
-        </div>
-      ) : (
-        <div className="flex flex-col p-6 items-center gap-4 my-auto mr-4">
-          <h2 className="font-bold text-5xl text-[var(--grey--900)] text-left leading">
-            Welcome to Your Sanctuary of Peace
-          </h2>
-          <p className="text-[1.2rem]">
-            Log in to unlock your path to mindfulness, connect with a
-            compassionate community, and continue your journey towards inner
-            balance and personal growth.
-          </p>
+    <div className="min-h-screen flex items-center justify-center p-4 rounded-[10px]">
+      <div className="bg-white shadow-xl max-w-6xl flex">
+        {/* Form Section - Light Half */}
+        <div className="w-1/2 p-4 flex flex-col justify-center items-center bg-[var(--primary)]">
+          <div>
+            <img src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" alt="logo" className="w-14  h-14" />
+          </div>
           <Form
             method="post"
-            className="flex flex-col gap-4 bg-[var(--primary)] shadow-lg p-8 w-full rounded-[20px]"
+            className="flex flex-col gap-4 p-4 rounded-[10px] w-full max-w-[500px] mx-auto"
             onSubmit={handleSubmit}
           >
-            <h1 className="font-bold text-white text-center">Sign In</h1>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email..."
-              className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]"
-            />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password..."
-              className="input input-bordered w-full bg-gray-100 text-[var(--black-color)]"
-            />
-
-            <button type="submit" className="btn w-full action-button">
+            <h1 className="font-bold text-[var(--white-color)] text-center text-2xl">Sign In</h1>
+            {error && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
+                {error}
+              </div>
+            )}
+            <InputComponent type="email" name="email" placeholder="Enter an email.." />
+            <InputComponent type="password" name="password" placeholder="Enter password.." />
+            <button type="submit" className="btn-2 w-full flex items-center justify-center gap-2">
               Sign In
+              <GrLogin />
             </button>
-            <Link to='/auth/sign-in' className="text-white text-center">Create an account</Link>
-            <Link to="/user/forget-password" className="text-white text-center">
+            <Link to="/auth/sign-up" className="text-[var(--white-color)] text-center">
+              Create an account
+            </Link>
+            <Link to="/user/forget-password" className="text-[var(--white-color)] text-center">
               Forget Password
             </Link>
           </Form>
         </div>
-      )}
-      <div className="flex flex-col gap-6 py-6">
-        <img
-          src={img_bg}
-          alt="bg-mind-img"
-          className="mx-auto object-cover"
-        />
+        {/* Image Section - Right Half */}
+        <div className="w-1/2 p-4 pt-12 flex flex-col justify-center items-center bg-gray-50 rounded-r-lg">
+          <h2 className="font-bold text-[2.5rem] text-[var(--gray--900)] text-center mb-4">
+            SukoonSphere
+          </h2>
+          <p className="text-center mb-6 max-w-[400px] text-[var(--grey--800)]">
+          </p>
+          <img
+            src={img_bg}
+            alt="bg-mind-img"
+            className="w-full max-w-[400px] object-cover"
+          />
+        </div>
       </div>
     </div>
   );

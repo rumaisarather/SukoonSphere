@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LinkButton from "@/components/sharedComponents/Buttons/LinkButton";
 import CompanyLogo from "../../../assets/images/SukoonSphere_Logo.png";
 import links from "@/utils/SharedComp/PageLinks";
-import { Link, NavLink } from "react-router-dom";
+import { Form, Link, NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -33,12 +33,12 @@ function NavMenu() {
   };
 
   return (
-    <nav className="flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)] w-full z-50 transition-all ease-in-out p-2 h-[65px]">
+    <nav className="w-full flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)]  z-50 transition-all ease-in-out p-2 h-[65px]">
       <GiHamburgerMenu
         className="block absolute right-3 md:hidden cursor-pointer text-[1.4rem]"
         onClick={toggleMenu}
       />
-      <div className="flex w-full justify-between items-center px-28">
+      <div className="flex w-full justify-between items-center px-12">
         <img
           src={CompanyLogo}
           className="object-contain w-14"
@@ -53,10 +53,10 @@ function NavMenu() {
               >
                 <NavLink
                   to={link.address}
-                  className="flex group items-center justify-center"
+                  className="flex group items-center justify-center gap-1"
                 >
                   {link.icon}
-                  <span className="ml-1">{link.name}</span>
+                  <span className="ml-2">{link.name}</span>
                   {index !== 0 &&
                     <MdOutlineKeyboardArrowUp className="size-[1.4rem] ml-1 group-hover:rotate-180 transition-all" />}
                 </NavLink>
@@ -163,14 +163,9 @@ function NavMenu() {
                   </div>
 
                   <div>
-                    <button
-                      onClick={async () => {
-                        logout();
-                      }}
-                      className={`btn-2 transition-all ease-in-out duration-200 bg-none px-4 py-1 rounded-[4px] hover:text-white`}
-                    >
-                      Logout
-                    </button>
+                    <Form method="post" action="/logout">
+                      <button type="submit" className={`btn-2 `}>Logout</button>
+                    </Form>
                   </div>
                 </div>
 
