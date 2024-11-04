@@ -10,8 +10,10 @@ import upload from "../middleware/multer.js";
 import {
   createPost,
   createPostComment,
+  createReply,
   getAllCommentsByPostId,
   getAllPosts,
+  getAllRepliesBYCommentId,
   likePosts,
 } from "../controllers/postController.js";
 
@@ -35,4 +37,8 @@ router.get(
   validateIdParam,
   getAllCommentsByPostId
 );
+router.post("/comments/:id/replies", authenticateUser,validateIdParam, createReply);
+router.get("/comments/:id/replies",validateIdParam, getAllRepliesBYCommentId);
+
+
 export default router;

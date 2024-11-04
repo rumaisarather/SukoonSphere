@@ -37,12 +37,12 @@ const postSchema = new mongoose.Schema(
         ref: "User", // Reference to the User model
       },
     ],
-    // comments: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "Comment",
-    //   },
-    // ],
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "PostComments",
+      },
+    ],
     deleted: {
       type: Boolean,
       default: false,
