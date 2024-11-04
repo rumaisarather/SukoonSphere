@@ -17,27 +17,23 @@ import {
   validateRegisterInput,
   validateResetPasswordInput,
 } from "../middleware/validationMiddleware.js";
-import {
-  getUserRole,
-} from "../controllers/userController.js";
+
 import { authenticateUser } from "../middleware/authMiddleware.js";
 import upload from "../middleware/multer.js";
 
 router.post("/register", validateRegisterInput, register);
 router.post("/login", validateLoginInput, login);
 router.get("/logout", logout);
-router.get("/userRole", getUserRole);
 router.post("/verify-email", verifyEmail);
-router.post("/change-password",authenticateUser,validateChangePasswordInput, changePassword);
 router.post(
-  "/forget-password",
-  validateForgetPasswordInput,
-  forgetPassword
+  "/change-password",
+  authenticateUser,
+  validateChangePasswordInput,
+  changePassword
 );
+router.post("/forget-password", validateForgetPasswordInput, forgetPassword);
 
-router.post("/reset-password",validateResetPasswordInput, resetPassword);
-
-
+router.post("/reset-password", validateResetPasswordInput, resetPassword);
 
 // not in use yet
 
