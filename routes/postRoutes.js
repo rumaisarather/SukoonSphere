@@ -8,8 +8,9 @@ import {
 import { authenticateUser } from "../middleware/authMiddleware.js";
 import upload from "../middleware/multer.js";
 import {
-  createComment,
   createPost,
+  createPostComment,
+  getAllCommentsByPostId,
   getAllPosts,
   likePosts,
 } from "../controllers/postController.js";
@@ -27,6 +28,11 @@ router.post(
   "/:id/comments",
   authenticateUser,
   validateIdParam,
-  createComment
+  createPostComment
+);
+router.get(
+  "/:id/comments",
+  validateIdParam,
+  getAllCommentsByPostId
 );
 export default router;
