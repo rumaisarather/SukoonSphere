@@ -152,7 +152,7 @@ const VerifyEmailAddres = () => {
             </div>
 
             <Link
-              to="/user/sign-in"
+              to="/auth/sign-in"
               className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-[5px] text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition"
             >
               Login Now

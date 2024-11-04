@@ -1,42 +1,36 @@
 import React, { useState } from "react";
 import customFetch from "@/utils/customFetch";
-import { Form, redirect, useNavigate } from "react-router-dom";
+import { Form, redirect, useActionData, useNavigate } from "react-router-dom";
 import img_bg from "../../assets/images/bg_login.png";
 import { Link } from "react-router-dom";
 import { GrLogin } from "react-icons/gr";
 import { InputComponent } from "@/components/sharedComponents/FormRow";
+import { useUser } from '@/context/UserContext';
 
 export const signinAction = async ({ request }) => {
   const result = await request.formData();
   const data = Object.fromEntries(result);
   try {
     const response = await customFetch.post("auth/login", data);
-    if (response.data.success) {
-      return redirect("/posts");
-    }
-    return { error: "Invalid credentials" };
+    console.log({ response })
+    return redirect("/posts");
+
   } catch (error) {
     return { error: error?.response?.data?.msg || "Something went wrong" };
   }
 };
 
 const SignIn = () => {
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const { login, isLoading, error } = useUser();
+  const navigate = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const userData = Object.fromEntries(formData);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    try {
-      const response = await customFetch.post("auth/login", Object.fromEntries(formData));
-      console.log({ response })
-      if (response.data.success) {
-        navigate("/posts");
-      } else {
-        setError("Invalid credentials");
-      }
-    } catch (err) {
-      setError(err?.response?.data?.msg || "Something went wrong");
+    const result = await login(userData);
+    if (result.success) {
+      navigate("/posts")
     }
   };
 
@@ -53,12 +47,11 @@ const SignIn = () => {
             className="flex flex-col gap-4 p-4 rounded-[10px] w-full max-w-[500px] mx-auto"
             onSubmit={handleSubmit}
           >
+            <p className="text-red-400 text-center">
+              {error && error.split(",")[0]}
+            </p>
             <h1 className="font-bold text-[var(--white-color)] text-center text-2xl">Sign In</h1>
-            {error && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
-                {error}
-              </div>
-            )}
+
             <InputComponent type="email" name="email" placeholder="Enter an email.." />
             <InputComponent type="password" name="password" placeholder="Enter password.." />
             <button type="submit" className="btn-2 w-full flex items-center justify-center gap-2">

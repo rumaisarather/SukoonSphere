@@ -18,7 +18,6 @@ const Comment = ({ comment, onDelete, onEdit, isAuthor, postId }) => {
     const [replies, setReplies] = useState(comment.replies || []);
     const [showReplies, setShowReplies] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [showOptions, setShowOptions] = useState(false);
     const [likes, setLikes] = useState(comment.likes || 0);
     const [dislikes, setDislikes] = useState(comment.dislikes || 0);
     const [userReaction, setUserReaction] = useState(comment.userReaction || null);
