@@ -21,11 +21,11 @@ export const createPost = async (req, res) => {
 };
 export const getAllPosts = async (req, res) => {
   const posts = await Post.find({});
-    const postsWithLikes = posts.map((post) => ({
-      ...post.toObject(),
-      totalLikes:post.likes ? post.likes.length : 0, 
-    }));
-  res.status(StatusCodes.OK).json({ postsWithLikes });
+  const postsWithLikes = posts.map((post) => ({
+    ...post.toObject(),
+    totalLikes: post.likes ? post.likes.length : 0,
+  }));
+  res.status(StatusCodes.OK).json({ posts: postsWithLikes });
 };
 
 export const likePosts = async (req, res) => {
@@ -40,11 +40,14 @@ export const likePosts = async (req, res) => {
   if (post.likes.includes(userId)) {
     post.likes = post.likes.filter((id) => id.toString() !== userId.toString());
     await post.save();
-    return res.status(StatusCodes.OK).json({ message: "Post unliked successfully", post });
+    return res
+      .status(StatusCodes.OK)
+      .json({ message: "Post unliked successfully", post });
   } else {
     post.likes.push(userId);
     await post.save();
-    return res.status(StatusCodes.OK).json({ message: "Post liked successfully", post });
+    return res
+      .status(StatusCodes.OK)
+      .json({ message: "Post liked successfully", post });
   }
-
 };
