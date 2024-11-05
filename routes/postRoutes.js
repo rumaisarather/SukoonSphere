@@ -16,6 +16,7 @@ import {
   deletePostCommentReply,
   getAllCommentsByPostId,
   getAllPosts,
+  getAllPostsByUserId,
   getAllRepliesBYCommentId,
   likePosts,
 } from "../controllers/postController.js";
@@ -36,10 +37,12 @@ router.post(
   createPostComment
 );
 router.get(
-  "/:id/comments",
+  "/user/:id",
+  authenticateUser,
   validateIdParam,
-  getAllCommentsByPostId
+  getAllPostsByUserId
 );
+router.get("/:id/comments", validateIdParam, getAllCommentsByPostId);
 router.post("/comments/:id/replies", authenticateUser, validateIdParam, createReply);
 router.get("/comments/:id/replies", validateIdParam, getAllRepliesBYCommentId);
 router.delete("/:id", authenticateUser, validateIdParam, deletePost);
