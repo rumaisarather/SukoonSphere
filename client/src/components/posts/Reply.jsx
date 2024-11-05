@@ -7,9 +7,12 @@ import ReactionButtons from '../shared/ReactionButtons';
 import { FaReply } from 'react-icons/fa';
 import customFetch from '../../utils/customFetch';
 import { Link } from 'react-router-dom';
+import { useUser } from '@/context/UserContext';
 
-const Reply = ({ reply, onDelete, onEdit, isAuthor, postId, commentId }) => {
+const Reply = ({ reply, onDelete, onEdit, postId, commentId }) => {
     // const { user, isAuthenticated } = useAuth0();
+    const { user } = useUser();
+    const isAuthor = user?._id === reply.createdBy;
     const [isEditing, setIsEditing] = useState(false);
     const [editedContent, setEditedContent] = useState(reply.content);
     const [showReplyForm, setShowReplyForm] = useState(false);
@@ -87,13 +90,18 @@ const Reply = ({ reply, onDelete, onEdit, isAuthor, postId, commentId }) => {
                     ) : (
                         <p className="text-xs mt-1 break-words">
                             <Link to="#" className='text-blue-500 underline'>@{reply?.commentUsername}</Link> {reply?.content}
-                        </p>)}
+                        </p>
+                    )}
 
-                    <ActionButtons
-                        onEdit={() => setIsEditing(true)}
-                        onDelete={() => onDelete(reply._id)}
-                        isAuthor={isAuthor}
-                    />
+                    {isAuthor && (
+                        <button
+                            onClick={() => onDelete(reply._id)}
+                            className='text-red-500 hover:text-red-600 transition-colors'
+                        >
+                            Delete
+                        </button>
+                    )}
+
                 </div>
             </div>
 

@@ -27,7 +27,6 @@ const SignIn = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const userData = Object.fromEntries(formData);
-
     const result = await login(userData);
     if (result.success) {
       navigate("/posts")

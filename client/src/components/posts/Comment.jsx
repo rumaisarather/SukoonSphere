@@ -8,9 +8,13 @@ import UserAvatar from '../shared/UserAvatar';
 import ActionButtons from '../shared/ActionButtons';
 import ContentEditor from '../shared/ContentEditor';
 import ReactionButtons from '../shared/ReactionButtons';
+import { useUser } from '@/context/UserContext';
 
-const Comment = ({ comment, onDelete, onEdit, isAuthor, postId }) => {
-    const { user, isAuthenticated } = useAuth0();
+const Comment = ({ comment, onDelete, onEdit, postId }) => {
+    const { user } = useUser();
+    const isAuthor = user?._id === comment.createdBy;
+    console.log({ comment })
+    const { isAuthenticated } = useAuth0();
     const [isEditing, setIsEditing] = useState(false);
     const [editedContent, setEditedContent] = useState(comment.content);
     const [showReplyForm, setShowReplyForm] = useState(false);
@@ -80,13 +84,11 @@ const Comment = ({ comment, onDelete, onEdit, isAuthor, postId }) => {
     }, []);
 
     const handleDeleteReply = async (replyId) => {
-        if (window.confirm('Are you sure you want to delete this reply?')) {
-            try {
-                await customFetch.delete(`posts/comments/${comment._id}/replies/${replyId}`);
-                setReplies(prevReplies => prevReplies.filter(reply => reply._id !== replyId));
-            } catch (error) {
-                console.error('Failed to delete reply:', error);
-            }
+        try {
+            await customFetch.delete(`posts/comments/replies/${replyId}`);
+            setReplies(prevReplies => prevReplies.filter(reply => reply._id !== replyId));
+        } catch (error) {
+            console.error('Failed to delete reply:', error);
         }
     };
 
@@ -116,20 +118,28 @@ const Comment = ({ comment, onDelete, onEdit, isAuthor, postId }) => {
 
                 <div className="flex-grow">
                     {/* Comment Header */}
-                    <div className="flex items-start justify-between">
-                        <div>
-                            <h4 className="font-semibold text-sm">{comment.username}</h4>
-                            <p className="text-xs text-gray-500">
-                                {new Date(comment.createdAt).toLocaleString()}
-                                {comment.isEdited && ' (edited)'}
-                            </p>
+                    <div className="flex items-start justify-start">
+                        <div className="flex items-start justify-between w-full">
+                            <div>
+                                <h4 className="font-semibold text-sm">{comment.username}</h4>
+                                <p className="text-xs text-gray-500">
+                                    {new Date(comment.createdAt).toLocaleString()}
+                                    {comment.isEdited && ' (edited)'}
+                                </p>
+                            </div>
+                            {isAuthor && (
+                                <div className="ml-auto">
+                                    <button
+                                        onClick={() => onDelete(comment._id)}
+                                        className="text-red-500 hover:text-red-600 transition-colors"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            )}
                         </div>
-
-                        <ActionButtons
-                            onEdit={() => setIsEditing(true)}
-                            onDelete={() => onDelete(comment._id)}
-                            isAuthor={isAuthor}
-                        />
                     </div>
 
                     {/* Comment Body */}

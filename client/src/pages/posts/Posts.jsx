@@ -34,6 +34,7 @@ export const postsLoader = async () => {
 const Posts = () => {
   const { user } = useAuth0();
   const { posts: _posts } = useLoaderData();
+  const [posts, setPosts] = useState(_posts.posts);
   const [showModal, setShowModal] = useState(false);
 
   const groups = [
@@ -64,6 +65,10 @@ const Posts = () => {
     }
   ];
 
+  const handlePostDelete = (postId) => {
+    setPosts(prevPosts => prevPosts.filter(post => post._id !== postId));
+  };
+
   return (
     <div className="relative w-full max-w-7xl mx-auto px-2 sm:px-4 mt-2">
       <div className='grid grid-cols-12 gap-2'>
@@ -89,8 +94,12 @@ const Posts = () => {
           </div>
 
           {/* Posts List */}
-          {_posts.posts.map((post) => (
-            <PostCard key={post._id} post={post} />
+          {posts.map((post) => (
+            <PostCard
+              key={post._id}
+              post={post}
+              onPostDelete={handlePostDelete}
+            />
           ))}
         </div>
 

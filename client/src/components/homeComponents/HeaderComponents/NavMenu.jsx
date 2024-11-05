@@ -26,7 +26,7 @@ function NavMenu() {
   };
   const handleLogout = async () => {
     await logout()
-    navigate("/auth/sign-in")
+    navigate("/")
   }
 
   return (
@@ -101,7 +101,7 @@ function NavMenu() {
                 onClick={toggleMiniMenu}
               />
               <Link to={"about/user"}>
-                <span className="text-black">{user.name}</span>
+                <span className="text-black">{user?.name}</span>
               </Link>
             </div>
             <div
@@ -118,7 +118,7 @@ function NavMenu() {
               <div className="flex items-center flex-col gap-4 pb-3 relative">
                 {/* Header Section */}
                 <div className="bg-[var(--primary)] w-full h-[100px] flex items-center justify-center relative rounded-t-lg">
-                  <h4 className="text-white text-lg font-bold">{user.name}</h4>
+                  <h4 className="text-white text-lg font-bold">{user?.name}</h4>
                   <button className="absolute right-4 bottom-2 text-white text-sm hover:text-gray-300">
                     <BsPencil />
                   </button>
@@ -131,8 +131,8 @@ function NavMenu() {
                     src={user?.avatar || "https://cdn-icons-png.flaticon.com/512/147/147142.png"}
                     alt="User"
                   />
-                  <h4 className="text-[var(--gray--900)] mt-2 font-semibold">{user.name}</h4>
-                  <p className="text-[var(--grey--800)] text-sm">{user.email}</p>
+                  <h4 className="text-[var(--gray--900)] mt-2 font-semibold">{user?.name}</h4>
+                  <p className="text-[var(--grey--800)] text-sm">{user?.email}</p>
                   <div className="flex gap-1">
                     <Link to={"/user/change-passowrd"}>
                       <button className="bg-gray-800 hover:bg-gray-900 text-white rounded-full p-2 ">
