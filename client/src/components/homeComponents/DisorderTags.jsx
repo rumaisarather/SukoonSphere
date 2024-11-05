@@ -53,10 +53,10 @@ const DisorderTags = () => {
 
     return (
         <>
-            <div className=" max-w-7xl mx-auto m-10 relative space-x-6 overflow-x-hidden" data-aos="fade-up" >
-                <SectionTitle title={"Mental Health disorders"}></SectionTitle>
-                <h1 className="text-[var(--grey--900)] mb-6 text-center" data-aos="fade-up" >
-                    Monitor for early indicators of <br /> <span className="text-[var(--primary)] italic">hundrunds of disorders</span>
+            <SectionTitle title={"Mental Health disorders"}></SectionTitle>
+            <div className="px-6 sm:px-0 sm:max-w-7xl sm:mx-auto  relative  overflow-x-hidden" data-aos="fade-up" >
+                <h1 className="w-full text-wrap text-[var(--grey--900)] mb-6 sm:text-center text-[1.6rem] sm:text-[3.5rem] sm:leading-[3.5rem]" data-aos="fade-up" >
+                    Monitor for early indicators of  <span className="text-[var(--primary)] italic sm:block">hundrunds of disorders</span>
                 </h1>
                 <div className=" carousel-wrapper mt-8">
                     {/* Anxiety Disorders */}
