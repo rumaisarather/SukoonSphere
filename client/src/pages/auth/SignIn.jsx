@@ -37,7 +37,7 @@ const SignIn = () => {
     <div className="min-h-screen  flex  items-center justify-center p-4 ">
       <div className="bg-white shadow-xl max-w-6xl flex flex-col-reverse sm:flex-row">
         {/* Form Section - Light Half */}
-        <div className="w-full sm:rounded-l-2xl sm:w-1/2 p-4 flex flex-col justify-center items-center bg-[var(--primary)]">
+        <div className="w-full rounded-xl sm:rounded-l-2xl sm:w-1/2 p-4 flex flex-col justify-center items-center bg-[var(--primary)]">
           <div>
             <img src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" alt="logo" className="w-14  h-14" />
           </div>
@@ -51,7 +51,7 @@ const SignIn = () => {
             </p>
             <h1 className="font-bold text-[var(--white-color)] text-center text-2xl">Sign In</h1>
 
-            <InputComponent type="email" name="email" placeholder="Enter an email.." />
+            <InputComponent type="email" name="email" placeholder="Enter an email.." /> 
             <InputComponent type="password" name="password" placeholder="Enter password.." />
             <button type="submit" className="btn-2 w-full flex items-center justify-center gap-2">
               Sign In
@@ -66,7 +66,7 @@ const SignIn = () => {
           </Form>
         </div>
         {/* Image Section - Right Half */}
-        <div className="w-full sm:w-1/2 p-4 pt-12 flex flex-col justify-center items-center bg-gray-50 ">
+        <div className="w-full sm:w-1/2 p-4 pt-12 sm:flex flex-col justify-center items-center hidden bg-gray-50 ">
           <h2 className="font-bold text-[2.5rem] text-[var(--gray--900)] text-center mb-4">
             SukoonSphere
           </h2>
@@ -75,7 +75,7 @@ const SignIn = () => {
           <img
             src={img_bg}
             alt="bg-mind-img"
-            className="w-full max-w-[400px] object-cover"
+            className="w-full max-w-[400px] object-cover "
           />
         </div>
       </div>
