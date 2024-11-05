@@ -13,7 +13,7 @@ const PostCard = ({ post }) => {
     const isAuthor = user?._id === post.userId;
 
     return (
-        <div className="mb-4 p-3 sm:p-4 border rounded-lg shadow-md">
+        <div className="mb-4 p-3 sm:p-4 border rounded-[10px] shadow-sm">
             {/* Post Header */}
             <div className="flex items-center mb-4 justify-between flex-wrap gap-2">
                 <div className="flex items-center">
@@ -31,7 +31,7 @@ const PostCard = ({ post }) => {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <h1 className="text-sm sm:text-lg hover:underline hover:text-[var(--ternery)] cursor-pointer">Follow</h1>
+                    <span className="bg-[var(--btn-primary)] text-[var(--white-color)] px-2 py-[3px] rounded-[4px] text-sm sm:text-sm border-2 hover:text-[var(--btn-primary)] hover:border-2 hover:bg-[var(--white-color)] border-[var(--teal--700)] transition-all duration-200 cursor-pointer ">Follow</span>
                     <BsThreeDotsVertical className="text-black cursor-pointer" />
                 </div>
             </div>

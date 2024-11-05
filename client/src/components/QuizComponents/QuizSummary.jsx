@@ -5,7 +5,7 @@ import { FaReadme } from 'react-icons/fa';
 
 function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentTitle, ContentSubtitle }) {
     return (
-        <div className="p-4 md:p-2 lg:p-0">
+        <div className="sm:p-4 md:p-2 lg:p-0">
             <div>
                 <Link to={`/all-quizzes/quiz/${1}`}>
                     <h1 className="text-xl md:text-3xl lg:text-3xl font-bold mb-2 hover:text-[var(--ternery)]">{SummaryTitle}</h1>

@@ -9,9 +9,9 @@ import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     // Main Containerg
-    <div className="bg-[#061c23] mt-6">
+    <div className="bg-[#061c23] mt-6 px-6 sm:px-0">
       {/* Top Container */}
-      <div className="flex  px-20 py-6 gap-4 ">
+      <div className="flex-col sm:flex sm:flex-row sm:px-20 py-6 gap-4 ">
         <div className="text-white flex flex-col gap-4 mt-4">
           {/* Left container */}
           <h1>Subscribe to People First Dispatch</h1>
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="bg-[var(--grey--900)] w-[1px] mx-[60px]"></div>
-        <div className="flex gap-8 ">
+        <div className="flex flex-col sm:flex-row gap-8 ">
           {/* Right Container */}
           <div className="flex flex-col gap-3 sm:justify-between text-white mt-2">
             <span className="text-gray-500 uppercase font-extrabold text-lg">
@@ -153,7 +153,7 @@ const Footer = () => {
       {/* Bottom Container */}
       <div className="bg-gray-500  h-[.1px] mt-[28px] mb-[18px] mx-20"></div>
       <div>
-        <div className="bg-[#061c23] px-20 text-gray-500">
+        <div className="bg-[#061c23] sm:px-20 text-gray-500 ">
           <p className="text-sm">
             SukoonSphere's content is for informational and educational purposes
             only. Our website is not intended to be a substitute for
@@ -165,70 +165,4 @@ const Footer = () => {
     </div>
   );
 };
-
-// <div className="text-white text-sm p-5 bg-[#061c23]" >
-// <div className="container mx-auto grid grid-cols-12  gap-4">
-//   <div className='col-span-3 flex flex-col justify-center items-center'>
-//     <img
-//       src={CompanyLogo}
-//       className="object-cover w-32"
-//       alt="Logo Loading..."
-//     />
-//     <p className='text-sm text-justify' >
-//       Our content helps you make the best choices for your mental well-being. Through powerful storytelling, expert advice, and a supportive community, we aim to raise awareness about mental health and break the stigma surrounding it. Join us as we embark on this journey towards a healthier mind and a brighter future.
-//     </p>
-//   </div>
-
-//   <div className="space-y-2 text-white col-span-3 text-center mt-10 items-center border-t border-[var(--ternery)] " >
-//     <ul className="flex flex-col gap-3 sm:justify-between  sm:items-center mt-2">
-//       {links.map((link, index) => (
-//         <li className='text-base font-extrabold' key={`${link.name}-${index}`}>
-//           <NavLink
-
-//             to={link.address}
-//             className="text-[var(--white-color)] hover:text-[var(--ternery)]"
-//           >
-//             {link.name}
-//           </NavLink>
-//         </li>
-//       ))}
-//     </ul>
-//   </div>
-//   <div className='col-span-3 items-center text-center mt-10 border-t border-[var(--ternery)]'>
-//     <ul className="space-y-3 mt-2">
-//       <li className='text-base font-extrabold'>
-//         <Link to="about/mental-health" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> About Mental Health</Link>
-//       </li>
-//       <li className='text-base font-extrabold'>
-//         <Link to="about/mental-health" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> About Us</Link>
-//       </li>
-//       <li className='text-base font-extrabold'>
-//         <Link to="/about/our-team" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> Our Review Board</Link>
-//       </li>
-//       <li className='text-base font-extrabold'>
-//         <Link to=""> Contact Page</Link>
-//       </li>
-//       <li className='text-base font-extrabold'>
-//         <Link to="" className='text-[var(--white-color)] hover:text-[var(--ternery)]'> Terms of Service</Link>
-//       </li>
-//     </ul>
-//   </div>
-//   <div className="col-span-3  flex flex-col justify-between text-center mt-10  items-center border-t border-[var(--ternery)] ">
-//     <div className='mt-2'>
-//       <h1 className="text-lg font-bold text-[var(--white-color)]">Daily Tips for a Healthy Mind to Your Inbox</h1>
-//       <input type="email" placeholder="Enter your email" className="input w-full max-w-xs mt-2" />
-//       <button className="action-button mt-2">SIGN UP</button>
-//     </div>
-//     <div className="flex space-x-4 mt-4 md:mt-0 cursor-pointer">
-//       <FaFacebook className="size-6 hover:text-[var(--ternery)]" />
-//       <FaTwitter className="size-6 hover:text-[var(--ternery)]" />
-//       <AiFillInstagram className="size-6 hover:text-[var(--ternery)]" />
-//     </div>
-//   </div>
-// </div>
-// <div className="border-t border-gray-700 mt-4 pt-4 text-xs text-[var(--white-color)] max-w-7xl pl-6 ">
-//   <p className='text-sm'>SukoonSphere's content is for informational and educational purposes only. Our website is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
-//   <p>© 2024 Inc. — All rights reserved.</p>
-// </div>
-// </div >
 export default Footer;
