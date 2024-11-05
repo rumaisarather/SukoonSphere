@@ -11,6 +11,9 @@ import {
   createPost,
   createPostComment,
   createReply,
+  deletePost,
+  deletePostComment,
+  deletePostCommentReply,
   getAllCommentsByPostId,
   getAllPosts,
   getAllRepliesBYCommentId,
@@ -37,8 +40,9 @@ router.get(
   validateIdParam,
   getAllCommentsByPostId
 );
-router.post("/comments/:id/replies", authenticateUser,validateIdParam, createReply);
-router.get("/comments/:id/replies",validateIdParam, getAllRepliesBYCommentId);
-
-
+router.post("/comments/:id/replies", authenticateUser, validateIdParam, createReply);
+router.get("/comments/:id/replies", validateIdParam, getAllRepliesBYCommentId);
+router.delete("/:id", authenticateUser, validateIdParam, deletePost);
+router.delete("/comments/:id", authenticateUser, validateIdParam, deletePostComment);
+router.delete("/comments/replies/:id", authenticateUser, validateIdParam, deletePostCommentReply);
 export default router;

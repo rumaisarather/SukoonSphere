@@ -1,7 +1,7 @@
-import customFetch from '@/utils/customFetch'
-import React, { useState } from 'react'
+import { useState } from 'react';
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+import { postAPI } from '@/utils/apiCalls';
 
 const LikePost = ({ totalLikes = 0, id }) => {
     const [isLiked, setIsLiked] = useState(false);
@@ -9,15 +9,15 @@ const LikePost = ({ totalLikes = 0, id }) => {
 
     const handleLike = async () => {
         try {
-            const response = await customFetch.patch(`posts/${id}/like`);
-            if (response.status === 200) {
-                setIsLiked(true);
-                setLikes(prev => prev + 1);
+            const response = await postAPI.likePost(id);
+            if (response.success) {
+                setIsLiked(!isLiked);
+                setLikes(prev => isLiked ? prev - 1 : prev + 1);
             }
         } catch (error) {
-            console.log(error);
+            console.error('Error liking post:', error);
         }
-    }
+    };
 
     return (
         <div className="flex items-center">
@@ -28,7 +28,7 @@ const LikePost = ({ totalLikes = 0, id }) => {
                 <CiHeart className="hover:text-blue-500 cursor-pointer size-4 sm:size-6 text-[var(--primary)]" onClick={handleLike} />
             )}
         </div>
-    )
-}
+    );
+};
 
-export default LikePost
+export default LikePost;

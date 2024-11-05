@@ -49,16 +49,14 @@ const CommentSection = ({ postId }) => {
     };
 
     const handleDeleteComment = async (commentId) => {
-        if (window.confirm('Are you sure you want to delete this comment?')) {
-            try {
-                await customFetch.delete(`/posts/${postId}/comments/${commentId}`);
-                setComments(prevComments =>
-                    prevComments.filter(comment => comment._id !== commentId)
-                );
-            } catch (error) {
-                setError('Failed to delete comment');
-                console.error(error);
-            }
+        try {
+            await customFetch.delete(`/posts/comments/${commentId}`);
+            setComments(prevComments =>
+                prevComments.filter(comment => comment._id !== commentId)
+            );
+        } catch (error) {
+            setError('Failed to delete comment');
+            console.error(error);
         }
     };
 

@@ -2,11 +2,12 @@ import { StatusCodes } from "http-status-codes";
 import Post from "../models/postModel.js";
 import { formatImage } from "../middleware/multer.js";
 import cloudinary from "cloudinary";
-import { BadRequestError } from "../errors/customErors.js";
+import { BadRequestError, UnauthorizedError } from "../errors/customErors.js";
 import PostComments from "../models/postCommentsModel.js";
 import PostReplies from "../models/postReplyModel.js";
 import postModel from "../models/postModel.js";
 import postReplyModel from "../models/postReplyModel.js";
+import mongoose from "mongoose";
 export const createPost = async (req, res) => {
   const newPost = {
     createdBy: req.user.userId,
@@ -93,7 +94,7 @@ export const createReply = async (req, res) => {
   }
 
   const reply = await PostReplies.create({
-    commentId: comment ? comment._id : parentReply.commentId, 
+    commentId: comment ? comment._id : parentReply.commentId,
     createdBy: req.user.userId,
     username: req.user.username,
     userAvatar: req.user.avatar,
@@ -109,14 +110,87 @@ export const createReply = async (req, res) => {
   });
 };
 export const getAllRepliesBYCommentId = async (req, res) => {
-    const { id: commentId } = req.params;
- const replies = await postReplyModel.find({ commentId });
-     if (replies.length === 0) {
-       return res
-         .status(StatusCodes.OK)
-         .json({ message: "No replies found for this comment", replies: [] });
-     }
+  const { id: commentId } = req.params;
+  const replies = await postReplyModel.find({ commentId });
+  if (replies.length === 0) {
+    return res
+      .status(StatusCodes.OK)
+      .json({ message: "No replies found for this comment", replies: [] });
+  }
 
-     res.status(StatusCodes.OK).json({ replies });
+  res.status(StatusCodes.OK).json({ replies });
 
 };
+
+export const deletePost = async (req, res) => {
+  const { id: postId } = req.params;
+
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  const post = await Post.findById(postId).session(session);
+  if (!post) {
+    throw new BadRequestError('Post not found');
+  }
+
+  if (post.createdBy.toString() !== req.user.userId) {
+    throw new UnauthorizedError('You are not authorized to delete this post');
+  }
+  console.log(post.createdBy.toString(), req.user.userId)
+  const comments = await PostComments.find({ postId }).session(session);
+
+  const commentIds = comments.map(comment => comment._id);
+  await PostReplies.deleteMany({ commentId: { $in: commentIds } }).session(session);
+
+  await PostComments.deleteMany({ postId }).session(session);
+  await Post.findByIdAndDelete(postId).session(session);
+
+  await session.commitTransaction();
+
+  res.status(StatusCodes.OK).json({ message: "Post deleted successfully" });
+
+  session.endSession();
+
+};
+
+export const deletePostComment = async (req, res) => {
+  const { id: commentId } = req.params;
+
+  // Find the comment first to check ownership
+  const comment = await PostComments.findById(commentId);
+  if (!comment) {
+    throw new BadRequestError('Comment not found');
+  }
+
+  // Check if user is authorized to delete the comment
+  if (comment.createdBy.toString() !== req.user.userId) {
+    throw new UnauthorizedError('You are not authorized to delete this comment');
+  }
+
+  // Start a session for transaction
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+
+  await PostReplies.deleteMany({ commentId }).session(session);
+
+  // Delete the comment itself
+  await PostComments.findByIdAndDelete(commentId).session(session);
+
+  await session.commitTransaction();
+  res.status(StatusCodes.OK).json({ message: "Comment and associated replies deleted successfully" });
+  session.endSession();
+
+}
+export const deletePostCommentReply = async (req, res) => {
+  const { id: replyId } = req.params;
+  const reply = await PostReplies.findById(replyId);
+  if (!reply) {
+    throw new BadRequestError('Reply not found');
+  }
+  if (reply.createdBy.toString() !== req.user.userId) {
+    throw new UnauthorizedError('You are not authorized to delete this reply');
+  }
+  await PostReplies.findByIdAndDelete(replyId);
+  res.status(StatusCodes.OK).json({ message: "Reply deleted successfully" });
+}
