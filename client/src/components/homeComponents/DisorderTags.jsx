@@ -54,25 +54,25 @@ const DisorderTags = () => {
     return (
         <>
             <SectionTitle title={"Mental Health disorders"}></SectionTitle>
-            <div className="px-6 sm:px-0 sm:max-w-7xl sm:mx-auto  relative  overflow-x-hidden" data-aos="fade-up" >
-                <h1 className="w-full text-wrap text-[var(--grey--900)] mb-6 sm:text-center text-[1.6rem] sm:text-[3.5rem] sm:leading-[3.5rem]" data-aos="fade-up" >
+            <div className=" sm:px-0 sm:max-w-7xl sm:mx-auto  relative  overflow-x-hidden" data-aos="fade-up" >
+                <h1 className="p-6 sm:p-0 w-full text-wrap text-[var(--grey--900)] sm:mb-6 sm:text-center text-[1.6rem] sm:text-[3.5rem] sm:leading-[3.5rem]" data-aos="fade-up" >
                     Monitor for early indicators of  <span className="text-[var(--primary)] italic sm:block">hundrunds of disorders</span>
                 </h1>
-                <div className=" carousel-wrapper mt-8">
+                <div className=" carousel-wrapper sm:mt-8">
                     {/* Anxiety Disorders */}
-                    <div className=" flex gap-12 p-4 justify-center items-center content-right-left w-fit">
+                    <div className=" flex gap-8 sm:gap-12 p-4 justify-center items-center content-right-left w-fit">
                         {repeatedAnxietyDisorders.map((tag, index) =>
                             tag.type === 'text' ? (
                                 <span
                                     key={`${tag.label}-${index}`}
-                                    className="bg-[#fff] whitespace-nowrap text-2xl text-gray-700 font-medium border-2 border-gray-400 rounded-full px-3 py-3 text-center"
+                                    className="bg-[--white-color] whitespace-nowrap text-lg sm:text-2xl text-gray-700 font-medium border-2 border-gray-400 rounded-full py-2 px-3 sm:py-3 text-center"
                                     onMouseEnter={(e) => handleMouseEnter(e, tag.description)}
                                     onMouseLeave={handleMouseLeave}
                                 >
                                     {tag.label}
                                 </span>
                             ) : (
-                                <div key={`${tag.src}-${index}`} className="w-96 h-16 rounded-full overflow-hidden object-cover " >
+                                <div key={`${tag.src}-${index}`} className="w-80 sm:w-96 h-12 sm:h-16 rounded-full overflow-hidden object-cover " >
                                     <img
                                         src={tag.src}
                                         alt={tag.alt}
@@ -84,19 +84,20 @@ const DisorderTags = () => {
                     </div>
 
                     {/* Mood Disorders */}
-                    <div className="flex gap-12 p-4 justify-center items-center content-left-right w-fit">
+                    <div className="flex gap-8 sm:gap-12 p-4 justify-center items-center content-left-right w-fit">
                         {repeatedMoodDisorders.map((tag, index) =>
                             tag.type === 'text' ? (
                                 <span
                                     key={`${tag.label}-${index}`}
-                                    className="bg-[#fff] whitespace-nowrap text-2xl text-gray-700 font-medium border-2 border-gray-400 rounded-full px-3 py-3 text-center"
+                                    className="bg-[--white-color] whitespace-nowrap text-lg sm:text-2xl text-gray-700 font-medium border-2 border-gray-400 rounded-full py-2 px-3 sm:py-3 text-center"
                                     onMouseEnter={(e) => handleMouseEnter(e, tag.description)}
                                     onMouseLeave={handleMouseLeave}
                                 >
                                     {tag.label}
                                 </span>
                             ) : (
-                                <div key={`${tag.src}-${index}`} className="w-96 h-16 rounded-full overflow-hidden">
+
+                                <div key={`${tag.src}-${index}`} className="w-80 sm:w-96 h-12 sm:h-16 rounded-full overflow-hidden">
                                     <img
                                         src={tag.src}
                                         alt={tag.alt}
@@ -108,19 +109,19 @@ const DisorderTags = () => {
                     </div>
 
                     {/* Personality Disorders */}
-                    <div className="flex gap-12 p-4 justify-center items-center content-right-left w-fit">
+                    <div className="flex gap-8 sm:gap-12 p-4 justify-center items-center content-right-left w-fit">
                         {repeatedPersonalityDisorders.map((tag, index) =>
                             tag.type === 'text' ? (
                                 <span
                                     key={`${tag.label}-${index}`}
-                                    className="bg-[#fff] whitespace-nowrap text-2xl text-gray-700 font-medium border-2 border-gray-400 rounded-full px-3 py-3 text-center"
+                                    className="bg-[--white-color] whitespace-nowrap text-lg sm:text-2xl text-gray-700 font-medium border-2 border-gray-400 rounded-full py-2 px-3 sm:py-3 text-center"
                                     onMouseEnter={(e) => handleMouseEnter(e, tag.description)}
                                     onMouseLeave={handleMouseLeave}
                                 >
                                     {tag.label}
                                 </span>
                             ) : (
-                                <div key={`${tag.src}-${index}`} className="w-96 h-16 rounded-full overflow-hidden">
+                                <div key={`${tag.src}-${index}`} className="w-80 sm:w-96 h-12 sm:h-16 rounded-full overflow-hidden">
                                     <img
                                         src={tag.src}
                                         alt={tag.alt}
