@@ -14,19 +14,20 @@ const withValidationErrors = (validateValues) => {
         throw new BadRequestError(errorMsgs);
       }
       next();
-    },  
+    },
   ];
 };
-
+// validate param id
 export const validateIdParam = withValidationErrors([
   param("id").custom(async (value) => {
     const isValidId = mongoose.Types.ObjectId.isValid(value);
     if (!isValidId) throw new BadRequestError("invalid id");
   }),
 ]);
-
+// auth validators
 export const validateRegisterInput = withValidationErrors([
   body("name").notEmpty().withMessage("name is required"),
+
   body("email")
     .notEmpty()
     .withMessage("email is required")
@@ -34,13 +35,18 @@ export const validateRegisterInput = withValidationErrors([
     .withMessage("invalid email")
     .custom(async (email) => {
       const user = await User.findOne({ email });
-      if (user) throw new BadRequestError("email already exist");
+      if (user) throw new BadRequestError("email already exists");
     }),
+
   body("password")
     .notEmpty()
     .withMessage("password is required")
     .isLength({ min: 8 })
-    .withMessage("password must be atleast 8 characters"),
+    .withMessage("password must be at least 8 characters")
+    .matches(/\d/)
+    .withMessage("password must contain at least one number")
+    .matches(/[@$!%*?&]/)
+    .withMessage("password must contain at least one special character "),
 ]);
 
 export const validateLoginInput = withValidationErrors([
@@ -68,7 +74,13 @@ export const validateChangePasswordInput = withValidationErrors([
     .notEmpty()
     .withMessage("New password is required")
     .isLength({ min: 8 })
-    .withMessage("New password must be at least 8 characters"),
+    .withMessage("Password must be at least 8 characters")
+    .matches(/\d/)
+    .withMessage("Password must contain at least one number")
+    .matches(/[@$!%*?&]/)
+    .withMessage(
+      "Password must contain at least one special character (@$!%*?&)"
+    ),
 
   body("confirmNewPassword")
     .notEmpty()
@@ -77,7 +89,7 @@ export const validateChangePasswordInput = withValidationErrors([
       if (value !== req.body.newPassword) {
         throw new BadRequestError("passwords do not match");
       }
-      return true; // Important: return true if validation passed
+      return true;
     }),
 ]);
 
@@ -86,14 +98,20 @@ export const validateForgetPasswordInput = withValidationErrors([
     .notEmpty()
     .withMessage("email is required")
     .isEmail()
-    .withMessage("invalid email")
+    .withMessage("invalid email"),
 ]);
 export const validateResetPasswordInput = withValidationErrors([
   body("password")
     .notEmpty()
-    .withMessage(" password is required")
+    .withMessage("Password is required")
     .isLength({ min: 8 })
-    .withMessage(" password must be at least 8 characters"),
+    .withMessage("Password must be at least 8 characters")
+    .matches(/\d/)
+    .withMessage("Password must contain at least one number")
+    .matches(/[@$!%*?&]/)
+    .withMessage(
+      "Password must contain at least one special character (@$!%*?&)"
+    ),
 
   body("token").notEmpty().withMessage("token is required"),
   body("email")
@@ -102,13 +120,32 @@ export const validateResetPasswordInput = withValidationErrors([
     .isEmail()
     .withMessage("invalid email"),
 ]);
+// post validatos
 export const validatePostInput = withValidationErrors([
   body("description")
     .notEmpty()
     .withMessage("Description is required")
-    .isLength({ max: 1000 })
+    .isLength({ max: 500 })
     .withMessage("Description must not exceed 1000 characters"),
 
+  body("tags")
+    .isArray()
+    .withMessage("Tags must be an array")
+    .custom((tags) => {
+      if (tags.length === 0) {
+        throw new BadRequestError("At least one tag is required");
+      }
+      return true;
+    }),
+]);
+
+// qa section
+export const validateQaSectionInput = withValidationErrors([
+  body("questionText")
+    .notEmpty()
+    .withMessage("Question is required")
+    .isLength({ max: 100 })
+    .withMessage("Question must not exceed 100 characters"),
   body("tags")
     .isArray()
     .withMessage("Tags must be an array")

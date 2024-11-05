@@ -83,7 +83,7 @@ export const getAllCommentsByPostId = async (req, res) => {
 };
 export const getAllPostsByUserId = async (req, res) => {
   const { id: userId } = req.params;
-  const posts = await postModel.find({ createdBy:userId });
+  const posts = await postModel.find({ createdBy: userId });
   const postsWithLikes = posts.map((post) => ({
     ...post.toObject(),
     totalLikes: post.likes ? post.likes.length : 0,
@@ -140,7 +140,10 @@ export const deletePost = async (req, res) => {
     throw new BadRequestError("Post not found");
   }
 
-  if (post.createdBy.toString() !== req.user.userId) {
+  if (
+    post.createdBy.toString() !== req.user.userId ||
+    req.user.role == "admin"
+  ) {
     throw new UnauthorizedError("You are not authorized to delete this post");
   }
   console.log(post.createdBy.toString(), req.user.userId);

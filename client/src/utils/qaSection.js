@@ -124,8 +124,7 @@ export const questions = [
                 replies: [
                   {
                     id: 1,
-                    replyText:
-                      "yeah you are right",
+                    replyText: "yeah you are right",
                     repliedBy: "Anna Lee",
                     dateReplied: "2024-09-01",
                   },
@@ -520,7 +519,7 @@ export const questions = [
   {
     id: 7,
     question: "How do I maintain a work-life balance?",
-    details:
+    whatisuestionrelated:
       "I often feel like I'm spending too much time working and not enough time on personal activities.",
     tags: ["Work-Life Balance", "Time Management", "Mental Health"],
     askedBy: {
