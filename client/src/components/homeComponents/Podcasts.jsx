@@ -10,12 +10,12 @@ import LinkButton from "../sharedComponents/Buttons/LinkButton";
 function Podcasts() {
   return (
 
-    <div className='max-w-7xl mx-auto my-12 mt-20' data-aos="fade-up">
+    <div className='max-w-7xl mx-auto my-12 sm:mt-20 px-6 sm:px-0' data-aos="fade-up">
       <SectionTitle title="Recent Podcasts" />
       <div className="space-y-4 ">
         <h2 className="text-3xl mt-0 text-[var(--black-color)]">Our Latest Podcast</h2>
-        <div className=" grid grid-cols-12 gap-4">
-          <div className="col-span-4 rounded-md bg-[var(--primary)] text-white flex flex-col gap-4 p-4">
+        <div className=" grid grid-cols-1 sm:grid-cols-12 gap-4">
+          <div className="col-span-12 sm:col-span-4 rounded-md bg-[var(--primary)] text-white flex flex-col gap-4 p-4">
             <img
               className="h-96 object-contain"
               src="https://img.freepik.com/free-vector/gradient-podcast-cover-template_23-2149449551.jpg"
@@ -30,9 +30,9 @@ function Podcasts() {
               </Link>
             </div>
           </div>
-          <div className="col-span-8 flex flex-col gap-2 items-center">
+          <div className="col-span-12 sm:col-span-8 flex flex-col gap-2 items-center">
             <h2 className="text-3xl text-[var(--black-color)]">Podcast Playlists</h2>
-            <div className="grid grid-cols-3 gap-4 mb-4" data-aos="zoom-in">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4" data-aos="zoom-in">
               {podcastsLists.slice(0, 3).map((podcastsList, index) => (
                 <MiniCard key={index} podcastsList={podcastsList} />
               ))}

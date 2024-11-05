@@ -51,7 +51,7 @@ const TodaysQuote = () => {
                     SukoonSphere: Personalized Quotes
                 </Link>
             </div>
-            <h1 className="font-bold text-[var(--grey--900)]  h2" data-aos="fade-up">Open a Quote to get started!</h1>
+            <h2 className="font-bold text-[var(--grey--900)]  sm:h2" data-aos="fade-up">Open a Quote to get started!</h2>
             <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden p-4 ">
                 {widgets.map((widget, index) => (
                     <div

@@ -73,14 +73,14 @@ const Posts = () => {
     <div className="relative w-full max-w-7xl mx-auto px-2 sm:px-4 mt-2">
       <div className='grid grid-cols-12 gap-2'>
         {/* Left Sidebar - Groups */}
-        <div className="hidden lg:block lg:col-span-3 sticky top-[10%] h-screen overflow-y-auto">
+        <div className="rounded-[10px] shadow-sm hidden lg:block lg:col-span-3 sticky top-[10%] h-screen overflow-y-auto">
           <GroupsSidebar groups={groups} />
         </div>
 
         {/* Main Content */}
         <div className="col-span-12 lg:col-span-6 space-y-4">
           {/* Add Post Card */}
-          <div className="mb-6 p-4 sm:p-6 bg-blue-100 rounded-lg shadow-md text-center">
+          <div className="mb-6 p-4 sm:p-6 bg-blue-50 rounded-[10px] shadow-sm text-center">
             <h2 className="text-xl sm:text-2xl font-semibold mb-4">Share Your Thoughts!</h2>
             <p className="text-gray-700 mb-4 text-sm sm:text-base">
               Got something on your mind? Share your experiences, tips, and thoughts with the community.
@@ -104,7 +104,7 @@ const Posts = () => {
         </div>
 
         {/* Right Sidebar - Profile */}
-        <div className="hidden lg:block lg:col-span-3 sticky top-[10%] h-screen overflow-y-auto">
+        <div className="hidden shadow-sm lg:block lg:col-span-3 sticky top-[10%] h-screen overflow-y-auto rounded-[10px]">
           <ProfileSidebar
             username={user ? user.name : "Anonymous"}
             userTag="Mental Health Advocate"

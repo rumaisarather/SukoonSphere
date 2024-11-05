@@ -34,10 +34,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 rounded-[10px]">
-      <div className="bg-white shadow-xl max-w-6xl flex">
+    <div className="min-h-screen  flex  items-center justify-center p-4 ">
+      <div className="bg-white shadow-xl max-w-6xl flex flex-col-reverse sm:flex-row">
         {/* Form Section - Light Half */}
-        <div className="w-1/2 p-4 flex flex-col justify-center items-center bg-[var(--primary)]">
+        <div className="w-full sm:rounded-l-2xl sm:w-1/2 p-4 flex flex-col justify-center items-center bg-[var(--primary)]">
           <div>
             <img src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" alt="logo" className="w-14  h-14" />
           </div>
@@ -66,7 +66,7 @@ const SignIn = () => {
           </Form>
         </div>
         {/* Image Section - Right Half */}
-        <div className="w-1/2 p-4 pt-12 flex flex-col justify-center items-center bg-gray-50 rounded-r-lg">
+        <div className="w-full sm:w-1/2 p-4 pt-12 flex flex-col justify-center items-center bg-gray-50 ">
           <h2 className="font-bold text-[2.5rem] text-[var(--gray--900)] text-center mb-4">
             SukoonSphere
           </h2>

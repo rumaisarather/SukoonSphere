@@ -11,7 +11,7 @@ const ProfileSidebar = ({
     events,
 }) => {
     return (
-        <div className="bg-white text-gray-800 shadow rounded-lg p-4">
+        <div className="flex flex-col gap-4 bg-white text-gray-800 shadow rounded-lg p-4">
             <div className="flex items-center space-x-4 p-2">
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWXzCSPkpN-TPug9XIsssvBxZQHkZEhjoGfg&s"
@@ -36,7 +36,7 @@ const ProfileSidebar = ({
 
             <div>
                 <h4 className="font-semibold text-[var(--black-color)]">Recent</h4>
-                <ul>
+                <ul className='bg-[var(--grey--200)] p-2 rounded-[4px]'>
                     {recentItems.map(item => (
                         <li key={item} className={'text-[var(--primary)]'}>{item}</li>
                     ))}
@@ -44,7 +44,7 @@ const ProfileSidebar = ({
             </div>
             <div>
                 <h4 className="font-semibold text-[var(--black-color)]">Groups</h4>
-                <ul>
+                <ul className='bg-[var(--grey--200)] p-2 rounded-[4px]'>
                     {groups.map(group => (
                         <li key={group} className={'text-[var(--primary)]'}>{group}</li>
                     ))}
@@ -52,7 +52,7 @@ const ProfileSidebar = ({
             </div>
             <div>
                 <h4 className="font-semibold text-[var(--black-color)]">Followed Hashtags</h4>
-                <ul>
+                <ul className='bg-[var(--grey--200)] p-2 rounded-[4px]'>
                     {followedHashtags.map(tag => (
                         <li key={tag} className={'text-[var(--primary)]'}>{tag}</li>
                     ))}
@@ -61,7 +61,7 @@ const ProfileSidebar = ({
             {events && (
                 <div>
                     <h4 className="font-semibold text-[var(--black-color)]">Events</h4>
-                    <ul>
+                    <ul className='bg-[var(--grey--200)] p-2 rounded-[4px]'>
                         {events.map(event => (
                             <li key={event} className={'text-[var(--primary)]'}>{event}</li>
                         ))}

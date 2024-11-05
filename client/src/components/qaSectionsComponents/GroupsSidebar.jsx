@@ -14,7 +14,7 @@ const GroupsSidebar = ({ groups }) => {
             </div>
             <div className="form-control">
                 <div className="input-group space-y-4">
-                    <label className="input bg-transparent flex items-center gap-2 " style={{ borderBottom: '2px solid #13404f', borderRadius: '0px' }}>
+                    <label className="input bg-transparent flex items-center gap-2 " style={{ borderBottom: '1px solid #b1b1b1', borderRadius: '0px' }}>
                         <input
                             type="text"
                             className="grow"
@@ -38,11 +38,11 @@ const GroupsSidebar = ({ groups }) => {
                     </label>
                 </div>
             </div>
-            <div className="mt-8">
+            <div className="mt-8 ">
                 <h3 className="text-lg mb-2 text-[var(--black-color)]">Groups you've joined</h3>
                 <div className="space-y-2">
                     {groups.map((group, index) => (
-                        <div key={index} className="flex justify-between items-center bg-gray-100 rounded-lg p-2">
+                        <div key={index} className="flex justify-between items-center bg-gray-100 rounded-[10px] p-2">
                             <div className="flex items-center space-x-2">
                                 <img src={group.avatar} alt="Group" className="h-8 w-8 rounded-full" />
                                 <div>
