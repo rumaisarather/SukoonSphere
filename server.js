@@ -15,6 +15,7 @@ import cloudinary from "cloudinary";
 import AuthRouter from "./routes/authRouter.js";
 import PostRouter from "./routes/postRoutes.js";
 import UserRouter from "./routes/userRouter.js";
+import QaSectionRouter from "./routes/qaRouter.js";
 
 //public
 import path, { dirname } from "path";
@@ -41,6 +42,7 @@ app.use(cookieParser());
 app.use("/api/v1/user", UserRouter);
 app.use("/api/v1/auth", AuthRouter);
 app.use("/api/v1/posts", PostRouter);
+app.use("/api/v1/qa-section", QaSectionRouter);
 
 
 
