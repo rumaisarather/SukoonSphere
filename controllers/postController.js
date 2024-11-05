@@ -81,7 +81,15 @@ export const getAllCommentsByPostId = async (req, res) => {
   const postComments = await PostComments.find({ postId });
   res.status(StatusCodes.OK).json(postComments);
 };
-
+export const getAllPostsByUserId = async (req, res) => {
+  const { id: userId } = req.params;
+  const posts = await postModel.find({ createdBy:userId });
+  const postsWithLikes = posts.map((post) => ({
+    ...post.toObject(),
+    totalLikes: post.likes ? post.likes.length : 0,
+  }));
+  res.status(StatusCodes.OK).json({ posts: postsWithLikes });
+};
 export const createReply = async (req, res) => {
   const { content } = req.body;
   const { id: parentId } = req.params;
@@ -119,7 +127,6 @@ export const getAllRepliesBYCommentId = async (req, res) => {
   }
 
   res.status(StatusCodes.OK).json({ replies });
-
 };
 
 export const deletePost = async (req, res) => {
@@ -130,17 +137,19 @@ export const deletePost = async (req, res) => {
 
   const post = await Post.findById(postId).session(session);
   if (!post) {
-    throw new BadRequestError('Post not found');
+    throw new BadRequestError("Post not found");
   }
 
   if (post.createdBy.toString() !== req.user.userId) {
-    throw new UnauthorizedError('You are not authorized to delete this post');
+    throw new UnauthorizedError("You are not authorized to delete this post");
   }
-  console.log(post.createdBy.toString(), req.user.userId)
+  console.log(post.createdBy.toString(), req.user.userId);
   const comments = await PostComments.find({ postId }).session(session);
 
-  const commentIds = comments.map(comment => comment._id);
-  await PostReplies.deleteMany({ commentId: { $in: commentIds } }).session(session);
+  const commentIds = comments.map((comment) => comment._id);
+  await PostReplies.deleteMany({ commentId: { $in: commentIds } }).session(
+    session
+  );
 
   await PostComments.deleteMany({ postId }).session(session);
   await Post.findByIdAndDelete(postId).session(session);
@@ -150,7 +159,6 @@ export const deletePost = async (req, res) => {
   res.status(StatusCodes.OK).json({ message: "Post deleted successfully" });
 
   session.endSession();
-
 };
 
 export const deletePostComment = async (req, res) => {
@@ -159,18 +167,19 @@ export const deletePostComment = async (req, res) => {
   // Find the comment first to check ownership
   const comment = await PostComments.findById(commentId);
   if (!comment) {
-    throw new BadRequestError('Comment not found');
+    throw new BadRequestError("Comment not found");
   }
 
   // Check if user is authorized to delete the comment
   if (comment.createdBy.toString() !== req.user.userId) {
-    throw new UnauthorizedError('You are not authorized to delete this comment');
+    throw new UnauthorizedError(
+      "You are not authorized to delete this comment"
+    );
   }
 
   // Start a session for transaction
   const session = await mongoose.startSession();
   session.startTransaction();
-
 
   await PostReplies.deleteMany({ commentId }).session(session);
 
@@ -178,19 +187,20 @@ export const deletePostComment = async (req, res) => {
   await PostComments.findByIdAndDelete(commentId).session(session);
 
   await session.commitTransaction();
-  res.status(StatusCodes.OK).json({ message: "Comment and associated replies deleted successfully" });
+  res
+    .status(StatusCodes.OK)
+    .json({ message: "Comment and associated replies deleted successfully" });
   session.endSession();
-
-}
+};
 export const deletePostCommentReply = async (req, res) => {
   const { id: replyId } = req.params;
   const reply = await PostReplies.findById(replyId);
   if (!reply) {
-    throw new BadRequestError('Reply not found');
+    throw new BadRequestError("Reply not found");
   }
   if (reply.createdBy.toString() !== req.user.userId) {
-    throw new UnauthorizedError('You are not authorized to delete this reply');
+    throw new UnauthorizedError("You are not authorized to delete this reply");
   }
   await PostReplies.findByIdAndDelete(replyId);
   res.status(StatusCodes.OK).json({ message: "Reply deleted successfully" });
-}
+};
