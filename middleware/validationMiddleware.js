@@ -156,3 +156,11 @@ export const validateQaSectionInput = withValidationErrors([
       return true;
     }),
 ]);
+
+export const validateAnswerInput = withValidationErrors([
+  body("context")
+    .notEmpty()
+    .withMessage("answer is required")
+    .isLength({ max: 500 })
+    .withMessage("Answer must not exceed 500 characters"),
+]);
