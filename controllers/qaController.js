@@ -29,3 +29,8 @@ export const addQuestion = async (req, res) => {
   res.status(StatusCodes.CREATED)
     .json({ msg: "Question added successfully", question: newQuestion });
 };
+ export const getAllQuestions= async (req,res)=>{
+   const questions = await Question.find({}); 
+     res.status(StatusCodes.OK)
+    .json({  questions });
+ }
