@@ -1,13 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { ScrollRestoration } from 'react-router-dom';
-import { AdminHeader, AdminNavbar } from '@/components';
+import { AdminHeader, AdminNavbar, Header } from '@/components';
 
 const AdminLayout = () => {
     return (
         <div className="min-h-screen flex flex-col">
             {/* Header */}
-            <AdminHeader className="w-full" />
+            <Header className="w-full" />
 
             {/* Main Layout */}
             <div className="flex flex-1">

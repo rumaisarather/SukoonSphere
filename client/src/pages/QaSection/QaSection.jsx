@@ -6,13 +6,30 @@ import { FaQuestionCircle } from "react-icons/fa";
 import { AiOutlineComment } from "react-icons/ai";
 import {
   GroupsSidebar,
-  HeaderImg,
   ProfileSidebar,
   QuestionModal,
 } from "@/components";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import customFetch from "@/utils/customFetch";
 
+export const questionsAction = async ({ request }) => {
+  const result = await request.formData();
+  const questionText = result.get("questionText")
+  const context = result.get("context")
+  const tags = result.getAll("tags")
+
+  try {
+    const response = await customFetch.post("/qa-section", { questionText, context, tags });
+    console.log({ response });
+    // window.location.href = '/QA-section';
+    return { success: response.data.msg };
+  } catch (error) {
+    console.log({ error });
+    return { error: error?.response?.data?.msg || "An error occurred during posting question." };
+  }
+  return null;
+};
 const QaSection = () => {
   const { user } = useAuth0();
 
@@ -136,7 +153,6 @@ const QaSection = () => {
         <QuestionModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          onAdd={handleAddQuestion} // Pass the function to handle question addition
         />
       </div>
     </>

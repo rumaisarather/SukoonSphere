@@ -41,7 +41,7 @@ const CommentSection = ({ postId }) => {
             }
             setNewComment('');
         } catch (error) {
-            setError('Failed to add comment');
+            setError('Please login to comment');
             console.error(error);
         } finally {
             setIsLoading(false);

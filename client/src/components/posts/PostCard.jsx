@@ -80,11 +80,14 @@ const PostCard = ({ post, onPostDelete }) => {
                 </div>
 
                 {/* Post Image */}
-                <img
-                    src={post?.imageUrl || 'default-image.jpg'}
-                    alt="Post visual"
-                    className="w-full h-[200px] sm:h-[300px] object-contain rounded-lg mb-4"
-                />
+                {post?.imageUrl && (
+                    <img
+                        src={post?.imageUrl || 'default-image.jpg'}
+                        alt="Post visual"
+                        className="w-full h-[200px] sm:h-[300px] object-contain rounded-lg mb-4"
+                    />
+                )}
+
                 {/* Post Content */}
                 <p className="mb-4 text-sm sm:text-base">{post?.description || 'No description available'}</p>
 
