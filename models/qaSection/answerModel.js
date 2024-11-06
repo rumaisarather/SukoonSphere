@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
-import { TAGS } from "../../utils/constants";
 
 const Answer = new mongoose.Schema(
   {
-    text: {
+    context: {
       type: String,
       required: true,
     },
@@ -11,15 +10,20 @@ const Answer = new mongoose.Schema(
       userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+      },
+      username: {
+        type: String,
         required: true,
       },
-      username: { type: String, required: true },
-      avatar: { type: String },
+      avatar: {
+        type: String,
+      },
     },
-    upvotes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-    createdAt: {
-      type: Date,
-      default: Date.now,
+    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    answeredTo: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Question", // Reference to the Question model
+      required: true,
     },
   },
   { timestamps: true }

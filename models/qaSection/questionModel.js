@@ -23,10 +23,6 @@ const questionSchema = new mongoose.Schema(
       enum: Object.values(TAGS),
     },
     answers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Answer" }],
-    views: {
-      type: Number,
-      default: 0,
-    },
     likes: [
       {
         type: mongoose.Schema.Types.ObjectId,
