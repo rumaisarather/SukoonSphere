@@ -112,7 +112,7 @@ const Comment = ({ comment, onDelete, onEdit, postId }) => {
     };
 
     return (
-        <div className="p-4 hover:bg-gray-50 transition-colors">
+        <div className="px-4">
             <div className="flex gap-3">
                 <UserAvatar user={comment} size="medium" />
 

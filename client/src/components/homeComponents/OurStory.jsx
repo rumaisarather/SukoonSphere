@@ -50,7 +50,7 @@ const OurStory = () => {
             <hr />
             <div>
               <Link to="/about-us">
-                <button className="btn-4 glossy-effect-bar">
+                <button className="btn-4 glossy-effect-bar mb-4 sm:mb-0">
                   Know more
                   <MdOutlineReadMore className="ml-2" size={20} />
                 </button>

@@ -34,7 +34,7 @@ const PostCard = ({ post, onPostDelete }) => {
 
     return (
         <>
-            <div className="mb-4 p-3 sm:p-4 border rounded-lg shadow-md">
+            <div className=" mb-4 p-3 sm:p-4 border rounded-[10px]  bg-[var(--white-color)] ">
                 {/* Post Header */}
                 <div className="flex items-center mb-4 justify-between flex-wrap gap-2">
                     <div className="flex items-center">
@@ -52,9 +52,9 @@ const PostCard = ({ post, onPostDelete }) => {
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <h1 className="text-sm sm:text-lg hover:underline hover:text-[var(--ternery)] cursor-pointer">
+                        <span className=" bg-[var(--btn-primary)] text-white px-2 py-1 rounded-[4px] cursor-pointer">
                             Follow
-                        </h1>
+                        </span>
                         {isAuthor && (
                             <div className="relative">
                                 <BsThreeDotsVertical
@@ -92,7 +92,7 @@ const PostCard = ({ post, onPostDelete }) => {
                 <p className="mb-4 text-sm sm:text-base">{post?.description || 'No description available'}</p>
 
                 {/* Tags */}
-                <div className="mt-2 flex flex-wrap gap-2">
+                <div className="mt-2 flex flex-wrap gap-2 ">
                     {post?.tags?.map((tag) => (
                         <span
                             key={tag}
