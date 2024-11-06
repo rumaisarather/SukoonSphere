@@ -1,5 +1,6 @@
 import Question from "../models/qaSection/questionModel.js"; // Adjust the import based on your project structure
 import Answer from "../models/qaSection/answerModel.js";
+import Comment from "../models/qaSection/answerCommentModel.js";
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError } from "../errors/customErors.js";
 
@@ -135,4 +136,30 @@ export const getAnswersByQuestionId = async (req, res) => {
 
   // Respond with the found answers
   res.status(StatusCodes.OK).json({ answers });
+};
+
+export const createAnswerComment = async (req, res) => {
+  const { content } = req.body;
+  const { id: postId } = req.params;
+  const comment = await Comment.create({
+    postId,
+    createdBy: req.user.userId,
+    username: req.user.username,
+    userAvatar: req.user.avatar,
+    content,
+  });
+  const answer = await Answer.findById(postId);
+  answer.comments.push(comment._id);
+  await answer.save();
+  
+  res.status(StatusCodes.CREATED).json({
+    message: "Comment created successfully",
+    comment,
+  });
+
+};
+export const getAllCommentsByAnswerId = async (req, res) => {
+  const { id: postId } = req.params;
+  const postComments = await Comment.find({ postId });
+  res.status(StatusCodes.OK).json(postComments);
 };

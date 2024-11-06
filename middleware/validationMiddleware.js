@@ -164,3 +164,7 @@ export const validateAnswerInput = withValidationErrors([
     .isLength({ max: 500 })
     .withMessage("Answer must not exceed 500 characters"),
 ]);
+
+export const validateQaCommentInput = withValidationErrors([
+  body("content").notEmpty().withMessage("comment is required"),
+]);

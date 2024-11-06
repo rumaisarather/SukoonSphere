@@ -20,9 +20,15 @@ const Answer = new mongoose.Schema(
       },
     },
     likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "QaComment",
+      },
+    ],
     answeredTo: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Question", // Reference to the Question model
+      ref: "Question", 
       required: true,
     },
   },
