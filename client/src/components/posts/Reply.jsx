@@ -106,7 +106,7 @@ const Reply = ({ reply, onDelete, onEdit, postId, commentId }) => {
             </div>
 
             {/* Reply Actions */}
-            <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
+            <div className="mt-1 flex items-center  gap-2 text-xs text-gray-500">
                 {true && (
                     <button
                         onClick={() => setShowReplyForm(!showReplyForm)}

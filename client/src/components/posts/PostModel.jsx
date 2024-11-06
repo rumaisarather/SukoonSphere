@@ -4,18 +4,18 @@ import { Form } from "react-router-dom";
 
 const PostModal = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 h-[40vh] top-24">
-      <div className="bg-white rounded-xl w-full max-w-lg p-8 shadow-2xl transform transition-all">
+    <div className="fixed py-6 top-0 left-0 right-0 h-[100vh]  mx-auto flex items-center justify-center z-50 bg-black bg-opacity-50  ">
+      <div className="bg-white sm:h-[90vh] rounded-xl w-full max-w-lg px-8 py-6 shadow-2xl transform transition-all">
         <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-4">Share Your Story</h2>
 
-        <Form method="post" encType="multipart/form-data" className="space-y-6">
+        <Form method="post" encType="multipart/form-data" className="">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               What's on your mind?
             </label>
             <textarea
               name="description"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none min-h-[120px]"
+              className="bg-[var(--white-color)] w-full px-4 py-3 rounded-[10px] border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none min-h-[80px] "
               placeholder="Share your thoughts, experiences or questions..."
             />
           </div>
@@ -24,7 +24,7 @@ const PostModal = ({ onClose }) => {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Add an Image
             </label>
-            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-500 transition-colors">
+            <div className="rounded-[10px] h-[130px] mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed hover:border-blue-500 transition-colors">
               <div className="space-y-1 text-center">
                 <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                   <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -46,17 +46,17 @@ const PostModal = ({ onClose }) => {
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+          <div >
+            <label className="block text-sm font-medium text-gray-700 my-2">
               Add Relevant Tags
             </label>
             <select
               name="tags"
               multiple
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full bg-[var(--white-color)] h-[90px]  rounded-[10px] border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             >
               {Object.values(TAGS).map((tag) => (
-                <option key={tag} value={tag} className="py-1">
+                <option key={tag} value={tag} className="py-1 px-2">
                   {tag}
                 </option>
               ))}
@@ -66,17 +66,17 @@ const PostModal = ({ onClose }) => {
             </p>
           </div>
 
-          <div className="flex justify-end space-x-4 pt-4 border-t">
+          <div className="flex justify-end space-x-4 pt-3 border-t">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+              className="px-6 py-2 rounded-[10px] border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              className="btn-2"
             >
               Share Post
             </button>
