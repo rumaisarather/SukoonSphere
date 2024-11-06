@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LinkButton from "@/components/sharedComponents/Buttons/LinkButton";
 import CompanyLogo from "../../../assets/images/SukoonSphere_Logo.png";
 import links from "@/utils/SharedComp/PageLinks";
-import { Form, Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { BsDatabase, BsKey, BsPencil, BsThreeDotsVertical } from "react-icons/bs";
@@ -15,8 +15,7 @@ function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [miniMenu, setMiniMenu] = useState(false);
   const navigate = useNavigate()
-  const { user, isLoading, logout } = useUser();
-  const isUser = user !== null;
+  const { user, logout, } = useUser();
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -28,6 +27,7 @@ function NavMenu() {
     await logout()
     navigate("/")
   }
+
 
   return (
     <nav className="w-full flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)]  z-50 transition-all ease-in-out p-2 h-[65px]">
@@ -88,7 +88,7 @@ function NavMenu() {
             ))}
           </ul>
         </div>
-        {isUser ? (
+        {user ? (
           <>
             <div className="flex items-center justify-center gap-2">
               <img

@@ -1,109 +1,89 @@
-// import React from 'react';
-
-// const ProfileCard = ({ username, avatar, posts, followers, following, answersPosted, questionsPosted, bio, additionalInfo }) => {
-//     return (
-//         <div className='p-6 m-auto max-w-7xl mx-auto bg-[var(--light-bg)]'>
-//             <div className="flex items-center p-6 rounded-lg shadow-md max-w-4xl mx-auto">
-//                 <div className="flex-shrink-0 ">
-//                     <img
-//                         src={avatar}
-//                         alt={"User Image loading..."}
-//                         className="h-48 object-cover "
-//                     />
-//                 </div>
-//                 <div className="ml-6 flex space-x-12">
-//                     <div className='space-y-8'>
-//                         <div>
-//                             <h2 className="text-2xl font-bold text-[var(--black-color)]">
-//                                 {username}
-//                             </h2>
-//                             <p className="text-gray-600 flex items-center">
-//                                 <span className="mr-2 text-green-600">
-//                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-//                                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-//                                     </svg>
-//                                 </span>
-//                                 {bio}
-//                             </p>
-//                         </div>
-//                         <div className="mt-2 flex gap-12 border-l">
-//                             <div>
-//                                 <p className="font-semibold text-[var(--black-color)]">Posts</p>
-//                                 <p className="text-gray-700">{posts}</p>
-//                             </div>
-//                             <div>
-//                                 <p className="font-semibold text-[var(--black-color)]">Following</p>
-//                                 <p className="text-gray-700">{following}</p>
-//                             </div>
-//                             <div >
-//                                 <p className="font-semibold text-[var(--black-color)]">Followers</p>
-//                                 <p className="text-gray-700">{followers}</p>
-//                             </div>
-//                         </div>
-
-//                     </div>
-//                     <div>
-//                         <div className="mt-2">
-//                             <p className="font-semibold text-[var(--black-color)]">Answers Posted:</p>
-//                             <p className="text-gray-700">{answersPosted}</p>
-//                         </div>
-
-//                         <div className="mt-2">
-//                             <p className="font-semibold text-[var(--black-color)]">Questions Posted</p>
-
-//                             <p className="text-gray-700">{questionsPosted}</p>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//             <div>
-//                 { }
-//             </div>
-//         </div>
-//     );
-// }
-
-
-// export default ProfileCard;
-
 import React from 'react';
-
-const ProfileCard = ({
-    coverImage,
-    avatar,
-    username,
-    bio,
-    followers,
-    following,
-    questionPosted,
-    answersPosted,
-    posts,
-    likes,
-    images
-}) => {
+import { useUser } from '@/context/UserContext';
+const ProfileCard = () => {
+    const { user, isLoading } = useUser();
+    if (isLoading) {
+        return (
+            <div className="bg-white shadow rounded-lg p-4">
+                <div className="animate-pulse">
+                    <div className="flex flex-col items-center">
+                        <div className="rounded-full w-20 h-20 bg-gray-200"></div>
+                        <div className="h-4 bg-gray-200 rounded w-1/2 mt-2"></div>
+                        <div className="h-3 bg-gray-200 rounded w-1/3 mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
     return (
-        <div className="bg-white shadow rounded-lg ">
+        <div className="bg-white shadow rounded-lg">
             <div className="bg-white rounded-lg shadow-md p-4">
                 <div className="flex flex-col items-center">
-                    <img src={avatar} alt="Profile" className="rounded-full w-20 h-20 border-2 border-gray-200" />
-                    <h1 className="text-lg font-bold mt-2 text-[var(--black-color)]">{username}</h1>
-                    <p className="text-sm text-[var(--black-color)]">_sartajAshraf</p>
+                    <img
+                        src={user?.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.username || 'Anonymous')}&background=random`}
+                        alt="Profile"
+                        className="rounded-full w-20 h-20 border-2 border-gray-200 object-cover"
+                    />
+                    <h1 className="text-lg font-bold mt-2 text-[var(--black-color)]">
+                        {user?.name || 'Anonymous'}
+                    </h1>
+                    <p className="text-sm text-[var(--black-color)]">
+                        @{user?.name?.toLowerCase().replace(/\s+/g, '_') || 'anonymous'}
+                    </p>
                 </div>
-                <p className="text-sm text-center mt-2 px-1 text-[var(--black-color)]">{bio}</p>
+                <p className="text-sm text-center mt-2 px-1 text-[var(--black-color)]">
+                    {user?.bio || 'No bio available'}
+                </p>
                 <div className="grid grid-cols-2 mt-3 text-left p-1 gap-2">
-                    <div className='text-[var(--black-color)]'><strong>{followers}</strong> Followers</div>
-                    <div className='text-[var(--black-color)]'><strong>{following}</strong> Following</div>
-                    <div className='text-[var(--black-color)]'><strong>{questionPosted}</strong> Answers </div>
-                    <div className='text-[var(--black-color)]'><strong>{posts}</strong> Posts</div>
-                    <div className='text-[var(--black-color)]'><strong>{answersPosted}</strong> Questions </div>
+                    <div className='text-[var(--black-color)]'>
+                        <strong>{user?.followers?.length || 0}</strong> Followers
+                    </div>
+                    <div className='text-[var(--black-color)]'>
+                        <strong>{user?.following?.length || 0}</strong> Following
+                    </div>
+                    <div className='text-[var(--black-color)]'>
+                        <strong>{user?.answers?.length || 0}</strong> Answers
+                    </div>
+                    <div className='text-[var(--black-color)]'>
+                        <strong>{user?.posts?.length || 0}</strong> Posts
+                    </div>
+                    <div className='text-[var(--black-color)]'>
+                        <strong>{user?.questions?.length || 0}</strong> Questions
+                    </div>
                 </div>
-                <div className="mt-4 p-2 bg-gray-100 rounded text-sm">
-                    <p>🔔 Subscribed </p>
-                    <p>🔴 Expires </p>
+                {user?.subscription && (
+                    <div className="mt-4 p-2 bg-gray-100 rounded text-sm">
+                        <p>🔔 Subscribed: {user.subscription.status}</p>
+                        <p>🔴 Expires: {new Date(user.subscription.expiryDate).toLocaleDateString()}</p>
+                    </div>
+                )}
+                {/* Additional Stats */}
+                <div className="mt-4 border-t pt-4">
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                        <div className="text-[var(--black-color)]">
+                            <strong>{user?.totalLikes || 0}</strong> Total Likes
+                        </div>
+                        <div className="text-[var(--black-color)]">
+                            <strong>{user?.totalComments || 0}</strong> Comments
+                        </div>
+                    </div>
+                </div>
+                {/* User Status */}
+                <div className="mt-4 text-sm">
+                    <span className={`px-2 py-1 rounded-full ${user?.isActive ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                        }`}>
+                        {user?.isActive ? '🟢 Active' : '⚫ Offline'}
+                    </span>
                 </div>
             </div>
         </div>
+
     );
-}
+
+};
+
+
 
 export default ProfileCard;
+
+

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useEffect, useState } from 'react';
 import customFetch from '@/utils/customFetch';
 
 const UserContext = createContext();
@@ -41,11 +41,12 @@ const userReducer = (state, action) => {
 
 export const UserProvider = ({ children }) => {
     const [state, dispatch] = useReducer(userReducer, initialState);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     // Get current user details on mount
     useEffect(() => {
         getCurrentUser();
-    }, []);
+    }, [isLoggedIn]);
 
     const getCurrentUser = async () => {
         try {
@@ -64,6 +65,7 @@ export const UserProvider = ({ children }) => {
             dispatch({ type: 'SET_LOADING', payload: true });
             const { data } = await customFetch.post('/auth/login', userData);
             dispatch({ type: 'SET_USER', payload: data.user });
+            setIsLoggedIn(true);
             return { success: true };
         } catch (error) {
             dispatch({ type: 'SET_ERROR', payload: error.response?.data?.msg || 'Login failed' });
@@ -73,8 +75,9 @@ export const UserProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await customFetch.post('/auth/logout');
+            await customFetch.get('/auth/logout');
             dispatch({ type: 'REMOVE_USER' });
+            setIsLoggedIn(false);
         } catch (error) {
             dispatch({ type: 'SET_ERROR', payload: error.message });
         }

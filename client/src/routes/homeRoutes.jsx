@@ -10,6 +10,7 @@ const Article = lazy(() => import('../pages/articles/Article'));
 import { ArticlesLoader } from '../pages/articles/Articles';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
 import { postsAction, postsLoader } from '@/pages/posts/Posts';
+import { questionsAction } from '@/pages/QaSection/QaSection';
 
 export const homeRoutes = [
     {
@@ -27,6 +28,7 @@ export const homeRoutes = [
                 <QaSection />
             </Suspense>
         ),
+        action: questionsAction
     },
     {
         path: '/answer',
