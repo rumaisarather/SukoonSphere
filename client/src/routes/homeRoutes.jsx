@@ -10,7 +10,8 @@ const Article = lazy(() => import('../pages/articles/Article'));
 import { ArticlesLoader } from '../pages/articles/Articles';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
 import { postsAction, postsLoader } from '@/pages/posts/Posts';
-import { questionsAction } from '@/pages/QaSection/QaSection';
+import { questionsAction, questionsLoader } from '@/pages/QaSection/QaSection';
+import { answerAction, answersLoader } from '@/pages/answer/Answer';
 
 export const homeRoutes = [
     {
@@ -28,7 +29,8 @@ export const homeRoutes = [
                 <QaSection />
             </Suspense>
         ),
-        action: questionsAction
+        action: questionsAction,
+        loader: questionsLoader
     },
     {
         path: '/answer',
@@ -37,6 +39,8 @@ export const homeRoutes = [
                 <Answer />
             </Suspense>
         ),
+        loader: answersLoader,
+        action: answerAction
     },
     {
         path: '/articles',

@@ -17,7 +17,7 @@ const CommentSection = ({
 
     const handleSubmit = async () => {
         if (!newComment.trim()) return;
-        
+
         setIsSubmitting(true);
         try {
             await onAddComment(newComment);
@@ -29,7 +29,7 @@ const CommentSection = ({
 
     return (
         <div className="mt-6">
-            <h3 className="text-lg font-semibold">Comments</h3>
+            {/* <h3 className="text-base font-semibold">Comments</h3> */}
             <div className="mt-4">
                 <ContentEditor
                     content={newComment}
@@ -37,6 +37,8 @@ const CommentSection = ({
                     onSave={handleSubmit}
                     onCancel={() => setNewComment('')}
                     isLoading={isSubmitting}
+                    type="comment"
+                    buttonSize="sm"
                 />
             </div>
             <div className="mt-6">

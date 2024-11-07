@@ -53,7 +53,7 @@ const Comment = ({ comment, onDelete, onEdit, postId }) => {
     };
 
     const handleAddReply = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (!replyContent.trim()) return;
 
         try {
@@ -174,6 +174,7 @@ const Comment = ({ comment, onDelete, onEdit, postId }) => {
                             onCancel={() => setShowReplyForm(false)}
                             isLoading={isLoading}
                             buttonSize="xs"
+                            type="reply"
                         />
                     )}
 

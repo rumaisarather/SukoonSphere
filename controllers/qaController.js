@@ -68,15 +68,7 @@ export const getAllQuestionsWithAnswer = async (req, res) => {
         },
       },
       // Optionally project only the necessary fields (question data + mostLikedAnswer)
-      {
-        $project: {
-          questionText: 1,
-          context: 1,
-          author: 1,
-          tags: 1,
-          mostLikedAnswer: 1, // Include the most liked answer
-        },
-      },
+
     ]);
 
     // If no questions found
