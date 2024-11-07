@@ -10,34 +10,6 @@ import links from "@/utils/SharedComp/PageLinks";
 import { IoIosArrowDropup } from "react-icons/io";
 import DesktopNav from "./DesktopNav";
 import UserMenu from "./UserMenu";
-// import { AiOutlineHome, AiOutlineBarChart } from "react-icons/ai";
-// import { BiMessageSquare } from "react-icons/bi";
-// import { RiFolder2Line } from "react-icons/ri";
-// import { FiUsers } from "react-icons/fi";
-
-// const sampleLinks = [
-//   {
-//     icon: <AiOutlineHome size={20} />,
-//     name: "Dashboard",
-//     address: "/dashboard",
-//   },
-//   {
-//     icon: <AiOutlineBarChart size={20} />,
-//     name: "Analytics",
-//     address: "/analytics",
-//   },
-//   {
-//     icon: <BiMessageSquare size={20} />,
-//     name: "Messages",
-//     address: "/messages",
-//   },
-//   {
-//     icon: <RiFolder2Line size={20} />,
-//     name: "Collections",
-//     address: "/collections",
-//   },
-//   { icon: <FiUsers size={20} />, name: "Users", address: "/users" },
-// ];
 
 function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,17 +21,23 @@ function NavMenu() {
   const toggleMiniMenu = () => setMiniMenu(!miniMenu);
 
   const handleLogout = async () => {
-    await logout();
-    navigate("/");
+    try {
+      await logout();
+      setMenuOpen(false);
+      setMiniMenu(false);
+      navigate("/");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
 
   return (
     <nav className="w-full flex bg-white sticky top-0 items-center justify-between shadow-[0px_1px_10px_rgba(0,0,0,0.1)] z-50 transition-all ease-in-out p-2 h-[65px]">
       <GiHamburgerMenu
-        className="block absolute right-3 md:hidden cursor-pointer text-[1.4rem]"
+        className="block absolute right-3 lg:hidden cursor-pointer text-[1.4rem]"
         onClick={toggleMenu}
       />
-      <div className="flex w-full justify-between items-center px-12">
+      <div className="flex w-full justify-between items-center px-4">
         <img
           src={CompanyLogo}
           className="object-contain w-14"
@@ -85,6 +63,7 @@ function NavMenu() {
         menuOpen={menuOpen}
         toggleMenu={toggleMenu}
         links={links}
+        handleLogout={handleLogout}
       />
     </nav>
   );
@@ -92,7 +71,7 @@ function NavMenu() {
 
 const UserSection = ({ user, miniMenu, toggleMiniMenu, handleLogout }) => (
   <>
-    <div className="flex items-center justify-center gap-2">
+    <div className="hidden lg:flex items-center justify-center gap-2">
       <img
         className="w-9 h-9 rounded-full border-[3px] border-blue-400"
         src={
@@ -116,13 +95,13 @@ const UserSection = ({ user, miniMenu, toggleMiniMenu, handleLogout }) => (
 const AuthButtons = () => (
   <div className="flex gap-2">
     <Link to="/auth/sign-up">
-      <button className="hidden sm:flex bg-white items-center gap-1 rounded-[5px] shadow-[0_2px_0_0_rgba(0,0,0,0.04),_inset_0_0_0_2px_#e0e0e0] transition-all ease-in-out duration-600 text-gray-900 px-3 py-2 text-xs leading-[1.32] hover:bg-[#f2f6ff]">
+      <button className="hidden lg:flex bg-white items-center gap-1 rounded-[5px] shadow-[0_2px_0_0_rgba(0,0,0,0.04),_inset_0_0_0_2px_#e0e0e0] transition-all ease-in-out duration-600 text-gray-900 px-3 py-2 text-xs leading-[1.32] hover:bg-[#f2f6ff]">
         <span>Sign Up</span>
         <FaArrowRightLong />
       </button>
     </Link>
     <Link to="/auth/sign-in">
-      <button className="hidden sm:flex bg-black items-center gap-1 rounded-[5px] transition-all ease-in-out duration-600 text-white px-3 py-2 text-xs leading-[1.32] hover:bg-[#15264e]">
+      <button className="hidden lg:flex bg-black items-center gap-1 rounded-[5px] transition-all ease-in-out duration-600 text-white px-3 py-2 text-xs leading-[1.32] hover:bg-[#15264e]">
         <span>Login</span>
         <FaArrowRightLong />
       </button>
@@ -130,7 +109,7 @@ const AuthButtons = () => (
   </div>
 );
 
-const MobileMenu = ({ user, menuOpen, toggleMenu, links }) => {
+const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
   const [activeSublink, setActiveSublink] = useState(null);
 
   const toggleSublink = (index) => {
@@ -138,7 +117,7 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links }) => {
   };
 
   return (
-    <div className="block md:hidden ">
+    <div className="block lg:hidden ">
       <ul
         className={`fixed inset-y-0 left-0 w-64 bg-[var(--white-color)] transform transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
@@ -147,29 +126,46 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links }) => {
         {/* Close Button */}
         <RxCross2
           onClick={toggleMenu}
-          className="absolute right-2 top-2 text-[var(--primary)] group-hover:text-[var(--ternery)] text-[1.4rem] cursor-pointer"
+          className="absolute right-2 top-2 text-[var(--primary)] group-hover:text-[var(--ternery)] text-[1.2rem] cursor-pointer"
         />
 
         {/* User Profile Section */}
         <div className="px-4 py-4 border-b-[3px]  bg-[var(--white-color)]">
-          <div className="flex  gap-3">
-            <div className="block w-10 h-10 rounded-full bg-[var(--white-color)] overflow-hidden">
-              <img
-                src={
-                  user?.avatar ||
-                  "https://cdn-icons-png.flaticon.com/512/147/147142.png"
-                }
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
+          {user ? (
+            <div className="flex  gap-3">
+              <div className="block w-10 h-10 rounded-full bg-[var(--white-color)] overflow-hidden">
+                <img
+                  src={
+                    user?.avatar ||
+                    "https://cdn-icons-png.flaticon.com/512/147/147142.png"
+                  }
+                  alt="Profile"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <span className="text-[var(--primary)] text-md">
+                  {user?.name}
+                </span>
+                <p className="text-[var(--primary)] text-xs">{user?.email}</p>
+              </div>
             </div>
-            <div>
-              <span className="text-[var(--primary)] text-md">
-                {user?.name}
-              </span>
-              <p className="text-[var(--primary)] text-xs">{user?.email}</p>
+          ) : (
+            <div className="flex gap-2">
+              <Link to="/auth/sign-up">
+                <button className="lg:hidden flex bg-white items-center gap-1 rounded-[5px] shadow-[0_2px_0_0_rgba(0,0,0,0.04),_inset_0_0_0_2px_#e0e0e0] transition-all ease-in-out duration-600 text-gray-900 px-3 py-2 text-xs leading-[1.32] hover:bg-[#f2f6ff]">
+                  <span>Sign Up</span>
+                  <FaArrowRightLong />
+                </button>
+              </Link>
+              <Link to="/auth/sign-in">
+                <button className="lg:hidden flex bg-black items-center gap-1 rounded-[5px] transition-all ease-in-out duration-600 text-white px-3 py-2 text-xs leading-[1.32] hover:bg-[#15264e]">
+                  <span>Login</span>
+                  <FaArrowRightLong />
+                </button>
+              </Link>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Navigation Links */}
@@ -177,12 +173,12 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links }) => {
           {links.map((link, index) => (
             <div key={link.name} className="group">
               <div
-                className="w-full flex items-center gap-3 px-2 py-3 text-[var(--primary)]    cursor-pointer"
+                className="w-full flex items-center gap-3 px-2 py-3 text-[var(--primary)]  cursor-pointer"
                 onClick={() => toggleSublink(index)}
               >
                 {link.icon}
-                <NavLink 
-                  to={link.address} 
+                <NavLink
+                  to={link.address}
                   className="text-sm font-medium"
                   onClick={index === 0 ? toggleMenu : undefined}
                 >
@@ -210,6 +206,50 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links }) => {
             </div>
           ))}
         </nav>
+        {user && (
+          <div className="group px-4 border-t-[3px] ">
+            <div className="w-full flex items-center gap-3 px-2 py-3 text-[var(--primary)] cursor-pointer" onClick={() => toggleSublink('settings')}>
+              <span className="text-sm font-medium">Settings</span>
+              <div className="ml-auto">
+                <IoIosArrowDropup
+                  className={`text-[var(--primary)] group-hover:text-[var(--ternery)] size-6 ${
+                    activeSublink === 'settings' ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+            </div>
+            <div className={`pl-8 overflow-hidden transition-[max-height] duration-300 ease-in-out max-h-0 ${
+              activeSublink === 'settings' ? "max-h-[1000px]" : ""
+            }`}>
+              <ul>
+                <li className="py-2">
+                  <NavLink
+                    to="/user/change-passowrd"
+                    className="flex items-center gap-3 text-[var(--primary)] hover:text-[var(--ternery)]"
+                    onClick={toggleMenu}
+                  >
+                    <div>
+                      - <span className="hover:text-[var(--ternery)]">Change Password</span>
+                    </div>
+                  </NavLink>
+                </li>
+                <li className="py-2">
+                  <div
+                    className="flex items-center gap-3 text-[var(--primary)] hover:text-[var(--ternery)] cursor-pointer"
+                    onClick={() => {
+                      handleLogout();
+                      toggleMenu();
+                    }}
+                  >
+                    <div>
+                      - <span className="hover:text-[var(--ternery)]">Logout</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        )}
       </ul>
     </div>
   );
@@ -231,7 +271,7 @@ const SubLink = ({ sublink, toggleMenu }) => (
       onClick={toggleMenu}
     >
       <div>
-       - <span className="hover:text-[var(--ternery)]">{sublink.name}</span>
+        - <span className="hover:text-[var(--ternery)]">{sublink.name}</span>
       </div>
     </NavLink>
   </li>

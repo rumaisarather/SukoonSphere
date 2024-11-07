@@ -62,9 +62,9 @@ function Infography() {
     <div className="relative my-12 mb-20">
       <SectionTitle title={"Why SukoonSphere?"}></SectionTitle>
 
-      <div className="max-w-7xl mx-auto text-white relative px-6 sm:px-0">
+      <div className="max-w-7xl mx-auto text-white relative px-6 ">
         <div className="max-w-7xl mx-auto relative text-center">
-          <div className="bg-[var(--primary)] text-[--gray-700] text-[12px] sm:text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
+          <div className="bg-[var(--primary)] text-[--gray-700] text-[12px] sm:text-sm inline-flex items-center py-2 px-2 rounded-full mb-4 glossy-effect-bar">
             <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">
               S
             </span>
@@ -80,14 +80,14 @@ function Infography() {
           </div>
           <Link to="about/mental-health">
             <h2
-              className="font-bold text-[var(--grey--900)] hover:text-[var(--ternery)] cursor-pointer text-[1.6rem] sm:text-[3.5rem] sm:leading-[3.5rem]"
+              className="font-bold text-[var(--grey--900)] hover:text-[var(--ternery)] cursor-pointer text-[1.6rem] md:text-[2.5rem] sm:text-[3.5rem] sm:leading-[3.5rem]"
               data-aos="fade-up"
             >
               Mental Health Challenges
             </h2>
           </Link>
           <p
-            className="text-justify sm:text-center text-lg font-light text-[var(--grey--800)]"
+            className=":text-center text-lg font-light text-[var(--grey--800)] md:px-8 lg:px-0"
             data-aos="fade-up"
           >
             Overcoming emotional, psychological, and social hurdles that impact

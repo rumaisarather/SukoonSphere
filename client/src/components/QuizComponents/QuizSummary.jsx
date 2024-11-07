@@ -46,14 +46,14 @@ function QuizSummary({ SummaryTitle, SummarySubtitle, ShortDescription, ContentT
                         alt="Quiz Image"
                         className="md:w-60  object-cover"
                     />
-                    <h3 className="text-lg text-[var(--grey--800)] font-medium my-3 md:mx-4">
+                    <h3 className="text-lg text-[var(--grey--800)] text-justify  font-medium my-3 md:mx-4">
                         {ShortDescription}
                     </h3>
                 </div>
 
                 <div className="mt-4">
                     <h1 className="text-xl md:text-xl lg:text-1xl font-bold text-[var(--black-color)] mb-2">{ContentTitle}</h1>
-                    <h4 className="text-sm md:text-base lg:text-base text-[var(--grey--800)] font-medium">{ContentSubtitle}</h4>
+                    <h4 className="text-sm md:text-base text-justify  text-[var(--grey--800)] font-medium">{ContentSubtitle}</h4>
                 </div>
 
                 <div className="mt-8 flex justify-center sm:justify-start">

@@ -9,9 +9,9 @@ import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     // Main Containerg
-    <div className="bg-[#061c23] mt-6 px-6 sm:px-0">
+    <div className="bg-[#061c23] mt-6 px-6 ">
       {/* Top Container */}
-      <div className="flex-col sm:flex sm:flex-row sm:px-20 py-6 gap-4 ">
+      <div className="flex-col flex lg:flex-row lg:px-20 py-6 gap-4 ">
         <div className="text-white flex flex-col gap-4 mt-4">
           {/* Left container */}
           <h1>Subscribe to People First Dispatch</h1>
