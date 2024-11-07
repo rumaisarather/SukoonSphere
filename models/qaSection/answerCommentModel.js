@@ -23,6 +23,12 @@ const QaCommentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    replies: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "QaComment",
+      },
+    ],
     deleted: {
       type: Boolean,
       default: false,

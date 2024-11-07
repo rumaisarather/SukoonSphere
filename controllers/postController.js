@@ -82,7 +82,7 @@ export const getAllCommentsByPostId = async (req, res) => {
   res.status(StatusCodes.OK).json(postComments);
 };
 export const getAllPostsByUserId = async (req, res) => {
-  const { id: userId } = req.params;
+  const {  userId } = req.user;
   const posts = await postModel.find({ createdBy: userId });
   const postsWithLikes = posts.map((post) => ({
     ...post.toObject(),
