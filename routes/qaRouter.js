@@ -1,12 +1,28 @@
 import { Router } from "express";
 import { authenticateUser } from "../middleware/authMiddleware.js";
-import { addQuestion, createAnswer, createAnswerComment, getAllCommentsByAnswerId, getAllQuestions, getAllQuestionsWithAnswer, getAnswersByQuestionId } from "../controllers/qaController.js";
-import { validateAnswerInput, validateIdParam, validateQaCommentInput, validateQaSectionInput } from "../middleware/validationMiddleware.js";
+import {
+  addQuestion,
+  createAnswer,
+  createAnswerComment,
+  createAnswerReply,
+  getAllAnswerRepliesBYCommentId,
+  getAllCommentsByAnswerId,
+  getAllQuestions,
+  getAllQuestionsWithAnswer,
+  getAnswersByQuestionId,
+} from "../controllers/qaController.js";
+import {
+  validateAnswerInput,
+  validateIdParam,
+  validateQaCommentInput,
+  validateQaSectionInput,
+} from "../middleware/validationMiddleware.js";
 const router = Router();
-
+// question routes
 router.post("/", authenticateUser, validateQaSectionInput, addQuestion);
-router.get("/all-questions",  getAllQuestions);
+router.get("/all-questions", getAllQuestions);
 router.get("/", getAllQuestionsWithAnswer);
+// answerComment routes
 router.post(
   "/answer/:id/add-comment",
   authenticateUser,
@@ -19,8 +35,27 @@ router.get(
   validateIdParam,
   getAllCommentsByAnswerId
 );
+router.post(
+  "/answer/comments/:id/replies",
+  authenticateUser,
+  validateIdParam,
+  validateQaCommentInput,
+  createAnswerReply
+);
+router.get(
+  "/answer/comments/:id/replies",
+  validateIdParam,
+  getAllAnswerRepliesBYCommentId
+);
 
-router.post("/question/:id/add-answer",authenticateUser,validateIdParam,validateAnswerInput, createAnswer);
-router.get("/question/:id/answers",validateIdParam, getAnswersByQuestionId);
+// answer routes
+router.post(
+  "/question/:id/add-answer",
+  authenticateUser,
+  validateIdParam,
+  validateAnswerInput,
+  createAnswer
+);
+router.get("/question/:id/answers", validateIdParam, getAnswersByQuestionId);
 
 export default router;

@@ -1,6 +1,8 @@
 import Question from "../models/qaSection/questionModel.js"; // Adjust the import based on your project structure
 import Answer from "../models/qaSection/answerModel.js";
 import Comment from "../models/qaSection/answerCommentModel.js";
+import Replies from "../models/qaSection/answerReplyModel.js";
+
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError } from "../errors/customErors.js";
 
@@ -162,4 +164,42 @@ export const getAllCommentsByAnswerId = async (req, res) => {
   const { id: postId } = req.params;
   const postComments = await Comment.find({ postId });
   res.status(StatusCodes.OK).json(postComments);
+};
+export const createAnswerReply = async (req, res) => {
+  const { content } = req.body;
+  const { id: parentId } = req.params;
+
+  const comment = await Comment.findById(parentId);
+  const parentReply = await Replies.findById(parentId);
+
+  if (!comment && !parentReply) {
+    throw new BadRequestError("comment or reply not found");
+  }
+
+  const reply = await Replies.create({
+    commentId: comment ? comment._id : parentReply.commentId,
+    createdBy: req.user.userId,
+    username: req.user.username,
+    userAvatar: req.user.avatar,
+    content,
+    commentUserId: comment ? comment.createdBy : parentReply.createdBy,
+    commentUsername: comment ? comment.username : parentReply.username,
+    commentUserAvatar: comment ? comment.userAvatar : parentReply.userAvatar,
+  });
+
+  res.status(StatusCodes.CREATED).json({
+    message: "Reply created successfully",
+    reply,
+  });
+};
+export const getAllAnswerRepliesBYCommentId = async (req, res) => {
+  const { id: commentId } = req.params;
+  const replies = await Replies.find({ commentId });
+  if (replies.length === 0) {
+    return res
+      .status(StatusCodes.OK)
+      .json({ message: "No replies found for this comment", replies: [] });
+  }
+
+  res.status(StatusCodes.OK).json({ replies });
 };
