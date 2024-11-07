@@ -22,16 +22,6 @@ export const signinAction = async ({ request }) => {
 
 const SignIn = () => {
   const { login, isLoading, error } = useUser();
-  const navigate = useNavigate()
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const userData = Object.fromEntries(formData);
-    const result = await login(userData);
-    if (result.success) {
-      navigate("/posts")
-    }
-  };
 
   return (
     <div className="min-h-screen  flex  items-center justify-center p-4 ">
@@ -44,14 +34,13 @@ const SignIn = () => {
           <Form
             method="post"
             className="flex flex-col gap-4 p-4 rounded-[10px] w-full max-w-[500px] mx-auto"
-            onSubmit={handleSubmit}
           >
             <p className="text-red-400 text-center">
               {error && error.split(",")[0]}
             </p>
             <h1 className="font-bold text-[var(--white-color)] text-center text-2xl">Sign In</h1>
 
-            <InputComponent type="email" name="email" placeholder="Enter an email.." /> 
+            <InputComponent type="email" name="email" placeholder="Enter an email.." />
             <InputComponent type="password" name="password" placeholder="Enter password.." />
             <button type="submit" className="btn-2 w-full flex items-center justify-center gap-2">
               Sign In

@@ -88,9 +88,9 @@ function TodaysQuiz() {
     <>
       <SectionTitle title="Recent Quizzes" />
       <div className="max-w-7xl mx-auto  ">
-        <div className="grid grid-cols-1  md:grid-cols-12 gap-4  px-6 sm:px-0">
+        <div className="grid grid-cols-1  lg:grid-cols-12 gap-4  px-6 ">
           <div
-            className=" col-span-12 sm:col-span-5  grid gap-6 bg-white rounded-[20px] shadow-lg"
+            className=" col-span-12 lg:col-span-5  grid gap-6 bg-white rounded-[20px] shadow-lg"
             data-aos="fade-down"
           >
             <QuizQuestions quizQuestionsList={quizQuestions} />

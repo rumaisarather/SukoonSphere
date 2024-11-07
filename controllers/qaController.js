@@ -86,6 +86,7 @@ export const getAllQuestionsWithAnswer = async (req, res) => {
     },
   ]);
 
+
   if (!questions.length) {
     return res
       .status(StatusCodes.NOT_FOUND)

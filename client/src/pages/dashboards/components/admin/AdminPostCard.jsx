@@ -1,10 +1,9 @@
-import React from 'react';
 import { FaEye, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import UserAvatar from '../shared/UserAvatar';
-import DeleteModal from '../shared/DeleteModal';
-import { useState } from 'react';
-import { postAPI } from '@/utils/apiCalls';
+import React, { useState } from 'react';
+import customFetch from '@/utils/customFetch';
+import UserAvatar from '@/components/shared/UserAvatar';
+import DeleteModal from '@/components/shared/DeleteModal';
 
 const AdminPostCard = ({ post, onDelete }) => {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -13,7 +12,7 @@ const AdminPostCard = ({ post, onDelete }) => {
     const handleDelete = async () => {
         try {
             setIsDeleting(true);
-            await postAPI.deletePost(post._id);
+            await customFetch.delete(`/posts/${post._id}`);
             onDelete(post._id);
         } catch (error) {
             console.error('Error deleting post:', error);

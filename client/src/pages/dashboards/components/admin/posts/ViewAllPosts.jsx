@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import AdminPostCard from '@/components/admin/AdminPostCard';
+
 import { useUser } from '@/context/UserContext';
+import AdminPostCard from '../AdminPostCard';
 
 const ViewAllPosts = () => {
     const { user } = useUser();
