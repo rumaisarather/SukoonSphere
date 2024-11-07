@@ -6,6 +6,8 @@ import {
   createAnswerComment,
   createAnswerReply,
   deleteAnswer,
+  deleteAnswerComment,
+  deleteAnswerReply,
   deleteQuestion,
   getAllAnswerRepliesBYCommentId,
   getAllCommentsByAnswerId,
@@ -71,5 +73,19 @@ router.delete(
   validateIdParam,
   deleteAnswer
 );
+router.delete(
+  "/question/answer/comments/:id",
+  authenticateUser,
+  validateIdParam,
+  deleteAnswerComment
+);
+router.delete(
+  "/question/answer/comments/reply/:id",
+  authenticateUser,
+  validateIdParam,
+  deleteAnswerReply
+);
+
+
 
 export default router;

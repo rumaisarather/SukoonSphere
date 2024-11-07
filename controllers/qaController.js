@@ -297,3 +297,44 @@ export const deleteAnswer = async (req, res) => {
 
   session.endSession();
 };
+
+export const  deleteAnswerComment = async (req, res) => {
+  const { id: commentId } = req.params;
+
+  const comment = await Comment.findById(commentId);
+  if (!comment) {
+    throw new BadRequestError("Comment not found");
+  }
+
+  if (comment.createdBy.toString() !== req.user.userId) {
+    throw new UnauthorizedError(
+      "You are not authorized to delete this comment"
+    );
+  }
+
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  await Replies.deleteMany({ commentId }).session(session);
+
+  // Delete the comment itself
+  await Comment.findByIdAndDelete(commentId).session(session);
+
+  await session.commitTransaction();
+  res
+    .status(StatusCodes.OK)
+    .json({ message: "Comment deleted successfully" });
+  session.endSession();
+};
+export const deleteAnswerReply = async (req, res) => {
+  const { id: replyId } = req.params;
+  const reply = await Replies.findById(replyId);
+  if (!reply) {
+    throw new BadRequestError("Reply not found");
+  }
+  if (reply.createdBy.toString() !== req.user.userId) {
+    throw new UnauthorizedError("You are not authorized to delete this reply");
+  }
+  await Replies.findByIdAndDelete(replyId);
+  res.status(StatusCodes.OK).json({ message: "Reply deleted successfully" });
+};
