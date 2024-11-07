@@ -10,34 +10,6 @@ import links from "@/utils/SharedComp/PageLinks";
 import { IoIosArrowDropup } from "react-icons/io";
 import DesktopNav from "./DesktopNav";
 import UserMenu from "./UserMenu";
-// import { AiOutlineHome, AiOutlineBarChart } from "react-icons/ai";
-// import { BiMessageSquare } from "react-icons/bi";
-// import { RiFolder2Line } from "react-icons/ri";
-// import { FiUsers } from "react-icons/fi";
-
-// const sampleLinks = [
-//   {
-//     icon: <AiOutlineHome size={20} />,
-//     name: "Dashboard",
-//     address: "/dashboard",
-//   },
-//   {
-//     icon: <AiOutlineBarChart size={20} />,
-//     name: "Analytics",
-//     address: "/analytics",
-//   },
-//   {
-//     icon: <BiMessageSquare size={20} />,
-//     name: "Messages",
-//     address: "/messages",
-//   },
-//   {
-//     icon: <RiFolder2Line size={20} />,
-//     name: "Collections",
-//     address: "/collections",
-//   },
-//   { icon: <FiUsers size={20} />, name: "Users", address: "/users" },
-// ];
 
 function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
