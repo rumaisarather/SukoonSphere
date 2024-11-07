@@ -1,25 +1,21 @@
 import mongoose from "mongoose";
 
-const replySchema = new mongoose.Schema(
+const AnswerReplySchema = new mongoose.Schema(
   {
     commentId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Comment",
-      required: true,
     },
     parentId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Reply", // Allows referencing another reply for nested replies
-      default: null,
+      ref: "AnswerReply",
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
     },
     username: {
       type: String,
-      required: true,
     },
     userAvatar: {
       type: String,
@@ -48,4 +44,4 @@ const replySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Reply", replySchema);
+export default mongoose.model("AnswerReply", AnswerReplySchema);
