@@ -5,7 +5,8 @@ import Replies from "../models/qaSection/answerReplyModel.js";
 
 import { StatusCodes } from "http-status-codes";
 import { BadRequestError } from "../errors/customErors.js";
-
+import mongoose from "mongoose";
+// question controllers
 export const addQuestion = async (req, res) => {
   const { questionText, context, tags } = req.body;
 
@@ -93,6 +94,7 @@ export const getAllQuestionsWithAnswer = async (req, res) => {
       .json({ msg: "Error fetching questions with answers." });
   }
 };
+// answer controllers
 export const createAnswer = async (req, res) => {
   const { userId, username, avatar } = req.user; // Assuming req.user contains the authenticated user's data
   const { id: questionId } = req.params; // Assuming questionId is passed as a URL param
@@ -124,7 +126,6 @@ export const createAnswer = async (req, res) => {
     answer: newAnswer,
   });
 };
-// Get all answers for a specific question
 export const getAnswersByQuestionId = async (req, res) => {
   const { id: questionId } = req.params;
 
@@ -139,7 +140,7 @@ export const getAnswersByQuestionId = async (req, res) => {
   // Respond with the found answers
   res.status(StatusCodes.OK).json({ answers });
 };
-
+// answer comment controllers
 export const createAnswerComment = async (req, res) => {
   const { content } = req.body;
   const { id: postId } = req.params;
@@ -153,18 +154,18 @@ export const createAnswerComment = async (req, res) => {
   const answer = await Answer.findById(postId);
   answer.comments.push(comment._id);
   await answer.save();
-  
+
   res.status(StatusCodes.CREATED).json({
     message: "Comment created successfully",
     comment,
   });
-
 };
 export const getAllCommentsByAnswerId = async (req, res) => {
   const { id: postId } = req.params;
   const postComments = await Comment.find({ postId });
   res.status(StatusCodes.OK).json(postComments);
 };
+// answerReply controllers
 export const createAnswerReply = async (req, res) => {
   const { content } = req.body;
   const { id: parentId } = req.params;
@@ -202,4 +203,97 @@ export const getAllAnswerRepliesBYCommentId = async (req, res) => {
   }
 
   res.status(StatusCodes.OK).json({ replies });
+};
+// delete controllers
+export const deleteQuestion = async (req, res) => {
+  const { id: postId } = req.params;
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  const question = await Question.findById(postId).session(session);
+  if (!question) {
+    throw new BadRequestError("Question not found");
+  }
+  console.log({
+    question,
+    user: req.user,
+  });
+  if (
+    question.author.userId.toString() !== req.user.userId &&
+    req.user.role !== "admin"
+  ) {
+    throw new UnauthorizedError(
+      "You are not authorized to delete this question"
+    );
+  }
+
+  const answers = await Answer.find({ answeredTo: postId }).session(session);
+  if (answers.length > 0) {
+    const answerIds = answers.map((answer) => answer._id);
+
+    const comments = await Comment.find({
+      postId: { $in: answerIds },
+    }).session(session);
+    if (comments.length > 0) {
+      const commentIds = comments.map((comment) => comment._id);
+
+      await Replies.deleteMany({ commentId: { $in: commentIds } }).session(
+        session
+      );
+
+      await Comment.deleteMany({ postId: { $in: answerIds } }).session(session);
+    }
+
+    await Answer.deleteMany({ answeredTo: postId }).session(session);
+  }
+
+  await Question.deleteOne({ _id: postId }).session(session);
+
+  await session.commitTransaction();
+  session.endSession();
+
+  res.status(StatusCodes.OK).json({
+    message: "Question deleted successfully",
+  });
+};
+
+export const deleteAnswer = async (req, res) => {
+  const { id: answerId } = req.params;
+
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  const answer = await Answer.findById(answerId).session(session);
+  if (!answer) {
+    throw new BadRequestError("Answer not found");
+  }
+
+  if (
+    answer.author.userId.toString() !== req.user.userId &&
+    req.user.role !== "admin"
+  ) {
+    throw new UnauthorizedError("You are not authorized to delete this answer");
+  }
+
+  await Comment.deleteMany({ postId: answerId }).session(session);
+
+  const comments = await Comment.find({ postId: answerId });
+  const commentIds = comments.map((comment) => comment._id);
+  await Replies.deleteMany({ commentId: { $in: commentIds } }).session(session);
+
+  const question = await Question.findOne({ answers: answerId }).session(
+    session
+  );
+  if (question) {
+    question.answers.pull(answerId);
+    await question.save({ session });
+  }
+
+  await Answer.deleteOne({ _id: answerId }).session(session);
+
+  await session.commitTransaction();
+
+  res.status(200).json({ message: "Answer deleted successfully" });
+
+  session.endSession();
 };
