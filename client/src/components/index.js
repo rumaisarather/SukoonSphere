@@ -1,12 +1,14 @@
 import { createOptimizedComponent } from "../utils/CreateOptimizedComponent"
 
 // Shared Components
+
 export { default as Header } from "./sharedComponents/Header";
 export { default as Footer } from "./sharedComponents/Footer";
 export { default as HeaderImg } from "./sharedComponents/HeaderImg";
 export { default as PodcastCard } from "./sharedComponents/PodcastCard";
 
 // Home Components
+
 export const TopIntro = createOptimizedComponent(() => import("./homeComponents/TopIntro"));
 export const Infography = createOptimizedComponent(() => import("./homeComponents/Infography"));
 export const DisorderTags = createOptimizedComponent(() => import("./homeComponents/DisorderTags"));
@@ -20,10 +22,12 @@ export const Podcasts = createOptimizedComponent(() => import("./homeComponents/
 export const TrendingVideos = createOptimizedComponent(() => import("./homeComponents/TrendingVideos"));
 
 // Professional Profile Components
+
 export const Intro = createOptimizedComponent(() => import("./professinalProfileComponents/Intro"));
 export const ProfileDetail = createOptimizedComponent(() => import("./professinalProfileComponents/ProfileDetail"));
 
 // Article Components
+
 export const Article = createOptimizedComponent(() => import("./articleComponents/Article"));
 export const Search = createOptimizedComponent(() => import("./articleComponents/search"));
 export const SimilarArticles = createOptimizedComponent(() => import("./articleComponents/SimilarArticles"));
@@ -32,23 +36,28 @@ export const SideBarArticle = createOptimizedComponent(() => import("./articleCo
 export const Spotlight = createOptimizedComponent(() => import("./articleComponents/Spotlight"));
 
 // Post Components
+
 export const PostModal = createOptimizedComponent(() => import("./posts/PostModel"));
 
 // Quiz Components
+
 export const QuizIntro = createOptimizedComponent(() => import("./quizPageComponents/allQuizzesComponents/QuizIntro"));
 export const QuizList = createOptimizedComponent(() => import("./quizPageComponents/allQuizzesComponents/QuizList"));
 export const FilterQuizByCatagory = createOptimizedComponent(() => import("./quizPageComponents/allQuizzesComponents/filterQuizzesByCatagory"));
 
 // Media Components
+
 export const VideoCard = createOptimizedComponent(() => import("./mediaLibrary/VideoCard"));
 export const RelatedVideoCard = createOptimizedComponent(() => import("./mediaLibrary/RelatedVideoCard"));
 
 // QA Section Components
+
 export const ProfileSidebar = createOptimizedComponent(() => import("./qaSectionsComponents/ProfileSidebar"));
 export const GroupsSidebar = createOptimizedComponent(() => import("./qaSectionsComponents/GroupsSideBar"));
 export const QuestionModal = createOptimizedComponent(() => import("./qaSectionsComponents/QuestionModal"));
 
 // User Profile Components
+
 export const ProfileCard = createOptimizedComponent(() => import("./user/userProfile/ProfileCard"));
 export const ProfileDetails = createOptimizedComponent(() => import("./user/userProfile/ProfileDetails"));
 export const UserPosts = createOptimizedComponent(() => import("./user/userProfile/UserPosts"));
@@ -56,21 +65,19 @@ export const UserAnswers = createOptimizedComponent(() => import("./user/userPro
 export const UserFollowers = createOptimizedComponent(() => import("./user/userProfile/UserFollowers"));
 export const UserFollowing = createOptimizedComponent(() => import("./user/userProfile/UserFollowing"));
 
-
-
 // Admin Components
+
 export const AdminHeader = createOptimizedComponent(() => import("./dashboard/admin/AdminHeader"));
 export const AdminNavbar = createOptimizedComponent(() => import("./dashboard/admin/AdminNavbar"));
 
-
 // Posts Components
+
 export const LikePost = createOptimizedComponent(() => import("./posts/LikePost"));
 
-// const componentCache = new Set();
+// Shared Components
 
-// export const preloadComponent = (Component) => {
-//     if (!componentCache.has(Component)) {
-//         Component.preload?.();
-//         componentCache.add(Component);
-//     }
-// };
+import Spinner from './shared/Spinner';
+
+export {
+    Spinner,
+};

@@ -22,7 +22,6 @@ export const signinAction = async ({ request }) => {
 
 const SignIn = () => {
   const { login, isLoading, error } = useUser();
-  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen  flex  items-center justify-center p-4 ">
@@ -41,7 +40,7 @@ const SignIn = () => {
             </p>
             <h1 className="font-bold text-[var(--white-color)] text-center text-2xl">Sign In</h1>
 
-            <InputComponent type="email" name="email" placeholder="Enter an email.." /> 
+            <InputComponent type="email" name="email" placeholder="Enter an email.." />
             <InputComponent type="password" name="password" placeholder="Enter password.." />
             <button type="submit" className="btn-2 w-full flex items-center justify-center gap-2">
               Sign In

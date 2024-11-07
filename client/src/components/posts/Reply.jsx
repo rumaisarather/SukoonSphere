@@ -27,7 +27,7 @@ const Reply = ({ reply, onDelete, onEdit, postId, commentId }) => {
     };
 
     const handleAddNestedReply = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (!replyContent.trim()) return;
 
         try {
@@ -85,6 +85,7 @@ const Reply = ({ reply, onDelete, onEdit, postId, commentId }) => {
                             onSave={handleEdit}
                             onCancel={() => setIsEditing(false)}
                             isLoading={false}
+                            type="reply"
                             buttonSize="xs"
                         />
                     ) : (
@@ -116,7 +117,6 @@ const Reply = ({ reply, onDelete, onEdit, postId, commentId }) => {
                         Reply
                     </button>
                 )}
-
             </div>
 
             {/* Nested Reply Form */}
@@ -128,6 +128,7 @@ const Reply = ({ reply, onDelete, onEdit, postId, commentId }) => {
                     onCancel={() => setShowReplyForm(false)}
                     isLoading={isLoading}
                     buttonSize="xs"
+                    type="reply"
                 />
             )}
 
