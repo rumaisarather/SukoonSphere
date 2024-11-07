@@ -5,6 +5,8 @@ import {
   createAnswer,
   createAnswerComment,
   createAnswerReply,
+  deleteAnswer,
+  deleteQuestion,
   getAllAnswerRepliesBYCommentId,
   getAllCommentsByAnswerId,
   getAllQuestions,
@@ -57,5 +59,17 @@ router.post(
   createAnswer
 );
 router.get("/question/:id/answers", validateIdParam, getAnswersByQuestionId);
+router.delete(
+  "/question/:id",
+  authenticateUser,
+  validateIdParam,
+  deleteQuestion
+);
+router.delete(
+  "/question/answer/:id",
+  authenticateUser,
+  validateIdParam,
+  deleteAnswer
+);
 
 export default router;
