@@ -10,15 +10,15 @@ const OurStory = () => {
     <>
       <SectionTitle title={"Our Story"}></SectionTitle>
       <div
-        className=" max-w-7xl mx-auto px-4 md:px-0 bg-[--primary] text-white rounded-[20px]"
+        className=" max-w-7xl mx-auto px-4  bg-[--primary] text-white rounded-[20px]"
         data-aos="fade-up"
       >
-        <div className="flex flex-col-reverse  md:flex-row items-center justify-between  md:space-y-0 md:space-x-8">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between  md:space-y-0 lg:space-x-8">
           <div
-            className="md:w-1/2 space-y-6 py-4 sm:py-0 sm:p-8"
+            className="lg:w-1/2 space-y-6 py-4 sm:py-0 sm:p-8"
             data-aos="fade-up"
           >
-            <div className="bg-[var(--grey--900)] text-[--gray-700] text-sm hidden sm:inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
+            <div className="bg-[var(--grey--900)] text-[--gray-700] text-sm hidden lg:inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
               <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">
                 N
               </span>
@@ -33,7 +33,7 @@ const OurStory = () => {
               </Link>
             </div>
             <h2
-              className=" font-bold text-[1.6rem] sm:text-[3rem] sm:leading-[3.5rem]"
+              className=" font-bold text-[1.6rem] md:text-[2.5rem] sm:text-[3rem] sm:leading-[3.5rem]"
               data-aos="fade-up"
             >
               {" "}
@@ -50,7 +50,7 @@ const OurStory = () => {
             <hr />
             <div>
               <Link to="/about-us">
-                <button className="btn-4 glossy-effect-bar mb-4 sm:mb-0">
+                <button className="btn-4 glossy-effect-bar mb-6 lg:mb-0">
                   Know more
                   <MdOutlineReadMore className="ml-2" size={20} />
                 </button>
@@ -60,11 +60,11 @@ const OurStory = () => {
 
           {/* Right Side: Video Section */}
           <div
-            className="w-full relative md:w-1/2 flex flex-col justify-center items-center sm:p-12"
+            className="w-full relative lg:w-1/2 flex flex-col justify-center items-center md:px-8 lg:p-12 "
             data-aos="fade-left"
             data-aos-duration="1500"
           >
-            <div className="sm:hidden bg-[var(--grey--900)] mt-4 text-[--gray-700] text-sm inline-flex items-center py-2 px-3 rounded-full mb-4 glossy-effect-bar">
+            <div className="lg:hidden bg-[var(--grey--900)] md:mt-4 text-[--gray-700] text-sm inline-flex  lg:items-center md:py-2 px-3 my-4 rounded-full  glossy-effect-bar">
               <span className="bg-[#01427a] text-white rounded-full w-4 h-4 flex items-center justify-center mr-2">
                 N
               </span>
@@ -79,7 +79,7 @@ const OurStory = () => {
               </Link>
             </div>
             <div
-              className={`w-full h-[20rem] bg-contain bg-center flex justify-center items-center sm:h-[30rem] bg-[url(${bgImg})]`}
+              className={`w-full  bg-contain bg-center flex justify-center items-center lg:h-[30rem] bg-[url(${bgImg})]`}
             >
               <div className="relative w-full h-72 md:h-96 flex justify-center items-center ">
                 <video

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import bg_hero from "../../assets/images/bg-mind-img.png";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
@@ -33,7 +32,7 @@ const TopIntro = () => {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-[1.6rem] sm:text-[3.5rem] sm:leading-[3.5rem] mb-4 font-extrabold text-[var(--grey--900)] ">
+          <h2 className="text-[1.6rem] md:text-[2.5rem] sm:text-[3.5rem] sm:leading-[3.5rem] mb-4 font-extrabold text-[var(--grey--900)] ">
             Empowering you to Heal, Grow, and Thrive
           </h2>
 
@@ -72,7 +71,7 @@ const TopIntro = () => {
           <img
             src={bg_hero}
             alt="Healthcare Illustration"
-            className="w-full hidden sm:block sm:max-w-full h-auto"
+            className="w-full hidden lg:block sm:max-w-full h-auto"
           />
         </div>
       </div>

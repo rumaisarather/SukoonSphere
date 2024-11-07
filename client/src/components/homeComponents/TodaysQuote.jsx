@@ -20,8 +20,6 @@ const TodaysQuote = () => {
         { id: 6, color: "bg-teal-400", text: "Resilience", description: "Do not rush the process of healing. Seeking support is a sign of strength, not weakness.", navLInk: 'media/all-videos', buttonText: 'Watch some videos' },
     ];
 
-
-
     const handleWidgetClick = (id) => {
         setActiveWidget((prevId) => (prevId === id ? null : id));
     };
@@ -51,8 +49,8 @@ const TodaysQuote = () => {
                     SukoonSphere: Personalized Quotes
                 </Link>
             </div>
-            <h2 className="font-bold text-[var(--grey--900)]  sm:h2" data-aos="fade-up">Open a Quote to get started!</h2>
-            <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden p-4 ">
+            <h2 className="font-bold text-[var(--grey--900)]  text-[1.6rem] md:text-[2.5rem] sm:text-[3.5rem] sm:leading-[3.5rem]" data-aos="fade-up">Open a Quote to get started!</h2>
+            <div className="relative w-full h-[45vh] lg:h-[80vh] flex items-center justify-center overflow-hidden p-4 ">
                 {widgets.map((widget, index) => (
                     <div
                         key={widget.id}
