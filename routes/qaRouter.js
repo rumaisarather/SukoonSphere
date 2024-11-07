@@ -14,6 +14,8 @@ import {
   getAllQuestions,
   getAllQuestionsWithAnswer,
   getAnswersByQuestionId,
+  getUserAnswers,
+  getUserQuestions,
 } from "../controllers/qaController.js";
 import {
   validateAnswerInput,
@@ -26,6 +28,7 @@ const router = Router();
 router.post("/", authenticateUser, validateQaSectionInput, addQuestion);
 router.get("/all-questions", getAllQuestions);
 router.get("/", getAllQuestionsWithAnswer);
+router.get("/questions/user/:id",authenticateUser,validateIdParam, getUserQuestions);
 // answerComment routes
 router.post(
   "/answer/:id/add-comment",
@@ -85,6 +88,8 @@ router.delete(
   validateIdParam,
   deleteAnswerReply
 );
+
+router.get("/answers/user/:id", authenticateUser,validateIdParam, getUserAnswers);
 
 
 

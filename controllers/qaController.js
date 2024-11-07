@@ -39,53 +39,63 @@ export const getAllQuestions = async (req, res) => {
   const questions = await Question.find({});
   res.status(StatusCodes.OK).json({ questions });
 };
+export const getUserQuestions = async (req, res) => {
+  const { userId } = req.user;
+  const questions = await Question.find({ "author.userId": userId });
+  res.status(StatusCodes.OK).json({ questions });
+};
 
 export const getAllQuestionsWithAnswer = async (req, res) => {
-  try {
-    const questions = await Question.aggregate([
-      {
-        $lookup: {
-          from: "answers", // Join the Answer collection
-          localField: "_id", // Field in Question model (Question's ObjectId)
-          foreignField: "answeredTo", // Field in Answer model (answeredTo is the reference to the Question)
-          as: "answers", // The resulting array of answers will be placed in this field
-        },
+  const questions = await Question.aggregate([
+    {
+      $lookup: {
+        from: "answers",
+        localField: "_id",
+        foreignField: "answeredTo",
+        as: "answers",
       },
-      // Add a new field 'mostLikedAnswer' that will hold the most liked answer
-      {
-        $addFields: {
-          mostLikedAnswer: {
-            $arrayElemAt: [
-              {
-                $sortArray: {
-                  input: "$answers",
-                  sortBy: { likes: -1 }, // Sort answers by number of likes in descending order
-                },
+    },
+    {
+      $match: {
+        "answers.0": { $exists: true }, // Only include questions with at least one answer
+      },
+    },
+    {
+      $addFields: {
+        mostLikedAnswer: {
+          $arrayElemAt: [
+            {
+              $sortArray: {
+                input: "$answers",
+                sortBy: { likes: -1 }, // Sort by number of likes in descending order
               },
-              0, // Take the first (most liked) answer
-            ],
-          },
+            },
+            0, // Get the first (most liked) answer
+          ],
         },
       },
-      // Optionally project only the necessary fields (question data + mostLikedAnswer)
+    },
+    {
+      $project: {
+        questionText: 1,
+        context: 1,
+        author: 1,
+        tags: 1,
+        mostLikedAnswer: 1,
+      },
+    },
+  ]);
 
-    ]);
 
-    // If no questions found
-    if (!questions.length) {
-      return res
-        .status(StatusCodes.NOT_FOUND)
-        .json({ msg: "No questions found." });
-    }
-
-    res.status(StatusCodes.OK).json({ questions });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ msg: "Error fetching questions with answers." });
+  if (!questions.length) {
+    return res
+      .status(StatusCodes.NOT_FOUND)
+      .json({ msg: "No questions found with answers." });
   }
+
+  res.status(StatusCodes.OK).json({ questions });
 };
+
 // answer controllers
 export const createAnswer = async (req, res) => {
   const { userId, username, avatar } = req.user; // Assuming req.user contains the authenticated user's data
@@ -132,6 +142,11 @@ export const getAnswersByQuestionId = async (req, res) => {
   // Respond with the found answers
   res.status(StatusCodes.OK).json({ answers });
 };
+export const getUserAnswers = async (req, res) => {
+  const { userId } = req.user;
+  const answers = await Answer.find({ "author.userId": userId });
+  res.status(StatusCodes.OK).json({ answers });
+};
 // answer comment controllers
 export const createAnswerComment = async (req, res) => {
   const { content } = req.body;
@@ -155,7 +170,7 @@ export const createAnswerComment = async (req, res) => {
 export const getAllCommentsByAnswerId = async (req, res) => {
   const { id: postId } = req.params;
   const postComments = await Comment.find({ postId });
-  res.status(StatusCodes.OK).json(postComments);
+  res.status(StatusCodes.OK).json({ comments: postComments });
 };
 // answerReply controllers
 export const createAnswerReply = async (req, res) => {
@@ -180,6 +195,8 @@ export const createAnswerReply = async (req, res) => {
     commentUserAvatar: comment ? comment.userAvatar : parentReply.userAvatar,
   });
 
+  comment.replies.push(reply._id);
+  await comment.save();
   res.status(StatusCodes.CREATED).json({
     message: "Reply created successfully",
     reply,
@@ -290,7 +307,7 @@ export const deleteAnswer = async (req, res) => {
   session.endSession();
 };
 
-export const  deleteAnswerComment = async (req, res) => {
+export const deleteAnswerComment = async (req, res) => {
   const { id: commentId } = req.params;
 
   const comment = await Comment.findById(commentId);
@@ -313,9 +330,7 @@ export const  deleteAnswerComment = async (req, res) => {
   await Comment.findByIdAndDelete(commentId).session(session);
 
   await session.commitTransaction();
-  res
-    .status(StatusCodes.OK)
-    .json({ message: "Comment deleted successfully" });
+  res.status(StatusCodes.OK).json({ message: "Comment deleted successfully" });
   session.endSession();
 };
 export const deleteAnswerReply = async (req, res) => {
