@@ -6,6 +6,8 @@ import ContentEditor from '../ContentEditor';
 import Reply from './Reply';
 import customFetch from '@/utils/customFetch';
 import { FaReply } from 'react-icons/fa';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import DeleteModal from '../DeleteModal';
 
 const Comment = ({
     comment,
@@ -22,7 +24,9 @@ const Comment = ({
     const [showReplyForm, setShowReplyForm] = useState(false);
     const [replyContent, setReplyContent] = useState('');
     const [replies, setReplies] = useState([]);
-
+    const [showActionModal, setShowActionModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
 
     const handleSave = async () => {
         await onEdit(comment._id, editedContent);
@@ -33,6 +37,19 @@ const Comment = ({
         setEditedContent(comment.content);
         setIsEditing(false);
     };
+
+    const handleDelete = async () => {
+        try {
+            setIsDeleting(true);
+            await onDelete(comment._id);
+            setShowDeleteModal(false);
+        } catch (error) {
+            console.error('Failed to delete comment:', error);
+        } finally {
+            setIsDeleting(false);
+        }
+    };
+
     const handleAddReply = async () => {
         if (!replyContent.trim()) return;
         try {
@@ -85,6 +102,27 @@ const Comment = ({
                                 onDelete={() => onDelete(comment._id)}
                                 onReply={() => onReply(comment._id)}
                             />
+                        )}
+                        {true && (
+                            <div className="relative">
+                                <BsThreeDotsVertical
+                                    className="text-black cursor-pointer"
+                                    onClick={() => setShowActionModal(!showActionModal)}
+                                />
+                                {showActionModal && (
+                                    <div className="absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg z-10">
+                                        <button
+                                            className="w-full px-4 py-2 text-left text-red-600 hover:bg-gray-100 rounded-lg"
+                                            onClick={() => {
+                                                setShowDeleteModal(true);
+                                                setShowActionModal(false);
+                                            }}
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                         )}
                     </div>
 
@@ -153,6 +191,15 @@ const Comment = ({
                     ))}
                 </div>
             )}
+            <DeleteModal
+                isOpen={showDeleteModal}
+                onClose={() => setShowDeleteModal(false)}
+                onDelete={handleDelete}
+                title="Delete Comment"
+                message="Are you sure you want to delete this comment?"
+                itemType="comment"
+                isLoading={isDeleting}
+            />
         </div>
     );
 };

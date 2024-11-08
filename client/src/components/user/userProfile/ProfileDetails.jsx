@@ -1,4 +1,5 @@
-import { ProfileNavigationLinks } from '@/utils/SharedComp/profileNavigationLinks'
+
+import { ProfileNavigationLinks } from '@/utils/SharedComp/ProfileNavigationLinks'
 import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 

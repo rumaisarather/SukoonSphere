@@ -23,15 +23,16 @@ const Answer = ({ answer, onError }) => {
 
     if (!answer) return null;
 
-    const fetchAnswer = async () => {
+    const fetchComments = async () => {
         try {
             const { data } = await customFetch.get(`/qa-section/answer/${answer._id}/all-comments`);
-            setComments(data || []);
+            setComments(data.comments || []);
         } catch (error) {
             handleCommentError(error?.response?.data?.msg || 'Failed to fetch answer');
             throw error;
         }
     }
+
 
     const handleAddComment = async (content) => {
         try {
@@ -48,7 +49,7 @@ const Answer = ({ answer, onError }) => {
 
     const handleDeleteComment = async (commentId) => {
         try {
-            await customFetch.delete(`/qa-section/answer/${answer._id}/delete-comment/${commentId}`);
+            await customFetch.delete(`/qa-section/question/answer/comments/${commentId}`);
             setComments(prev => prev.filter(comment => comment._id !== commentId));
         } catch (error) {
             handleCommentError(error?.response?.data?.msg || 'Failed to delete comment');
@@ -71,9 +72,18 @@ const Answer = ({ answer, onError }) => {
 
     useEffect(() => {
         if (showComments) {
-            fetchAnswer();
+            fetchComments();
         }
     }, [showComments]);
+
+    const handleDeleteReply = async (replyId) => {
+        try {
+            await customFetch.delete(`/qa-section/question/answer/comments/reply/${replyId}`);
+        } catch (error) {
+            handleCommentError(error?.response?.data?.msg || 'Failed to delete reply');
+            throw error;
+        }
+    }
 
     return (
         <div className="pl-4 border-l-2 border-gray-300">
@@ -145,6 +155,7 @@ const Answer = ({ answer, onError }) => {
                         onDeleteComment={handleDeleteComment}
                         onLikeComment={() => { }}
                         onReplyToComment={() => { }}
+                        onDeleteReply={handleDeleteReply}
                         currentUser={user}
                         type="answer"
                     />

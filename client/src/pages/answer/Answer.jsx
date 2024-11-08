@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GroupsSidebar, HeaderImg, ProfileSidebar, Spinner } from "@/components";
 import { useAuth0 } from "@auth0/auth0-react";
 import customFetch from "@/utils/customFetch";
@@ -40,6 +40,14 @@ const Answer = () => {
   const { allQuestions, error: loadError } = useLoaderData();
   const [isLoading, setIsLoading] = useState(false);
   const actionData = useActionData();
+
+  // Reset form and close answer section when form is submitted successfully
+  useEffect(() => {
+    if (actionData?.success) {
+      setSelectedQuestionId(null);
+      setNewAnswer("");
+    }
+  }, [actionData]);
 
   const groups = [
     {
@@ -123,9 +131,6 @@ const Answer = () => {
                       src={question.author.picture || "default-avatar-url"}
                       alt={question.author.name}
                       className="w-10 h-10 rounded-full mr-2"
-                      onError={(e) => {
-                        e.target.src = "default-avatar-url";
-                      }}
                     />
                     <div>
                       <p className="font-semibold text-[var(--primary)]">
