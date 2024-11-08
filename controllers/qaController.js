@@ -86,7 +86,6 @@ export const getAllQuestionsWithAnswer = async (req, res) => {
     },
   ]);
 
-
   if (!questions.length) {
     return res
       .status(StatusCodes.NOT_FOUND)
@@ -329,19 +328,45 @@ export const deleteAnswerComment = async (req, res) => {
   // Delete the comment itself
   await Comment.findByIdAndDelete(commentId).session(session);
 
+  // Remove comment from answer's comments array
+  const answer = await Answer.findOne({ comments: commentId }).session(session);
+  if (answer) {
+    answer.comments.pull(commentId);
+    await answer.save({ session });
+  }
+
   await session.commitTransaction();
   res.status(StatusCodes.OK).json({ message: "Comment deleted successfully" });
   session.endSession();
 };
 export const deleteAnswerReply = async (req, res) => {
   const { id: replyId } = req.params;
+
   const reply = await Replies.findById(replyId);
   if (!reply) {
     throw new BadRequestError("Reply not found");
   }
+
   if (reply.createdBy.toString() !== req.user.userId) {
-    throw new UnauthorizedError("You are not authorized to delete this reply");
+    throw new UnauthorizedError(
+      "You are not authorized to delete this reply"
+    );
   }
-  await Replies.findByIdAndDelete(replyId);
+
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  // Delete the reply
+  await Replies.findByIdAndDelete(replyId).session(session);
+
+  // Remove reply from comment's replies array
+  const comment = await Comment.findOne({ replies: replyId }).session(session);
+  if (comment) {
+    comment.replies.pull(replyId);
+    await comment.save({ session });
+  }
+
+  await session.commitTransaction();
   res.status(StatusCodes.OK).json({ message: "Reply deleted successfully" });
+  session.endSession();
 };
