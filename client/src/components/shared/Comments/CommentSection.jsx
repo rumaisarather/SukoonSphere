@@ -42,7 +42,7 @@ const CommentSection = ({
                 />
             </div>
             <div className="mt-6">
-                {comments.map((comment) => (
+                {comments?.map((comment) => (
                     <Comment
                         key={comment._id}
                         comment={comment}

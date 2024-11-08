@@ -51,7 +51,7 @@ const DeleteModal = ({
                         <button
                             onClick={onDelete}
                             disabled={isLoading}
-                            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors disabled:opacity-50"
+                            className="btn-red transition-colors disabled:opacity-50"
                         >
                             {isLoading ? 'Deleting...' : `Delete ${itemType}`}
                         </button>

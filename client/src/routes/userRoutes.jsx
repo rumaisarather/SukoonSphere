@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from 'react';
 import LoadingSpinner from '@/components/loaders/LoadingSpinner';
+import { UserAnswers } from '@/components';
 const ProfessionalsProfile = lazy(() => import('../pages/professionalProfile/ProfessionalsProfile'));
 const UserProfile = lazy(() => import('../pages/about/UserProfile'));
 const UserPosts = lazy(() => import('../components/user/userProfile/UserPosts'));
-const UserAnswers = lazy(() => import('../components/user/userProfile/UserAnswers'));
+const UserQuestions = lazy(() => import('../components/user/userProfile/UserQuestion'));
 const UserFollowers = lazy(() => import('../components/user/userProfile/UserFollowing'));
 const UserFollowing = lazy(() => import('../components/user/userProfile/UserFollowing'));
 
@@ -29,6 +30,14 @@ export const userRoutes = [
                 element: (
                     <Suspense fallback={<LoadingSpinner />}>
                         <UserPosts />
+                    </Suspense>
+                ),
+            },
+            {
+                path: 'questions',
+                element: (
+                    <Suspense fallback={<LoadingSpinner />}>
+                        <UserQuestions />
                     </Suspense>
                 ),
             },

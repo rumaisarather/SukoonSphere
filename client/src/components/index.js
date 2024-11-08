@@ -62,6 +62,7 @@ export const ProfileCard = createOptimizedComponent(() => import("./user/userPro
 export const ProfileDetails = createOptimizedComponent(() => import("./user/userProfile/ProfileDetails"));
 export const UserPosts = createOptimizedComponent(() => import("./user/userProfile/UserPosts"));
 export const UserAnswers = createOptimizedComponent(() => import("./user/userProfile/UserAnswers"));
+export const UserQuestions = createOptimizedComponent(() => import("./user/userProfile/UserQuestion"));
 export const UserFollowers = createOptimizedComponent(() => import("./user/userProfile/UserFollowers"));
 export const UserFollowing = createOptimizedComponent(() => import("./user/userProfile/UserFollowing"));
 

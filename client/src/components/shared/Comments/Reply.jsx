@@ -13,6 +13,7 @@ const Reply = ({
     onEdit,
     onDelete,
     onLike,
+    onDeleteReply,
     currentUser,
     type = 'post',
     commentId
@@ -27,8 +28,10 @@ const Reply = ({
     const [nestedReplies, setNestedReplies] = useState([]);
     const [showNestedReplies, setShowNestedReplies] = useState(false);
 
+
     const handleSave = async () => {
         await onEdit(reply._id, editedContent);
+
         setIsEditing(false);
     };
 
@@ -59,13 +62,15 @@ const Reply = ({
             setIsLoading(false);
         }
     };
-
     const fetchNestedReplies = async () => {
         try {
-            const { data } = await customFetch.get(`/qa-section/answer/comments/${commentId}/replies/${reply._id}/nested`);
-            setNestedReplies(data.replies || []);
+            const { data: { replies = [] } } = await customFetch.get(
+                `/qa-section/answer/comments/${commentId}/replies/${reply._id}/nested`
+            );
+            setNestedReplies(replies);
         } catch (error) {
             console.error('Failed to fetch nested replies:', error);
+            setNestedReplies([]); // Reset to empty array on error
         }
     };
 
@@ -116,7 +121,7 @@ const Reply = ({
 
                     {isAuthor && (
                         <button
-                            onClick={() => onDelete(reply._id)}
+                            onClick={() => onDeleteReply(reply._id)}
                             className='text-red-500 hover:text-red-600 transition-colors'
                         >
                             Delete

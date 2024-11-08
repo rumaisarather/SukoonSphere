@@ -5,12 +5,12 @@ export const ProfileNavigationLinks = [
     },
     {
         name: "Questions",
+        address: "/about/user/questions",
+    },
+    {
+        name: "Answers",
         address: "/about/user/answers",
     },
-    // {
-    //     name: "Answers",
-    //     address: "/",
-    // },
     {
         name: "Followers",
         address: "/about/user/followers",
