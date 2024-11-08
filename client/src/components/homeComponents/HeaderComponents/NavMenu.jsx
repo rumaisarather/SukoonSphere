@@ -7,9 +7,11 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { useUser } from "@/context/UserContext";
 import CompanyLogo from "../../../assets/images/SukoonSphere_Logo.png";
 import links from "@/utils/SharedComp/PageLinks";
-import { IoIosArrowDropup } from "react-icons/io";
+import { MdKeyboardArrowUp } from "react-icons/md"
 import DesktopNav from "./DesktopNav";
 import UserMenu from "./UserMenu";
+import { IoSettingsOutline } from "react-icons/io5";
+import { MdOutlinePassword } from "react-icons/md";
 
 function NavMenu() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,7 +39,7 @@ function NavMenu() {
         className="block absolute right-3 lg:hidden cursor-pointer text-[1.4rem]"
         onClick={toggleMenu}
       />
-      <div className="flex w-full justify-between items-center px-4">
+      <div className="flex w-full justify-between items-center px-4 lg:px-20">
         <img
           src={CompanyLogo}
           className="object-contain w-14"
@@ -130,9 +132,9 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
         />
 
         {/* User Profile Section */}
-        <div className="px-4 py-4 border-b-[3px]  bg-[var(--white-color)]">
+        <div className="px-4 py-1 border-b-[3px]  bg-[var(--white-color)]">
           {user ? (
-            <div className="flex  gap-3">
+            <div className="flex items-center gap-3">
               <div className="block w-10 h-10 rounded-full bg-[var(--white-color)] overflow-hidden">
                 <img
                   src={
@@ -143,8 +145,8 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div>
-                <span className="text-[var(--primary)] text-md">
+              <div className="flex flex-col gap-1 mt-3">
+                <span className="text-[var(--primary)] text-md ">
                   {user?.name}
                 </span>
                 <p className="text-[var(--primary)] text-xs">{user?.email}</p>
@@ -169,7 +171,7 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="px-4 bg-[var(--white-color)]">
+        <nav className="px-2 bg-[var(--white-color)]">
           {links.map((link, index) => (
             <div key={link.name} className="group">
               <div
@@ -186,7 +188,7 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
                 </NavLink>
                 {link.sublinks && (
                   <div className="ml-auto">
-                    <IoIosArrowDropup
+                    <MdKeyboardArrowUp
                       className={`text-[var(--primary)] group-hover:text-[var(--ternery)]  size-6 ${
                         activeSublink === index ? "rotate-180" : ""
                       }`}
@@ -207,11 +209,11 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
           ))}
         </nav>
         {user && (
-          <div className="group px-4 border-t-[3px] ">
+          <div className="group px-2 border-t-[3px] ">
             <div className="w-full flex items-center gap-3 px-2 py-3 text-[var(--primary)] cursor-pointer" onClick={() => toggleSublink('settings')}>
-              <span className="text-sm font-medium">Settings</span>
+            <IoSettingsOutline/> <span className="text-sm font-medium">Settings</span>
               <div className="ml-auto">
-                <IoIosArrowDropup
+                <MdKeyboardArrowUp
                   className={`text-[var(--primary)] group-hover:text-[var(--ternery)] size-6 ${
                     activeSublink === 'settings' ? "rotate-180" : ""
                   }`}
@@ -228,8 +230,8 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
                     className="flex items-center gap-3 text-[var(--primary)] hover:text-[var(--ternery)]"
                     onClick={toggleMenu}
                   >
-                    <div>
-                      - <span className="hover:text-[var(--ternery)]">Change Password</span>
+                    <div className="flex items-center gap-2">
+                     <MdOutlinePassword/> <span className="hover:text-[var(--ternery)]">Change Password</span>
                     </div>
                   </NavLink>
                 </li>
@@ -242,7 +244,7 @@ const MobileMenu = ({ user, menuOpen, toggleMenu, links, handleLogout }) => {
                     }}
                   >
                     <div>
-                      - <span className="hover:text-[var(--ternery)]">Logout</span>
+                      -  <span className="hover:text-[var(--ternery)]">Logout</span>
                     </div>
                   </div>
                 </li>
@@ -270,8 +272,8 @@ const SubLink = ({ sublink, toggleMenu }) => (
       className="flex items-center gap-3 text-[var(--primary)] hover:text-[var(--ternery)]"
       onClick={toggleMenu}
     >
-      <div>
-        - <span className="hover:text-[var(--ternery)]">{sublink.name}</span>
+      <div className="flex items-center gap-2">
+         {sublink.icon} <span className="hover:text-[var(--ternery)]">{sublink.name}</span>
       </div>
     </NavLink>
   </li>
