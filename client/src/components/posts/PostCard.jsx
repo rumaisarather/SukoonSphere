@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { FaRegComments } from 'react-icons/fa6';
-import { Share1Icon } from '@radix-ui/react-icons';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { LikePost } from '@/components';
 import CommentSection from './CommentSection';
 import { useUser } from '@/context/UserContext';
-import ActionButtons from '../shared/ActionButtons';
 import DeleteModal from '../shared/DeleteModal';
 import customFetch from '@/utils/customFetch';
 
@@ -34,7 +32,7 @@ const PostCard = ({ post, onPostDelete }) => {
 
     return (
         <>
-            <div className=" mb-4 p-3 sm:p-4 border rounded-[10px]  bg-[var(--white-color)] ">
+            <div className="mb-4 p-3 sm:p-4 border rounded-[10px] bg-[var(--white-color)]">
                 {/* Post Header */}
                 <div className="flex items-center mb-4 justify-between flex-wrap gap-2">
                     <div className="flex items-center">
@@ -51,48 +49,45 @@ const PostCard = ({ post, onPostDelete }) => {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                        <span className=" bg-[var(--btn-primary)] text-white px-2 py-1 rounded-[4px] cursor-pointer">
-                            Follow
-                        </span>
-                        {isAuthor && (
-                            <div className="relative">
-                                <BsThreeDotsVertical
-                                    className="text-black cursor-pointer"
-                                    onClick={() => setShowActionModal(!showActionModal)}
-                                />
-                                {showActionModal && (
-                                    <div className="absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg z-10">
-                                        <button
-                                            className="w-full px-4 py-2 text-left text-red-600 hover:bg-gray-100 rounded-lg"
-                                            onClick={() => {
-                                                setShowDeleteModal(true);
-                                                setShowActionModal(false);
-                                            }}
-                                        >
-                                            Delete Post
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-                        )}
-                    </div>
+                    {isAuthor && (
+                        <div className="relative">
+                            <BsThreeDotsVertical
+                                className="text-black cursor-pointer"
+                                onClick={() => setShowActionModal(!showActionModal)}
+                            />
+                            {showActionModal && (
+                                <div className="absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg z-10">
+                                    <button
+                                        className="w-full px-4 py-2 text-left text-red-600 hover:bg-gray-100 rounded-lg"
+                                        onClick={() => {
+                                            setShowDeleteModal(true);
+                                            setShowActionModal(false);
+                                        }}
+                                    >
+                                        Delete Post
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
 
                 {/* Post Image */}
                 {post?.imageUrl && (
-                    <img
-                        src={post?.imageUrl || 'default-image.jpg'}
-                        alt="Post visual"
-                        className="w-full h-[200px] sm:h-[300px] object-contain rounded-lg mb-4"
-                    />
+                    <div className="w-full h-[200px] sm:h-[300px] rounded-lg overflow-hidden mb-4">
+                        <img
+                            src={post?.imageUrl || 'default-image.jpg'}
+                            alt="Post visual"
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
                 )}
 
                 {/* Post Content */}
                 <p className="mb-4 text-sm sm:text-base">{post?.description || 'No description available'}</p>
 
                 {/* Tags */}
-                <div className="mt-2 flex flex-wrap gap-2 ">
+                <div className="mt-2 flex flex-wrap gap-2">
                     {post?.tags?.map((tag) => (
                         <span
                             key={tag}
@@ -113,27 +108,18 @@ const PostCard = ({ post, onPostDelete }) => {
                                 className="flex items-center gap-1 hover:text-blue-500"
                             >
                                 <span className="text-sm sm:text-base">{post?.comments?.length || 0}</span>
-                                <FaRegComments className="size-4 sm:size-6 text-[var(--primary)]" />
+                                <FaRegComments className="text-[var(--primary)]" />
                             </button>
                         </div>
-                        {/* <Share1Icon className="hover:text-blue-500 cursor-pointer size-4 sm:size-6 text-[var(--primary)]" /> */}
                     </div>
                 </div>
 
-                {/* Comment Section - Rendered conditionally */}
+                {/* Comment Section */}
                 {showComments && (
                     <div className="mt-4 border-t pt-4">
                         <CommentSection postId={post._id} />
                     </div>
                 )}
-
-                {/* {isAuthor && (
-                    <ActionButtons
-                        // onEdit={handleEdit}
-                        // onDelete={handleDelete}
-                        isAuthor={isAuthor}
-                    />
-                )} */}
             </div>
 
             {/* Delete Modal */}
@@ -150,4 +136,4 @@ const PostCard = ({ post, onPostDelete }) => {
     );
 };
 
-export default PostCard; 
+export default PostCard;
