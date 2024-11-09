@@ -25,6 +25,14 @@ const userSchema = mongoose.Schema({
   avatarPublicId: String,
   phone: String,
   location: String,
+  followers: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  }],
+  following: [{
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'user'
+  }]
 });
 
 export default mongoose.model("user", userSchema);
