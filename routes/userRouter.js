@@ -6,9 +6,15 @@ import {
   getAllFollowers,
   getAllFollowing,
 } from "../controllers/userController.js";
+import upload from "../middleware/multer.js";
 const router = Router();
 
-router.patch("/change-profile", authenticateUser, changeUserProfile);
+router.patch(
+  "/change-profile",
+  authenticateUser,
+  upload.single("avatar"),
+  changeUserProfile
+);
 router.patch("/follow/:id", authenticateUser, followOrUnfollowUser);
 router.get("/followers", authenticateUser, getAllFollowers);
 router.get("/following", authenticateUser, getAllFollowing);
