@@ -32,7 +32,6 @@ const QuestionCard = ({ question, onLoadMore }) => {
             setIsDeleting(false);
         }
     };
-    console.log({ question })
 
     return (
         <div
